@@ -7,7 +7,7 @@ export const experiences = [
     period: "Dec 2025 - Heden",
     location: "Hardenberg",
     description:
-      "In deze baan combineer ik mijn hbo-studie met werkervaring bij een Friday. Ik help bij het maken van luxe websites en platforms voor grote merken. Hierbij focus ik op de techniek (React) en een goede ervaring voor de gebruiker (UX).",
+      "In deze baan combineer ik mijn hbo-studie met werkervaring bij Friday. Ik help bij het maken van luxe websites en platforms voor grote merken. Hierbij focus ik op de techniek (React) en een goede ervaring voor de gebruiker (UX).",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const experiences = [
     period: "Mar 2025 - Dec 2025",
     location: "Hardenberg",
     description:
-      "Bij deze baan zorgde ik er voor dat het nieuwe klanten soepel overgezet werden naar het systeem van Datamotive",
+      "Bij deze baan zorgde ik er voor dat nieuwe klanten soepel overgezet werden naar het systeem van Datamotive",
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const experiences = [
     period: "Sep 2020 - Dec 2024",
     location: "Hardenberg",
     description:
-      "Langdurige bijbaan naast mijn studies. Hier heb ik veel temaken gehad met klantcontact en het werken in een team.",
+      "Langdurige bijbaan naast mijn studies. Hier heb ik veel te maken gehad met klantcontact en het werken in een team.",
   },
 ];
 
