@@ -9,6 +9,9 @@ function Cases() {
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
+  const velocity = useRef(0);
+  const rafId = useRef(null);
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -22,42 +25,52 @@ function Cases() {
 
   useLayoutEffect(() => {
     function alignSlider() {
-      if (contentAnchorRef.current) {
-        const leftPosition =
-          contentAnchorRef.current.getBoundingClientRect().left;
+      if (window.innerWidth < 768) {
+        setPaddingLeft(24);
+      } else if (contentAnchorRef.current) {
+        const leftPosition = contentAnchorRef.current.getBoundingClientRect().left;
         setPaddingLeft(leftPosition);
       }
     }
-
     alignSlider();
     window.addEventListener("resize", alignSlider);
     return () => window.removeEventListener("resize", alignSlider);
   }, []);
 
-  const toggleSnap = (enabled) => {
-    if (sliderRef.current) {
-      sliderRef.current.style.scrollSnapType = enabled ? "x mandatory" : "none";
-    }
-  };
-
+  // Desktop Drag Logic
   const handleMouseDown = (e) => {
+    if (window.innerWidth < 768) return; 
     isDown.current = true;
-    toggleSnap(false);
+    sliderRef.current.style.scrollSnapType = "none";
     startX.current = e.pageX - sliderRef.current.offsetLeft;
     scrollLeft.current = sliderRef.current.scrollLeft;
+    cancelAnimationFrame(rafId.current);
   };
 
   const handleMouseMove = (e) => {
     if (!isDown.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX.current) * 2;
+    const walk = (x - startX.current) * 1.2; 
+    const prevScrollLeft = sliderRef.current.scrollLeft;
     sliderRef.current.scrollLeft = scrollLeft.current - walk;
+    velocity.current = sliderRef.current.scrollLeft - prevScrollLeft;
+  };
+
+  const applyMomentum = () => {
+    if (Math.abs(velocity.current) > 0.5) {
+      sliderRef.current.scrollLeft += velocity.current;
+      velocity.current *= 0.85; 
+      rafId.current = requestAnimationFrame(applyMomentum);
+    } else {
+      sliderRef.current.style.scrollSnapType = "x mandatory";
+    }
   };
 
   const stopDragging = () => {
+    if (!isDown.current) return;
     isDown.current = false;
-    toggleSnap(true);
+    applyMomentum();
   };
 
   return (
@@ -77,20 +90,20 @@ function Cases() {
         Swipe
       </div>
 
-      <div className="container mx-auto px-6 md:px-4">
-        <div ref={contentAnchorRef} className="text-center">
+      <div className="container mx-auto px-6">
+        <div ref={contentAnchorRef} className="text-left md:text-center">
           <h2 className="text-3xl md:text-5xl font-bold italic tracking-tighter mb-3 text-gray-900 inline-block">
             Cases
           </h2>
-          <div className="w-12 h-1 bg-black mx-auto mb-4"></div>
-          <p className="text-gray-500 max-w-md mx-auto text-sm md:text-base leading-relaxed">
+          <div className="w-12 h-1 bg-black mb-4 md:mx-auto"></div>
+          <p className="text-gray-500 max-w-md md:mx-auto text-sm md:text-base leading-relaxed">
             Een overzicht van mijn meest recente werk
           </p>
         </div>
       </div>
 
       <div
-        className="relative w-screen left-1/2 -translate-x-1/2"
+        className="relative w-full mt-8"
         style={{ paddingLeft: `${paddingLeft}px` }}
       >
         <div
@@ -103,25 +116,13 @@ function Cases() {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={stopDragging}
-          onTouchStart={(e) => {
-            toggleSnap(false);
-            isDown.current = true;
-            startX.current = e.touches[0].pageX - sliderRef.current.offsetLeft;
-            scrollLeft.current = sliderRef.current.scrollLeft;
-          }}
-          onTouchMove={(e) => {
-            if (!isDown.current) return;
-            const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
-            const walk = (x - startX.current) * 2;
-            sliderRef.current.scrollLeft = scrollLeft.current - walk;
-          }}
-          onTouchEnd={stopDragging}
-          className="flex overflow-x-auto pb-10 pr-6 hide-scrollbar snap-x snap-mandatory gap-6 md:gap-10 cursor-none select-none"
+          /* Op mobiel laten we de browser het werk doen voor maximale smoothness */
+          className="flex overflow-x-auto pb-10 pr-10 hide-scrollbar snap-x snap-mandatory gap-6 md:gap-10 cursor-grab active:cursor-grabbing select-none touch-pan-x"
         >
           {projecten.map((project) => (
             <div
               key={project.id}
-              className="min-w-[90%] sm:min-w-[70%] md:min-w-[50%] lg:min-w-[38%] snap-center shrink-0"
+              className="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[38%] max-w-[calc(100vw-48px)] snap-start snap-always shrink-0"
             >
               <div className="group h-full">
                 <div className="relative overflow-hidden rounded-xl shadow-sm bg-gray-100">
@@ -148,7 +149,16 @@ function Cases() {
 
       <style
         dangerouslySetInnerHTML={{
-          __html: `.hide-scrollbar::-webkit-scrollbar { display: none; } .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }`,
+          __html: `
+            .hide-scrollbar::-webkit-scrollbar { display: none; } 
+            .hide-scrollbar { 
+              -ms-overflow-style: none; 
+              scrollbar-width: none; 
+              -webkit-overflow-scrolling: touch; /* Voor momentum op iOS */
+              scroll-behavior: smooth; /* Voor soepele snaps */
+            }
+            .snap-always { scroll-snap-stop: always; }
+          `,
         }}
       />
     </div>
