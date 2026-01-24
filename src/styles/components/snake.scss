@@ -1,0 +1,15 @@
+@use '../globals/global.scss'; 
+
+.pixel-color-source {
+  color: global.$color-dark;
+  display: none;
+}
+
+.speelveld-snake {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

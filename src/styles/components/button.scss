@@ -1,0 +1,19 @@
+@use '../globals/global.scss'; 
+
+.btn {
+    border-radius: 30px;
+    color: white;
+    padding: 10px 20px;
+}
+
+.btn-primary {
+    background-color: global.$color-primary;
+}
+
+.btn-dark {
+    background-color: global.$color-dark;
+}
+
+.btn-light {
+    background-color: global.$color-light;
+}
