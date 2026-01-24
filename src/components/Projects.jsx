@@ -16,8 +16,7 @@ function Projects() {
           </div>
           <div className="max-w-md">
             <p className="text-lg text-gray-600 font-light leading-relaxed">
-              Een curatie van digitale producten waar strategie, design en
-              technologie samenkomen. Gebouwd met oog voor detail.
+              Mijn beste UX-projecten op een rij. Slim bedacht, mooi ontworpen en technisch goed uitgevoerd. Ik houd van werk dat tot in de puntjes klopt.
             </p>
           </div>
         </div>
