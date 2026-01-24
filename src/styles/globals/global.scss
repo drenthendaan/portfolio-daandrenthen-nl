@@ -10,7 +10,11 @@ $color-dark: #3a383e;
     max-width: 1300px;
     margin-inline: auto;
     padding-inline: clamp(20px, 5vw, 200px);
-    padding-block: 50px;
+    padding-block: 25px; 
+
+    @media (min-width: 768px) {
+        padding-block: 50px; 
+    }
 }
 
 body {
