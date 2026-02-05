@@ -1,4 +1,5 @@
 import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
+import { Link } from "react-router-dom"; // Toegevoegd
 import { projecten } from "../data/ProjectsData";
 
 function Cases() {
@@ -12,6 +13,7 @@ function Cases() {
   const scrollLeft = useRef(0);
   const velocity = useRef(0);
   const rafId = useRef(null);
+  const isDragging = useRef(false); // Nieuw: houdt bij of we aan het slepen zijn
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -60,6 +62,7 @@ function Cases() {
   const handleMouseDown = (e) => {
     if (window.innerWidth < 768) return; 
     isDown.current = true;
+    isDragging.current = false; // Reset sleep status bij klikken
     sliderRef.current.style.scrollSnapType = "none";
     startX.current = e.pageX - sliderRef.current.offsetLeft;
     scrollLeft.current = sliderRef.current.scrollLeft;
@@ -69,6 +72,7 @@ function Cases() {
   const handleMouseMove = (e) => {
     if (!isDown.current) return;
     e.preventDefault();
+    isDragging.current = true; // We zijn aan het bewegen, dus het is een sleepbeweging
     const x = e.pageX - sliderRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.2; 
     const prevScrollLeft = sliderRef.current.scrollLeft;
@@ -92,11 +96,12 @@ function Cases() {
     if (!isDown.current) return;
     isDown.current = false;
     applyMomentum();
+    // Let op: isDragging resetten we hier niet, dat doen we bij de volgende MouseDown
+    // zodat de onClick van de Link weet of er gesleept is.
   };
 
   return (
     <div className="py-12 overflow-x-hidden w-full">
-      {/* Custom Cursor */}
       <div
         className={`fixed pointer-events-none z-50 items-center justify-center rounded-full bg-[#5A7690] text-white text-[11px] font-bold uppercase tracking-[0.2em] transition-transform duration-200 ease-out hidden md:flex ${
           isHovering ? "scale-100 opacity-100" : "scale-0 opacity-0"
@@ -112,7 +117,7 @@ function Cases() {
         Swipe
       </div>
 
-      {/* HEADER SECTIE - NU MOOIER GEMAAKT */}
+      {/* HEADER SECTIE */}
       <div className="container mx-auto px-6 mb-10">
         <div className="flex justify-between items-end gap-6">
           <div ref={contentAnchorRef} className="text-left">
@@ -132,7 +137,6 @@ function Cases() {
             <button 
               onClick={() => scroll("left")}
               className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:text-white active:scale-95 transition-all duration-300"
-              aria-label="Vorige"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -141,7 +145,6 @@ function Cases() {
             <button 
               onClick={() => scroll("right")}
               className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:text-white active:scale-95 transition-all duration-300"
-              aria-label="Volgende"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14m-7-7 7 7-7 7"/>
@@ -151,83 +154,68 @@ function Cases() {
         </div>
       </div>
 
-      {/* SLIDER SECTIE - WEER ORIGINEEL */}
-      <div
-        className="relative w-full"
-        style={{ paddingLeft: `${paddingLeft}px` }}
-      >
+      {/* SLIDER SECTIE */}
+      <div className="relative w-full" style={{ paddingLeft: `${paddingLeft}px` }}>
         <div
           ref={sliderRef}
           onScroll={handleScroll}
           onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => {
-            setIsHovering(false);
-            stopDragging();
-          }}
+          onMouseLeave={() => { setIsHovering(false); stopDragging(); }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={stopDragging}
           className="flex overflow-x-auto pb-8 pr-10 hide-scrollbar snap-x snap-mandatory gap-6 md:gap-10 cursor-grab active:cursor-grabbing select-none touch-pan-x"
         >
           {projecten.map((project) => (
-            <div
+            <Link
               key={project.id}
-              className="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[38%] max-w-[calc(100vw-48px)] snap-start snap-always shrink-0"
+              to={`/project/${project.id}`}
+              onClick={(e) => {
+                // Als we aan het slepen waren, voorkom dat de link opent
+                if (isDragging.current) e.preventDefault();
+              }}
+              draggable="false"
+              className="w-[85%] sm:w-[60%] md:w-[45%] lg:w-[38%] max-w-[calc(100vw-48px)] snap-start snap-always shrink-0 block"
             >
-              <div className="group h-full">
-                <div className="relative overflow-hidden rounded-xl shadow-sm bg-gray-100">
+              <div className="group h-full flex flex-col">
+                <div className="relative overflow-hidden rounded-xl shadow-sm bg-black shrink-0">
                   <div className="absolute top-4 left-4 z-20 bg-[#5A7690] text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-widest uppercase shadow-md">
                     Case {project.id}
                   </div>
                   <img
-                    className="w-full h-64 md:h-80 object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 pointer-events-none"
+                    className="w-full h-64 md:h-80 object-cover brightness-60 transition-all duration-700 ease-in-out group-hover:scale-110 pointer-events-none"
                     src={project.image}
                     alt={project.title}
                   />
                 </div>
-                <h4 className="mb-2 mt-5 text-xl md:text-2xl font-semibold italic text-left">
+                <h4 className="mb-2 mt-5 text-xl md:text-2xl font-semibold italic text-left text-gray-900">
                   {project.title}
                 </h4>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed text-left">
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed text-left line-clamp-3">
                   {project.description}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Voortgangsbalk */}
         <div 
           className="mt-6 h-[2px] bg-gray-200 relative overflow-hidden transition-all duration-300"
-          style={{ 
-            width: `calc(100% - ${paddingLeft}px)`,
-            marginRight: `${paddingLeft}px`
-          }}
+          style={{ width: `calc(100% - ${paddingLeft}px)`, marginRight: `${paddingLeft}px` }}
         >
           <div 
             className="absolute top-0 left-0 h-full bg-[#5A7690] transition-transform duration-150 ease-out origin-left"
-            style={{ 
-              width: '100%',
-              transform: `scaleX(${Math.max(0.02, scrollProgress / 100)})` 
-            }}
+            style={{ width: '100%', transform: `scaleX(${Math.max(0.02, scrollProgress / 100)})` }}
           />
         </div>
       </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            .hide-scrollbar::-webkit-scrollbar { display: none; } 
-            .hide-scrollbar { 
-              -ms-overflow-style: none; 
-              scrollbar-width: none; 
-              -webkit-overflow-scrolling: touch;
-              scroll-behavior: smooth;
-            }
-            .snap-always { scroll-snap-stop: always; }
-          `,
-        }}
-      />
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hide-scrollbar::-webkit-scrollbar { display: none; } 
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+        .snap-always { scroll-snap-stop: always; }
+      `}} />
     </div>
   );
 }
