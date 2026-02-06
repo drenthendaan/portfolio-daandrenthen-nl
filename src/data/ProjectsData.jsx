@@ -15,7 +15,7 @@ export const projecten = [
       url: "https://www.belthen-exclusivemobility.nl", 
 
       challenge: "Hoe zet je een luxe chauffeursdienst neer die niet alleen 'dik' oogt, maar ook echt klanten binnenhaalt? De uitdaging was om die chique balans te vinden tussen zakelijke discretie en een website waar je direct een rit wilt boeken.",
-      solution: "Ik ben gegaan voor een strakke 'One-Page' flow. Door te focussen op dikke typografie en sfeerbeelden voelt het direct high-end aan. Geen gedoe, maar een simpele funnel die meteen vertrouwen uitstraalt naar de klant.",
+      solution: "Na het maken van het design, heb ik de website gebouwd met React en Tailwind CSS. Door gebruik te maken van Framer Motion heb ik vloeiende animaties toegevoegd die de gebruikerservaring verbeteren zonder af te leiden van de inhoud. De site is volledig responsive, zodat klanten zowel op desktop als mobiel gemakkelijk een rit kunnen boeken.",
       description: "Het eindresultaat? Een minimalistisch design dat razendsnel is en technisch staat als een huis. Dankzij de sterke basis wordt Belthen nu makkelijk gevonden, zowel zakelijk als privé.",
 
       services: ["UX/UI Design", "Frontend Development", "Responsive Design"],
