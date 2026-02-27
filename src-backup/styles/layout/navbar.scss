@@ -1,0 +1,12 @@
+@use "../globals/global.scss";
+
+.menuitems {
+    padding: 5px;
+    border-radius: 40px;
+    background-color: #ffffff;
+}
+
+.menuitems-active {
+    border-radius: 35px;
+    border-color: global.$color-dark;
+}

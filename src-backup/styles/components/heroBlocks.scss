@@ -1,0 +1,12 @@
+@use "../globals/global.scss";
+
+.drag-block {
+    background-color: global.$color-light;
+    border-color: global.$color-dark;
+    border-radius: 20px;
+    border-width: 2px;
+    padding: 20px;
+    width: fit-content;
+    display: inline-block;
+    margin: 10px;
+}
