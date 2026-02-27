@@ -13,7 +13,7 @@ const formatTime = (date) => {
 };
 
 function Footer() {
-  const [currentTime, setCurrentTime] = useState("");
+  const [currentTime, setCurrentTime] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -28,20 +28,21 @@ function Footer() {
   return (
     <>
       <div className="container mx-auto px-4">
-        <hr className="text-gray-500 my-5" />
-        <footer className="grid grid-cols-1 md:grid-cols-12 gap-4">
+        <hr className="text-gray-500 my-5" aria-hidden="true" />
+        <footer className="grid grid-cols-1 md:grid-cols-12 gap-4" role="contentinfo">
           <div className="col-span-12 md:col-span-3 text-sm text-gray-500 flex items-center justify-center md:justify-start">
-            <h5>{currentTime}</h5>
+            {currentTime && <span>{currentTime}</span>}
           </div>
-          <div className="col-span-12 md:col-span-6 flex items-center justify-center space-x-6 md:space-x-15 my-4 md:my-0">
+          <nav className="col-span-12 md:col-span-6 flex items-center justify-center space-x-6 md:space-x-15 my-4 md:my-0" aria-label="Footer navigatie">
             <Link href="/">Home</Link>
             <Link href="/werk">Werk</Link>
             <Link href="/projects">Projecten</Link>
-          </div>
+          </nav>
           <div className="col-span-12 md:col-span-3 flex items-center justify-center md:justify-end">
             <button
               className="btn btn-dark cursor-pointer"
               onClick={() => setIsModalOpen(true)}
+              aria-label="Open contactformulier"
             >
               Contacteer mij →
             </button>

@@ -68,9 +68,10 @@ export default function IntroDaan() {
           <Image
             src="/DaanDrenthen.jpg"
             className="rounded-2xl w-40 h-40 md:w-full md:h-auto shadow-sm object-cover"
-            alt="Daan Drenthen"
+            alt="Daan Drenthen - UX Developer en Frontend Developer uit Hardenberg"
             width={200}
             height={200}
+            priority
           />
         </div>
 

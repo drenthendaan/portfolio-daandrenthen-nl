@@ -40,7 +40,7 @@ function Projects() {
                 <Image
                   className="w-full h-full object-cover brightness-75 transform transition-transform duration-1000 ease-out group-hover:scale-110"
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.category || 'Project'} case study door Daan Drenthen`}
                   width={800}
                   height={600}
                 />
