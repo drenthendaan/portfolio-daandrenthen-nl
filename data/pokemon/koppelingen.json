@@ -1,0 +1,4831 @@
+{
+ "gemaakt": "2026-10-14T19:06:39.776Z",
+ "tcgcsv": "2026-10-13T20:06:44+0000",
+ "kaarten": {
+  "k012a5cace1": {
+   "tp": {
+    "groep": 2377,
+    "product": 183806,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu & Zekrom GX (Secret) · SM - Team Up",
+   "dex": "sm9-184",
+   "cm": "normal",
+   "img": [
+    "t:183806",
+    "d:en/sm/sm9/184"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k025457ae15": {
+   "tp": {
+    "groep": 23353,
+    "product": 534163,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 018/091 · SV: Paldean Fates",
+   "dex": "sv04.5-018",
+   "cm": "holo",
+   "img": [
+    "t:534163",
+    "d:en/sv/sv04.5/018"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0405dc699a": {
+   "tp": {
+    "groep": 2148,
+    "product": 152685,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 5/12 · McDonald's Promos 2017",
+   "dex": "2017sm-5",
+   "cm": "normal",
+   "img": [
+    "t:152685"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k05634b8890": {
+   "tp": {
+    "groep": 24722,
+    "product": 712937,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 028/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712937"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0573aacacf": {
+   "tp": {
+    "groep": 1451,
+    "product": 123454,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu EX - XY174 · XY Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:123454"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k05e904bed2": {
+   "tp": {
+    "groep": 2867,
+    "product": 250307,
+    "sub": "Holofoil"
+   },
+   "naam": "Surfing Pikachu VMAX · Celebrations",
+   "dex": "cel25-9",
+   "cm": "normal",
+   "img": [
+    "t:250307",
+    "d:en/swsh/cel25/9"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k06bd1d268d": {
+   "tp": {
+    "groep": 1418,
+    "product": 88065,
+    "sub": null
+   },
+   "naam": "Pikachu (1) (Misprint) · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88065"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "k06ec0aa5f5": {
+   "tp": {
+    "groep": 1539,
+    "product": 127434,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - XY202 (Pokemon League) · League & Championship Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:127434"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k06f24d101e": {
+   "tp": {
+    "groep": 2545,
+    "product": 251097,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V-Union - SWSH141 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH141",
+   "cm": "normal",
+   "img": [
+    "t:251097",
+    "d:en/swsh/swshp/SWSH141"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k07007acfe6": {
+   "tp": {
+    "groep": 1861,
+    "product": 148426,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM81 · SM Promos",
+   "dex": "smp-SM81",
+   "cm": "normal",
+   "img": [
+    "t:148426",
+    "d:en/sm/smp/SM81"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k08c4abac97": {
+   "tp": {
+    "groep": 24451,
+    "product": 713257,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 107 (30th Celebration) · ME: Mega Evolution Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:713257"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "k0b83c3d7fd": {
+   "tp": {
+    "groep": 1402,
+    "product": 88095,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · HeartGold SoulSilver",
+   "dex": "hgss1-78",
+   "cm": null,
+   "img": [
+    "t:88095",
+    "d:en/hgss/hgss1/78"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0cb3f74d59": {
+   "tp": {
+    "groep": 1403,
+    "product": 88097,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Undaunted",
+   "dex": "hgss3-61",
+   "cm": "normal",
+   "img": [
+    "t:88097",
+    "d:en/hgss/hgss3/61"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0d2166ef61": {
+   "tp": {
+    "groep": 1369,
+    "product": 88090,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Stormfront",
+   "dex": "dp7-70",
+   "cm": "normal",
+   "img": [
+    "t:88090",
+    "d:en/dp/dp7/70"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0d3004039d": {
+   "tp": {
+    "groep": 2545,
+    "product": 251098,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V-Union - SWSH142 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH142",
+   "cm": "normal",
+   "img": [
+    "t:251098",
+    "d:en/swsh/swshp/SWSH142"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0e87c044d4": {
+   "tp": {
+    "groep": 2374,
+    "product": 144670,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 26/83 (Toys R Us) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:144670"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0ea783596b": {
+   "tp": {
+    "groep": 1423,
+    "product": 88109,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Delta Species) - 035 (Value Pack) · Nintendo Promos",
+   "dex": "np-35",
+   "cm": null,
+   "img": [
+    "t:88109",
+    "d:en/pop/np/35"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k0ecf084902": {
+   "tp": {
+    "groep": 1861,
+    "product": 190940,
+    "sub": "Holofoil"
+   },
+   "naam": "Detective Pikachu - SM170 · SM Promos",
+   "dex": "smp-SM170",
+   "cm": "normal",
+   "img": [
+    "t:190940"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k10a4461062": {
+   "tp": {
+    "groep": 1419,
+    "product": 88078,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX FireRed & LeafGreen",
+   "dex": "ex6-74",
+   "cm": "normal",
+   "img": [
+    "t:88078",
+    "d:en/ex/ex6/74"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1341d3b8d5": {
+   "tp": {
+    "groep": 2374,
+    "product": 155086,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 20/108 (Build-A-Bear Workshop Exclusive) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:155086"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k144f78c32b": {
+   "tp": {
+    "groep": 2205,
+    "product": 215161,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Portuguese) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215161"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1ab97fc4af": {
+   "tp": {
+    "groep": 2867,
+    "product": 250305,
+    "sub": "Holofoil"
+   },
+   "naam": "Flying Pikachu VMAX · Celebrations",
+   "dex": "cel25-7",
+   "cm": "normal",
+   "img": [
+    "t:250305",
+    "d:en/swsh/cel25/7"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1bf0a0d91a": {
+   "tp": {
+    "groep": 1663,
+    "product": 107055,
+    "sub": "Unlimited"
+   },
+   "naam": "Pikachu · Base Set (Shadowless)",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:107055"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k1c5565d389": {
+   "tp": {
+    "groep": 24722,
+    "product": 712935,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 025/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712935"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1de1ee982a": {
+   "tp": {
+    "groep": 1432,
+    "product": 88087,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · POP Series 6",
+   "dex": "pop6-9",
+   "cm": "normal",
+   "img": [
+    "t:88087",
+    "d:en/pop/pop6/9"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1e31e2136d": {
+   "tp": {
+    "groep": 3051,
+    "product": 268213,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - 043/185 (#60 Pikachu Stamped) · Battle Academy 2022",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:268213"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1e36cc46a8": {
+   "tp": {
+    "groep": 2585,
+    "product": 208362,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SWSH01: Sword & Shield Base Set",
+   "dex": "swsh1-65",
+   "cm": "normal",
+   "img": [
+    "t:208362",
+    "d:en/swsh/swsh1/65"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1eca1e6e76": {
+   "tp": {
+    "groep": 2374,
+    "product": 223761,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu on the Ball - 001/005 (Pokemon Futsal) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:223761"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1f36cda3c5": {
+   "tp": {
+    "groep": 1418,
+    "product": 89643,
+    "sub": "Normal"
+   },
+   "naam": "Surfing Pikachu · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:89643"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k1ff29446f0": {
+   "tp": {
+    "groep": 2701,
+    "product": 226431,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V (Full Art) · SWSH04: Vivid Voltage",
+   "dex": "swsh4-170",
+   "cm": "normal",
+   "img": [
+    "t:226431",
+    "d:en/swsh/swsh4/170"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k216d375975": {
+   "tp": {
+    "groep": 2686,
+    "product": 219157,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 19/68 (#30 Pikachu Stamped) · Battle Academy",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:219157"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k21a0a1ae2d": {
+   "tp": {
+    "groep": 2054,
+    "product": 146682,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Shining Legends",
+   "dex": "sm3.5-28",
+   "cm": "normal",
+   "img": [
+    "t:146682"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k21b0d4ae5b": {
+   "tp": {
+    "groep": 604,
+    "product": 42402,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Base Set",
+   "dex": "base1-58",
+   "cm": "normal",
+   "img": [
+    "t:42402",
+    "d:en/base/base1/58"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k21b91c0965": {
+   "tp": {
+    "groep": 1440,
+    "product": 86860,
+    "sub": "Unlimited"
+   },
+   "naam": "Lt. Surge's Pikachu · Gym Challenge",
+   "dex": "gym2-84",
+   "cm": null,
+   "img": [
+    "t:86860",
+    "d:en/gym/gym2/84"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k22d45dd644": {
+   "tp": {
+    "groep": 24722,
+    "product": 716309,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 024/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716309"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k24614993a7": {
+   "tp": {
+    "groep": 2374,
+    "product": 232764,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SWSH039 (General Mills) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:232764"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k256b444523": {
+   "tp": {
+    "groep": 1692,
+    "product": 110410,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 5/12 · McDonald's Promos 2014",
+   "dex": "2014xy-5",
+   "cm": "normal",
+   "img": [
+    "t:110410"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k256c0a6a34": {
+   "tp": {
+    "groep": 3118,
+    "product": 283926,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SWSH11: Lost Origin",
+   "dex": "swsh11-052",
+   "cm": null,
+   "img": [
+    "t:283926",
+    "d:en/swsh/swsh11/052"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k26624a3cd4": {
+   "tp": {
+    "groep": 1861,
+    "product": 146980,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM76 · SM Promos",
+   "dex": "smp-SM76",
+   "cm": "normal",
+   "img": [
+    "t:146980",
+    "d:en/sm/smp/SM76"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k279aa34283": {
+   "tp": {
+    "groep": 1861,
+    "product": 153998,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM114 · SM Promos",
+   "dex": "smp-SM114",
+   "cm": "normal",
+   "img": [
+    "t:153998",
+    "d:en/sm/smp/SM114"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2878a7749d": {
+   "tp": {
+    "groep": 2374,
+    "product": 252516,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 58/102 (Celebrations Metal Card) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:252516"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2942da5106": {
+   "tp": {
+    "groep": 1432,
+    "product": 276377,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Pokemon Day Stamped) · POP Series 6",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:276377"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2a337c84b9": {
+   "tp": {
+    "groep": 3170,
+    "product": 451703,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SWSH12: Silver Tempest",
+   "dex": "swsh12-049",
+   "cm": "normal",
+   "img": [
+    "t:451703",
+    "d:en/swsh/swsh12/049"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2a5af577d1": {
+   "tp": {
+    "groep": 1390,
+    "product": 88088,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Majestic Dawn",
+   "dex": "dp5-70",
+   "cm": null,
+   "img": [
+    "t:88088",
+    "d:en/dp/dp5/70"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2a82be6d5e": {
+   "tp": {
+    "groep": 2205,
+    "product": 215154,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Italian) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215154"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2a91a608ad": {
+   "tp": {
+    "groep": 2205,
+    "product": 215163,
+    "sub": null
+   },
+   "naam": "Pikachu (Japanese) (Green) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215163"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "k2b09bc2040": {
+   "tp": {
+    "groep": 1447,
+    "product": 88081,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · POP Series 2",
+   "dex": "pop2-16",
+   "cm": "normal",
+   "img": [
+    "t:88081",
+    "d:en/pop/pop2/16"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2b0dbc8c4f": {
+   "tp": {
+    "groep": 1367,
+    "product": 88091,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Rising Rivals",
+   "dex": "pl2-112",
+   "cm": "normal",
+   "img": [
+    "t:88091",
+    "d:en/pl/pl2/112"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2b42291ec7": {
+   "tp": {
+    "groep": 1663,
+    "product": 147229,
+    "sub": "Unlimited"
+   },
+   "naam": "Pikachu (Red Cheeks) · Base Set (Shadowless)",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:147229"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k2b94123e42": {
+   "tp": {
+    "groep": 24451,
+    "product": 713256,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 109 (30th Celebration) · ME: Mega Evolution Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:713256"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2b9ac4e8f0": {
+   "tp": {
+    "groep": 2701,
+    "product": 226430,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V · SWSH04: Vivid Voltage",
+   "dex": "swsh4-43",
+   "cm": "normal",
+   "img": [
+    "t:226430",
+    "d:en/swsh/swsh4/43"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2bbcdcac5b": {
+   "tp": {
+    "groep": 1861,
+    "product": 198771,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM206 · SM Promos",
+   "dex": "smp-SM206",
+   "cm": "normal",
+   "img": [
+    "t:198771",
+    "d:en/sm/smp/SM206"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2c2dcd05e6": {
+   "tp": {
+    "groep": 2409,
+    "product": 186015,
+    "sub": "Holofoil"
+   },
+   "naam": "Detective Pikachu · Detective Pikachu",
+   "dex": "det1-10",
+   "cm": "normal",
+   "img": [
+    "t:186015",
+    "d:en/sm/det1/10"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k2cf9274480": {
+   "tp": {
+    "groep": 2534,
+    "product": 201352,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Secret) · SM - Cosmic Eclipse",
+   "dex": "sm12-241",
+   "cm": "normal",
+   "img": [
+    "t:201352",
+    "d:en/sm/sm12/241"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k318479909a": {
+   "tp": {
+    "groep": 2686,
+    "product": 219158,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 19/68 (#55 Pikachu Stamped) · Battle Academy",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:219158"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k31e6a1312a": {
+   "tp": {
+    "groep": 1451,
+    "product": 108619,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Collector Chest) · XY Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:108619"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k320e9cf1cc": {
+   "tp": {
+    "groep": 1372,
+    "product": 88074,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Skyridge",
+   "dex": "ecard3-84",
+   "cm": "normal",
+   "img": [
+    "t:88074",
+    "d:en/ecard/ecard3/84"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k32fdcdb390": {
+   "tp": {
+    "groep": 2420,
+    "product": 189153,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SM - Unbroken Bonds",
+   "dex": "sm10-54",
+   "cm": "normal",
+   "img": [
+    "t:189153",
+    "d:en/sm/sm10/54"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k351d98241d": {
+   "tp": {
+    "groep": 1384,
+    "product": 88093,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Supreme Victors",
+   "dex": "pl3-120",
+   "cm": "normal",
+   "img": [
+    "t:88093",
+    "d:en/pl/pl3/120"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k352fcd74c7": {
+   "tp": {
+    "groep": 24722,
+    "product": 716316,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 048/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716316"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k359d6a0481": {
+   "tp": {
+    "groep": 3150,
+    "product": 282523,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 7/15 · McDonald's Promos 2022",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:282523"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3606066400": {
+   "tp": {
+    "groep": 1728,
+    "product": 113684,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Generations",
+   "dex": "g1-26",
+   "cm": "normal",
+   "img": [
+    "t:113684",
+    "d:en/xy/g1/26"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k367ad628b6": {
+   "tp": {
+    "groep": 2282,
+    "product": 485046,
+    "sub": "Normal"
+   },
+   "naam": "Flying Pikachu VMAX - 2022 (Ondrej Skubal) · World Championship Decks",
+   "dex": null,
+   "cm": null,
+   "img": [],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k373f37a1a5": {
+   "tp": {
+    "groep": 3172,
+    "product": 284258,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · SWSH11: Lost Origin Trainer Gallery",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:284258"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k374de0f3fd": {
+   "tp": {
+    "groep": 2175,
+    "product": 174062,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 94/123 (Diamond & Pearl) · Burger King Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:174062"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k37cbaab8f8": {
+   "tp": {
+    "groep": 24722,
+    "product": 716312,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 031/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716312"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k388594bf95": {
+   "tp": {
+    "groep": 2867,
+    "product": 250303,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Celebrations",
+   "dex": "cel25-5",
+   "cm": "normal",
+   "img": [
+    "t:250303",
+    "d:en/swsh/cel25/5"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3c8fc65337": {
+   "tp": {
+    "groep": 3172,
+    "product": 284283,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX · SWSH11: Lost Origin Trainer Gallery",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:284283"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3cd3a0c86b": {
+   "tp": {
+    "groep": 1375,
+    "product": 88076,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Expedition",
+   "dex": "ecard1-124",
+   "cm": "normal",
+   "img": [
+    "t:88076",
+    "d:en/ecard/ecard1/124"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3cdfe0e29e": {
+   "tp": {
+    "groep": 1407,
+    "product": 202379,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - BW54 · Black and White Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:202379"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3ddc128e5c": {
+   "tp": {
+    "groep": 1861,
+    "product": 200275,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM234 · SM Promos",
+   "dex": "smp-SM234",
+   "cm": "normal",
+   "img": [
+    "t:200275"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3e29acdecd": {
+   "tp": {
+    "groep": 2848,
+    "product": 246881,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SWSH07: Evolving Skies",
+   "dex": "swsh7-49",
+   "cm": "normal",
+   "img": [
+    "t:246881",
+    "d:en/swsh/swsh7/49"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k3e7a0640d4": {
+   "tp": {
+    "groep": 23381,
+    "product": 542795,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SV05: Temporal Forces",
+   "dex": "sv05-051",
+   "cm": "normal",
+   "img": [
+    "t:542795",
+    "d:en/sv/sv05/051"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k40047117ba": {
+   "tp": {
+    "groep": 2948,
+    "product": 263876,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V (Full Art) · SWSH09: Brilliant Stars",
+   "dex": "swsh9-157",
+   "cm": "normal",
+   "img": [
+    "t:263876",
+    "d:en/swsh/swsh9/157"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k409ba34528": {
+   "tp": {
+    "groep": 2374,
+    "product": 140165,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM04 (General Mills) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:140165"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k40a7c07b58": {
+   "tp": {
+    "groep": 1418,
+    "product": 90784,
+    "sub": "Holofoil"
+   },
+   "naam": "______'s Pikachu · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:90784"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k41495d8867": {
+   "tp": {
+    "groep": 24722,
+    "product": 712954,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 150/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712954"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k41c591213c": {
+   "tp": {
+    "groep": 2701,
+    "product": 226434,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX (Secret) · SWSH04: Vivid Voltage",
+   "dex": "swsh4-188",
+   "cm": "normal",
+   "img": [
+    "t:226434",
+    "d:en/swsh/swsh4/188"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4226144551": {
+   "tp": {
+    "groep": 24722,
+    "product": 712941,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 034/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712941"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k42911af7de": {
+   "tp": {
+    "groep": 23306,
+    "product": 516517,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · McDonald's Promos 2023",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:516517"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k42ba66d131": {
+   "tp": {
+    "groep": 1481,
+    "product": 92202,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · XY - Furious Fists",
+   "dex": "xy3-27",
+   "cm": "normal",
+   "img": [
+    "t:92202",
+    "d:en/xy/xy3/27"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4399408ed1": {
+   "tp": {
+    "groep": 2906,
+    "product": 253241,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V · SWSH08: Fusion Strike",
+   "dex": "swsh8-86",
+   "cm": "normal",
+   "img": [
+    "t:253241",
+    "d:en/swsh/swsh8/86"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k43cba8fede": {
+   "tp": {
+    "groep": 1842,
+    "product": 124048,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · XY - Evolutions",
+   "dex": "xy12-35",
+   "cm": "normal",
+   "img": [
+    "t:124048",
+    "d:en/xy/xy12/35"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k44a9643856": {
+   "tp": {
+    "groep": 1861,
+    "product": 185985,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu & Zekrom GX · SM Promos",
+   "dex": "smp-SM168",
+   "cm": "normal",
+   "img": [
+    "t:185985"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k44aeb6bad3": {
+   "tp": {
+    "groep": 2545,
+    "product": 478423,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - SWSH285 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH285",
+   "cm": "normal",
+   "img": [
+    "t:478423",
+    "d:en/swsh/swshp/SWSH285"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k45aea94768": {
+   "tp": {
+    "groep": 2282,
+    "product": 482095,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu & Zekrom GX - 2019 (Haruki Miyamoto) · World Championship Decks",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:482095"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4698cb2c03": {
+   "tp": {
+    "groep": 2374,
+    "product": 279927,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 027/078 (Cosmos Holo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k46dacdca68": {
+   "tp": {
+    "groep": 24722,
+    "product": 712940,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 033/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712940"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k471f0cd427": {
+   "tp": {
+    "groep": 1439,
+    "product": 88085,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · POP Series 5",
+   "dex": "pop5-12",
+   "cm": "normal",
+   "img": [
+    "t:88085",
+    "d:en/pop/pop5/12"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k47287c51d2": {
+   "tp": {
+    "groep": 22872,
+    "product": 620106,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 214 (Illustration Contest 2024) · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:620106"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k47d0fd03e5": {
+   "tp": {
+    "groep": 23120,
+    "product": 497474,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex · SV02: Paldea Evolved",
+   "dex": "sv02-063",
+   "cm": "normal",
+   "img": [
+    "t:497474",
+    "d:en/sv/sv02/063"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k47e97dbe24": {
+   "tp": {
+    "groep": 1446,
+    "product": 88092,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · POP Series 9",
+   "dex": "pop9-15",
+   "cm": "normal",
+   "img": [
+    "t:88092",
+    "d:en/pop/pop9/15"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4a37ea3d3e": {
+   "tp": {
+    "groep": 22872,
+    "product": 649940,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 225 (World Championship 2025) [Winner] · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:649940"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4bba782037": {
+   "tp": {
+    "groep": 2545,
+    "product": 251102,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - SWSH145 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH145",
+   "cm": "normal",
+   "img": [
+    "t:251102",
+    "d:en/swsh/swshp/SWSH145"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4bca50b7ad": {
+   "tp": {
+    "groep": 1368,
+    "product": 88086,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Mysterious Treasures",
+   "dex": "dp2-94",
+   "cm": "normal",
+   "img": [
+    "t:88086",
+    "d:en/dp/dp2/94"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4deac73f53": {
+   "tp": {
+    "groep": 2545,
+    "product": 277039,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SWSH234 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH234",
+   "cm": "normal",
+   "img": [
+    "t:277039",
+    "d:en/swsh/swshp/SWSH234"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4e2963029a": {
+   "tp": {
+    "groep": 1379,
+    "product": 88111,
+    "sub": null
+   },
+   "naam": "Pikachu Star · EX Holon Phantoms",
+   "dex": "ex13-104",
+   "cm": "normal",
+   "img": [
+    "t:88111",
+    "d:en/ex/ex13/104"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "k4eb712555c": {
+   "tp": {
+    "groep": 23651,
+    "product": 590025,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 057/191 · SV08: Surging Sparks",
+   "dex": "sv08-057",
+   "cm": "normal",
+   "img": [
+    "t:590025",
+    "d:en/sv/sv08/057"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4f3cb392fd": {
+   "tp": {
+    "groep": 2545,
+    "product": 232434,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - SWSH061 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH061",
+   "cm": "normal",
+   "img": [
+    "t:232434",
+    "d:en/swsh/swshp/SWSH061"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k4fc3319937": {
+   "tp": {
+    "groep": 24163,
+    "product": 614371,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · McDonald's Promos 2024",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:614371"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k509b1f578e": {
+   "tp": {
+    "groep": 2545,
+    "product": 251101,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - SWSH143 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH143",
+   "cm": "normal",
+   "img": [
+    "t:251101",
+    "d:en/swsh/swshp/SWSH143"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k53c6c85d5a": {
+   "tp": {
+    "groep": 24541,
+    "product": 675869,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 057/217 · ME: Ascended Heroes",
+   "dex": "me02.5-057",
+   "cm": "normal",
+   "img": [
+    "t:675869",
+    "d:en/me/me02.5/057"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k5494c70fa4": {
+   "tp": {
+    "groep": 2377,
+    "product": 183805,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu & Zekrom GX (Full Art) · SM - Team Up",
+   "dex": "sm9-162",
+   "cm": "normal",
+   "img": [
+    "t:183805",
+    "d:en/sm/sm9/162"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k554d465308": {
+   "tp": {
+    "groep": 22880,
+    "product": 490543,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - 043/185 · Prize Pack Series Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:490543"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k558b18f486": {
+   "tp": {
+    "groep": 1861,
+    "product": 153996,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM112 · SM Promos",
+   "dex": "smp-SM112",
+   "cm": "normal",
+   "img": [
+    "t:153996",
+    "d:en/sm/smp/SM112"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k55f5ed74f0": {
+   "tp": {
+    "groep": 23821,
+    "product": 610383,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 028/131 · SV: Prismatic Evolutions",
+   "dex": "sv08.5-028",
+   "cm": "normal",
+   "img": [
+    "t:610383",
+    "d:en/sv/sv08.5/028"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k56005f328b": {
+   "tp": {
+    "groep": 24722,
+    "product": 696680,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 036/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:696680"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k56133ae44b": {
+   "tp": {
+    "groep": 1418,
+    "product": 126209,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu [W Stamped] · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:126209"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k56963e5985": {
+   "tp": {
+    "groep": 22872,
+    "product": 528365,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 101 · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:528365"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k5828192496": {
+   "tp": {
+    "groep": 2205,
+    "product": 161753,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Snap) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161753"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k585a8cd56c": {
+   "tp": {
+    "groep": 24722,
+    "product": 712948,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 044/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712948"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k5cc079bf69": {
+   "tp": {
+    "groep": 1957,
+    "product": 138522,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SM - Burning Shadows",
+   "dex": "sm3-40",
+   "cm": "normal",
+   "img": [
+    "t:138522",
+    "d:en/sm/sm3/40"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k5da0f86106": {
+   "tp": {
+    "groep": 2686,
+    "product": 219154,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 19/68 (#2 Pikachu Stamped) · Battle Academy",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:219154"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k5dbd8c99a8": {
+   "tp": {
+    "groep": 22872,
+    "product": 562088,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 190 · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:562088"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k5df5725fda": {
+   "tp": {
+    "groep": 1694,
+    "product": 110424,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 6/12 · McDonald's Promos 2015",
+   "dex": "2015xy-6",
+   "cm": "normal",
+   "img": [
+    "t:110424"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k610c69c40a": {
+   "tp": {
+    "groep": 24722,
+    "product": 712953,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 149/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712953"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k623f7e7ad0": {
+   "tp": {
+    "groep": 2175,
+    "product": 224679,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 70/100 [Platinum] · Burger King Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:224679"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6258de23f0": {
+   "tp": {
+    "groep": 1729,
+    "product": 113771,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Full Art) · Generations: Radiant Collection",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:113771"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6276fd1664": {
+   "tp": {
+    "groep": 23237,
+    "product": 517033,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 025/165 · SV: Scarlet & Violet 151",
+   "dex": "sv03.5-025",
+   "cm": "holo",
+   "img": [
+    "t:517033",
+    "d:en/sv/sv03.5/025"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k6284151576": {
+   "tp": {
+    "groep": 635,
+    "product": 45163,
+    "sub": "Unlimited"
+   },
+   "naam": "Pikachu · Jungle",
+   "dex": "base2-60",
+   "cm": "normal",
+   "img": [
+    "t:45163",
+    "d:en/base/base2/60"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k62d77269bf": {
+   "tp": {
+    "groep": 24541,
+    "product": 676089,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 277/217 · ME: Ascended Heroes",
+   "dex": "me02.5-277",
+   "cm": "normal",
+   "img": [
+    "t:676089",
+    "d:en/me/me02.5/277"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k63be570044": {
+   "tp": {
+    "groep": 24837,
+    "product": 716194,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · ME: 30th Celebration Classic Collection",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716194"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k647ffa3052": {
+   "tp": {
+    "groep": 3064,
+    "product": 274461,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (28) · Pokemon GO",
+   "dex": "swsh10.5-028",
+   "cm": "normal",
+   "img": [
+    "t:274461",
+    "d:en/swsh/swsh10.5/028"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6559141b58": {
+   "tp": {
+    "groep": 2374,
+    "product": 161464,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM86 (General Mills Promo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161464"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k65e4158f5f": {
+   "tp": {
+    "groep": 24541,
+    "product": 675867,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · ME: Ascended Heroes",
+   "dex": "me02.5-055",
+   "cm": "normal",
+   "img": [
+    "t:675867",
+    "d:en/me/me02.5/055"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k661ce6eb14": {
+   "tp": {
+    "groep": 3172,
+    "product": 284302,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX (Secret) · SWSH11: Lost Origin Trainer Gallery",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:284302"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k66a1a43b53": {
+   "tp": {
+    "groep": 23330,
+    "product": 524061,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Blue Border) · My First Battle",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:524061"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k66cea96df1": {
+   "tp": {
+    "groep": 2205,
+    "product": 161751,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Jungle) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161751"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k67a185c42b": {
+   "tp": {
+    "groep": 1418,
+    "product": 88069,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (27) · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88069"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6b55d663be": {
+   "tp": {
+    "groep": 2686,
+    "product": 219155,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 19/68 (#15 Pikachu Stamped) · Battle Academy",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:219155"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6c4f6de075": {
+   "tp": {
+    "groep": 1861,
+    "product": 147224,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - SM04 (Target Non-Holo) · SM Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:147224"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6ce0dfe868": {
+   "tp": {
+    "groep": 1840,
+    "product": 189761,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 28/73 (Cracked Ice Holo) · Deck Exclusives",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:189761"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6dbaeaeb5f": {
+   "tp": {
+    "groep": 2374,
+    "product": 599656,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 051/162 (Cosmos Holo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:599656"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6e7d017120": {
+   "tp": {
+    "groep": 1540,
+    "product": 88100,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (#16) · HGSS Trainer Kit: Gyarados & Raichu",
+   "dex": "tk-hs-r-16",
+   "cm": "normal",
+   "img": [
+    "t:88100"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k6f2455119d": {
+   "tp": {
+    "groep": 2069,
+    "product": 152869,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (#29) · SM Trainer Kit: Lycanroc & Alolan Raichu",
+   "dex": "tk-sm-r-29",
+   "cm": "normal",
+   "img": [],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7051e5820e": {
+   "tp": {
+    "groep": 2782,
+    "product": 232339,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 25/25 · McDonald's 25th Anniversary Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:232339"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7227510ace": {
+   "tp": {
+    "groep": 2374,
+    "product": 673358,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Pokemon Day 2026) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:673358"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7289732c1b": {
+   "tp": {
+    "groep": 2205,
+    "product": 215156,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Spanish) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215156"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k72eaa643a5": {
+   "tp": {
+    "groep": 2282,
+    "product": 690251,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu ex - 2025 (Liao Fu Guan) · World Championship Decks",
+   "dex": null,
+   "cm": null,
+   "img": [],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k73fd1f7093": {
+   "tp": {
+    "groep": 2545,
+    "product": 251086,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX - SWSH062 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH062",
+   "cm": "normal",
+   "img": [
+    "t:251086",
+    "d:en/swsh/swshp/SWSH062"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k74f4da703a": {
+   "tp": {
+    "groep": 23237,
+    "product": 513721,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 173/165 · SV: Scarlet & Violet 151",
+   "dex": "sv03.5-173",
+   "cm": "normal",
+   "img": [
+    "t:513721",
+    "d:en/sv/sv03.5/173"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k75f7b70883": {
+   "tp": {
+    "groep": 1861,
+    "product": 184483,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM162 · SM Promos",
+   "dex": "smp-SM162",
+   "cm": "normal",
+   "img": [
+    "t:184483",
+    "d:en/sm/smp/SM162"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k771cbb04cd": {
+   "tp": {
+    "groep": 2545,
+    "product": 283301,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SWSH153 (Holiday Calendar) · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH153",
+   "cm": "normal",
+   "img": [
+    "t:283301",
+    "d:en/swsh/swshp/SWSH153"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k778d9fbfe3": {
+   "tp": {
+    "groep": 24722,
+    "product": 716313,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 035/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716313"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k77bab2e10e": {
+   "tp": {
+    "groep": 2205,
+    "product": 161749,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Flying) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161749"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k788f52e4e1": {
+   "tp": {
+    "groep": 2374,
+    "product": 123633,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 58/102 (E3 Stamped) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:123633"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k78a7cfba76": {
+   "tp": {
+    "groep": 1418,
+    "product": 88068,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (SNAP Promo) · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88068"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k78cce54972": {
+   "tp": {
+    "groep": 1861,
+    "product": 205170,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM227 · SM Promos",
+   "dex": "smp-SM227",
+   "cm": "normal",
+   "img": [
+    "t:205170"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k794275c395": {
+   "tp": {
+    "groep": 1377,
+    "product": 88077,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX Team Magma vs Team Aqua",
+   "dex": "ex4-43",
+   "cm": null,
+   "img": [
+    "t:88077",
+    "d:en/ex/ex4/43"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k795dcf47e7": {
+   "tp": {
+    "groep": 2155,
+    "product": 153100,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - DP16 · Countdown Calendar Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:153100"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7ade7cad60": {
+   "tp": {
+    "groep": 24722,
+    "product": 712943,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 039/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712943"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7b173ab979": {
+   "tp": {
+    "groep": 2374,
+    "product": 123634,
+    "sub": null
+   },
+   "naam": "Pikachu - 58/102 (E3 Stamped with Red Cheeks) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:123634"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "k7b2f0ebe40": {
+   "tp": {
+    "groep": 23561,
+    "product": 569132,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 018/091 (Cosmos Holo) · Trick or Trade BOOster Bundle 2024",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:569132"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7e2694f61e": {
+   "tp": {
+    "groep": 22880,
+    "product": 476008,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX - 044/185 · Prize Pack Series Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:476008"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7e6a519963": {
+   "tp": {
+    "groep": 1861,
+    "product": 153997,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM113 · SM Promos",
+   "dex": "smp-SM113",
+   "cm": "normal",
+   "img": [
+    "t:153997",
+    "d:en/sm/smp/SM113"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k7ec47b6d1e": {
+   "tp": {
+    "groep": 1861,
+    "product": 151974,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM109 · SM Promos",
+   "dex": "smp-SM109",
+   "cm": null,
+   "img": [
+    "t:151974",
+    "d:en/sm/smp/SM109"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k80ae91f410": {
+   "tp": {
+    "groep": 24722,
+    "product": 712934,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 023/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712934"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k80ea7ddfc8": {
+   "tp": {
+    "groep": 1842,
+    "product": 124123,
+    "sub": "Normal"
+   },
+   "naam": "Flying Pikachu · XY - Evolutions",
+   "dex": "xy12-110",
+   "cm": "normal",
+   "img": [
+    "t:124123",
+    "d:en/xy/xy12/110"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k826876a38b": {
+   "tp": {
+    "groep": 1451,
+    "product": 123436,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu EX - XY124 · XY Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:123436"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k84cea9a713": {
+   "tp": {
+    "groep": 2069,
+    "product": 152868,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (#14) · SM Trainer Kit: Lycanroc & Alolan Raichu",
+   "dex": "tk-sm-r-14",
+   "cm": "normal",
+   "img": [
+    "t:152868"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k850fb99e44": {
+   "tp": {
+    "groep": 2374,
+    "product": 187217,
+    "sub": null
+   },
+   "naam": "Pikachu - 60/106 (SDCC 2005) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:187217"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "k858b7e139b": {
+   "tp": {
+    "groep": 2931,
+    "product": 250325,
+    "sub": "Holofoil"
+   },
+   "naam": "______'s Pikachu · Celebrations: Classic Collection",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:250325"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8800b4558c": {
+   "tp": {
+    "groep": 22872,
+    "product": 500264,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 027 (Pokemon Center Exclusive) · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:500264"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8816eb20c9": {
+   "tp": {
+    "groep": 2374,
+    "product": 98641,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 42/146 (2014 Movie Promo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:98641"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k887f5dfc9e": {
+   "tp": {
+    "groep": 1861,
+    "product": 153995,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM111 · SM Promos",
+   "dex": "smp-SM111",
+   "cm": "normal",
+   "img": [
+    "t:153995",
+    "d:en/sm/smp/SM111"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k896421cb01": {
+   "tp": {
+    "groep": 23323,
+    "product": 527943,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Trading Card Game Classic",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:527943"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k89adb07627": {
+   "tp": {
+    "groep": 2374,
+    "product": 587938,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 025/165 (Reverse Cosmos Holo) (Costco Exclusive) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:587938"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8a6aeb4a46": {
+   "tp": {
+    "groep": 22872,
+    "product": 542481,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 088 · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:542481"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8aad714f0c": {
+   "tp": {
+    "groep": 2205,
+    "product": 215160,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Polish) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215160"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8b18006b95": {
+   "tp": {
+    "groep": 2377,
+    "product": 183804,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu & Zekrom GX · SM - Team Up",
+   "dex": "sm9-33",
+   "cm": "normal",
+   "img": [
+    "t:183804",
+    "d:en/sm/sm9/33"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8b89acca92": {
+   "tp": {
+    "groep": 605,
+    "product": 42538,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Base Set 2",
+   "dex": "base4-87",
+   "cm": null,
+   "img": [
+    "t:42538",
+    "d:en/base/base4/87"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8b9c1cba41": {
+   "tp": {
+    "groep": 2205,
+    "product": 161754,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Surfing) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161754"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8bbfd4fd43": {
+   "tp": {
+    "groep": 2374,
+    "product": 253841,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 065/202 (Reverse Cosmos Holo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:253841"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8c0602ccd4": {
+   "tp": {
+    "groep": 1400,
+    "product": 88101,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Black and White",
+   "dex": "bw1-115",
+   "cm": "normal",
+   "img": [
+    "t:88101",
+    "d:en/bw/bw1/115"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8c8cb40268": {
+   "tp": {
+    "groep": 22872,
+    "product": 648631,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 225 (World Championship 2025) · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:648631"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k8d2929a756": {
+   "tp": {
+    "groep": 24864,
+    "product": 723261,
+    "sub": null
+   },
+   "naam": "Pokemon Run Pikachu - 131 · Southeast Asia Exclusives",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:723261"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "k8e3eb62277": {
+   "tp": {
+    "groep": 24722,
+    "product": 716318,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 052/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716318"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8eb64c0aee": {
+   "tp": {
+    "groep": 1861,
+    "product": 200273,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu GX - SM232 · SM Promos",
+   "dex": "smp-SM232",
+   "cm": "normal",
+   "img": [
+    "t:200273"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8ebdb39c65": {
+   "tp": {
+    "groep": 1383,
+    "product": 88084,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX Power Keepers",
+   "dex": "ex16-57",
+   "cm": "normal",
+   "img": [
+    "t:88084",
+    "d:en/ex/ex16/57"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8ecd14cf37": {
+   "tp": {
+    "groep": 1451,
+    "product": 114004,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · XY Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:114004"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8f2dd3816d": {
+   "tp": {
+    "groep": 1539,
+    "product": 544181,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 049/203 (Pokemon League) · League & Championship Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:544181"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8f5901cb89": {
+   "tp": {
+    "groep": 23353,
+    "product": 534522,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 131/091 · SV: Paldean Fates",
+   "dex": "sv04.5-131",
+   "cm": "normal",
+   "img": [
+    "t:534522",
+    "d:en/sv/sv04.5/131"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8f7b581fc2": {
+   "tp": {
+    "groep": 1543,
+    "product": 88079,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX Trainer Kit 1: Latias & Latios",
+   "dex": "tk-ex-latio-6",
+   "cm": "normal",
+   "img": [
+    "t:88079"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k8f9bcc0f53": {
+   "tp": {
+    "groep": 1861,
+    "product": 126032,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM04 · SM Promos",
+   "dex": "smp-SM04",
+   "cm": "normal",
+   "img": [
+    "t:126032",
+    "d:en/sm/smp/SM04"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k909137023d": {
+   "tp": {
+    "groep": 2464,
+    "product": 194982,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (56) · SM - Unified Minds",
+   "dex": "sm11-56",
+   "cm": "normal",
+   "img": [
+    "t:194982",
+    "d:en/sm/sm11/56"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k91cce6f927": {
+   "tp": {
+    "groep": 1392,
+    "product": 88073,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX Sandstorm",
+   "dex": "ex2-72",
+   "cm": "normal",
+   "img": [
+    "t:88073",
+    "d:en/ex/ex2/72"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k91d1b68f2e": {
+   "tp": {
+    "groep": 2545,
+    "product": 251096,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V-Union - SWSH140 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH140",
+   "cm": "normal",
+   "img": [
+    "t:251096",
+    "d:en/swsh/swshp/SWSH140"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9217d50f82": {
+   "tp": {
+    "groep": 1452,
+    "product": 88083,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · POP Series 4",
+   "dex": "pop4-13",
+   "cm": "normal",
+   "img": [
+    "t:88083",
+    "d:en/pop/pop4/13"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9229a8ff97": {
+   "tp": {
+    "groep": 22872,
+    "product": 500263,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 027 · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:500263"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k943c30f821": {
+   "tp": {
+    "groep": 1379,
+    "product": 88082,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX Holon Phantoms",
+   "dex": "ex13-78",
+   "cm": "normal",
+   "img": [
+    "t:88082",
+    "d:en/ex/ex13/78"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k945238f98d": {
+   "tp": {
+    "groep": 1379,
+    "product": 88108,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Delta Species) · EX Holon Phantoms",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88108"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k95c0c3818d": {
+   "tp": {
+    "groep": 24722,
+    "product": 712946,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 042/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712946"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k96f7e4c653": {
+   "tp": {
+    "groep": 1408,
+    "product": 88103,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Boundaries Crossed",
+   "dex": "bw7-50",
+   "cm": "normal",
+   "img": [
+    "t:88103",
+    "d:en/bw/bw7/50"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k980a2fd184": {
+   "tp": {
+    "groep": 2205,
+    "product": 161748,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Base Set) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161748"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k99d6b25a65": {
+   "tp": {
+    "groep": 1367,
+    "product": 89644,
+    "sub": "Holofoil"
+   },
+   "naam": "Surfing Pikachu · Rising Rivals",
+   "dex": "pl2-114",
+   "cm": "normal",
+   "img": [
+    "t:89644",
+    "d:en/pl/pl2/114"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k99e94b9565": {
+   "tp": {
+    "groep": 1842,
+    "product": 124124,
+    "sub": "Normal"
+   },
+   "naam": "Surfing Pikachu · XY - Evolutions",
+   "dex": "xy12-111",
+   "cm": "normal",
+   "img": [
+    "t:124124",
+    "d:en/xy/xy12/111"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9c140477cd": {
+   "tp": {
+    "groep": 1861,
+    "product": 166411,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM98 · SM Promos",
+   "dex": "smp-SM98",
+   "cm": "normal",
+   "img": [
+    "t:166411",
+    "d:en/sm/smp/SM98"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9c9d189445": {
+   "tp": {
+    "groep": 2205,
+    "product": 215158,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (German) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215158"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9d3c4aa9b8": {
+   "tp": {
+    "groep": 2205,
+    "product": 215159,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (French) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215159"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9e6e9e112c": {
+   "tp": {
+    "groep": 3087,
+    "product": 275062,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 6/12 · McDonald's Promos 2016",
+   "dex": "2016xy-6",
+   "cm": "normal",
+   "img": [
+    "t:275062"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9eec43e9e6": {
+   "tp": {
+    "groep": 1418,
+    "product": 88066,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Movie Promo) · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88066"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9f9b476d36": {
+   "tp": {
+    "groep": 23266,
+    "product": 515654,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Trick or Trade BOOster Bundle 2023",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:515654"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "k9fd2859318": {
+   "tp": {
+    "groep": 1453,
+    "product": 88098,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - HGSS03 · HGSS Promos",
+   "dex": "hgssp-HGSS03",
+   "cm": "normal",
+   "img": [
+    "t:88098",
+    "d:en/hgss/hgssp/HGSS03"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka03084695d": {
+   "tp": {
+    "groep": 23120,
+    "product": 497473,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SV02: Paldea Evolved",
+   "dex": "sv02-062",
+   "cm": "normal",
+   "img": [
+    "t:497473",
+    "d:en/sv/sv02/062"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka11e6c9edf": {
+   "tp": {
+    "groep": 1391,
+    "product": 88094,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Arceus",
+   "dex": "pl4-71",
+   "cm": "normal",
+   "img": [
+    "t:88094",
+    "d:en/pl/pl4/71"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka14e1040c2": {
+   "tp": {
+    "groep": 2545,
+    "product": 260711,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - SWSH198 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH198",
+   "cm": "normal",
+   "img": [
+    "t:260711",
+    "d:en/swsh/swshp/SWSH198"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka18210cc7c": {
+   "tp": {
+    "groep": 2205,
+    "product": 161750,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Ivy) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161750"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka2eefdeefc": {
+   "tp": {
+    "groep": 2534,
+    "product": 201241,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SM - Cosmic Eclipse",
+   "dex": "sm12-66",
+   "cm": null,
+   "img": [
+    "t:201241",
+    "d:en/sm/sm12/66"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka36c2d5f06": {
+   "tp": {
+    "groep": 23651,
+    "product": 590027,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 238/191 · SV08: Surging Sparks",
+   "dex": "sv08-238",
+   "cm": "normal",
+   "img": [
+    "t:590027",
+    "d:en/sv/sv08/238"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka528714601": {
+   "tp": {
+    "groep": 2374,
+    "product": 257770,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 26/83 (20th Anniversary) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:257770"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka642c87a23": {
+   "tp": {
+    "groep": 1861,
+    "product": 253397,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu & Zekrom GX - SM248 · SM Promos",
+   "dex": "smp-SM248",
+   "cm": null,
+   "img": [
+    "t:253397"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka685e8da3e": {
+   "tp": {
+    "groep": 2374,
+    "product": 559566,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 025/165 (Pokemon Together) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:559566"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka8360be7a9": {
+   "tp": {
+    "groep": 24722,
+    "product": 716311,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 029/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716311"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka89d430d58": {
+   "tp": {
+    "groep": 1378,
+    "product": 88107,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Delta Species) · EX Legend Maker",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88107"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ka9204728e1": {
+   "tp": {
+    "groep": 1367,
+    "product": 85535,
+    "sub": "Holofoil"
+   },
+   "naam": "Flying Pikachu · Rising Rivals",
+   "dex": "pl2-113",
+   "cm": null,
+   "img": [
+    "t:85535",
+    "d:en/pl/pl2/113"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kab32264a0e": {
+   "tp": {
+    "groep": 2867,
+    "product": 250304,
+    "sub": "Holofoil"
+   },
+   "naam": "Flying Pikachu V · Celebrations",
+   "dex": "cel25-6",
+   "cm": "normal",
+   "img": [
+    "t:250304",
+    "d:en/swsh/cel25/6"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kac15fe7083": {
+   "tp": {
+    "groep": 2545,
+    "product": 220268,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SWSH039 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH039",
+   "cm": "normal",
+   "img": [
+    "t:220268",
+    "d:en/swsh/swshp/SWSH039"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kac32ef9628": {
+   "tp": {
+    "groep": 1418,
+    "product": 121772,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (1) · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:121772"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kad1c23996f": {
+   "tp": {
+    "groep": 2545,
+    "product": 478424,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX - SWSH286 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH286",
+   "cm": "normal",
+   "img": [
+    "t:478424",
+    "d:en/swsh/swshp/SWSH286"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kad1ef291ac": {
+   "tp": {
+    "groep": 23651,
+    "product": 590026,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 219/191 · SV08: Surging Sparks",
+   "dex": "sv08-219",
+   "cm": "normal",
+   "img": [
+    "t:590026",
+    "d:en/sv/sv08/219"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kad33f1cbcc": {
+   "tp": {
+    "groep": 1796,
+    "product": 118820,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu Libre (30 - Holo) · XY Trainer Kit: Pikachu Libre & Suicune",
+   "dex": "tk-xy-p-30",
+   "cm": null,
+   "img": [
+    "t:118820"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kad6556cf10": {
+   "tp": {
+    "groep": 2205,
+    "product": 215153,
+    "sub": null
+   },
+   "naam": "Pikachu (English) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215153"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "kaed655aa80": {
+   "tp": {
+    "groep": 2374,
+    "product": 125897,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 58/102 (PokeTour 1999) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:125897"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kaf762f27cd": {
+   "tp": {
+    "groep": 24722,
+    "product": 712951,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 053/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712951"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb0b215f840": {
+   "tp": {
+    "groep": 1451,
+    "product": 108614,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu EX - XY84 · XY Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:108614"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb0d79677fa": {
+   "tp": {
+    "groep": 24722,
+    "product": 712950,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 050/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712950"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb11c9f412d": {
+   "tp": {
+    "groep": 1861,
+    "product": 151973,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM108 · SM Promos",
+   "dex": "smp-SM108",
+   "cm": "normal",
+   "img": [
+    "t:151973",
+    "d:en/sm/smp/SM108"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb19754ff72": {
+   "tp": {
+    "groep": 24722,
+    "product": 696682,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 047/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:696682"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb242ac0dbc": {
+   "tp": {
+    "groep": 2480,
+    "product": 197663,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Hidden Fates",
+   "dex": "sm115-19",
+   "cm": "normal",
+   "img": [
+    "t:197663",
+    "d:en/sm/sm115/19"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb2a5e607be": {
+   "tp": {
+    "groep": 2374,
+    "product": 247390,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 28/73 (Cosmos Holo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:247390"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb44908888d": {
+   "tp": {
+    "groep": 1396,
+    "product": 88072,
+    "sub": "Unlimited"
+   },
+   "naam": "Pikachu · Neo Genesis",
+   "dex": "neo1-70",
+   "cm": "normal",
+   "img": [
+    "t:88072",
+    "d:en/neo/neo1/70"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "kb5ba6d3e77": {
+   "tp": {
+    "groep": 1418,
+    "product": 85534,
+    "sub": "Normal"
+   },
+   "naam": "Flying Pikachu · WoTC Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:85534"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb6613bb42a": {
+   "tp": {
+    "groep": 2701,
+    "product": 226432,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu VMAX · SWSH04: Vivid Voltage",
+   "dex": "swsh4-44",
+   "cm": "normal",
+   "img": [
+    "t:226432",
+    "d:en/swsh/swsh4/44"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb796771d11": {
+   "tp": {
+    "groep": 24722,
+    "product": 696681,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 037/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:696681"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kb9f8fae130": {
+   "tp": {
+    "groep": 24722,
+    "product": 716310,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 027/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716310"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbb42c347a7": {
+   "tp": {
+    "groep": 2545,
+    "product": 214241,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SWSH020 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH020",
+   "cm": "normal",
+   "img": [
+    "t:214241",
+    "d:en/swsh/swshp/SWSH020"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbb85f7fe16": {
+   "tp": {
+    "groep": 2205,
+    "product": 161747,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Baby) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161747"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbc0ef77bc2": {
+   "tp": {
+    "groep": 1861,
+    "product": 179377,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM157 · SM Promos",
+   "dex": "smp-SM157",
+   "cm": "normal",
+   "img": [
+    "t:179377",
+    "d:en/sm/smp/SM157"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbc17bb08eb": {
+   "tp": {
+    "groep": 24541,
+    "product": 676088,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 276/217 · ME: Ascended Heroes",
+   "dex": "me02.5-276",
+   "cm": "normal",
+   "img": [
+    "t:676088",
+    "d:en/me/me02.5/276"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbc2b4291ac": {
+   "tp": {
+    "groep": 1374,
+    "product": 88075,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Legendary Collection",
+   "dex": "lc-86",
+   "cm": "normal",
+   "img": [
+    "t:88075",
+    "d:en/lc/lc/86"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbc4278d572": {
+   "tp": {
+    "groep": 2205,
+    "product": 215157,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Japanese) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215157"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbcb65e4736": {
+   "tp": {
+    "groep": 3172,
+    "product": 284278,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V · SWSH11: Lost Origin Trainer Gallery",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:284278"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbd4d1d2f72": {
+   "tp": {
+    "groep": 1534,
+    "product": 98056,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · XY - Roaring Skies",
+   "dex": "xy6-20",
+   "cm": "normal",
+   "img": [
+    "t:98056",
+    "d:en/xy/xy6/20"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbef25b9dd2": {
+   "tp": {
+    "groep": 3064,
+    "product": 276946,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (27) · Pokemon GO",
+   "dex": "swsh10.5-027",
+   "cm": "normal",
+   "img": [
+    "t:276946",
+    "d:en/swsh/swsh10.5/027"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbf4b496e9f": {
+   "tp": {
+    "groep": 1423,
+    "product": 88067,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 012 (EX Series Collector's Tin) · Nintendo Promos",
+   "dex": "np-12",
+   "cm": null,
+   "img": [
+    "t:88067",
+    "d:en/pop/np/12"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kbf7bc0d660": {
+   "tp": {
+    "groep": 24541,
+    "product": 676897,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu (Friend Ball) · ME: Ascended Heroes",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:676897"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc00b73b141": {
+   "tp": {
+    "groep": 24722,
+    "product": 716317,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 051/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716317"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc117a52c08": {
+   "tp": {
+    "groep": 2374,
+    "product": 565437,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex (Holiday Calendar) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:565437"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc151a45bd8": {
+   "tp": {
+    "groep": 1540,
+    "product": 88099,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (#2) · HGSS Trainer Kit: Gyarados & Raichu",
+   "dex": "tk-hs-r-2",
+   "cm": "normal",
+   "img": [
+    "t:88099"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc16f7f45a1": {
+   "tp": {
+    "groep": 24722,
+    "product": 712947,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 043/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712947"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc2c86af0da": {
+   "tp": {
+    "groep": 22872,
+    "product": 518861,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu with Grey Felt Hat · SV: Scarlet & Violet Promo Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:518861"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc3e5e85942": {
+   "tp": {
+    "groep": 24722,
+    "product": 712945,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 041/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712945"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc5022855d3": {
+   "tp": {
+    "groep": 23330,
+    "product": 524060,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · My First Battle",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:524060"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc55675ac5d": {
+   "tp": {
+    "groep": 1441,
+    "product": 86859,
+    "sub": "Unlimited"
+   },
+   "naam": "Lt. Surge's Pikachu · Gym Heroes",
+   "dex": "gym1-81",
+   "cm": null,
+   "img": [
+    "t:86859",
+    "d:en/gym/gym1/81"
+   ],
+   "zekerheid": "handmatig",
+   "vast5okt": false
+  },
+  "kc7712c9849": {
+   "tp": {
+    "groep": 1861,
+    "product": 152608,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM86 · SM Promos",
+   "dex": "smp-SM86",
+   "cm": "normal",
+   "img": [
+    "t:152608",
+    "d:en/sm/smp/SM86"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kc83aafe5b6": {
+   "tp": {
+    "groep": 24722,
+    "product": 716314,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 045/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716314"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kcb2aa9a1e9": {
+   "tp": {
+    "groep": 23821,
+    "product": 610534,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 179/131 · SV: Prismatic Evolutions",
+   "dex": "sv08.5-179",
+   "cm": "normal",
+   "img": [
+    "t:610534",
+    "d:en/sv/sv08.5/179"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kcbec72d44c": {
+   "tp": {
+    "groep": 17688,
+    "product": 478103,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Secret) · SWSH: Crown Zenith",
+   "dex": "swsh12.5-160",
+   "cm": "normal",
+   "img": [
+    "t:478103",
+    "d:en/swsh/swsh12.5/160"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kcd253d1f07": {
+   "tp": {
+    "groep": 2374,
+    "product": 186322,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 28/73 (General Mills) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:186322"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kcd6609b11e": {
+   "tp": {
+    "groep": 2374,
+    "product": 228812,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - SM86 (Build-A-Bear Workshop Exclusive) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:228812"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kcd97365c81": {
+   "tp": {
+    "groep": 24541,
+    "product": 677037,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu (Energy Symbol Pattern) · ME: Ascended Heroes",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:677037"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kce8a63307e": {
+   "tp": {
+    "groep": 1433,
+    "product": 88096,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Rumble",
+   "dex": "ru1-7",
+   "cm": "normal",
+   "img": [
+    "t:88096",
+    "d:en/pl/ru1/7"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kcf4a262fa2": {
+   "tp": {
+    "groep": 2374,
+    "product": 650942,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 025/165 (Holiday Calendar) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:650942"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd097535937": {
+   "tp": {
+    "groep": 2364,
+    "product": 180452,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 4/12 · McDonald's Promos 2018",
+   "dex": "2018sm-4",
+   "cm": "normal",
+   "img": [
+    "t:180452"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd1367c6e5b": {
+   "tp": {
+    "groep": 2464,
+    "product": 194981,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (55) · SM - Unified Minds",
+   "dex": "sm11-55",
+   "cm": "normal",
+   "img": [
+    "t:194981",
+    "d:en/sm/sm11/55"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd18e9ee7d8": {
+   "tp": {
+    "groep": 1439,
+    "product": 88110,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Delta Species) · POP Series 5",
+   "dex": "pop5-13",
+   "cm": "normal",
+   "img": [
+    "t:88110",
+    "d:en/pop/pop5/13"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd1c6cea906": {
+   "tp": {
+    "groep": 24722,
+    "product": 712949,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 049/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712949"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd3228f2450": {
+   "tp": {
+    "groep": 1861,
+    "product": 206823,
+    "sub": "Holofoil"
+   },
+   "naam": "Detective Pikachu - SM170 (Stamped) · SM Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:206823"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd3eb1bcc9e": {
+   "tp": {
+    "groep": 22880,
+    "product": 648703,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 057/191 · Prize Pack Series Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:648703"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd5605ec0af": {
+   "tp": {
+    "groep": 23520,
+    "product": 556443,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex (Pikachu 60) · Battle Academy 2024",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:556443"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd5f6a08e7c": {
+   "tp": {
+    "groep": 1796,
+    "product": 118819,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu Libre (14 - Non-Holo) · XY Trainer Kit: Pikachu Libre & Suicune",
+   "dex": "tk-xy-p-14",
+   "cm": null,
+   "img": [
+    "t:118819"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd6da99fac7": {
+   "tp": {
+    "groep": 24722,
+    "product": 712952,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 054/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712952"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd7b1909097": {
+   "tp": {
+    "groep": 1661,
+    "product": 107167,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · XY - BREAKthrough",
+   "dex": "xy8-48",
+   "cm": "normal",
+   "img": [
+    "t:107167",
+    "d:en/xy/xy8/48"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kd8ccb149a0": {
+   "tp": {
+    "groep": 2374,
+    "product": 187219,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 012 (10th Anniversary) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:187219"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kda32973c2e": {
+   "tp": {
+    "groep": 2374,
+    "product": 514446,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 049/195 (Holiday Calendar) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:514446"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kda88bb8948": {
+   "tp": {
+    "groep": 24451,
+    "product": 712963,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 093 · ME: Mega Evolution Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712963"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kda9f251b1e": {
+   "tp": {
+    "groep": 2205,
+    "product": 159115,
+    "sub": "Normal"
+   },
+   "naam": "______'s Pikachu · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:159115"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdbaec34229": {
+   "tp": {
+    "groep": 24837,
+    "product": 714373,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu & Zekrom GX · ME: 30th Celebration Classic Collection",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:714373"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdc014094d0": {
+   "tp": {
+    "groep": 2374,
+    "product": 593275,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Rain City Showcase) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:593275"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdc32dbb7df": {
+   "tp": {
+    "groep": 2374,
+    "product": 596519,
+    "sub": "Reverse Holofoil"
+   },
+   "naam": "Pikachu - 018/091 (Reverse Cosmos Holo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:596519"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdc84fe7f5c": {
+   "tp": {
+    "groep": 24722,
+    "product": 712938,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 030/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712938"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdcbe85ea33": {
+   "tp": {
+    "groep": 24722,
+    "product": 712942,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 038/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712942"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kde9af5c567": {
+   "tp": {
+    "groep": 1446,
+    "product": 701479,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Pokemon Day 2009) · POP Series 9",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:701479"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdea2157be8": {
+   "tp": {
+    "groep": 2867,
+    "product": 250306,
+    "sub": "Holofoil"
+   },
+   "naam": "Surfing Pikachu V · Celebrations",
+   "dex": "cel25-8",
+   "cm": "normal",
+   "img": [
+    "t:250306",
+    "d:en/swsh/cel25/8"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdecf649f11": {
+   "tp": {
+    "groep": 24722,
+    "product": 712944,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 040/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712944"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kdfee6245f7": {
+   "tp": {
+    "groep": 24722,
+    "product": 712939,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 032/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712939"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke0eae11ad1": {
+   "tp": {
+    "groep": 1539,
+    "product": 536263,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 065/202 (Cosmos Holo) · League & Championship Cards",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:536263"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke0fbe227ff": {
+   "tp": {
+    "groep": 2071,
+    "product": 149053,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · SM - Crimson Invasion",
+   "dex": "sm4-30",
+   "cm": "normal",
+   "img": [
+    "t:149053",
+    "d:en/sm/sm4/30"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke1be27515c": {
+   "tp": {
+    "groep": 2214,
+    "product": 162272,
+    "sub": null
+   },
+   "naam": "Pikachu - 5/5 · Kids WB Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:162272"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": false
+  },
+  "ke29753d9ed": {
+   "tp": {
+    "groep": 1861,
+    "product": 196992,
+    "sub": "Holofoil"
+   },
+   "naam": "Detective Pikachu - SM190 (Stamped) · SM Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:196992"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke6300e39bc": {
+   "tp": {
+    "groep": 1410,
+    "product": 88080,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · EX Emerald",
+   "dex": "ex9-60",
+   "cm": null,
+   "img": [
+    "t:88080",
+    "d:en/ex/ex9/60"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke81ccf5a17": {
+   "tp": {
+    "groep": 2205,
+    "product": 215155,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu (Korean) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:215155"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke82f7c8264": {
+   "tp": {
+    "groep": 1861,
+    "product": 152673,
+    "sub": "Normal"
+   },
+   "naam": "Ash's Pikachu - SM110 · SM Promos",
+   "dex": "smp-SM110",
+   "cm": "normal",
+   "img": [
+    "t:152673",
+    "d:en/sm/smp/SM110"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "ke9699aa1a7": {
+   "tp": {
+    "groep": 1840,
+    "product": 131308,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 35/108 (Cracked Ice Holo) · Deck Exclusives",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:131308"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kea79f39ee9": {
+   "tp": {
+    "groep": 1465,
+    "product": 88105,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · Legendary Treasures: Radiant Collection",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88105"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kebe566ae82": {
+   "tp": {
+    "groep": 1861,
+    "product": 185254,
+    "sub": "Holofoil"
+   },
+   "naam": "Detective Pikachu - SM194 · SM Promos",
+   "dex": "smp-SM194",
+   "cm": "normal",
+   "img": [
+    "t:185254"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kec7494c6fd": {
+   "tp": {
+    "groep": 24722,
+    "product": 712936,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 026/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:712936"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kecff2019ae": {
+   "tp": {
+    "groep": 24451,
+    "product": 716740,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu - 093 (Winner) · ME: Mega Evolution Promo",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716740"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kef1b6c55cf": {
+   "tp": {
+    "groep": 2545,
+    "product": 227646,
+    "sub": "Holofoil"
+   },
+   "naam": "Special Delivery Pikachu - SWSH074 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH074",
+   "cm": "normal",
+   "img": [
+    "t:227646"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kefd964b258": {
+   "tp": {
+    "groep": 2545,
+    "product": 220315,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V - SWSH063 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH063",
+   "cm": "normal",
+   "img": [
+    "t:220315",
+    "d:en/swsh/swshp/SWSH063"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf0191ccdb2": {
+   "tp": {
+    "groep": 1861,
+    "product": 189756,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - SM183 · SM Promos",
+   "dex": "smp-SM183",
+   "cm": "normal",
+   "img": [
+    "t:189756"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf1c5733af7": {
+   "tp": {
+    "groep": 2282,
+    "product": 485047,
+    "sub": "Normal"
+   },
+   "naam": "Flying Pikachu V - 2022 (Ondrej Skubal) · World Championship Decks",
+   "dex": null,
+   "cm": null,
+   "img": [],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf1e39721e8": {
+   "tp": {
+    "groep": 2555,
+    "product": 200967,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 6/12 · McDonald's Promos 2019",
+   "dex": "2019sm-6",
+   "cm": "normal",
+   "img": [
+    "t:200967"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf30f5819b3": {
+   "tp": {
+    "groep": 23651,
+    "product": 593169,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu ex - 247/191 · SV08: Surging Sparks",
+   "dex": "sv08-247",
+   "cm": "normal",
+   "img": [
+    "t:593169",
+    "d:en/sv/sv08/247"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf6ebf1f6f0": {
+   "tp": {
+    "groep": 1387,
+    "product": 88106,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · XY Base Set",
+   "dex": "xy1-42",
+   "cm": "normal",
+   "img": [
+    "t:88106",
+    "d:en/xy/xy1/42"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf76a0b5210": {
+   "tp": {
+    "groep": 1412,
+    "product": 88102,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Next Destinies",
+   "dex": "bw4-39",
+   "cm": "normal",
+   "img": [
+    "t:88102",
+    "d:en/bw/bw4/39"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf7b8db71cc": {
+   "tp": {
+    "groep": 1861,
+    "product": 189805,
+    "sub": "Holofoil"
+   },
+   "naam": "Detective Pikachu - SM190 · SM Promos",
+   "dex": "smp-SM190",
+   "cm": "normal",
+   "img": [
+    "t:189805"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf82153b373": {
+   "tp": {
+    "groep": 1421,
+    "product": 88089,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - DP16 · Diamond and Pearl Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:88089"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf83769052c": {
+   "tp": {
+    "groep": 2374,
+    "product": 180720,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 28/73 (Water Web Holo) · Miscellaneous Cards & Products",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:180720"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf93a6a78d4": {
+   "tp": {
+    "groep": 17689,
+    "product": 478058,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu · SWSH: Crown Zenith: Galarian Gallery",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:478058"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kf9d0ec189a": {
+   "tp": {
+    "groep": 2205,
+    "product": 161752,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu (Movie) · Pikachu World Collection Promos",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:161752"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kfbd74e3dbd": {
+   "tp": {
+    "groep": 2545,
+    "product": 251095,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu V-Union - SWSH139 · SWSH: Sword & Shield Promo Cards",
+   "dex": "swshp-SWSH139",
+   "cm": "normal",
+   "img": [
+    "t:251095",
+    "d:en/swsh/swshp/SWSH139"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kfdf9d9d5d1": {
+   "tp": {
+    "groep": 3179,
+    "product": 283805,
+    "sub": "Normal"
+   },
+   "naam": "Pikachu · Trick or Trade BOOster Bundle",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:283805"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  },
+  "kff5fc743e9": {
+   "tp": {
+    "groep": 24722,
+    "product": 716315,
+    "sub": "Holofoil"
+   },
+   "naam": "Pikachu - 046/128 · ME: 30th Celebration",
+   "dex": null,
+   "cm": null,
+   "img": [
+    "t:716315"
+   ],
+   "zekerheid": "auto",
+   "vast5okt": true
+  }
+ }
+}

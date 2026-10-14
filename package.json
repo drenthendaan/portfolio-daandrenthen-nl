@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pokemon:koppel": "node scripts/pokemon/koppel-prijsbronnen.mjs",
+    "test:pokemon": "node --test lib/pokemon/regels.test.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
