@@ -1,4 +1,4 @@
-/* Pikachu-verzameling: tabbladen, tellers, tabel en vinkjes (algemene stijl in ../pokemon.css) */
+/* Verzamelingspagina (Pikachu en eigen verzamelingen): tabbladen, tellers, tabel en vinkjes. Algemene stijl in ../pokemon.css */
 
 /* Categorieknoppen */
 .pika .cats { display: flex; gap: .4rem; overflow-x: auto; scroll-snap-type: x proximity; padding: .15rem .1rem .5rem; margin: 0 0 .5rem; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
@@ -13,7 +13,7 @@
 .pika .cats button[aria-selected="true"] .bar { background: color-mix(in srgb, var(--volt-ink) 18%, transparent); }
 
 /* Tellers en opslag */
-.pika .track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; margin: 0; }
+.pika .track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; margin: 0; }
 .pika .track div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .35rem .6rem .4rem; min-width: 0; }
 .pika .track dt { font-size: .72rem; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pika .track dd { margin: 0; font-size: 1.1rem; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; }
@@ -28,11 +28,11 @@
   padding: .5rem .4rem; border-bottom: 2px solid var(--ink);
 }
 .pika thead th.p { text-align: right; }
-.pika thead th.ck { text-align: center; font-size: .68rem; line-height: 1.15; padding: .5rem .1rem; width: 2.75rem; }
+.pika thead th.ck { text-align: center; font-size: .72rem; line-height: 1.15; padding: .5rem .1rem; width: 3.6rem; }
 .pika td { padding: .62rem .4rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 .pika td.p { text-align: right; white-space: nowrap; font-weight: 800; width: 1%; font-variant-numeric: tabular-nums; padding-right: .9rem; }
 .pika td.p.unk { color: var(--soft); font-weight: 600; }
-.pika td.ck { text-align: center; vertical-align: middle; padding: .4rem .1rem; width: 2.75rem; }
+.pika td.ck { text-align: center; vertical-align: middle; padding: .4rem .1rem; width: 3.6rem; }
 .pika .tag { display: block; font-size: .72rem; font-weight: 600; color: var(--cheek); }
 .pika .name { display: block; font-weight: 600; }
 .pika .set { display: block; font-size: .9rem; color: var(--soft); }
@@ -51,11 +51,40 @@
 .pika .ck input:checked { background: var(--volt); border-color: var(--volt); }
 .pika .ck input:checked::after { opacity: 1; }
 
-/* Telefoon: kolommen krapper, zodat alle vier de vinkjes in beeld passen */
+/* Telefoon: kolommen krapper, zodat alles zonder zijwaarts scrollen past */
 @media (max-width: 480px) {
   .pika td { padding: .55rem .25rem; }
   .pika td.p { font-size: .9rem; padding-right: .4rem; }
   .pika thead th { padding: .45rem .25rem; }
-  .pika thead th.ck, .pika td.ck { width: 2.35rem; }
-  .pika thead th.ck { font-size: .6rem; }
+  .pika thead th.ck, .pika td.ck { width: 3.6rem; }
+  .pika thead th.ck { font-size: .7rem; }
 }
+
+/* Toevoegen en lijst bewerken */
+.pika .lijstacties { display: flex; flex-wrap: wrap; gap: .4rem; margin: .75rem 0 0; }
+.pika .bewerkknop { font: inherit; font-size: .85rem; font-weight: 700; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; height: 2.1rem; padding: 0 .8rem; cursor: pointer; }
+.pika .bewerkknop[aria-pressed="true"] { color: var(--volt-ink); background: var(--volt); border-color: var(--volt); }
+.pika thead th.weg, .pika td.weg { width: 2.4rem; text-align: center; padding-left: .1rem; padding-right: .1rem; }
+.pika td.weg { vertical-align: middle; }
+.pika td.weg button { width: 1.9rem; height: 1.9rem; font: inherit; font-size: 1.2rem; line-height: 1; color: var(--cheek); background: transparent; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+
+/* Verborgen vaste kaarten */
+.pika .verborgen { margin-top: 1rem; padding: .75rem .9rem; border: 1px dashed var(--line); border-radius: 12px; }
+.pika .verborgen h3 { font-size: .95rem; font-weight: 700; margin: 0 0 .4rem; }
+.pika .verborgen ul { list-style: none; margin: 0; padding: 0; }
+.pika .verborgen li { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .4rem 0; border-top: 1px solid var(--line); }
+.pika .verborgen li:first-child { border-top: 0; }
+.pika .verborgen li span { display: flex; flex-direction: column; min-width: 0; }
+.pika .verborgen small { color: var(--soft); font-size: .8rem; }
+.pika .verborgen button { flex: none; font: inherit; font-size: .8rem; font-weight: 700; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .3rem .6rem; cursor: pointer; }
+
+/* Instellingen in het uitklapblok */
+.pika .instelling { margin: .6rem 0 0; }
+.pika .instelling label { display: block; font-size: .85rem; font-weight: 600; color: var(--ink); margin-bottom: .3rem; }
+.pika .instelling div { display: flex; gap: .5rem; }
+.pika .instelling input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .45rem .6rem; }
+.pika .instelling button { font: inherit; font-size: .85rem; font-weight: 700; color: var(--volt-ink); background: var(--volt); border: 0; border-radius: 8px; padding: .45rem .8rem; cursor: pointer; }
+.pika .eigen-themas { list-style: none; margin: .5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.pika .eigen-themas li { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: .2rem .3rem .2rem .7rem; }
+.pika .eigen-themas button { font: inherit; font-size: .75rem; color: var(--cheek); background: none; border: 0; cursor: pointer; text-decoration: underline; }
+.pika .tools .gevaar { color: var(--cheek); }

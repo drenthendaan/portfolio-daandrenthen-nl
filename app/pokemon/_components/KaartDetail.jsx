@@ -5,9 +5,7 @@ import { euro } from "@/lib/pokemon/regels.mjs";
 import KaartAfbeelding from "./KaartAfbeelding";
 
 const VELDEN = [
-  ["w", "Wantslijst"],
   ["b", "Betaald"],
-  ["o", "Onderweg"],
   ["a", "Afgerond"],
 ];
 const LABEL = {

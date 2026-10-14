@@ -1,0 +1,107 @@
+/* Gedeelde onderdelen voor alle /pokemon-pagina's: detailvenster, itemvenster, keuzelijst en knoppen */
+
+.pika .detail-plaat img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.pika select.keuze {
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  font: inherit; font-size: .85rem; line-height: 1.2; color: var(--ink); background-color: var(--panel);
+  border: 1px solid var(--line); border-radius: 10px; height: 2.1rem; padding: 0 1.9rem 0 .7rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--soft) 50%), linear-gradient(135deg, var(--soft) 50%, transparent 50%);
+  background-position: calc(100% - 1rem) 52%, calc(100% - .7rem) 52%;
+  background-size: .3rem .3rem; background-repeat: no-repeat;
+}
+
+.pika .kaart-leeg { display: grid; place-items: center; width: 100%; height: 100%; font-size: 1.6rem; color: var(--soft); background: var(--panel); }
+
+.pika .toevoegen { font: inherit; font-size: .85rem; font-weight: 700; color: var(--volt-ink); background: var(--volt); border: 0; border-radius: 10px; height: 2.1rem; padding: 0 .8rem; cursor: pointer; }
+
+/* Detailvenster: midden in beeld, op de telefoon onderin */
+.pika dialog.detail { padding: 0; border: 0; border-radius: 16px; background: var(--paper); color: var(--ink); width: min(44rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, .35); }
+.pika dialog.detail::backdrop { background: rgba(10, 14, 22, .6); }
+.pika .detail-binnen { position: relative; display: grid; grid-template-columns: minmax(0, 15rem) 1fr; gap: 1.25rem; padding: 1.25rem; }
+.pika .detail-plaat { aspect-ratio: 63 / 88; border-radius: 5% / 3.6%; overflow: hidden; background: var(--panel); }
+.pika .detail-tekst { min-width: 0; padding-right: 1.5rem; }
+.pika .detail-tekst h2 { font-size: 1.3rem; font-weight: 800; line-height: 1.2; margin: 0; }
+.pika .detail-set { margin: .15rem 0 .4rem; color: var(--soft); font-size: .9rem; }
+.pika .detail-noot { margin: .4rem 0 0; font-size: .85rem; color: var(--cheek); }
+.pika .mapcode { display: inline-block; font-size: .75rem; font-weight: 700; padding: .08rem .5rem; border-radius: 999px; background: color-mix(in srgb, var(--volt) 30%, transparent); }
+.pika .detail-prijs { margin: .9rem 0; padding: .75rem .9rem; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); }
+.pika .detail-prijs p { margin: 0; }
+.pika .dp-hoofd { font-size: 1.6rem; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.pika .dp-label { font-size: .85rem; font-weight: 600; }
+.pika .dp-uitleg, .pika .dp-cm, .pika .dp-verloop { font-size: .8rem; color: var(--soft); margin-top: .3rem !important; }
+.pika .dp-cm b { color: var(--ink); }
+.pika .dp-verloop.op { color: var(--groen); }
+.pika .dp-verloop.neer { color: var(--cheek); }
+.pika .statuschips { list-style: none; margin: 0 0 .9rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.pika .statuschips span,
+.pika .statuschips button { display: inline-block; font: inherit; font-size: .8rem; font-weight: 600; color: var(--soft); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: .2rem .65rem; }
+.pika .statuschips button { cursor: pointer; color: var(--ink); }
+.pika .statuschips .aan,
+.pika .statuschips button[aria-pressed="true"] { color: var(--volt-ink); background: var(--volt); border-color: var(--volt); }
+.pika .extern { font-size: .85rem; color: var(--ink); }
+.pika .sluit { position: absolute; top: .6rem; right: .6rem; width: 2.2rem; height: 2.2rem; font: inherit; font-size: 1.4rem; line-height: 1; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 50%; cursor: pointer; }
+
+@media (max-width: 600px) {
+  .pika dialog.detail { width: 100vw; max-width: 100vw; margin: auto 0 0; border-radius: 18px 18px 0 0; max-height: 92dvh; }
+  .pika .detail-binnen { grid-template-columns: 1fr; padding: 1rem 1rem 1.5rem; }
+  .pika .detail-plaat { width: 62%; max-width: 15rem; margin: 0 auto; }
+  .pika .detail-tekst { padding-right: 0; }
+}
+
+/* Venster om items toe te voegen of te bewerken */
+.pika dialog.itemvenster { width: min(34rem, calc(100vw - 2rem)); }
+.pika .iv { position: relative; display: flex; flex-direction: column; gap: .75rem; padding: 1.25rem; }
+.pika .iv h2 { font-size: 1.2rem; font-weight: 800; line-height: 1.25; margin: 0; padding-right: 2.5rem; }
+.pika .iv label { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; font-weight: 600; }
+.pika .iv input:not([type="checkbox"]) { font: inherit; font-size: 1rem; font-weight: 400; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; height: 2.6rem; padding: 0 .75rem; width: 100%; min-width: 0; }
+.pika .iv select.keuze { height: 2.6rem; font-size: 1rem; font-weight: 400; width: 100%; }
+.pika .iv input::placeholder { color: var(--soft); }
+.pika .iv-zoek { display: flex; flex-direction: column; gap: .4rem; }
+.pika .iv-resultaten { list-style: none; margin: 0; padding: 0; max-height: 50dvh; overflow-y: auto; border: 1px solid var(--line); border-radius: 12px; }
+.pika .iv-resultaten li + li { border-top: 1px solid var(--line); }
+.pika .iv-resultaten button { display: grid; grid-template-columns: 2.6rem 1fr auto; gap: .65rem; align-items: center; width: 100%; padding: .45rem .6rem; font: inherit; color: var(--ink); text-align: left; background: none; border: 0; cursor: pointer; }
+.pika .iv-resultaten button:hover { background: var(--panel); }
+.pika .iv-mini { display: block; width: 2.6rem; aspect-ratio: 1; border-radius: 6px; overflow: hidden; background: #fff; }
+.pika .iv-mini img { width: 100%; height: 100%; object-fit: contain; }
+.pika .iv-tekst { display: flex; flex-direction: column; min-width: 0; }
+.pika .iv-tekst b { font-size: .85rem; font-weight: 700; line-height: 1.25; }
+.pika .iv-tekst small, .pika .iv-product small { font-size: .75rem; color: var(--soft); }
+.pika .iv-prijs { font-size: .8rem; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pika .iv-hint { margin: 0; font-size: .8rem; color: var(--soft); min-height: 1em; }
+.pika .iv-link { align-self: flex-start; font: inherit; font-size: .85rem; font-weight: 600; color: var(--ink); text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; }
+.pika .iv-product { display: grid; grid-template-columns: 5.5rem 1fr; gap: .9rem; align-items: start; padding: .7rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.pika .iv-product b { display: block; font-size: .95rem; line-height: 1.25; }
+.pika .iv-product p { margin: .35rem 0 .3rem; font-size: .85rem; font-weight: 700; }
+.pika .iv-plaat { display: block; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: #fff; }
+.pika .iv-plaat img { width: 100%; height: 100%; object-fit: contain; }
+.pika .iv-winst { margin: 0; font-size: .85rem; font-weight: 700; }
+.pika .iv-winst.op { color: var(--groen); }
+.pika .iv-winst.neer { color: var(--cheek); }
+.pika .iv-velden { display: flex; flex-direction: column; gap: .75rem; }
+.pika .iv-rij { display: grid; grid-template-columns: 6rem 1fr; gap: .6rem; }
+.pika .iv .iv-vink { flex-direction: row; align-items: center; gap: .55rem; font-weight: 600; }
+.pika .iv-vink input { width: 1.2rem; height: 1.2rem; accent-color: var(--volt); }
+.pika .iv .statuschips { margin: 0; }
+.pika .iv-fout { margin: 0; font-size: .85rem; font-weight: 600; color: var(--cheek); }
+.pika .iv-knoppen { display: flex; gap: .5rem; flex-wrap: wrap; }
+.pika .iv-knoppen button { font: inherit; font-size: .95rem; font-weight: 700; border-radius: 10px; height: 2.6rem; padding: 0 1.1rem; cursor: pointer; }
+.pika .iv-knoppen .primair { color: var(--volt-ink); background: var(--volt); border: 0; }
+.pika .iv-knoppen .gevaar { color: var(--cheek); background: transparent; border: 1px solid var(--line); margin-left: auto; }
+.pika .iv-knoppen button:disabled { opacity: .6; cursor: default; }
+@media (max-width: 600px) {
+  .pika dialog.itemvenster { width: 100vw; max-width: 100vw; }
+}
+
+/* Itemnaam in de tabel van de Pikachu-verzameling: opent het bewerkvenster */
+.pika .itemnaam { display: block; font: inherit; font-weight: 600; color: inherit; text-align: left; text-decoration: underline dotted; text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; }
+
+/* Kruimelpad */
+.pika .kruimelpad { margin: .25rem 0 .75rem; font-size: .8rem; color: var(--soft); }
+.pika .kruimelpad ol { display: flex; flex-wrap: wrap; gap: .3rem; list-style: none; margin: 0; padding: 0; }
+.pika .kruimelpad li { display: inline-flex; align-items: center; gap: .3rem; min-width: 0; }
+.pika .kruimelpad li + li::before { content: "›"; color: var(--soft); }
+.pika .kruimelpad a { color: var(--soft); text-decoration: none; }
+.pika .kruimelpad a:hover { color: var(--ink); text-decoration: underline; }
+.pika .kruimelpad [aria-current="page"] { color: var(--ink); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pika .iv-rij-thema { grid-template-columns: 1fr 6.5rem; }

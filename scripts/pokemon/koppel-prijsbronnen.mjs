@@ -19,6 +19,7 @@ const CACHE = path.join(ROOT, "scripts/pokemon/.cache");
 const BRON = path.join(ROOT, "data/pikachu-collectie.json");
 const UIT = path.join(ROOT, "data/pokemon/koppelingen.json");
 const HANDMATIG = path.join(ROOT, "data/pokemon/koppelingen-handmatig.json");
+const CATALOGUS = path.join(ROOT, "data/pokemon/catalogus.json");
 const UA = "daandrenthen.nl-pokemon/1.0 (+https://daandrenthen.nl/pokemon)";
 const OFFLINE = process.argv.includes("--offline");
 const USD_EUR = 0.88; // koers waarmee de vaste prijzen van 5 okt zijn omgerekend
@@ -214,6 +215,38 @@ function kiesSub(kaart, rijen, { reverse, voorkeur }) {
   );
 }
 
+// ---------- Zoeklijst voor "item toevoegen" ----------
+
+// Compacte catalogus van alle Engelse TCGplayer-producten (zonder Code Cards), voor de
+// zoekfunctie op /pokemon. Per groep: [groupId, naam, uitgavedatum]. Per product:
+// [productId, groepindex, naam, nummer, plaatje 0/1, marktprijs in dollarcent of null].
+// Alleen de server leest dit bestand.
+async function schrijfCatalogus(tp) {
+  const groepIndex = new Map(tp.groepen.map((g, i) => [g.groupId, i]));
+  const markt = (id) => {
+    const r = (tp.prijzen.get(id) || []).find((x) => x.marketPrice > 0);
+    return r ? Math.round(r.marketPrice * 100) : null;
+  };
+  const producten = tp.producten
+    .filter((p) => !/^code card/i.test(p.name))
+    .map((p) => [
+      p.productId,
+      groepIndex.get(p.groupId),
+      p.name,
+      p.extendedData?.find((e) => e.name === "Number")?.value ?? "",
+      p.imageCount > 0 ? 1 : 0,
+      markt(p.productId),
+    ])
+    .sort((a, b) => a[0] - b[0]);
+  const data = {
+    tcgcsv: tp.versie,
+    groepen: tp.groepen.map((g) => [g.groupId, g.name, String(g.publishedOn || "").slice(0, 10)]),
+    producten,
+  };
+  await writeFile(CATALOGUS, JSON.stringify(data) + "\n");
+  console.error(`Zoeklijst: ${producten.length} producten → ${path.relative(ROOT, CATALOGUS)}`);
+}
+
 // ---------- Hoofdprogramma ----------
 
 const euro = (n) => (n == null ? "—" : "€ " + n.toFixed(2).replace(".", ","));
@@ -367,6 +400,7 @@ async function main() {
     UIT,
     JSON.stringify({ gemaakt: new Date().toISOString(), tcgcsv: tp.versie, kaarten }, null, 1) + "\n"
   );
+  await schrijfCatalogus(tp);
 
   const gewijzigd = Object.keys(kaarten).filter(
     (k) => vorige[k] && JSON.stringify(vorige[k].tp) !== JSON.stringify(kaarten[k].tp)

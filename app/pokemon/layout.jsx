@@ -1,5 +1,6 @@
 import { Bricolage_Grotesque } from "next/font/google";
 import "./pokemon.css";
+import "./_components/onderdelen.css";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],

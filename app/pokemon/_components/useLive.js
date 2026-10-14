@@ -39,6 +39,7 @@ export function useLive({ beginBits, beginPrijzen }) {
   const [prijsData, setPrijsData] = useState(beginPrijzen);
   const [verbinding, setVerbinding] = useState("ok");
   const [puls, setPuls] = useState(0);
+  const [itemsVersie, setItemsVersie] = useState(null);
   const bitsRef = useRef(beginBits);
   const serverRef = useRef(beginBits);
   const versieRef = useRef(beginPrijzen?.versie ?? null);
@@ -92,6 +93,7 @@ export function useLive({ beginBits, beginPrijzen }) {
         fouten = 0;
         setVerbinding("ok");
         pasToe(data.status || {});
+        if (data.itemsVersie) setItemsVersie(data.itemsVersie);
         if (data.versie && data.versie !== versieRef.current) await haalPrijzen();
       } catch {
         fouten++;
@@ -133,5 +135,5 @@ export function useLive({ beginBits, beginPrijzen }) {
     () => Object.fromEntries(Object.entries(bits).map(([id, b]) => [id, vanBits(b)])),
     [bits]
   );
-  return { status, prijsData, verbinding, puls, haalPrijzen };
+  return { status, prijsData, verbinding, puls, haalPrijzen, itemsVersie };
 }

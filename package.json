@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "pokemon:koppel": "node scripts/pokemon/koppel-prijsbronnen.mjs",
-    "test:pokemon": "node --test lib/pokemon/regels.test.mjs"
+    "test:pokemon": "node --test lib/pokemon/regels.test.mjs lib/pokemon/themas.test.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
