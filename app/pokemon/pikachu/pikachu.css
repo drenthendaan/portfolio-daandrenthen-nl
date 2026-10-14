@@ -1,0 +1,151 @@
+/* Pikachu-verzameling: alles valt onder .pika, zodat het portfolio er geen last van heeft */
+/* Kleuren op body, zodat ook de navbar en footer van het portfolio meekleuren */
+body:has(.pika),
+.pika {
+  --paper: #ffffff; --ink: #1c2333; --soft: #5a6377; --line: #e4e7ee; --panel: #f4f5f8;
+  --volt: #ffd02b; --volt-ink: #1c2333; --cheek: #c63d27;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-bricolage), "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+  overflow-x: clip;
+}
+@media (prefers-color-scheme: dark) {
+  body:has(.pika),
+  .pika {
+    --paper: #171d29; --ink: #edf0f5; --soft: #a3abbc; --line: #2b3343; --panel: #1f2634;
+    --volt: #ffd02b; --volt-ink: #171d29; --cheek: #ff8a73;
+    color-scheme: dark;
+  }
+}
+body:has(.pika) { background: var(--paper); color: var(--ink); }
+.pika *, .pika *::before, .pika *::after { box-sizing: border-box; }
+/* Portfolio-stijlen (fonts.scss) zetten p op line-height 1 en koppen op extra letterafstand */
+.pika p, .pika h1, .pika h2, .pika h3 { letter-spacing: normal; line-height: inherit; }
+
+.pika .wrap { max-width: 46rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
+.pika h1 {
+  font-size: clamp(1.9rem, 7vw, 2.6rem); line-height: 1.05; font-weight: 800;
+  letter-spacing: -.025em; margin: 0 0 .35rem; font-variation-settings: "opsz" 96;
+}
+.pika .bolt { display: inline-block; width: .62em; height: .9em; margin-left: .12em; vertical-align: -.06em; }
+.pika .lede { color: var(--soft); margin: 0 0 1rem; font-size: .95rem; }
+.pika .head { margin: .25rem 0 .75rem; }
+.pika .head h2 { font-size: 1.15rem; font-weight: 800; line-height: 1.25; margin: 0; }
+.pika .head h2 small { font-size: .85rem; font-weight: 500; color: var(--soft); margin-left: .25rem; white-space: nowrap; }
+.pika .summary { margin: .1rem 0 0; font-size: .9rem; color: var(--soft); }
+.pika .extra { margin: .25rem 0 0; font-size: .85rem; color: var(--soft); }
+.pika .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Categorieknoppen */
+.pika .cats { display: flex; gap: .4rem; overflow-x: auto; scroll-snap-type: x proximity; padding: .15rem .1rem .5rem; margin: 0 0 .5rem; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+@media (min-width: 900px) { .pika .cats { flex-wrap: wrap; overflow: visible; } }
+.pika .cats button { flex: 0 0 auto; scroll-snap-align: start; text-align: left; font: inherit; color: var(--ink); background: var(--panel); border: 1.5px solid var(--line); border-radius: 10px; padding: .35rem .6rem .4rem; cursor: pointer; display: flex; flex-direction: column; gap: .25rem; }
+.pika .cats button .cn { display: flex; align-items: baseline; gap: .4rem; font-weight: 700; font-size: .85rem; line-height: 1.2; white-space: nowrap; }
+.pika .cats button .cm { font-size: .72rem; font-weight: 500; color: var(--soft); font-variant-numeric: tabular-nums; }
+.pika .cats button .bar { height: 3px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.pika .cats button .bar i { display: block; height: 100%; background: var(--cheek); }
+.pika .cats button[aria-selected="true"] { background: var(--volt); border-color: var(--volt); color: var(--volt-ink); }
+.pika .cats button[aria-selected="true"] .cm { color: var(--volt-ink); }
+.pika .cats button[aria-selected="true"] .bar { background: color-mix(in srgb, var(--volt-ink) 18%, transparent); }
+
+/* Zoeken en filters, op één regel als het past */
+.pika .toolbar { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .6rem; }
+.pika .search { flex: 1 1 16rem; min-width: 0; }
+.pika .search input,
+.pika .toolbar select {
+  width: 100%; font: inherit; font-size: .95rem; line-height: 1.2; color: var(--ink); background-color: var(--panel);
+  border: 1px solid var(--line); border-radius: 10px; padding: 0 .75rem; height: 2.5rem; margin: 0;
+}
+.pika .toolbar select {
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  flex: 1 1 8rem; width: auto; min-width: 0; padding-right: 2rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--soft) 50%), linear-gradient(135deg, var(--soft) 50%, transparent 50%);
+  background-position: calc(100% - 1.05rem) 52%, calc(100% - .75rem) 52%;
+  background-size: .3rem .3rem; background-repeat: no-repeat;
+}
+@media (min-width: 640px) { .pika .toolbar select { flex: 0 1 auto; } }
+.pika .search input::placeholder { color: var(--soft); }
+
+/* Tellers en opslag */
+.pika .track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; margin: 0; }
+.pika .track div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .35rem .6rem .4rem; min-width: 0; }
+.pika .track dt { font-size: .72rem; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pika .track dd { margin: 0; font-size: 1.1rem; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.pika .track dd small { font-size: .75rem; font-weight: 500; color: var(--soft); }
+.pika .saved { color: var(--soft); }
+.pika .token { margin: 0 0 1rem; padding: .75rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); font-size: .9rem; }
+.pika .token label { display: block; margin-bottom: .4rem; }
+.pika .token div { display: flex; gap: .5rem; }
+.pika .token input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .45rem .6rem; }
+.pika .token button,
+.pika .tools button { font: inherit; font-size: .9rem; font-weight: 600; color: var(--volt-ink); background: var(--volt); border: 0; border-radius: 10px; padding: .5rem .9rem; cursor: pointer; }
+.pika .tools { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.pika .tools button { color: var(--ink); background: var(--panel); border: 1px solid var(--line); }
+
+/* Tabel */
+.pika .count { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .1rem .8rem; font-size: .8rem; color: var(--soft); margin: .5rem 0 .4rem; }
+.pika .tablewrap { overflow-x: auto; }
+.pika table { width: 100%; border-collapse: collapse; }
+.pika thead th {
+  text-align: left; font-size: .85rem; font-weight: 600; color: var(--soft);
+  padding: .5rem .4rem; border-bottom: 2px solid var(--ink);
+}
+.pika thead th.p { text-align: right; }
+.pika thead th.ck { text-align: center; font-size: .68rem; line-height: 1.15; padding: .5rem .1rem; width: 2.75rem; }
+.pika td { padding: .62rem .4rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.pika td.p { text-align: right; white-space: nowrap; font-weight: 800; width: 1%; font-variant-numeric: tabular-nums; padding-right: .9rem; }
+.pika td.p.unk { color: var(--soft); font-weight: 600; }
+.pika td.ck { text-align: center; vertical-align: middle; padding: .4rem .1rem; width: 2.75rem; }
+.pika .tag { display: block; font-size: .72rem; font-weight: 600; color: var(--cheek); }
+.pika .name { display: block; font-weight: 600; }
+.pika .set { display: block; font-size: .9rem; color: var(--soft); }
+.pika .note { display: block; font-size: .85rem; color: var(--cheek); }
+.pika .map { display: inline-block; margin-top: .25rem; font-size: .75rem; font-weight: 700; padding: .08rem .45rem; border-radius: 999px; background: color-mix(in srgb, var(--volt) 30%, transparent); color: var(--ink); }
+.pika .empty { padding: 1.4rem .4rem; color: var(--soft); }
+.pika tr.done td { background: color-mix(in srgb, var(--volt) 12%, transparent); }
+.pika tr.done .name::after { content: " ✓"; color: var(--cheek); }
+.pika tr.sec td { font-weight: 800; font-size: .9rem; padding: .9rem .5rem .45rem; border-bottom: 2px solid var(--volt); background: transparent; }
+.pika tr.sec small { font-weight: 500; color: var(--soft); margin-left: .4rem; }
+.pika tr.pg td { font-weight: 700; font-size: .8rem; color: var(--soft); padding: .7rem .5rem .3rem; border-bottom: 1px solid var(--line); background: transparent; text-transform: uppercase; letter-spacing: .04em; }
+
+/* Vinkjes */
+.pika .ck input { appearance: none; -webkit-appearance: none; margin: 0; width: 1.45rem; height: 1.45rem; border: 2px solid var(--soft); border-radius: 7px; background: transparent; cursor: pointer; display: inline-grid; place-content: center; vertical-align: middle; }
+.pika .ck input::after { content: ""; width: .75rem; height: .42rem; border-left: 3px solid var(--volt-ink); border-bottom: 3px solid var(--volt-ink); transform: rotate(-45deg) translate(1px, -1px); opacity: 0; }
+.pika .ck input:checked { background: var(--volt); border-color: var(--volt); }
+.pika .ck input:checked::after { opacity: 1; }
+
+.pika .info { margin-top: 1.5rem; border-top: 1px solid var(--line); padding-top: .75rem; font-size: .9rem; color: var(--soft); }
+.pika .info summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+.pika .info p { margin: .5rem 0 0; }
+.pika .info h3 { font-size: .95rem; font-weight: 700; color: var(--ink); margin: 1rem 0 0; }
+.pika .info ul { margin: .4rem 0 0; padding-left: 1.1rem; list-style: disc; }
+.pika .info a { color: var(--ink); text-decoration: underline; }
+
+/* Focus */
+.pika button:focus-visible,
+.pika input:focus-visible,
+.pika select:focus-visible,
+.pika a:focus-visible,
+.pika summary:focus-visible { outline: 3px solid var(--cheek); outline-offset: 2px; }
+
+/* Telefoon: kolommen krapper, zodat alle vier de vinkjes in beeld passen */
+@media (max-width: 480px) {
+  .pika td { padding: .55rem .25rem; }
+  .pika td.p { font-size: .9rem; padding-right: .4rem; }
+  .pika thead th { padding: .45rem .25rem; }
+  .pika thead th.ck, .pika td.ck { width: 2.35rem; }
+  .pika thead th.ck { font-size: .6rem; }
+}
+
+/* Navbar van het portfolio op deze pagina: zelfde achtergrond, en leesbaar in donker */
+body:has(.pika) header .menuitems { background-color: var(--panel); }
+body:has(.pika) header .menuitems-active { border-color: var(--ink); }
+@media (prefers-color-scheme: dark) {
+  body:has(.pika) header a:hover { background-color: var(--line); }
+  body:has(.pika) header button span.bg-black { background-color: var(--ink); }
+  body:has(.pika) header .btn-dark { background-color: var(--volt); color: var(--volt-ink); }
+}

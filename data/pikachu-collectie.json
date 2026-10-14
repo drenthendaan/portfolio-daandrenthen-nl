@@ -1,0 +1,9202 @@
+{
+ "meta": {
+  "title": "Pikachu-verzamelling van Daan",
+  "generated": "2026-10-14",
+  "prices": "EN: TCGplayer-marktprijs Near Mint (export 5 okt 2026), omgerekend met $1 = €0,88. JP: Card Codex; enkele alleen PSA 10.",
+  "binder": "Vault X 9-Pocket Exo-Tec Zip Binder: 40 pagina's (zijden) × 9 vakjes = 360 plekken. Code 'pagina.vakje'; vakjes 1-3 boven, 4-6 midden, 7-9 onder.",
+  "counts": {
+   "EN": 314,
+   "JP": 112
+  }
+ },
+ "sections": [
+  {
+   "id": "1",
+   "name": "Wizards-tijdperk (1999–2003)",
+   "pages": [
+    1,
+    4
+   ]
+  },
+  {
+   "id": "2",
+   "name": "EX-tijdperk (2003–2007)",
+   "pages": [
+    5,
+    6
+   ]
+  },
+  {
+   "id": "3",
+   "name": "Diamond & Pearl en HeartGold SoulSilver (2007–2011)",
+   "pages": [
+    7,
+    8
+   ]
+  },
+  {
+   "id": "4",
+   "name": "Black & White en XY (2011–2016)",
+   "pages": [
+    9,
+    12
+   ]
+  },
+  {
+   "id": "5",
+   "name": "Sun & Moon (2017–2019)",
+   "pages": [
+    13,
+    18
+   ]
+  },
+  {
+   "id": "6",
+   "name": "Sword & Shield (2020–2023)",
+   "pages": [
+    19,
+    25
+   ]
+  },
+  {
+   "id": "7",
+   "name": "Scarlet & Violet (2023–2025)",
+   "pages": [
+    26,
+    30
+   ]
+  },
+  {
+   "id": "8",
+   "name": "Mega Evolution en 30th Celebration (2025–2026)",
+   "pages": [
+    31,
+    35
+   ]
+  },
+  {
+   "id": "9",
+   "name": "Topstukken",
+   "pages": [
+    36,
+    38
+   ]
+  },
+  {
+   "id": "JP",
+   "name": "Japanse promo's",
+   "pages": null
+  }
+ ],
+ "cards": [
+  {
+   "id": "ka03084695d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Paldea Evolved",
+   "number": "062/193",
+   "price_eur": 0.25,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 9,
+    "code": "26.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k65e4158f5f",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Ascended Heroes",
+   "number": "055/217",
+   "price_eur": 0.26,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 4,
+    "code": "31.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k025457ae15",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Paldean Fates",
+   "number": "018/091",
+   "price_eur": 0.28,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 4,
+    "code": "28.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6276fd1664",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Scarlet & Violet 151",
+   "number": "025/165",
+   "price_eur": 0.31,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 7,
+    "code": "27.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbef25b9dd2",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Pokemon GO",
+   "number": "027/078",
+   "price_eur": 0.33,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 4,
+    "code": "24.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3e29acdecd",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Evolving Skies",
+   "number": "049/203",
+   "price_eur": 0.36,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 8,
+    "code": "22.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3e7a0640d4",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Temporal Forces",
+   "number": "051/162",
+   "price_eur": 0.38,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 7,
+    "code": "28.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfdf9d9d5d1",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Trick or Trade BOOster Bundle",
+   "number": "049/203",
+   "price_eur": 0.41,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 4,
+    "code": "25.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2a337c84b9",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Silver Tempest",
+   "number": "049/195",
+   "price_eur": 0.42,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 5,
+    "code": "25.5"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9f9b476d36",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Trick or Trade BOOster Bundle 2023",
+   "number": "062/193",
+   "price_eur": 0.48,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 9,
+    "code": "27.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "k1c5565d389",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "025/128",
+   "price_eur": 0.48,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 1,
+    "code": "32.1"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8e3eb62277",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "052/128",
+   "price_eur": 0.48,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 1,
+    "code": "35.1"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcd97365c81",
+   "list": "EN",
+   "name": "Pikachu (Energy Symbol Pattern)",
+   "set": "Ascended Heroes",
+   "number": "055/217",
+   "price_eur": 0.48,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 5,
+    "code": "31.5"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "kb19754ff72",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "047/128",
+   "price_eur": 0.5,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 5,
+    "code": "34.5"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdc84fe7f5c",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "030/128",
+   "price_eur": 0.53,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 6,
+    "code": "32.6"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc83aafe5b6",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "045/128",
+   "price_eur": 0.54,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 3,
+    "code": "34.3"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k585a8cd56c",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "044/128",
+   "price_eur": 0.55,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 2,
+    "code": "34.2"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd1c6cea906",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "049/128",
+   "price_eur": 0.55,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 7,
+    "code": "34.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k22d45dd644",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "024/128",
+   "price_eur": 0.56,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 9,
+    "code": "31.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc00b73b141",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "051/128",
+   "price_eur": 0.58,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 9,
+    "code": "34.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k80ae91f410",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "023/128",
+   "price_eur": 0.62,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 8,
+    "code": "31.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc3e5e85942",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "041/128",
+   "price_eur": 0.62,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 8,
+    "code": "33.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kff5fc743e9",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "046/128",
+   "price_eur": 0.62,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 4,
+    "code": "34.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb796771d11",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "037/128",
+   "price_eur": 0.63,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 4,
+    "code": "33.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kec7494c6fd",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "026/128",
+   "price_eur": 0.63,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 2,
+    "code": "32.2"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb0d79677fa",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "050/128",
+   "price_eur": 0.64,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 8,
+    "code": "34.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdcbe85ea33",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "038/128",
+   "price_eur": 0.66,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 5,
+    "code": "33.5"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1e36cc46a8",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Sword & Shield Base Set",
+   "number": "065/202",
+   "price_eur": 0.68,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 9,
+    "code": "20.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "k46dacdca68",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "033/128",
+   "price_eur": 0.68,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 9,
+    "code": "32.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k352fcd74c7",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "048/128",
+   "price_eur": 0.69,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 6,
+    "code": "34.6"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k05634b8890",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "028/128",
+   "price_eur": 0.71,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 4,
+    "code": "32.4"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k95c0c3818d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "042/128",
+   "price_eur": 0.71,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 9,
+    "code": "33.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k37cbaab8f8",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "031/128",
+   "price_eur": 0.71,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 7,
+    "code": "32.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbf7bc0d660",
+   "list": "EN",
+   "name": "Pikachu (Friend Ball)",
+   "set": "Ascended Heroes",
+   "number": "055/217",
+   "price_eur": 0.71,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 6,
+    "code": "31.6"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka8360be7a9",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "029/128",
+   "price_eur": 0.72,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 5,
+    "code": "32.5"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k43cba8fede",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Evolutions",
+   "number": "35/108",
+   "price_eur": 0.74,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 7,
+    "code": "11.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "kc16f7f45a1",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "043/128",
+   "price_eur": 0.77,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 34,
+    "slot": 1,
+    "code": "34.1"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k778d9fbfe3",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "035/128",
+   "price_eur": 0.8,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 2,
+    "code": "33.2"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdfee6245f7",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "032/128",
+   "price_eur": 0.87,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 8,
+    "code": "32.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k84cea9a713",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Trainer Kit: Lycanroc & Alolan Raichu",
+   "number": "14/30",
+   "price_eur": 0.88,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 8,
+    "code": "16.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7ade7cad60",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "039/128",
+   "price_eur": 0.89,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 6,
+    "code": "33.6"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb242ac0dbc",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Hidden Fates",
+   "number": "19/68",
+   "price_eur": 0.9,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 7,
+    "code": "17.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "kaf762f27cd",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "30th Celebration",
+   "number": "053/128",
+   "price_eur": 0.9,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 2,
+    "code": "35.2"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb9f8fae130",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "027/128",
+   "price_eur": 0.91,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 32,
+    "slot": 3,
+    "code": "32.3"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd6da99fac7",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "30th Celebration",
+   "number": "054/128",
+   "price_eur": 0.93,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 3,
+    "code": "35.3"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k56005f328b",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "036/128",
+   "price_eur": 0.97,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 3,
+    "code": "33.3"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd7b1909097",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "BREAKthrough",
+   "number": "48/162",
+   "price_eur": 1.01,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 8,
+    "code": "10.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k256c0a6a34",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Lost Origin",
+   "number": "052/196",
+   "price_eur": 1.01,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 8,
+    "code": "24.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4226144551",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "034/128",
+   "price_eur": 1.03,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 1,
+    "code": "33.1"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6f2455119d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Trainer Kit: Lycanroc & Alolan Raichu",
+   "number": "29/30",
+   "price_eur": 1.13,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 9,
+    "code": "16.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5cc079bf69",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Burning Shadows",
+   "number": "40/147",
+   "price_eur": 1.15,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 5,
+    "code": "16.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbd4d1d2f72",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Roaring Skies",
+   "number": "20/108",
+   "price_eur": 1.33,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 7,
+    "code": "10.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd1367c6e5b",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Unified Minds",
+   "number": "55/236",
+   "price_eur": 1.49,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 8,
+    "code": "17.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k32fdcdb390",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Unbroken Bonds",
+   "number": "54/214",
+   "price_eur": 1.63,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 6,
+    "code": "17.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k647ffa3052",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Pokemon GO",
+   "number": "028/078",
+   "price_eur": 1.69,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 5,
+    "code": "24.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7b2f0ebe40",
+   "list": "EN",
+   "name": "Pikachu (Cosmos Holo)",
+   "set": "Trick or Trade BOOster Bundle 2024",
+   "number": "018/091",
+   "price_eur": 1.73,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 3,
+    "code": "29.3"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "k4f3cb392fd",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH061",
+   "price_eur": 1.77,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 4,
+    "code": "19.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k21a0a1ae2d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Shining Legends",
+   "number": "28/73",
+   "price_eur": 1.95,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 6,
+    "code": "16.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka2eefdeefc",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Cosmic Eclipse",
+   "number": "66/236",
+   "price_eur": 2.02,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 18,
+    "slot": 2,
+    "code": "18.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdecf649f11",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration",
+   "number": "040/128",
+   "price_eur": 2.08,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 33,
+    "slot": 7,
+    "code": "33.7"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "k55f5ed74f0",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Prismatic Evolutions",
+   "number": "028/131",
+   "price_eur": 2.11,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 8,
+    "code": "29.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2b9ac4e8f0",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Vivid Voltage",
+   "number": "043/185",
+   "price_eur": 2.25,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 3,
+    "code": "22.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6b55d663be",
+   "list": "EN",
+   "name": "Pikachu (stempel #15)",
+   "set": "Battle Academy",
+   "number": "019/068",
+   "price_eur": 2.46,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 4,
+    "code": "21.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf6ebf1f6f0",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "XY Base Set",
+   "number": "42/146",
+   "price_eur": 2.47,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 6,
+    "code": "9.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7227510ace",
+   "list": "EN",
+   "name": "Pikachu (Pokemon Day 2026)",
+   "set": "Diverse promo's",
+   "number": "051/162",
+   "price_eur": 2.53,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 8,
+    "code": "28.8"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka14e1040c2",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH198",
+   "price_eur": 2.55,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 5,
+    "code": "20.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke0fbe227ff",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Crimson Invasion",
+   "number": "30/111",
+   "price_eur": 2.57,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 7,
+    "code": "16.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6dbaeaeb5f",
+   "list": "EN",
+   "name": "Pikachu (Cosmos Holo)",
+   "set": "Diverse promo's",
+   "number": "051/162",
+   "price_eur": 2.64,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 9,
+    "code": "28.9"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": true,
+    "shipped": true,
+    "owned": true
+   }
+  },
+  {
+   "id": "k8b89acca92",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Base Set 2",
+   "number": "087/130",
+   "price_eur": 2.76,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 2,
+    "code": "2.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k53c6c85d5a",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Ascended Heroes",
+   "number": "057/217",
+   "price_eur": 2.79,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 7,
+    "code": "31.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k216d375975",
+   "list": "EN",
+   "name": "Pikachu (stempel #30)",
+   "set": "Battle Academy",
+   "number": "019/068",
+   "price_eur": 2.81,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 5,
+    "code": "21.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5da0f86106",
+   "list": "EN",
+   "name": "Pikachu (stempel #2)",
+   "set": "Battle Academy",
+   "number": "019/068",
+   "price_eur": 2.98,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 6,
+    "code": "21.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3606066400",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Generations",
+   "number": "26/83",
+   "price_eur": 3.16,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 9,
+    "code": "10.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcf4a262fa2",
+   "list": "EN",
+   "name": "Pikachu (Holiday Calendar)",
+   "set": "Diverse promo's",
+   "number": "025/165",
+   "price_eur": 3.2,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 1,
+    "code": "28.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kda32973c2e",
+   "list": "EN",
+   "name": "Pikachu (Holiday Calendar)",
+   "set": "Diverse promo's",
+   "number": "049/195",
+   "price_eur": 3.32,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 6,
+    "code": "25.6"
+   },
+   "status": {
+    "wantlist": true,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4399408ed1",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Fusion Strike",
+   "number": "086/264",
+   "price_eur": 3.41,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 1,
+    "code": "24.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7051e5820e",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's 25th Anniversary Promos",
+   "number": "025/025",
+   "price_eur": 3.59,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 7,
+    "code": "22.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kab32264a0e",
+   "list": "EN",
+   "name": "Flying Pikachu V",
+   "set": "Celebrations",
+   "number": "006/025",
+   "price_eur": 3.62,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 2,
+    "code": "23.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": true
+   }
+  },
+  {
+   "id": "kf1c5733af7",
+   "list": "EN",
+   "name": "Flying Pikachu V (Ondrej Skubal)",
+   "set": "World Championship Decks",
+   "number": "006/025",
+   "price_eur": 3.7,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 7,
+    "code": "23.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4698cb2c03",
+   "list": "EN",
+   "name": "Pikachu (Cosmos Holo)",
+   "set": "Diverse promo's",
+   "number": "027/078",
+   "price_eur": 3.79,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 6,
+    "code": "24.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdea2157be8",
+   "list": "EN",
+   "name": "Surfing Pikachu V",
+   "set": "Celebrations",
+   "number": "008/025",
+   "price_eur": 3.94,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 4,
+    "code": "23.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k96f7e4c653",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Boundaries Crossed",
+   "number": "50/149",
+   "price_eur": 4.02,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 4,
+    "code": "9.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf76a0b5210",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Next Destinies",
+   "number": "39/99",
+   "price_eur": 4.13,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 3,
+    "code": "9.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4eb712555c",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Surging Sparks",
+   "number": "057/191",
+   "price_eur": 4.2,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 4,
+    "code": "29.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k72eaa643a5",
+   "list": "EN",
+   "name": "Pikachu ex (Liao Fu Guan)",
+   "set": "World Championship Decks",
+   "number": "",
+   "price_eur": 4.23,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 30,
+    "slot": 1,
+    "code": "30.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k47d0fd03e5",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Paldea Evolved",
+   "number": "063/193",
+   "price_eur": 4.24,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 1,
+    "code": "27.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k44aeb6bad3",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH285",
+   "price_eur": 4.25,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 7,
+    "code": "20.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k42ba66d131",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Furious Fists",
+   "number": "27/111",
+   "price_eur": 4.36,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 5,
+    "code": "10.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1e31e2136d",
+   "list": "EN",
+   "name": "Pikachu V (stempel #60)",
+   "set": "Battle Academy 2022",
+   "number": "043/185",
+   "price_eur": 4.37,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 3,
+    "code": "24.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k388594bf95",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Celebrations",
+   "number": "005/025",
+   "price_eur": 4.39,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 1,
+    "code": "23.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k318479909a",
+   "list": "EN",
+   "name": "Pikachu (stempel #55)",
+   "set": "Battle Academy",
+   "number": "019/068",
+   "price_eur": 4.5,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 7,
+    "code": "21.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4fc3319937",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2024",
+   "number": "002/015",
+   "price_eur": 4.51,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 2,
+    "code": "29.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": true
+   }
+  },
+  {
+   "id": "k367ad628b6",
+   "list": "EN",
+   "name": "Flying Pikachu VMAX (Ondrej Skubal)",
+   "set": "World Championship Decks",
+   "number": "007/025",
+   "price_eur": 4.62,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 8,
+    "code": "23.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k909137023d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Unified Minds",
+   "number": "56/236",
+   "price_eur": 4.64,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 9,
+    "code": "17.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k89adb07627",
+   "list": "EN",
+   "name": "Pikachu (Reverse Cosmos Holo) (Costco Exclusive)",
+   "set": "Diverse promo's",
+   "number": "025/165",
+   "price_eur": 4.66,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 2,
+    "code": "28.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4deac73f53",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH234",
+   "price_eur": 4.77,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 6,
+    "code": "20.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1ab97fc4af",
+   "list": "EN",
+   "name": "Flying Pikachu VMAX",
+   "set": "Celebrations",
+   "number": "007/025",
+   "price_eur": 4.89,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 3,
+    "code": "23.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k05e904bed2",
+   "list": "EN",
+   "name": "Surfing Pikachu VMAX",
+   "set": "Celebrations",
+   "number": "009/025",
+   "price_eur": 5.2,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 5,
+    "code": "23.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kefd964b258",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH063",
+   "price_eur": 5.46,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 6,
+    "code": "19.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf7b8db71cc",
+   "list": "EN",
+   "name": "Detective Pikachu",
+   "set": "SM Promos",
+   "number": "SM190",
+   "price_eur": 5.46,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 5,
+    "code": "15.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k24614993a7",
+   "list": "EN",
+   "name": "Pikachu (General Mills)",
+   "set": "Diverse promo's",
+   "number": "SWSH039",
+   "price_eur": 5.54,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 1,
+    "code": "19.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbc2b4291ac",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Legendary Collection",
+   "number": "086/110",
+   "price_eur": 5.7,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 6,
+    "code": "4.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8c8cb40268",
+   "list": "EN",
+   "name": "Pikachu (World Championship 2025)",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "225",
+   "price_eur": 5.8,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 7,
+    "code": "26.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k91d1b68f2e",
+   "list": "EN",
+   "name": "Pikachu V-UNION",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH140",
+   "price_eur": 5.91,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 8,
+    "code": "19.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfbd74e3dbd",
+   "list": "EN",
+   "name": "Pikachu V-UNION",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH139",
+   "price_eur": 5.95,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 7,
+    "code": "19.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kad1c23996f",
+   "list": "EN",
+   "name": "Pikachu VMAX",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH286",
+   "price_eur": 6.04,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 8,
+    "code": "20.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8f7b581fc2",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX Trainer Kit 1: Latias & Latios",
+   "number": "6/10",
+   "price_eur": 6.29,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 3,
+    "code": "5.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka11e6c9edf",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Arceus",
+   "number": "71/99",
+   "price_eur": 6.48,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 3,
+    "code": "8.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2a5af577d1",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Majestic Dawn",
+   "number": "70/100",
+   "price_eur": 6.51,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 4,
+    "code": "7.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k359d6a0481",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2022",
+   "number": "007/015",
+   "price_eur": 7.08,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 7,
+    "code": "24.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0d3004039d",
+   "list": "EN",
+   "name": "Pikachu V-UNION",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH142",
+   "price_eur": 7.28,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 1,
+    "code": "20.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf83769052c",
+   "list": "EN",
+   "name": "Pikachu (Water Web Holo)",
+   "set": "Diverse promo's",
+   "number": "028/073",
+   "price_eur": 7.31,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 9,
+    "code": "21.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k351d98241d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Supreme Victors",
+   "number": "120",
+   "price_eur": 7.94,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 2,
+    "code": "8.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5dbd8c99a8",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "190",
+   "price_eur": 8.45,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 5,
+    "code": "26.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k06f24d101e",
+   "list": "EN",
+   "name": "Pikachu V-UNION",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH141",
+   "price_eur": 8.48,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 9,
+    "code": "19.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kda88bb8948",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Mega Evolution Promo",
+   "number": "093",
+   "price_eur": 8.7,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 1,
+    "code": "31.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k80ea7ddfc8",
+   "list": "EN",
+   "name": "Flying Pikachu",
+   "set": "Evolutions",
+   "number": "110/108",
+   "price_eur": 8.93,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 8,
+    "code": "11.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kac15fe7083",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH039",
+   "price_eur": 9.04,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 3,
+    "code": "19.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k99e94b9565",
+   "list": "EN",
+   "name": "Surfing Pikachu",
+   "set": "Evolutions",
+   "number": "111/108",
+   "price_eur": 9.06,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 9,
+    "code": "11.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k42911af7de",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2023",
+   "number": "006/015",
+   "price_eur": 9.28,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 6,
+    "code": "27.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc151a45bd8",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "HGSS Trainer Kit: Gyarados & Raichu",
+   "number": "2/30",
+   "price_eur": 9.58,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 6,
+    "code": "8.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0d2166ef61",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Stormfront",
+   "number": "70/100",
+   "price_eur": 9.98,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 7,
+    "code": "7.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kebe566ae82",
+   "list": "EN",
+   "name": "Detective Pikachu",
+   "set": "SM Promos",
+   "number": "SM194",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 7,
+    "code": "15.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k10a4461062",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX FireRed & LeafGreen",
+   "number": "74/112",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 4,
+    "code": "5.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k943c30f821",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX Holon Phantoms",
+   "number": "78/110",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 9,
+    "code": "5.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb6613bb42a",
+   "list": "EN",
+   "name": "Pikachu VMAX",
+   "set": "Vivid Voltage",
+   "number": "044/185",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 4,
+    "code": "22.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0b83c3d7fd",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "HeartGold SoulSilver",
+   "number": "78/123",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 4,
+    "code": "8.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc117a52c08",
+   "list": "EN",
+   "name": "Pikachu ex (Holiday Calendar)",
+   "set": "Diverse promo's",
+   "number": "063/193",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 3,
+    "code": "27.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd5605ec0af",
+   "list": "EN",
+   "name": "Pikachu ex (stempel #60)",
+   "set": "Battle Academy 2024",
+   "number": "106",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 1,
+    "code": "29.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k21b0d4ae5b",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Base Set",
+   "number": "058/102",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 2,
+    "code": "1.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6ce0dfe868",
+   "list": "EN",
+   "name": "Pikachu (Cracked Ice Holo)",
+   "set": "Deck Exclusives",
+   "number": "028/073",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 8,
+    "code": "21.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6c4f6de075",
+   "list": "EN",
+   "name": "Pikachu (Target Non-Holo)",
+   "set": "SM Promos",
+   "number": "SM04",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 4,
+    "code": "13.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k509b1f578e",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH143",
+   "price_eur": 11.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 2,
+    "code": "20.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0cb3f74d59",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Undaunted",
+   "number": "61/90",
+   "price_eur": 12.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 8,
+    "code": "8.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8f9bcc0f53",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM04",
+   "price_eur": 12.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 5,
+    "code": "13.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6e7d017120",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "HGSS Trainer Kit: Gyarados & Raichu",
+   "number": "16/30",
+   "price_eur": 13.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 7,
+    "code": "8.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k945238f98d",
+   "list": "EN",
+   "name": "Pikachu δ",
+   "set": "EX Holon Phantoms",
+   "number": "79/110",
+   "price_eur": 13.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 6,
+    "slot": 1,
+    "code": "6.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k73fd1f7093",
+   "list": "EN",
+   "name": "Pikachu VMAX",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH062",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 5,
+    "code": "19.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdc32dbb7df",
+   "list": "EN",
+   "name": "Pikachu (Reverse Cosmos Holo)",
+   "set": "Diverse promo's",
+   "number": "018/091",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 6,
+    "code": "28.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2c2dcd05e6",
+   "list": "EN",
+   "name": "Detective Pikachu",
+   "set": "Detective Pikachu",
+   "number": "10/18",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 5,
+    "code": "17.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8816eb20c9",
+   "list": "EN",
+   "name": "Pikachu (2014 Movie Promo)",
+   "set": "Diverse promo's",
+   "number": "042/146",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 7,
+    "code": "9.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka18210cc7c",
+   "list": "EN",
+   "name": "Pikachu (Ivy)",
+   "set": "Pikachu World Collection Promos",
+   "number": "1",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 3,
+    "code": "2.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke6300e39bc",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX Emerald",
+   "number": "60/106",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 6,
+    "code": "5.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf0191ccdb2",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM183",
+   "price_eur": 14.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 4,
+    "code": "15.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k91cce6f927",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX Sandstorm",
+   "number": "72/100",
+   "price_eur": 15.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 1,
+    "code": "5.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k47287c51d2",
+   "list": "EN",
+   "name": "Pikachu (Illustration Contest 2024)",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "214",
+   "price_eur": 16.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 6,
+    "code": "26.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4bca50b7ad",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Mysterious Treasures",
+   "number": "94/123",
+   "price_eur": 16.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 1,
+    "code": "7.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8ebdb39c65",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX Power Keepers",
+   "number": "57/108",
+   "price_eur": 16.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 6,
+    "slot": 4,
+    "code": "6.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc5022855d3",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "My First Battle",
+   "number": "",
+   "price_eur": 17.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 4,
+    "code": "27.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8f2dd3816d",
+   "list": "EN",
+   "name": "Pikachu (Pokemon League)",
+   "set": "League & Championship Cards",
+   "number": "049/203",
+   "price_eur": 17.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 9,
+    "code": "22.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k63be570044",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "30th Celebration Classic Collection",
+   "number": "58/102",
+   "price_eur": 17.0,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 7,
+    "code": "35.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9229a8ff97",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "027",
+   "price_eur": 18.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 1,
+    "code": "26.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k26624a3cd4",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM76",
+   "price_eur": 18.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 6,
+    "code": "13.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcd253d1f07",
+   "list": "EN",
+   "name": "Pikachu (General Mills)",
+   "set": "Diverse promo's",
+   "number": "028/073",
+   "price_eur": 18.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 1,
+    "code": "22.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8a6aeb4a46",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "088",
+   "price_eur": 18.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 3,
+    "code": "26.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k47e97dbe24",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "POP Series 9",
+   "number": "015/017",
+   "price_eur": 19.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 8,
+    "code": "7.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke9699aa1a7",
+   "list": "EN",
+   "name": "Pikachu (Cracked Ice Holo)",
+   "set": "Deck Exclusives",
+   "number": "035/108",
+   "price_eur": 19.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 12,
+    "slot": 2,
+    "code": "12.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k409ba34528",
+   "list": "EN",
+   "name": "Pikachu (General Mills)",
+   "set": "Diverse promo's",
+   "number": "SM04",
+   "price_eur": 20.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 1,
+    "code": "13.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd5f6a08e7c",
+   "list": "EN",
+   "name": "Pikachu Libre (non-holo)",
+   "set": "XY Trainer Kit: Pikachu Libre & Suicune",
+   "number": "14/30",
+   "price_eur": 20.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 5,
+    "code": "11.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k78cce54972",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM227",
+   "price_eur": 21.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 9,
+    "code": "15.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3ddc128e5c",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM234",
+   "price_eur": 21.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 2,
+    "code": "16.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k661ce6eb14",
+   "list": "EN",
+   "name": "Pikachu VMAX (Secret)",
+   "set": "Lost Origin Trainer Gallery",
+   "number": "TG29/TG30",
+   "price_eur": 22.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 3,
+    "code": "25.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdbaec34229",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX",
+   "set": "30th Celebration Classic Collection",
+   "number": "33/181",
+   "price_eur": 23.0,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 6,
+    "code": "35.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd3eb1bcc9e",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Prize Pack Series Cards",
+   "number": "057/191",
+   "price_eur": 23.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 7,
+    "code": "29.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8eb64c0aee",
+   "list": "EN",
+   "name": "Pikachu-GX",
+   "set": "SM Promos",
+   "number": "SM232",
+   "price_eur": 24.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 1,
+    "code": "16.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k40047117ba",
+   "list": "EN",
+   "name": "Pikachu V (Full Art)",
+   "set": "Brilliant Stars",
+   "number": "157/172",
+   "price_eur": 24.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 2,
+    "code": "24.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k21b91c0965",
+   "list": "EN",
+   "name": "Lt. Surge's Pikachu",
+   "set": "Gym Challenge",
+   "number": "084/132",
+   "price_eur": 24.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 4,
+    "code": "4.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke29753d9ed",
+   "list": "EN",
+   "name": "Detective Pikachu (Stamped)",
+   "set": "SM Promos",
+   "number": "SM190",
+   "price_eur": 24.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 6,
+    "code": "15.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kad1ef291ac",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Surging Sparks",
+   "number": "219/191",
+   "price_eur": 25.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 5,
+    "code": "29.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6284151576",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Jungle",
+   "number": "60/64",
+   "price_eur": 25.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 4,
+    "code": "1.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb11c9f412d",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM108",
+   "price_eur": 26.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 1,
+    "code": "14.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k66a1a43b53",
+   "list": "EN",
+   "name": "Pikachu (Blue Border)",
+   "set": "My First Battle",
+   "number": "",
+   "price_eur": 27.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 5,
+    "code": "27.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3cd3a0c86b",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Expedition",
+   "number": "124/165",
+   "price_eur": 27.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 7,
+    "code": "4.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k858b7e139b",
+   "list": "EN",
+   "name": "______'s Pikachu",
+   "set": "Celebrations: Classic Collection",
+   "number": "24/53",
+   "price_eur": 27.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 6,
+    "code": "23.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc55675ac5d",
+   "list": "EN",
+   "name": "Lt. Surge's Pikachu",
+   "set": "Gym Heroes",
+   "number": "081/132",
+   "price_eur": 27.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 3,
+    "code": "4.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2bbcdcac5b",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM206",
+   "price_eur": 27.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 8,
+    "code": "15.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0405dc699a",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2017",
+   "number": "005/012",
+   "price_eur": 27.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 4,
+    "code": "16.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k67a185c42b",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Wizards Black Star Promo",
+   "number": "27/53",
+   "price_eur": 28.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 9,
+    "code": "1.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0573aacacf",
+   "list": "EN",
+   "name": "Pikachu-EX",
+   "set": "XY Promos",
+   "number": "XY174",
+   "price_eur": 28.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 3,
+    "code": "10.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k794275c395",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "EX Team Magma vs Team Aqua",
+   "number": "43/95",
+   "price_eur": 28.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 2,
+    "code": "5.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbc0ef77bc2",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM157",
+   "price_eur": 29.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 8,
+    "code": "14.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8bbfd4fd43",
+   "list": "EN",
+   "name": "Pikachu (Reverse Cosmos Holo)",
+   "set": "Diverse promo's",
+   "number": "065/202",
+   "price_eur": 29.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 1,
+    "code": "21.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9e6e9e112c",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2016",
+   "number": "006/012",
+   "price_eur": 29.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 4,
+    "code": "11.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb2a5e607be",
+   "list": "EN",
+   "name": "Pikachu (Cosmos Holo)",
+   "set": "Diverse promo's",
+   "number": "028/073",
+   "price_eur": 29.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 2,
+    "code": "22.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd3228f2450",
+   "list": "EN",
+   "name": "Detective Pikachu (Stamped)",
+   "set": "SM Promos",
+   "number": "SM170",
+   "price_eur": 29.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 2,
+    "code": "15.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k45aea94768",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX (Haruki Miyamoto)",
+   "set": "World Championship Decks",
+   "number": "33/181",
+   "price_eur": 30.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 4,
+    "code": "17.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k07007acfe6",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM81",
+   "price_eur": 30.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 7,
+    "code": "13.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka642c87a23",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX",
+   "set": "SM Promos",
+   "number": "SM248",
+   "price_eur": 33.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 16,
+    "slot": 3,
+    "code": "16.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9217d50f82",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "POP Series 4",
+   "number": "013/017",
+   "price_eur": 33.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 6,
+    "slot": 2,
+    "code": "6.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf1e39721e8",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2019",
+   "number": "006/012",
+   "price_eur": 33.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 18,
+    "slot": 1,
+    "code": "18.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf93a6a78d4",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Crown Zenith: Galarian Gallery",
+   "number": "GG30/GG70",
+   "price_eur": 33.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 8,
+    "code": "25.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5df5725fda",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2015",
+   "number": "006/012",
+   "price_eur": 34.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 6,
+    "code": "10.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb44908888d",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Neo Genesis",
+   "number": "070/111",
+   "price_eur": 34.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 5,
+    "code": "4.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1341d3b8d5",
+   "list": "EN",
+   "name": "Pikachu (Build-A-Bear Workshop Exclusive)",
+   "set": "Diverse promo's",
+   "number": "020/108",
+   "price_eur": 35.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 12,
+    "slot": 1,
+    "code": "12.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc7712c9849",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM86",
+   "price_eur": 35.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 8,
+    "code": "13.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k56963e5985",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "101",
+   "price_eur": 35.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 4,
+    "code": "26.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd097535937",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2018",
+   "number": "004/012",
+   "price_eur": 35.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 1,
+    "code": "17.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k373f37a1a5",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Lost Origin Trainer Gallery",
+   "number": "TG05/TG30",
+   "price_eur": 37.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 24,
+    "slot": 9,
+    "code": "24.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcbec72d44c",
+   "list": "EN",
+   "name": "Pikachu (Secret)",
+   "set": "Crown Zenith",
+   "number": "160/159",
+   "price_eur": 37.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 7,
+    "code": "25.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kac32ef9628",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Wizards Black Star Promo",
+   "number": "01/53",
+   "price_eur": 37.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 5,
+    "code": "1.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9eec43e9e6",
+   "list": "EN",
+   "name": "Pikachu (Movie Promo)",
+   "set": "Wizards Black Star Promo",
+   "number": "04/53",
+   "price_eur": 37.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 6,
+    "code": "1.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0ecf084902",
+   "list": "EN",
+   "name": "Detective Pikachu",
+   "set": "SM Promos",
+   "number": "SM170",
+   "price_eur": 37.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 3,
+    "code": "15.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k256b444523",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "McDonald's Promos 2014",
+   "number": "005/012",
+   "price_eur": 38.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 4,
+    "code": "10.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6559141b58",
+   "list": "EN",
+   "name": "Pikachu (General Mills Promo)",
+   "set": "Diverse promo's",
+   "number": "SM86",
+   "price_eur": 39.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 2,
+    "code": "13.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9fd2859318",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "HGSS Promos",
+   "number": "HGSS03",
+   "price_eur": 39.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 5,
+    "code": "8.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1ff29446f0",
+   "list": "EN",
+   "name": "Pikachu V (Full Art)",
+   "set": "Vivid Voltage",
+   "number": "170/185",
+   "price_eur": 40.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 5,
+    "code": "22.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k31e6a1312a",
+   "list": "EN",
+   "name": "Pikachu (Collector Chest)",
+   "set": "XY Promos",
+   "number": "XY89",
+   "price_eur": 40.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 1,
+    "code": "10.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k771cbb04cd",
+   "list": "EN",
+   "name": "Pikachu (Holiday Calendar)",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH153",
+   "price_eur": 43.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 4,
+    "code": "20.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k279aa34283",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM114",
+   "price_eur": 43.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 7,
+    "code": "14.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k77bab2e10e",
+   "list": "EN",
+   "name": "Pikachu (Flying)",
+   "set": "Pikachu World Collection Promos",
+   "number": "25",
+   "price_eur": 44.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 7,
+    "code": "3.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k980a2fd184",
+   "list": "EN",
+   "name": "Pikachu (Base Set)",
+   "set": "Pikachu World Collection Promos",
+   "number": "58",
+   "price_eur": 44.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 1,
+    "code": "4.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k66cea96df1",
+   "list": "EN",
+   "name": "Pikachu (Jungle)",
+   "set": "Pikachu World Collection Promos",
+   "number": "60",
+   "price_eur": 44.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 2,
+    "code": "4.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k896421cb01",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Trading Card Game Classic",
+   "number": "008/034",
+   "price_eur": 44.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 9,
+    "code": "4.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf9d0ec189a",
+   "list": "EN",
+   "name": "Pikachu (Movie)",
+   "set": "Pikachu World Collection Promos",
+   "number": "4",
+   "price_eur": 48.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 7,
+    "code": "2.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8b18006b95",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX",
+   "set": "Team Up",
+   "number": "33/181",
+   "price_eur": 48.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 2,
+    "code": "17.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7e6a519963",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM113",
+   "price_eur": 49.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 6,
+    "code": "14.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k623f7e7ad0",
+   "list": "EN",
+   "name": "Pikachu (Platinum)",
+   "set": "Burger King Promos",
+   "number": "070/100",
+   "price_eur": 49.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 5,
+    "code": "7.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke81ccf5a17",
+   "list": "EN",
+   "name": "Pikachu (Korean)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 3",
+   "price_eur": 49.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 6,
+    "code": "2.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8b9c1cba41",
+   "list": "EN",
+   "name": "Pikachu (Surfing)",
+   "set": "Pikachu World Collection Promos",
+   "number": "28",
+   "price_eur": 50.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 9,
+    "code": "3.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke0eae11ad1",
+   "list": "EN",
+   "name": "Pikachu (Cosmos Holo)",
+   "set": "League & Championship Cards",
+   "number": "065/202",
+   "price_eur": 50.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 2,
+    "code": "21.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k610c69c40a",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "30th Celebration",
+   "number": "149/128",
+   "price_eur": 50.0,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 4,
+    "code": "35.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcb2aa9a1e9",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Prismatic Evolutions",
+   "number": "179/131",
+   "price_eur": 51.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 9,
+    "code": "29.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k06ec0aa5f5",
+   "list": "EN",
+   "name": "Pikachu (Pokemon League)",
+   "set": "League & Championship Cards",
+   "number": "XY202",
+   "price_eur": 51.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 8,
+    "code": "9.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k887f5dfc9e",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM111",
+   "price_eur": 51.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 4,
+    "code": "14.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k558b18f486",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM112",
+   "price_eur": 51.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 5,
+    "code": "14.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2b09bc2040",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "POP Series 2",
+   "number": "016/017",
+   "price_eur": 51.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 7,
+    "code": "5.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcd6609b11e",
+   "list": "EN",
+   "name": "Pikachu (Build-A-Bear Workshop Exclusive)",
+   "set": "Diverse promo's",
+   "number": "SM86",
+   "price_eur": 52.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 3,
+    "code": "13.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k788f52e4e1",
+   "list": "EN",
+   "name": "Pikachu (E3 Stamped)",
+   "set": "Diverse promo's",
+   "number": "058/102",
+   "price_eur": 54.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 3,
+    "code": "1.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke82f7c8264",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM110",
+   "price_eur": 55.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 3,
+    "code": "14.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd18e9ee7d8",
+   "list": "EN",
+   "name": "Pikachu δ",
+   "set": "POP Series 5",
+   "number": "013/017",
+   "price_eur": 57.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 6,
+    "slot": 6,
+    "code": "6.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9c140477cd",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM98",
+   "price_eur": 58.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 13,
+    "slot": 9,
+    "code": "13.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k471f0cd427",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "POP Series 5",
+   "number": "012/017",
+   "price_eur": 58.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 6,
+    "slot": 5,
+    "code": "6.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1f36cda3c5",
+   "list": "EN",
+   "name": "Surfing Pikachu",
+   "set": "Wizards Black Star Promo",
+   "number": "28/53",
+   "price_eur": 59.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 1,
+    "code": "2.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k41495d8867",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "30th Celebration",
+   "number": "150/128",
+   "price_eur": 60.0,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 35,
+    "slot": 5,
+    "code": "35.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kad33f1cbcc",
+   "list": "EN",
+   "name": "Pikachu Libre (holo)",
+   "set": "XY Trainer Kit: Pikachu Libre & Suicune",
+   "number": "30/30",
+   "price_eur": 61.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 6,
+    "code": "11.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8f5901cb89",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Paldean Fates",
+   "number": "131/091",
+   "price_eur": 65.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 5,
+    "code": "28.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k74f4da703a",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Scarlet & Violet 151",
+   "number": "173/165",
+   "price_eur": 66.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 8,
+    "code": "27.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf30f5819b3",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Surging Sparks",
+   "number": "247/191",
+   "price_eur": 70.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 29,
+    "slot": 6,
+    "code": "29.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5828192496",
+   "list": "EN",
+   "name": "Pikachu (Snap)",
+   "set": "Pikachu World Collection Promos",
+   "number": "4",
+   "price_eur": 73.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 8,
+    "code": "2.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2a82be6d5e",
+   "list": "EN",
+   "name": "Pikachu (Italian)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 2",
+   "price_eur": 76.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 5,
+    "code": "2.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb5ba6d3e77",
+   "list": "EN",
+   "name": "Flying Pikachu",
+   "set": "Wizards Black Star Promo",
+   "number": "25/53",
+   "price_eur": 77.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 7,
+    "code": "1.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb0b215f840",
+   "list": "EN",
+   "name": "Pikachu-EX",
+   "set": "XY Promos",
+   "number": "XY84",
+   "price_eur": 78.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 9,
+    "code": "9.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9c9d189445",
+   "list": "EN",
+   "name": "Pikachu (German)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 6",
+   "price_eur": 82.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 3,
+    "code": "3.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0e87c044d4",
+   "list": "EN",
+   "name": "Pikachu (Toys R Us)",
+   "set": "Diverse promo's",
+   "number": "026/083",
+   "price_eur": 82.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 2,
+    "code": "11.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k78a7cfba76",
+   "list": "EN",
+   "name": "Pikachu (SNAP Promo)",
+   "set": "Wizards Black Star Promo",
+   "number": "26/53",
+   "price_eur": 83.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 8,
+    "code": "1.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kea79f39ee9",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Legendary Treasures: Radiant Collection",
+   "number": "RC7/RC25",
+   "price_eur": 85.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 5,
+    "code": "9.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbb85f7fe16",
+   "list": "EN",
+   "name": "Pikachu (Baby)",
+   "set": "Pikachu World Collection Promos",
+   "number": "27",
+   "price_eur": 86.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 8,
+    "code": "3.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3cdfe0e29e",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Black and White Promos",
+   "number": "BW54",
+   "price_eur": 88.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 2,
+    "code": "9.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2942da5106",
+   "list": "EN",
+   "name": "Pikachu (Pokemon Day Stamped)",
+   "set": "POP Series 6",
+   "number": "009/017",
+   "price_eur": 88.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 2,
+    "code": "7.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kad6556cf10",
+   "list": "EN",
+   "name": "Pikachu (English)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 1",
+   "price_eur": 88.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 4,
+    "code": "2.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8aad714f0c",
+   "list": "EN",
+   "name": "Pikachu (Polish)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 8",
+   "price_eur": 88.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 5,
+    "code": "3.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k144f78c32b",
+   "list": "EN",
+   "name": "Pikachu (Portuguese)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 9",
+   "price_eur": 90.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 6,
+    "code": "3.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4bba782037",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH145",
+   "price_eur": 93.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 20,
+    "slot": 3,
+    "code": "20.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3c8fc65337",
+   "list": "EN",
+   "name": "Pikachu VMAX",
+   "set": "Lost Origin Trainer Gallery",
+   "number": "TG17/TG30",
+   "price_eur": 93.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 2,
+    "code": "25.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9d3c4aa9b8",
+   "list": "EN",
+   "name": "Pikachu (French)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 7",
+   "price_eur": 93.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 4,
+    "code": "3.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbb42c347a7",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH020",
+   "price_eur": 95.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 19,
+    "slot": 2,
+    "code": "19.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k374de0f3fd",
+   "list": "EN",
+   "name": "Pikachu (Diamond & Pearl)",
+   "set": "Burger King Promos",
+   "number": "094/123",
+   "price_eur": 98.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 6,
+    "code": "7.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbc4278d572",
+   "list": "EN",
+   "name": "Pikachu (Japanese)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 5",
+   "price_eur": 100.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 1,
+    "code": "3.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7ec47b6d1e",
+   "list": "EN",
+   "name": "Ash's Pikachu",
+   "set": "SM Promos",
+   "number": "SM109",
+   "price_eur": 103.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 2,
+    "code": "14.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbcb65e4736",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Lost Origin Trainer Gallery",
+   "number": "TG16/TG30",
+   "price_eur": 104.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 25,
+    "slot": 1,
+    "code": "25.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1de1ee982a",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "POP Series 6",
+   "number": "009/017",
+   "price_eur": 106.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 3,
+    "code": "7.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7289732c1b",
+   "list": "EN",
+   "name": "Pikachu (Spanish)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 4",
+   "price_eur": 106.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 2,
+    "slot": 9,
+    "code": "2.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4a37ea3d3e",
+   "list": "EN",
+   "name": "Pikachu (World Championship 2025) (Winner)",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "225",
+   "price_eur": 116.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 8,
+    "code": "26.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kecff2019ae",
+   "list": "EN",
+   "name": "Pikachu (Winner)",
+   "set": "Mega Evolution Promo",
+   "number": "093",
+   "price_eur": 121.0,
+   "price_type": "market",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 2,
+    "code": "31.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka685e8da3e",
+   "list": "EN",
+   "name": "Pikachu (Pokemon Together)",
+   "set": "Diverse promo's",
+   "number": "025/165",
+   "price_eur": 121.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 28,
+    "slot": 3,
+    "code": "28.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka528714601",
+   "list": "EN",
+   "name": "Pikachu (20th Anniversary)",
+   "set": "Diverse promo's",
+   "number": "026/083",
+   "price_eur": 132.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 3,
+    "code": "11.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k75f7b70883",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "SM Promos",
+   "number": "SM162",
+   "price_eur": 132.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 14,
+    "slot": 9,
+    "code": "14.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6258de23f0",
+   "list": "EN",
+   "name": "Pikachu (Full Art)",
+   "set": "Generations: Radiant Collection",
+   "number": "RC29/RC32",
+   "price_eur": 139.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 11,
+    "slot": 1,
+    "code": "11.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbf4b496e9f",
+   "list": "EN",
+   "name": "Pikachu (EX Series Collector's Tin)",
+   "set": "Nintendo Promos",
+   "number": "012",
+   "price_eur": 140.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 5,
+    "code": "5.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8800b4558c",
+   "list": "EN",
+   "name": "Pikachu (Pokemon Center Exclusive)",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "027",
+   "price_eur": 143.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 26,
+    "slot": 2,
+    "code": "26.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2878a7749d",
+   "list": "EN",
+   "name": "Pikachu (Celebrations Metal Card)",
+   "set": "Diverse promo's",
+   "number": "058/102",
+   "price_eur": 145.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 23,
+    "slot": 9,
+    "code": "23.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k41c591213c",
+   "list": "EN",
+   "name": "Pikachu VMAX (Secret)",
+   "set": "Vivid Voltage",
+   "number": "188/185",
+   "price_eur": 149.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 22,
+    "slot": 6,
+    "code": "22.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5494c70fa4",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX (Full Art)",
+   "set": "Team Up",
+   "number": "162/181",
+   "price_eur": 154.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 17,
+    "slot": 3,
+    "code": "17.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8c0602ccd4",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Black and White",
+   "number": "115/114",
+   "price_eur": 159.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 9,
+    "slot": 1,
+    "code": "9.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kdc014094d0",
+   "list": "EN",
+   "name": "Pikachu (Rain City Showcase)",
+   "set": "Diverse promo's",
+   "number": "062/193",
+   "price_eur": 164.0,
+   "price_type": "market",
+   "note": null,
+   "section": "7",
+   "binder": {
+    "page": 27,
+    "slot": 2,
+    "code": "27.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1bf0a0d91a",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Base Set (Shadowless)",
+   "number": "058/102",
+   "price_eur": 165.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 1,
+    "slot": 1,
+    "code": "1.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kde9af5c567",
+   "list": "EN",
+   "name": "Pikachu (Pokemon Day 2009)",
+   "set": "POP Series 9",
+   "number": "015/017",
+   "price_eur": 176.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 7,
+    "slot": 9,
+    "code": "7.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kd8ccb149a0",
+   "list": "EN",
+   "name": "Pikachu (10th Anniversary)",
+   "set": "Diverse promo's",
+   "number": "012",
+   "price_eur": 178.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 6,
+    "slot": 3,
+    "code": "6.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1eca1e6e76",
+   "list": "EN",
+   "name": "Pikachu on the Ball (Pokemon Futsal)",
+   "set": "Diverse promo's",
+   "number": "001/005",
+   "price_eur": 182.0,
+   "price_type": "market",
+   "note": null,
+   "section": "6",
+   "binder": {
+    "page": 21,
+    "slot": 3,
+    "code": "21.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8ecd14cf37",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "XY Promos",
+   "number": "XY95",
+   "price_eur": 182.0,
+   "price_type": "market",
+   "note": null,
+   "section": "4",
+   "binder": {
+    "page": 10,
+    "slot": 2,
+    "code": "10.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka9204728e1",
+   "list": "EN",
+   "name": "Flying Pikachu",
+   "set": "Rising Rivals",
+   "number": "113/111",
+   "price_eur": 183.0,
+   "price_type": "market",
+   "note": null,
+   "section": "3",
+   "binder": {
+    "page": 8,
+    "slot": 1,
+    "code": "8.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k44a9643856",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX",
+   "set": "SM Promos",
+   "number": "SM168",
+   "price_eur": 193.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 15,
+    "slot": 1,
+    "code": "15.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka89d430d58",
+   "list": "EN",
+   "name": "Pikachu δ",
+   "set": "EX Legend Maker",
+   "number": "93/92",
+   "price_eur": 194.0,
+   "price_type": "market",
+   "note": null,
+   "section": "2",
+   "binder": {
+    "page": 5,
+    "slot": 8,
+    "code": "5.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2cf9274480",
+   "list": "EN",
+   "name": "Pikachu (Secret)",
+   "set": "Cosmic Eclipse",
+   "number": "241/236",
+   "price_eur": 196.0,
+   "price_type": "market",
+   "note": null,
+   "section": "5",
+   "binder": {
+    "page": 18,
+    "slot": 3,
+    "code": "18.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k320e9cf1cc",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Skyridge",
+   "number": "084/144",
+   "price_eur": 197.0,
+   "price_type": "market",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 4,
+    "slot": 8,
+    "code": "4.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf82153b373",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Diamond and Pearl Promos",
+   "number": "DP16",
+   "price_eur": 214.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 3,
+    "code": "37.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k012a5cace1",
+   "list": "EN",
+   "name": "Pikachu & Zekrom-GX (Secret)",
+   "set": "Team Up",
+   "number": "184/181",
+   "price_eur": 218.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 9,
+    "code": "37.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k56133ae44b",
+   "list": "EN",
+   "name": "Pikachu (W Stamped)",
+   "set": "Wizards Black Star Promo",
+   "number": "60/64",
+   "price_eur": 218.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 6,
+    "code": "36.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0ea783596b",
+   "list": "EN",
+   "name": "Pikachu δ (Value Pack)",
+   "set": "Nintendo Promos",
+   "number": "035",
+   "price_eur": 230.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 9,
+    "code": "36.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k554d465308",
+   "list": "EN",
+   "name": "Pikachu V",
+   "set": "Prize Pack Series Cards",
+   "number": "043/185",
+   "price_eur": 234.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 2,
+    "code": "38.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka36c2d5f06",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Surging Sparks",
+   "number": "238/191",
+   "price_eur": 252.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 5,
+    "code": "38.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2b94123e42",
+   "list": "EN",
+   "name": "Pikachu ex (30th Celebration)",
+   "set": "Mega Evolution Promo",
+   "number": "109",
+   "price_eur": 264.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 7,
+    "code": "38.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kaed655aa80",
+   "list": "EN",
+   "name": "Pikachu (PokeTour 1999)",
+   "set": "Diverse promo's",
+   "number": "058/102",
+   "price_eur": 264.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 2,
+    "code": "36.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k850fb99e44",
+   "list": "EN",
+   "name": "Pikachu (SDCC 2005)",
+   "set": "Diverse promo's",
+   "number": "060/106",
+   "price_eur": 265.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 1,
+    "code": "37.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k62d77269bf",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Ascended Heroes",
+   "number": "277/217",
+   "price_eur": 266.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 9,
+    "code": "38.9"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kda9f251b1e",
+   "list": "EN",
+   "name": "______'s Pikachu",
+   "set": "Pikachu World Collection Promos",
+   "number": "24",
+   "price_eur": 273.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 7,
+    "code": "36.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2b0dbc8c4f",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Rising Rivals",
+   "number": "112/111",
+   "price_eur": 289.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 5,
+    "code": "37.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k795dcf47e7",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Countdown Calendar Promos",
+   "number": "DP16",
+   "price_eur": 333.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 4,
+    "code": "37.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k99d6b25a65",
+   "list": "EN",
+   "name": "Surfing Pikachu",
+   "set": "Rising Rivals",
+   "number": "114/111",
+   "price_eur": 342.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 6,
+    "code": "37.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7b173ab979",
+   "list": "EN",
+   "name": "Pikachu (E3 Stamped with Red Cheeks)",
+   "set": "Diverse promo's",
+   "number": "058/102",
+   "price_eur": 343.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 3,
+    "code": "36.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k08c4abac97",
+   "list": "EN",
+   "name": "Pikachu ex (30th Celebration)",
+   "set": "Mega Evolution Promo",
+   "number": "107",
+   "price_eur": 352.0,
+   "price_type": "asking",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 6,
+    "code": "38.6"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2b42291ec7",
+   "list": "EN",
+   "name": "Pikachu (Red Cheeks)",
+   "set": "Base Set (Shadowless)",
+   "number": "058/102",
+   "price_eur": 378.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 1,
+    "code": "36.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kef1b6c55cf",
+   "list": "EN",
+   "name": "Special Delivery Pikachu",
+   "set": "Sword & Shield Promo Cards",
+   "number": "SWSH074",
+   "price_eur": 408.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 1,
+    "code": "38.1"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke1be27515c",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Kids WB Promos",
+   "number": "005/005",
+   "price_eur": 422.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 8,
+    "code": "36.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k40a7c07b58",
+   "list": "EN",
+   "name": "______'s Pikachu",
+   "set": "Wizards Black Star Promo",
+   "number": "24/53",
+   "price_eur": 433.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 5,
+    "code": "36.5"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k826876a38b",
+   "list": "EN",
+   "name": "Pikachu-EX",
+   "set": "XY Promos",
+   "number": "XY124",
+   "price_eur": 434.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 8,
+    "code": "37.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7e2694f61e",
+   "list": "EN",
+   "name": "Pikachu VMAX",
+   "set": "Prize Pack Series Cards",
+   "number": "044/185",
+   "price_eur": 594.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 3,
+    "code": "38.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kce8a63307e",
+   "list": "EN",
+   "name": "Pikachu",
+   "set": "Rumble",
+   "number": "7",
+   "price_eur": 660.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 7,
+    "code": "37.7"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbc17bb08eb",
+   "list": "EN",
+   "name": "Pikachu ex",
+   "set": "Ascended Heroes",
+   "number": "276/217",
+   "price_eur": 815.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 8,
+    "code": "38.8"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc2c86af0da",
+   "list": "EN",
+   "name": "Pikachu with Grey Felt Hat",
+   "set": "Scarlet & Violet Promo Cards",
+   "number": "085",
+   "price_eur": 894.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 38,
+    "slot": 4,
+    "code": "38.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4e2963029a",
+   "list": "EN",
+   "name": "Pikachu ★",
+   "set": "EX Holon Phantoms",
+   "number": "104/110",
+   "price_eur": 1672.0,
+   "price_type": "market",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 37,
+    "slot": 2,
+    "code": "37.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k06bd1d268d",
+   "list": "EN",
+   "name": "Pikachu (Misprint)",
+   "set": "Wizards Black Star Promo",
+   "number": "01/53",
+   "price_eur": 1936.0,
+   "price_type": "asking",
+   "note": null,
+   "section": "9",
+   "binder": {
+    "page": 36,
+    "slot": 4,
+    "code": "36.4"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8d2929a756",
+   "list": "EN",
+   "name": "Pokémon RUN Pikachu",
+   "set": "Mega Evolution Promo",
+   "number": "131",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "8",
+   "binder": {
+    "page": 31,
+    "slot": 3,
+    "code": "31.3"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2a91a608ad",
+   "list": "EN",
+   "name": "Pikachu (Japanese) (Green)",
+   "set": "Pikachu World Collection Promos",
+   "number": "PW 5",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "1",
+   "binder": {
+    "page": 3,
+    "slot": 2,
+    "code": "3.2"
+   },
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k15ee70cd8f",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "M-P promo",
+   "number": "020",
+   "price_eur": 29.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4ee785a304",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "227",
+   "price_eur": 40.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1450435f6d",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "11th Movie Commemoration Set",
+   "number": "003/009",
+   "price_eur": 88.0,
+   "price_type": "asking",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k5b77b4fa20",
+   "list": "JP",
+   "name": "Kanazawa's Pikachu",
+   "set": "S-P promo",
+   "number": "144",
+   "price_eur": 116.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1ba64c4dfd",
+   "list": "JP",
+   "name": "Fukuoka's Pikachu",
+   "set": "SV-P promo",
+   "number": "289",
+   "price_eur": 135.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kde06ab20f4",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "S-P promo",
+   "number": "208",
+   "price_eur": 138.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k16e3df8be1",
+   "list": "JP",
+   "name": "Shibuya's Pikachu",
+   "set": "S-P promo",
+   "number": "002",
+   "price_eur": 162.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k619ce363a0",
+   "list": "JP",
+   "name": "Rescue Team DX's Pikachu",
+   "set": "S-P promo",
+   "number": "036",
+   "price_eur": 179.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc585e0c960",
+   "list": "JP",
+   "name": "Playing in the Sea Pikachu",
+   "set": "SM-P promo",
+   "number": "392",
+   "price_eur": 200.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8a22f3f6ce",
+   "list": "JP",
+   "name": "Cherry Blossom Afro Pikachu",
+   "set": "SM-P promo",
+   "number": "211",
+   "price_eur": 220.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k40fe82dfe0",
+   "list": "JP",
+   "name": "Okuge-sama and Maiko-han Pikachu",
+   "set": "XY-P promo",
+   "number": "221",
+   "price_eur": 229.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2f36ba841a",
+   "list": "JP",
+   "name": "Pretend Comedian Pikachu",
+   "set": "SM-P promo",
+   "number": "407",
+   "price_eur": 231.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb75cdfaaa7",
+   "list": "JP",
+   "name": "Pretend Tea Ceremony Pikachu",
+   "set": "SM-P promo",
+   "number": "325",
+   "price_eur": 231.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k066661e816",
+   "list": "JP",
+   "name": "Detective Pikachu",
+   "set": "SV-P promo",
+   "number": "098",
+   "price_eur": 232.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfb1b433dfc",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "224",
+   "price_eur": 262.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k95f0007eb2",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "200",
+   "price_eur": 264.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6215b13361",
+   "list": "JP",
+   "name": "Sapporo's Pikachu",
+   "set": "SM-P promo",
+   "number": "005",
+   "price_eur": 264.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k567f16152a",
+   "list": "JP",
+   "name": "Team Japan's Pikachu",
+   "set": "XY-P promo",
+   "number": "050",
+   "price_eur": 308.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke27edb8240",
+   "list": "JP",
+   "name": "Tohoku's Pikachu",
+   "set": "SM-P promo",
+   "number": "088",
+   "price_eur": 351.0,
+   "price_type": "asking",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6c338ce8df",
+   "list": "JP",
+   "name": "Yokohama's Pikachu",
+   "set": "SM-P promo",
+   "number": "282",
+   "price_eur": 352.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k816c40e35d",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "203",
+   "price_eur": 387.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbd87a6643c",
+   "list": "JP",
+   "name": "Red's Pikachu",
+   "set": "SM-P promo",
+   "number": "270",
+   "price_eur": 400.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6ece389394",
+   "list": "JP",
+   "name": "Yokohama's Pikachu",
+   "set": "SM-P promo",
+   "number": "283",
+   "price_eur": 484.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k72389ea5ca",
+   "list": "JP",
+   "name": "Swallowed Up Pikachu",
+   "set": "S-P promo",
+   "number": "105",
+   "price_eur": 528.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6f48404585",
+   "list": "JP",
+   "name": "Mega Tokyo's Pikachu",
+   "set": "XY-P promo",
+   "number": "098",
+   "price_eur": 615.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbc21975b0c",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "SM-P promo",
+   "number": "038",
+   "price_eur": 660.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc5c203a34e",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "SM-P promo",
+   "number": "037",
+   "price_eur": 704.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k828dc0ec97",
+   "list": "JP",
+   "name": "Pretend Grunt Pikachu",
+   "set": "SM-P promo",
+   "number": "014",
+   "price_eur": 748.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke5e2812147",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "S-P promo",
+   "number": "227",
+   "price_eur": 1583.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k42c0c684aa",
+   "list": "JP",
+   "name": "Mario Pikachu",
+   "set": "XY-P promo",
+   "number": "293",
+   "price_eur": 1936.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k90c3217f87",
+   "list": "JP",
+   "name": "Pretend Magikarp Pikachu",
+   "set": "XY-P promo",
+   "number": "150",
+   "price_eur": 3168.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcf659b8027",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "230",
+   "price_eur": 3256.0,
+   "price_type": "market",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8a16bde8a9",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "208",
+   "price_eur": 32560.0,
+   "price_type": "asking",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7f586e7ec7",
+   "list": "JP",
+   "name": "Pikachu Illustrator",
+   "set": "Ongenummerde promo (1998)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": "PSA 10 verkocht voor ± € 14,5 mln",
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k98af3f0b62",
+   "list": "JP",
+   "name": "Gentlemanly Pikachu",
+   "set": "SM-P promo",
+   "number": "210",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": "PSA 10 ± € 2.046",
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k78f61db1a3",
+   "list": "JP",
+   "name": "Mario Pikachu",
+   "set": "XY-P promo",
+   "number": "294",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": "PSA 10 ± € 27.886",
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kead3ea9145",
+   "list": "JP",
+   "name": "Luigi Pikachu",
+   "set": "XY-P promo",
+   "number": "295",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": "PSA 10 ± € 5.600",
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2fdab79151",
+   "list": "JP",
+   "name": "Luigi Pikachu",
+   "set": "XY-P promo",
+   "number": "296",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": "PSA 10 ± € 13.829",
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k360aef0e84",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "BW-P promo",
+   "number": "120",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k753f85c3e9",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "BW-P promo",
+   "number": "151",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf2822f966e",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "BW-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7a96b7c9ac",
+   "list": "JP",
+   "name": "Pikachu (BEAMS)",
+   "set": "BW-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0ee68048cf",
+   "list": "JP",
+   "name": "Pikachu (Nagoya)",
+   "set": "BW-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0e54069bda",
+   "list": "JP",
+   "name": "_____'s Pikachu",
+   "set": "BW-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4aa49c0c05",
+   "list": "JP",
+   "name": "_____'s Pikachu (tweede versie)",
+   "set": "BW-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kca0515f251",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "DP-P promo",
+   "number": "098",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k99b1f941c6",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "DP-P promo",
+   "number": "099",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8c01426b7c",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "DP-P promo",
+   "number": "100",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k214d64ef87",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "DP-P promo",
+   "number": "101",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k0d593c9d90",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "DP-P promo",
+   "number": "102",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3900117dfa",
+   "list": "JP",
+   "name": "Pikachu M LV.X",
+   "set": "DPt-P promo",
+   "number": "043",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6febb53379",
+   "list": "JP",
+   "name": "Shopping Pikachu",
+   "set": "L-P promo",
+   "number": "079",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kceb3e97b6f",
+   "list": "JP",
+   "name": "Pikachu M",
+   "set": "Movie Commemoration Random Pack",
+   "number": "012/022",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc39c0ab08a",
+   "list": "JP",
+   "name": "Captain Pikachu",
+   "set": "Ongenummerde promo",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfe226970d9",
+   "list": "JP",
+   "name": "Flying Pikachu (ANA-promo)",
+   "set": "Ongenummerde promo",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf17f6d3c65",
+   "list": "JP",
+   "name": "Pikachu & Ishihara GX",
+   "set": "Ongenummerde promo",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k674e755e68",
+   "list": "JP",
+   "name": "Pikachu & Pichu",
+   "set": "Ongenummerde promo",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k51c2638b13",
+   "list": "JP",
+   "name": "Pikachu, Jigglypuff, and Clefairy",
+   "set": "Ongenummerde promo",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k22f9df3cb5",
+   "list": "JP",
+   "name": "_____'s Pikachu (Pokémon Center-promo)",
+   "set": "Ongenummerde promo",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k98e100f63f",
+   "list": "JP",
+   "name": "Pikachu's Summer Vacation",
+   "set": "Ongenummerde promo (CoroCoro)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9c3fdfa315",
+   "list": "JP",
+   "name": "Boss and Pikachu",
+   "set": "Ongenummerde promo (Pokémon Ball Park Yokohama)",
+   "number": "081/081",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k079c679ff8",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "P Promos",
+   "number": "004",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kcc0bea297a",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "P Promos",
+   "number": "038",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k901ee6cda9",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "P Promos",
+   "number": "044",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4234897293",
+   "list": "JP",
+   "name": "PokéPark's Pikachu",
+   "set": "PCG-P promo",
+   "number": "043",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k89dd3d0806",
+   "list": "JP",
+   "name": "Detective Pikachu",
+   "set": "S-P promo",
+   "number": "099",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k96f78f308c",
+   "list": "JP",
+   "name": "Kanazawa's Pikachu",
+   "set": "S-P promo",
+   "number": "147",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc8d32310c4",
+   "list": "JP",
+   "name": "Poké-lun TV's Pikachu and Friends",
+   "set": "S-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kccbbe8ef49",
+   "list": "JP",
+   "name": "Pretend Team Skull Pikachu",
+   "set": "SM-P promo",
+   "number": "013",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4029bfb201",
+   "list": "JP",
+   "name": "Easter's Pikachu",
+   "set": "SM-P promo",
+   "number": "055",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k27561ed261",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "061",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfba0479cf7",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "068",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k6142c1e1ec",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Rocket",
+   "set": "SM-P promo",
+   "number": "191",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k261e2a6f43",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Aqua",
+   "set": "SM-P promo",
+   "number": "192",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7a344911a7",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Magma",
+   "set": "SM-P promo",
+   "number": "193",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k43cd5c77f8",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Galactic",
+   "set": "SM-P promo",
+   "number": "194",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ka96c2c05ca",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Plasma",
+   "set": "SM-P promo",
+   "number": "195",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8f4bffdfc4",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Flare",
+   "set": "SM-P promo",
+   "number": "196",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbc30d2384e",
+   "list": "JP",
+   "name": "Pretend Boss Pikachu Team Skull",
+   "set": "SM-P promo",
+   "number": "197",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k319360be5a",
+   "list": "JP",
+   "name": "Hakama Pikachu",
+   "set": "SM-P promo",
+   "number": "208",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2604a42c61",
+   "list": "JP",
+   "name": "Firefighter Pikachu",
+   "set": "SM-P promo",
+   "number": "209",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k618bf9446a",
+   "list": "JP",
+   "name": "Yokohama's Pikachu",
+   "set": "SM-P promo",
+   "number": "280",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfc97bf3ded",
+   "list": "JP",
+   "name": "Yokohama's Pikachu",
+   "set": "SM-P promo",
+   "number": "281",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8e51826b9a",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "288",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3dbfdc8013",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "SM-P promo",
+   "number": "400",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2409e50d1d",
+   "list": "JP",
+   "name": "Tohoku's Pikachu",
+   "set": "SV-P promo",
+   "number": "260",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k3bdcadaa88",
+   "list": "JP",
+   "name": "Hiroshima's Pikachu",
+   "set": "SV-P promo",
+   "number": "261",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb0ab508d96",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "Topsun (1995, geen TCG)",
+   "number": "25",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kfeb971c156",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "Topsun (1995, geen TCG)",
+   "number": "No.25",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k738d6645c6",
+   "list": "JP",
+   "name": "Ooyama's Pikachu",
+   "set": "Vending Machine Series 3 (Green)",
+   "number": "No.025",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb4caa1f192",
+   "list": "JP",
+   "name": "PokéTV's AD Pikachu",
+   "set": "XY-P promo",
+   "number": "056",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k1ba8f79e2c",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo",
+   "number": "068",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf775e72a4b",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo",
+   "number": "069",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k90e73108db",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo",
+   "number": "070",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k9f9282ab4f",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo",
+   "number": "090",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k619a150569",
+   "list": "JP",
+   "name": "Warm Pikachu",
+   "set": "XY-P promo",
+   "number": "094",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb041de11ac",
+   "list": "JP",
+   "name": "Warm Pikachu",
+   "set": "XY-P promo",
+   "number": "095",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "ke9e554bd9b",
+   "list": "JP",
+   "name": "Warm Pikachu",
+   "set": "XY-P promo",
+   "number": "096",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k430ba979bc",
+   "list": "JP",
+   "name": "Warm Pikachu",
+   "set": "XY-P promo",
+   "number": "097",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k2a2a0444bf",
+   "list": "JP",
+   "name": "Cosplay Pikachu",
+   "set": "XY-P promo",
+   "number": "099",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k8c49b6d256",
+   "list": "JP",
+   "name": "Pretend Gyarados Pikachu",
+   "set": "XY-P promo",
+   "number": "151",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k23b66defb1",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo",
+   "number": "175",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kb00363f9eb",
+   "list": "JP",
+   "name": "Mega Tokyo's Pikachu",
+   "set": "XY-P promo",
+   "number": "204",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kf4da319ea0",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "207",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k4a2883881a",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "231",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kc3cf3ca7ea",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "274",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kea26987a3f",
+   "list": "JP",
+   "name": "Poncho-wearing Pikachu",
+   "set": "XY-P promo",
+   "number": "275",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k45a3465b06",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo",
+   "number": "279",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k15c7b82424",
+   "list": "JP",
+   "name": "Pikachu",
+   "set": "XY-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k81aa9b54a2",
+   "list": "JP",
+   "name": "Pikachu (jumbo)",
+   "set": "XY-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "k7b0864a2cd",
+   "list": "JP",
+   "name": "Pitch's Pikachu",
+   "set": "XY-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  },
+  {
+   "id": "kbe6ae06657",
+   "list": "JP",
+   "name": "Pitch's Pikachu (tweede versie)",
+   "set": "XY-P promo (zonder nummer)",
+   "number": "",
+   "price_eur": null,
+   "price_type": "unknown",
+   "note": null,
+   "section": "JP",
+   "binder": null,
+   "status": {
+    "wantlist": false,
+    "paid": false,
+    "shipped": false,
+    "owned": false
+   }
+  }
+ ],
+ "shipments": [
+  {
+   "id": "1306573134",
+   "seller": "Wajer-TradingBV",
+   "country": "NL",
+   "sent": "2026-10-09 10:07",
+   "total_eur": 2.45,
+   "arrived": true,
+   "card_ids": [
+    "kcd97365c81"
+   ]
+  },
+  {
+   "id": "1306573122",
+   "seller": "SpeelparadijsDokkum",
+   "country": "NL",
+   "sent": "2026-10-09 12:20",
+   "total_eur": 2.7,
+   "arrived": true,
+   "card_ids": [
+    "kb242ac0dbc",
+    "k43cba8fede"
+   ]
+  },
+  {
+   "id": "1306573131",
+   "seller": "DippsShop",
+   "country": "DE",
+   "sent": "2026-10-09 13:57",
+   "total_eur": 6.53,
+   "arrived": true,
+   "card_ids": [
+    "k6dbaeaeb5f",
+    "k7b2f0ebe40"
+   ]
+  },
+  {
+   "id": "1306573142",
+   "seller": "KrakenCardsSK",
+   "country": "SK",
+   "sent": "2026-10-09 14:09",
+   "total_eur": 11.64,
+   "arrived": false,
+   "card_ids": [
+    "k22d45dd644",
+    "k05634b8890",
+    "ka8360be7a9",
+    "k37cbaab8f8",
+    "k46dacdca68",
+    "k4226144551",
+    "kb796771d11",
+    "kc00b73b141"
+   ]
+  },
+  {
+   "id": "1306573133",
+   "seller": "botheotcg",
+   "country": "CY",
+   "sent": "2026-10-09 14:24",
+   "total_eur": 4.06,
+   "arrived": false,
+   "card_ids": [
+    "k585a8cd56c",
+    "kd1c6cea906",
+    "k3e29acdecd"
+   ]
+  },
+  {
+   "id": "1306573120",
+   "seller": "Benjimoney23",
+   "country": "AT",
+   "sent": "2026-10-09 16:21",
+   "total_eur": 2.34,
+   "arrived": false,
+   "card_ids": [
+    "kbf7bc0d660"
+   ]
+  },
+  {
+   "id": "1306573124",
+   "seller": "Twinleafs",
+   "country": "NL",
+   "sent": "2026-10-09 16:51",
+   "total_eur": 2.3,
+   "arrived": true,
+   "card_ids": [
+    "k9f9b476d36"
+   ]
+  },
+  {
+   "id": "1306573136",
+   "seller": "RaccoonCollectibles",
+   "country": "SK",
+   "sent": "2026-10-09 19:34",
+   "total_eur": 15.7,
+   "arrived": false,
+   "card_ids": [
+    "k7227510ace",
+    "k80ae91f410",
+    "k1c5565d389",
+    "kec7494c6fd",
+    "kdc84fe7f5c",
+    "kdfee6245f7",
+    "k7ade7cad60",
+    "kdecf649f11",
+    "kc3e5e85942",
+    "kc83aafe5b6",
+    "k8e3eb62277"
+   ]
+  },
+  {
+   "id": "1306573126",
+   "seller": "AlphaTCG",
+   "country": "CY",
+   "sent": "2026-10-11 12:50",
+   "total_eur": 1.51,
+   "arrived": false,
+   "card_ids": [
+    "k3e7a0640d4",
+    "k65e4158f5f"
+   ]
+  },
+  {
+   "id": "1306573125",
+   "seller": "NorthSea-TCG",
+   "country": "DE",
+   "sent": "2026-10-12 09:36",
+   "total_eur": 3.54,
+   "arrived": true,
+   "card_ids": [
+    "k1e36cc46a8"
+   ]
+  },
+  {
+   "id": "1306573113",
+   "seller": "CardEmpireSK",
+   "country": "SK",
+   "sent": "2026-10-12 16:23",
+   "total_eur": 22.42,
+   "arrived": false,
+   "card_ids": [
+    "k2a337c84b9",
+    "ka03084695d",
+    "k025457ae15",
+    "kbef25b9dd2",
+    "k6276fd1664",
+    "kaf762f27cd",
+    "kd6da99fac7",
+    "kb9f8fae130",
+    "k778d9fbfe3",
+    "kdcbe85ea33",
+    "k95c0c3818d",
+    "kc16f7f45a1",
+    "kff5fc743e9",
+    "kb19754ff72",
+    "k352fcd74c7",
+    "kb0d79677fa"
+   ]
+  },
+  {
+   "id": "1306573129",
+   "seller": "Cardboard-House",
+   "country": "SE",
+   "sent": "2026-10-12 16:28",
+   "total_eur": 7.2,
+   "arrived": false,
+   "card_ids": [
+    "k56005f328b"
+   ]
+  }
+ ],
+ "extra_owned_not_ordered": [
+  {
+   "id": "kab32264a0e",
+   "how": "gekregen van broertje"
+  },
+  {
+   "id": "k4fc3319937",
+   "how": "had hij al; hoekjes licht gekrast"
+  }
+ ],
+ "reverse_holo_received_instead_of_normal": [
+  "k6276fd1664",
+  "k025457ae15"
+ ]
+}
