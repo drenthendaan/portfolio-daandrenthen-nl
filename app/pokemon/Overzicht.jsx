@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { dagwaarden, euro, itemPrijs, totalen } from "@/lib/pokemon/regels.mjs";
+import { schrijf } from "./_components/api";
 import ItemVenster from "./_components/ItemVenster";
 import KaartAfbeelding from "./_components/KaartAfbeelding";
 import KaartDetail, { datumKort } from "./_components/KaartDetail";
@@ -166,6 +167,30 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
     return { ...v, totaal: vast.length + eigen.length, afgerond, cent };
   });
   const detailKaart = detail ? kaarten.find((k) => k.id === detail) : null;
+
+  // Vinkje van een Pikachu-kaart wijzigen vanuit het detailvenster: meteen tonen, dan
+  // opslaan; bij een fout (bijv. geen token) terugzetten en de fout doorgeven.
+  async function wijzigKaart(id, veld, aan) {
+    const oud = status[id] || {};
+    const nieuw = { w: !!oud.w, b: !!oud.b, o: !!oud.o, a: !!oud.a, [veld]: aan };
+    live.zetLokaal(id, nieuw);
+    try {
+      await schrijf("/api/pikachu", { method: "PUT", body: { status: { [id]: nieuw } } });
+      live.klaarLokaal(id);
+      // De Pikachu-pagina in deze browser houdt een eigen kopie bij
+      try {
+        const lokaal = JSON.parse(localStorage.getItem("pika-status") || "null");
+        if (lokaal && typeof lokaal === "object") {
+          lokaal[id] = nieuw;
+          localStorage.setItem("pika-status", JSON.stringify(lokaal));
+        }
+      } catch {}
+    } catch (e) {
+      live.zetLokaal(id, oud);
+      live.klaarLokaal(id);
+      throw e;
+    }
+  }
 
   function openTegel(x) {
     if (x.soort === "kaart") setDetail(x.id);
@@ -393,6 +418,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           fx={meta?.fx}
           reeks={reeks}
           status={status[detailKaart.id]}
+          onWijzig={wijzigKaart}
           onSluit={() => setDetail(null)}
         />
       )}

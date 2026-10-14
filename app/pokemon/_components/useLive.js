@@ -42,6 +42,7 @@ export function useLive({ beginBits, beginPrijzen }) {
   const [itemsVersie, setItemsVersie] = useState(null);
   const bitsRef = useRef(beginBits);
   const serverRef = useRef(beginBits);
+  const lokaalRef = useRef({}); // wijzigingen van deze pagina die nog onderweg zijn naar de server
   const versieRef = useRef(beginPrijzen?.versie ?? null);
 
   const zet = useCallback((volgende) => {
@@ -58,6 +59,10 @@ export function useLive({ beginBits, beginPrijzen }) {
       const volgende = { ...server };
       for (const [id, v] of Object.entries(lsJSON("pika-pending") ?? {})) {
         const b = naarBits(v);
+        if (b) volgende[id] = b;
+        else delete volgende[id];
+      }
+      for (const [id, b] of Object.entries(lokaalRef.current)) {
         if (b) volgende[id] = b;
         else delete volgende[id];
       }
@@ -131,9 +136,26 @@ export function useLive({ beginBits, beginPrijzen }) {
     };
   }, [pasToe, zet, haalPrijzen]);
 
+  // Vinkje meteen tonen terwijl het wordt opgeslagen (statusObject = { w, b, o, a })
+  const zetLokaal = useCallback(
+    (id, statusObject) => {
+      const b = naarBits(statusObject);
+      lokaalRef.current[id] = b;
+      const volgende = { ...bitsRef.current };
+      if (b) volgende[id] = b;
+      else delete volgende[id];
+      zet(volgende);
+    },
+    [zet]
+  );
+  // Opslaan klaar (gelukt of teruggezet): vanaf nu geldt weer de serverstand
+  const klaarLokaal = useCallback((id) => {
+    delete lokaalRef.current[id];
+  }, []);
+
   const status = useMemo(
     () => Object.fromEntries(Object.entries(bits).map(([id, b]) => [id, vanBits(b)])),
     [bits]
   );
-  return { status, prijsData, verbinding, puls, haalPrijzen, itemsVersie };
+  return { status, prijsData, verbinding, puls, haalPrijzen, itemsVersie, zetLokaal, klaarLokaal };
 }

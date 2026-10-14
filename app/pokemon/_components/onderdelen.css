@@ -105,3 +105,12 @@
 .pika .kruimelpad a:hover { color: var(--ink); text-decoration: underline; }
 .pika .kruimelpad [aria-current="page"] { color: var(--ink); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pika .iv-rij-thema { grid-template-columns: 1fr 6.5rem; }
+
+/* Vinkjes in het detailvenster */
+.pika .statuschips button:disabled { opacity: .6; cursor: default; }
+.pika .detail-token { margin: 0 0 .75rem; font-size: .85rem; }
+.pika .detail-token label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.pika .detail-token div { display: flex; gap: .5rem; }
+.pika .detail-token input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .45rem .6rem; }
+.pika .detail-token button { font: inherit; font-weight: 700; color: var(--volt-ink); background: var(--volt); border: 0; border-radius: 8px; padding: .45rem .8rem; cursor: pointer; }
+.pika .detail-melding { margin: 0 0 .75rem; font-size: .8rem; color: var(--soft); }

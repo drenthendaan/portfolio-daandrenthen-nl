@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { euro } from "@/lib/pokemon/regels.mjs";
+import { bewaarToken, GeenToken } from "./api";
 import KaartAfbeelding from "./KaartAfbeelding";
 
 const VELDEN = [
@@ -26,10 +27,44 @@ export const datumKort = (d) =>
 const dollar = (c) =>
   "$ " + (c / 100).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-// Detailvenster van één kaart. Met `onWijzig` zijn de vier vinkjes te wijzigen.
+// Detailvenster van één kaart. Met `onWijzig` (async) zijn de vinkjes te wijzigen; zonder
+// token op dit apparaat vraagt het venster erom en probeert het daarna opnieuw.
 export default function KaartDetail({ kaart, prijs, fx, reeks, status, onSluit, onWijzig }) {
   const ref = useRef(null);
   const terug = useRef(null); // knop die het venster opende; krijgt na sluiten de focus terug
+  const wachtend = useRef(null); // klik die op de token wacht
+  const [vraagToken, setVraagToken] = useState(false);
+  const [token, setToken] = useState("");
+  const [melding, setMelding] = useState("");
+  const [bezig, setBezig] = useState(false);
+
+  async function wijzig(veld, aan) {
+    setMelding("");
+    setBezig(true);
+    try {
+      await onWijzig(kaart.id, veld, aan);
+      setMelding("Opgeslagen");
+    } catch (e) {
+      if (e instanceof GeenToken) {
+        setVraagToken(true);
+        wachtend.current = [veld, aan];
+      }
+      setMelding(e.message);
+    } finally {
+      setBezig(false);
+    }
+  }
+
+  async function tokenOpslaan(e) {
+    e.preventDefault();
+    if (!token.trim()) return;
+    bewaarToken(token.trim());
+    setToken("");
+    setVraagToken(false);
+    const klik = wachtend.current;
+    wachtend.current = null;
+    if (klik) await wijzig(...klik);
+  }
   useEffect(() => {
     terug.current = document.activeElement;
     const d = ref.current;
@@ -110,8 +145,10 @@ export default function KaartDetail({ kaart, prijs, fx, reeks, status, onSluit, 
                   <button
                     type="button"
                     aria-pressed={!!status?.[f]}
-                    onClick={() => onWijzig(kaart.id, f, !status?.[f])}
+                    disabled={bezig}
+                    onClick={() => wijzig(f, !status?.[f])}
                   >
+                    {status?.[f] ? "✓ " : ""}
                     {label}
                   </button>
                 ) : (
@@ -123,6 +160,26 @@ export default function KaartDetail({ kaart, prijs, fx, reeks, status, onSluit, 
               </li>
             ))}
           </ul>
+          {vraagToken && (
+            <form className="detail-token" onSubmit={tokenOpslaan}>
+              <label htmlFor="detail-token">Token (wordt op dit apparaat onthouden)</label>
+              <div>
+                <input
+                  id="detail-token"
+                  type="password"
+                  autoComplete="off"
+                  value={token}
+                  onChange={(e) => setToken(e.target.value)}
+                />
+                <button type="submit">Opslaan</button>
+              </div>
+            </form>
+          )}
+          {melding && (
+            <p className="detail-melding" role="status">
+              {melding}
+            </p>
+          )}
 
           {kaart.tp && (
             <a
