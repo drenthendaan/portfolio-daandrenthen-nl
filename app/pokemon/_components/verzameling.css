@@ -88,3 +88,51 @@
 .pika .eigen-themas li { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: .2rem .3rem .2rem .7rem; }
 .pika .eigen-themas button { font: inherit; font-size: .75rem; color: var(--cheek); background: none; border: 0; cursor: pointer; text-decoration: underline; }
 .pika .tools .gevaar { color: var(--cheek); }
+
+/* Lijst | Map */
+.pika .weergave { display: inline-flex; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .15rem; margin-left: auto; }
+.pika .weergave button { font: inherit; font-size: .85rem; font-weight: 600; color: var(--ink); background: transparent; border: 0; border-radius: 8px; height: 1.75rem; padding: 0 .7rem; cursor: pointer; }
+.pika .weergave button[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); }
+
+/* Mapweergave: de binder met kaarten op hun plek */
+.pika .binderblok { margin-top: .75rem; }
+.pika .binder-nav { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-bottom: .6rem; }
+.pika .binder-nav > button { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; padding: 0; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 50%; cursor: pointer; }
+.pika .binder-nav > button:disabled { opacity: .35; cursor: default; }
+.pika .binder-nav select.keuze { height: 2.4rem; font-size: .9rem; }
+.pika .binder {
+  --pocket: color-mix(in srgb, var(--binderkleur) 82%, white);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem;
+  padding: .7rem; border-radius: 18px; background: var(--binderkleur);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .28), inset 0 0 0 1px rgba(255, 255, 255, .06);
+  touch-action: pan-y;
+}
+.pika .binder.open { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; position: relative; }
+/* De rug van de map tussen de twee pagina's */
+.pika .binder.open::after { content: ""; position: absolute; top: .7rem; bottom: .7rem; left: 50%; width: 3px; transform: translateX(-50%); border-radius: 3px; background: rgba(0, 0, 0, .35); box-shadow: 0 0 10px rgba(0, 0, 0, .45); }
+.pika .binder:focus-visible { outline: 3px solid var(--cheek); outline-offset: 3px; }
+.pika .binder-pagina { min-width: 0; padding: .45rem; border-radius: 10px; background: color-mix(in srgb, var(--binderkleur) 90%, white); }
+.pika .binder-pagina.leeg-blad { background: transparent; }
+.pika .binder-vakjes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--kolommen), minmax(0, 1fr)); gap: .4rem; }
+.pika .vak { position: relative; aspect-ratio: 63 / 88; border-radius: 6px; background: var(--pocket); overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
+.pika .vak button { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+.pika .vak img, .pika .vak .kaart-leeg { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pika .vak.leeg { background: transparent; box-shadow: none; border: 1.5px dashed rgba(255, 255, 255, .22); }
+.pika .vaknr { position: absolute; left: .3rem; bottom: .2rem; font-size: .65rem; font-weight: 700; color: rgba(255, 255, 255, .45); }
+.pika .vak.betaald img { opacity: .55; }
+.pika .vak.nog img { filter: grayscale(1); opacity: .32; }
+.pika .vak.nog .kaart-leeg { opacity: .4; }
+.pika .vaklabel { position: absolute; left: 50%; bottom: .3rem; transform: translateX(-50%); font-size: .6rem; font-weight: 800; color: var(--volt-ink); background: var(--volt); border-radius: 999px; padding: .05rem .4rem; white-space: nowrap; }
+.pika .vakdubbel { position: absolute; top: .25rem; right: .25rem; font-size: .62rem; font-weight: 800; color: #fff; background: var(--cheek); border-radius: 999px; padding: .02rem .35rem; }
+.pika .vak button:focus-visible { outline: 3px solid var(--volt); outline-offset: -3px; }
+.pika .binder-paginanr { margin: .35rem 0 0; text-align: center; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
+.pika .binder-info { margin: .6rem 0 0; text-align: center; font-size: .8rem; color: var(--soft); }
+.pika .buiten-map { margin-top: 1rem; font-size: .85rem; color: var(--soft); }
+.pika .buiten-map summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+.pika .buiten-map ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+.pika .buiten-map button { font: inherit; color: var(--ink); background: none; border: 0; padding: 0; text-decoration: underline dotted; cursor: pointer; text-align: left; }
+.pika .geen-binder { margin-top: .75rem; padding: .9rem 1rem; border: 1px dashed var(--line); border-radius: 12px; font-size: .9rem; color: var(--soft); }
+/* Binder kiezen in de instellingen */
+.pika .instelling .binder-eigen { display: grid; grid-template-columns: 1fr 5.5rem 5.5rem; gap: .4rem; margin-top: .4rem; }
+.pika .instelling .binder-eigen input, .pika .instelling .binder-eigen select { width: 100%; }
+.pika .instelling select.keuze { flex: 1; min-width: 0; height: 2.3rem; }

@@ -3,7 +3,7 @@
 body:has(.pika),
 .pika {
   --paper: #ffffff; --ink: #1c2333; --soft: #5a6377; --line: #e4e7ee; --panel: #f4f5f8;
-  --volt: #ffd02b; --volt-ink: #1c2333; --cheek: #c63d27; --groen: #1e8e52;
+  --volt: #ffd02b; --volt-ink: #1c2333; --cheek: #c63d27; --groen: #1e8e52; --blauw: #2563c9;
   background: var(--paper);
   color: var(--ink);
   color-scheme: light;
@@ -20,7 +20,7 @@ body:has(.pika),
   body:has(.pika),
   .pika {
     --paper: #171d29; --ink: #edf0f5; --soft: #a3abbc; --line: #2b3343; --panel: #1f2634;
-    --volt: #ffd02b; --volt-ink: #171d29; --cheek: #ff8a73; --groen: #5bd394;
+    --volt: #ffd02b; --volt-ink: #171d29; --cheek: #ff8a73; --groen: #5bd394; --blauw: #7fb0ff;
     color-scheme: dark;
   }
 }
@@ -103,3 +103,6 @@ body:has(.pika) div.fixed.inset-0.z-\[100\] {
   color: #1c2333;
   color-scheme: light;
 }
+
+/* Verborgen elementen ook verbergen als ze een eigen display hebben (bijv. de toolbar in de mapweergave) */
+.pika [hidden] { display: none !important; }

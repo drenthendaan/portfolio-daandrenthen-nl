@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
-import { dagwaarden, euro, itemPrijs, totalen } from "@/lib/pokemon/regels.mjs";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { dagwaarden, euro, itemPrijs, meldingStand, totalen } from "@/lib/pokemon/regels.mjs";
 import { schrijf } from "./_components/api";
 import ItemVenster from "./_components/ItemVenster";
 import KaartAfbeelding from "./_components/KaartAfbeelding";
 import KaartDetail, { datumKort } from "./_components/KaartDetail";
 import Kruimelpad from "./_components/Kruimelpad";
+import Meldingen from "./_components/Meldingen";
 import NieuweVerzameling from "./_components/NieuweVerzameling";
 import Telwaarde from "./_components/Telwaarde";
 import { useItems } from "./_components/useItems";
@@ -31,7 +32,20 @@ const sectieTitel = (l) =>
 const telwoord = (l, n) =>
   l.id === "kaarten" ? (n === 1 ? "kaart" : "kaarten") : l.id === "etb" ? (n === 1 ? "ETB" : "ETB's") : `× ${l.naam.toLowerCase()}`;
 
-export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijzen, beginItems }) {
+const BelIcoon = () => (
+  <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+    <path
+      d="M6 9a6 6 0 0 1 12 0c0 6 2.5 8 2.5 8h-17S6 15 6 9M10 20.5a2.2 2.2 0 0 0 4 0"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijzen, beginItems, beginMeldingen }) {
   const live = useLive({ beginBits, beginPrijzen });
   const { status, prijsData, verbinding, puls, haalPrijzen } = live;
   const items = useItems(beginItems, live.itemsVersie);
@@ -47,6 +61,83 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
   const router = useRouter();
   const [heeftToken, setHeeftToken] = useState(false);
   const [melding, setMelding] = useState("");
+
+  // Prijsmeldingen. "Gelezen" is per apparaat: de tijd van de nieuwste melding die je zag
+  // (undefined zolang dat nog niet uit localStorage is gelezen).
+  const [meldingData, setMeldingData] = useState(beginMeldingen ?? { meldingen: [], drempel: null });
+  const [meldingenOpen, setMeldingenOpen] = useState(false);
+  const [gelezen, setGelezen] = useState(undefined);
+  const [nieuwVanaf, setNieuwVanaf] = useState(null);
+  const meldingen = meldingData.meldingen ?? [];
+  const nieuwste = meldingen[0]?.tijd ?? null;
+  const ongelezen = gelezen === undefined ? 0 : meldingen.filter((m) => !gelezen || m.tijd > gelezen).length;
+
+  const haalMeldingen = useCallback(async () => {
+    try {
+      const res = await fetch("/api/pokemon/meldingen", { cache: "no-store" });
+      if (res.ok) setMeldingData(await res.json());
+    } catch {}
+  }, []);
+
+  // Nieuwe prijzen binnen: dan zijn er misschien ook nieuwe meldingen
+  const prijsVersie = prijsData?.versie ?? null;
+  const vorigeVersie = useRef(prijsVersie);
+  useEffect(() => {
+    if (prijsVersie === vorigeVersie.current) return;
+    vorigeVersie.current = prijsVersie;
+    haalMeldingen();
+  }, [prijsVersie, haalMeldingen]);
+
+  const openMeldingen = useCallback(() => {
+    setMeldingenOpen(true);
+    haalMeldingen();
+  }, [haalMeldingen]);
+
+  // Openen via een tik op een pushmelding: /pokemon#meldingen, of een bericht van de service worker
+  useEffect(() => {
+    try {
+      setGelezen(localStorage.getItem("pk-meldingen-gelezen"));
+    } catch {
+      setGelezen(null);
+    }
+    const viaHash = () => {
+      if (window.location.hash !== "#meldingen") return;
+      openMeldingen();
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    };
+    viaHash();
+    const sw = navigator.serviceWorker;
+    const bericht = (e) => {
+      if (e.data?.soort === "meldingen") openMeldingen();
+    };
+    sw?.addEventListener("message", bericht);
+    window.addEventListener("hashchange", viaHash);
+    return () => {
+      sw?.removeEventListener("message", bericht);
+      window.removeEventListener("hashchange", viaHash);
+    };
+  }, [openMeldingen]);
+
+  // Bij openen alles gelezen; wat nieuw was, houdt in het venster een stip
+  useEffect(() => {
+    if (!meldingenOpen || gelezen === undefined) return;
+    setNieuwVanaf((v) => (v === null ? gelezen ?? "" : v));
+    if (nieuwste && nieuwste !== gelezen) {
+      setGelezen(nieuwste);
+      try {
+        localStorage.setItem("pk-meldingen-gelezen", nieuwste);
+      } catch {}
+    }
+  }, [meldingenOpen, nieuwste, gelezen]);
+
+  // Aantal ongelezen meldingen op het app-icoon (beginscherm, als meldingen aanstaan)
+  useEffect(() => {
+    if (gelezen === undefined) return;
+    try {
+      const p = ongelezen ? navigator.setAppBadge?.(ongelezen) : navigator.clearAppBadge?.();
+      p?.catch?.(() => {});
+    } catch {}
+  }, [ongelezen, gelezen]);
 
   useEffect(() => {
     try {
@@ -168,6 +259,28 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
   });
   const detailKaart = detail ? kaarten.find((k) => k.id === detail) : null;
 
+  // De stand van nu (koop je iets na de melding, dan staat er "In je vault")
+  const verborgenPikachu = useMemo(
+    () => new Set(items.verzamelingen.find((v) => v.id === "pikachu")?.verborgen ?? []),
+    [items.verzamelingen]
+  );
+  const standVan = useCallback(
+    (m) => {
+      if (m.soort === "kaart") return meldingStand(status[m.id], !verborgenPikachu.has(m.id)) ?? m.stand;
+      const item = items.items.find((i) => i.id === m.id);
+      return (item && meldingStand(item.status, !!item.verzameling)) ?? m.stand;
+    },
+    [status, items.items, verborgenPikachu]
+  );
+  function openMelding(m) {
+    if (m.soort === "kaart") {
+      if (kaarten.some((k) => k.id === m.id)) setDetail(m.id);
+      return;
+    }
+    const item = items.items.find((i) => i.id === m.id);
+    if (item) setVenster({ item });
+  }
+
   // Vinkje van een Pikachu-kaart wijzigen vanuit het detailvenster: meteen tonen, dan
   // opslaan; bij een fout (bijv. geen token) terugzetten en de fout doorgeven.
   async function wijzigKaart(id, veld, aan) {
@@ -237,9 +350,25 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       <section className="hero" aria-labelledby="pk-titel">
         <div className="hero-kop">
           <h1 id="pk-titel">Mijn Pokémon-verzameling</h1>
-          <span key={puls} className={`live ${verbinding}`}>
-            {verbinding === "ok" ? "live" : "offline"}
-          </span>
+          <div className="hero-acties">
+            <button
+              type="button"
+              className="bel"
+              onClick={openMeldingen}
+              aria-haspopup="dialog"
+              aria-label={`Prijsmeldingen${ongelezen ? `, ${ongelezen} nieuw` : ""}`}
+            >
+              <BelIcoon />
+              {ongelezen > 0 && (
+                <span className="bel-teller" aria-hidden="true">
+                  {ongelezen > 9 ? "9+" : ongelezen}
+                </span>
+              )}
+            </button>
+            <span key={puls} className={`live ${verbinding}`}>
+              {verbinding === "ok" ? "live" : "offline"}
+            </span>
+          </div>
         </div>
         <p className="totaal">
           <Telwaarde cent={t.bezit.cent} format={euro} />
@@ -368,7 +497,9 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           verkoop, dan telt het laagste aanbod als vraagprijs. Zonder koppeling of prijs blijft de
           vaste prijs van 5 oktober staan. Cardmarket-prijzen zie je per kaart als extra informatie.
           Items die je zelf toevoegt en aan een TCGplayer-product koppelt, volgen dezelfde prijs;
-          anders telt de waarde die je zelf invult. De prijzen worden elke avond ververst.
+          anders telt de waarde die je zelf invult. De prijzen worden elke avond ververst. Gaat iets
+          wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij het belletje
+          bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
         {meta && (
           <ul>
@@ -411,6 +542,20 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         )}
       </details>
 
+      {meldingenOpen && (
+        <Meldingen
+          meldingen={meldingen}
+          drempel={meldingData.drempel ?? undefined}
+          nieuwVanaf={nieuwVanaf}
+          standVan={standVan}
+          onOpen={openMelding}
+          onDrempel={(drempel) => setMeldingData((d) => ({ ...d, drempel }))}
+          onSluit={() => {
+            setMeldingenOpen(false);
+            setNieuwVanaf(null);
+          }}
+        />
+      )}
       {detailKaart && (
         <KaartDetail
           kaart={detailKaart}

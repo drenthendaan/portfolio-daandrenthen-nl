@@ -17,6 +17,14 @@ const nextConfig = {
       { source: '/pokemon', headers: noindex },
       { source: '/pokemon/:pad*', headers: noindex },
       { source: '/pokemon-app/:pad*', headers: noindex },
+      // Service worker voor pushmeldingen: mag heel /pokemon aansturen en wordt altijd vers opgehaald
+      {
+        source: '/pokemon-app/sw.js',
+        headers: [
+          { key: 'Service-Worker-Allowed', value: '/pokemon' },
+          { key: 'Cache-Control', value: 'no-cache' },
+        ],
+      },
     ]
   },
 }

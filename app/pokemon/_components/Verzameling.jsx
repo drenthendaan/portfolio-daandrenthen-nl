@@ -2,10 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { binderVan, BINDERS, EIGEN_VAKJES, leesMapcode, mapPositie } from "@/lib/pokemon/binders.mjs";
 import { itemPrijs, vanBits } from "@/lib/pokemon/regels.mjs";
-import { mapPositie, SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
+import { SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
 import { GeenToken } from "./api";
+import BinderWeergave from "./BinderWeergave";
 import ItemVenster from "./ItemVenster";
+import KaartDetail from "./KaartDetail";
 import Kruimelpad from "./Kruimelpad";
 import { useItems } from "./useItems";
 import "./verzameling.css";
@@ -108,8 +111,8 @@ export default function Verzameling({
   const LS = useMemo(
     () =>
       id === "pikachu"
-        ? { status: "pika-status", pending: "pika-pending", cat: "pika-cat", order: "pika-order" }
-        : { cat: `pk-${id}-cat`, order: `pk-${id}-order` },
+        ? { status: "pika-status", pending: "pika-pending", cat: "pika-cat", order: "pika-order", weergave: "pika-weergave" }
+        : { cat: `pk-${id}-cat`, order: `pk-${id}-order`, weergave: `pk-${id}-weergave` },
     [id]
   );
   const router = useRouter();
@@ -130,6 +133,15 @@ export default function Verzameling({
   const [tokenInput, setTokenInput] = useState("");
   const [venster, setVenster] = useState(null); // { item } of { standaard }
   const [bewerken, setBewerken] = useState(false);
+  const [weergave, setWeergave] = useState("lijst"); // "lijst" of "map"
+  const [binderPagina, setBinderPagina] = useState(1);
+  const [detailRij, setDetailRij] = useState(null); // kaart in het venster vanuit de map
+  const [binderType, setBinderType] = useState(beginVerzameling.binder?.type ?? "");
+  const [eigenBinder, setEigenBinder] = useState({
+    naam: beginVerzameling.binder?.naam ?? "",
+    vakjes: beginVerzameling.binder?.vakjes ?? 9,
+    paginas: beginVerzameling.binder?.paginas ?? 40,
+  });
   const [naamInvoer, setNaamInvoer] = useState(beginVerzameling.naam);
   const [themaInvoer, setThemaInvoer] = useState("");
   const [instelMelding, setInstelMelding] = useState("");
@@ -159,12 +171,13 @@ export default function Verzameling({
   const eigenThemaIds = useMemo(() => new Set((verzameling.themas ?? []).map((t) => t.id)), [verzameling.themas]);
   const verborgen = useMemo(() => new Set(verzameling.verborgen ?? []), [verzameling.verborgen]);
 
-  // Eén rijformaat: [id, naam, set, nummer, prijs €, soort, notitie, thema, mapcode, positie, isItem]
+  // Eén rijformaat: [id, naam, set, nummer, prijs €, soort, notitie, thema, mapcode, positie,
+  // isItem, plaatjes, TCGplayer-product]
   const vasteRijen = useMemo(
     () =>
       vasteKaarten.map((c) => {
         const [prijs, soort] = prijzen?.[c[0]] ? prijsVoorTabel(prijzen[c[0]]) : [c[4], c[5]];
-        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false];
+        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false, c[10] ?? [], c[11] ?? null];
       }),
     [vasteKaarten, prijzen]
   );
@@ -186,6 +199,8 @@ export default function Verzameling({
           i.map,
           mapPositie(i.map) ?? 100000 + n,
           true,
+          i.img ?? [],
+          i.tp?.product ?? null,
         ];
       }),
     [eigenItems, prijzen]
@@ -343,6 +358,7 @@ export default function Verzameling({
     if (opgeslagen) setCat(SECTIE_THEMA[opgeslagen] ?? (opgeslagen.startsWith("L:") ? opgeslagen.slice(2) : opgeslagen));
     const volgorde = lsGet(LS.order);
     if (volgorde === "map" || volgorde === "price") setOrder(volgorde);
+    if (lsGet(LS.weergave) === "map") setWeergave("map");
     if (heeftVast) {
       pendingRef.current = lsJSON(LS.pending) ?? {};
       applyStatus({ ...seed, ...(lsJSON(LS.status) ?? {}), ...pendingRef.current });
@@ -391,10 +407,35 @@ export default function Verzameling({
     if (e instanceof GeenToken) setAskToken(true);
     setSaveMsg(e.message);
   };
+  // Eerste pagina in de map met een kaart uit dit thema
+  const eerstePagina = (cid) =>
+    rowsFor(cid)
+      .map((r) => leesMapcode(r[8]))
+      .filter(Boolean)
+      .sort((a, b) => a.pagina - b.pagina || a.vakje - b.vakje)[0]?.pagina;
   const chooseCat = (cid) => {
     setCat(cid);
     lsSet(LS.cat, cid);
+    if (weergave === "map") {
+      const p = eerstePagina(cid);
+      if (p) setBinderPagina(p);
+    }
   };
+  const kiesWeergave = (w) => {
+    setWeergave(w);
+    lsSet(LS.weergave, w);
+    if (w === "map" && actief !== "ALL") {
+      const p = eerstePagina(actief);
+      if (p) setBinderPagina(p);
+    }
+  };
+
+  // Vinkje wijzigen vanuit het kaartvenster in de map
+  async function wijzigVanuitVenster(rid, veld, aan) {
+    if (rid.startsWith("i")) return items.zetStatus(rid, veld, aan);
+    if (!lsGet(TOKEN)) throw new GeenToken("Voer je token in om op te slaan");
+    queue({ [rid]: { ...statusRef.current[rid], [veld]: aan } });
+  }
   const chooseOrder = (v) => {
     setOrder(v);
     lsSet(LS.order, v);
@@ -532,6 +573,17 @@ export default function Verzameling({
   const filtered = nq || show !== "all";
   const kolommen = bewerken ? 5 : 4;
 
+  // Mapweergave: alles met een geldige plek in de binder, en wat erbuiten valt
+  const binder = binderVan(verzameling);
+  const plekken = [];
+  const buitenMap = [];
+  for (const r of alleRijen) {
+    const plek = leesMapcode(r[8]);
+    if (binder && plek && plek.vakje <= binder.vakjes) {
+      plekken.push({ id: r[0], pagina: plek.pagina, vakje: plek.vakje, naam: r[1], img: r[11] ?? [], status: statusVan(r[0]), rij: r });
+    } else buitenMap.push(r);
+  }
+
   const rows = [];
   let curSec = null;
   let curPage = null;
@@ -619,7 +671,8 @@ export default function Verzameling({
           <p className="summary">{summary}</p>
           {extra && <p className="extra">{extra}</p>}
         </div>
-        <div className="toolbar">
+        {/* Zoeken en filters gelden voor de lijst, niet voor de map */}
+        <div className="toolbar" hidden={weergave === "map"}>
           <div className="search">
             <label htmlFor="pika-q" className="visually-hidden">
               Zoeken
@@ -696,16 +749,70 @@ export default function Verzameling({
           >
             + Toevoegen
           </button>
-          <button
-            type="button"
-            className="bewerkknop"
-            aria-pressed={bewerken}
-            onClick={() => setBewerken((b) => !b)}
-          >
-            {bewerken ? "Klaar" : "Lijst bewerken"}
-          </button>
+          {weergave === "lijst" && (
+            <button
+              type="button"
+              className="bewerkknop"
+              aria-pressed={bewerken}
+              onClick={() => setBewerken((b) => !b)}
+            >
+              {bewerken ? "Klaar" : "Lijst bewerken"}
+            </button>
+          )}
+          <div className="weergave" role="group" aria-label="Weergave">
+            <button type="button" aria-pressed={weergave === "lijst"} onClick={() => kiesWeergave("lijst")}>
+              Lijst
+            </button>
+            <button type="button" aria-pressed={weergave === "map"} onClick={() => kiesWeergave("map")}>
+              Map
+            </button>
+          </div>
         </div>
 
+        {weergave === "map" && (
+          <>
+            {saveMsg && (
+              <p className="count">
+                <span className="saved" role="status">
+                  {saveMsg}
+                </span>
+              </p>
+            )}
+            {binder ? (
+              <BinderWeergave
+                binder={binder}
+                plekken={plekken}
+                pagina={binderPagina}
+                onPagina={setBinderPagina}
+                onOpen={(k) => setDetailRij(k.rij)}
+              />
+            ) : (
+              <p className="geen-binder">
+                Kies onderaan bij <b>Uitleg en instellingen</b> een binder, dan zie je hier je kaarten op
+                hun plek. Een plek geef je een kaart met een mapcode, zoals 3.5.
+              </p>
+            )}
+            {buitenMap.length > 0 && (
+              <details className="buiten-map">
+                <summary>Niet in de map ({buitenMap.length})</summary>
+                <ul>
+                  {buitenMap.map((r) => (
+                    <li key={r[0]}>
+                      <button type="button" onClick={() => setDetailRij(r)}>
+                        {r[1]}
+                      </button>
+                      {r[2] ? ` · ${r[2]}` : ""}
+                      {r[8] ? ` · mapcode ${r[8]} past niet in deze binder` : ""}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+          </>
+        )}
+
+        {weergave === "lijst" && (
+        <>
         <p className="count">
           <span aria-live="polite">
             {(filtered ? list.length + " van " + all.length : aantalTekst) +
@@ -757,7 +864,10 @@ export default function Verzameling({
           </table>
         </div>
 
-        {bewerken && verborgenRijen.length > 0 && (
+        </>
+        )}
+
+        {weergave === "lijst" && bewerken && verborgenRijen.length > 0 && (
           <div className="verborgen">
             <h3>Verborgen kaarten ({verborgenRijen.length})</h3>
             <ul>
@@ -783,7 +893,7 @@ export default function Verzameling({
         )}
 
         <details className="info">
-          <summary>Uitleg, instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
+          <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
           <p className="legend">
             Prijzen zijn de TCGplayer-marktprijs in euro en worden elke avond ververst. Bij
             &lsquo;vraagprijs&rsquo; is er alleen een aanbieding, geen recente verkoop; een ? betekent dat
@@ -793,6 +903,60 @@ export default function Verzameling({
           </p>
 
           <h3>Instellingen</h3>
+          <form
+            className="instelling"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const keuze =
+                binderType === "" ? null : binderType === "eigen" ? { type: "eigen", ...eigenBinder } : { type: binderType };
+              instelling(() => items.wijzigVerzameling(id, { binder: keuze }), "Binder opgeslagen.");
+            }}
+          >
+            <label htmlFor="vz-binder">Binder</label>
+            <div>
+              <select id="vz-binder" className="keuze" value={binderType} onChange={(e) => setBinderType(e.target.value)}>
+                <option value="">Geen binder</option>
+                {BINDERS.map((b) => (
+                  <option key={b.id} value={b.id}>
+                    {b.kort} ({b.vakjes * b.paginas} kaarten)
+                  </option>
+                ))}
+                <option value="eigen">Eigen binder…</option>
+              </select>
+              <button type="submit">Opslaan</button>
+            </div>
+            {binderType === "eigen" && (
+              <div className="binder-eigen">
+                <input
+                  aria-label="Naam van de binder"
+                  placeholder="Naam"
+                  maxLength={60}
+                  value={eigenBinder.naam}
+                  onChange={(e) => setEigenBinder((b) => ({ ...b, naam: e.target.value }))}
+                />
+                <select
+                  aria-label="Vakjes per pagina"
+                  className="keuze"
+                  value={eigenBinder.vakjes}
+                  onChange={(e) => setEigenBinder((b) => ({ ...b, vakjes: Number(e.target.value) }))}
+                >
+                  {EIGEN_VAKJES.map((n) => (
+                    <option key={n} value={n}>
+                      {n} vakjes
+                    </option>
+                  ))}
+                </select>
+                <input
+                  aria-label="Aantal pagina's"
+                  type="number"
+                  min="1"
+                  max="200"
+                  value={eigenBinder.paginas}
+                  onChange={(e) => setEigenBinder((b) => ({ ...b, paginas: e.target.value }))}
+                />
+              </div>
+            )}
+          </form>
           {!verzameling.vast && (
             <form
               className="instelling"
@@ -916,6 +1080,25 @@ export default function Verzameling({
         </details>
       </section>
 
+      {detailRij &&
+        (() => {
+          const r = detailRij;
+          const item = r[10] ? items.items.find((i) => i.id === r[0]) : null;
+          const prijs = item
+            ? itemPrijs(item, prijzen ?? {})
+            : prijzen?.[r[0]] ?? (r[4] != null ? { e: Math.round(r[4] * 100), t: "v" } : null);
+          return (
+            <KaartDetail
+              kaart={{ id: r[0], n: r[1], s: r[2], nr: r[3], img: r[11] ?? [], map: r[8], note: r[6], tp: r[12] }}
+              prijs={prijs}
+              fx={prijsData?.meta?.fx}
+              reeks={prijsData?.reeks}
+              status={statusVan(r[0])}
+              onWijzig={wijzigVanuitVenster}
+              onSluit={() => setDetailRij(null)}
+            />
+          );
+        })()}
       {venster && (
         <ItemVenster
           item={venster.item ?? null}

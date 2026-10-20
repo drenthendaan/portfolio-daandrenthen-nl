@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { euro, itemPrijs } from "@/lib/pokemon/regels.mjs";
+import { binderVan } from "@/lib/pokemon/binders.mjs";
 import { themasVoor } from "@/lib/pokemon/themas.mjs";
 import { bewaarToken, GeenToken, leesToken } from "./api";
 import KaartAfbeelding from "./KaartAfbeelding";
@@ -98,6 +99,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   // Thema's van de gekozen verzameling, met een voorstel als je zelf nog niets koos
   const gekozenVerzameling = verzamelingen.find((v) => v.id === verzameling) ?? null;
   const themaLijst = gekozenVerzameling ? themasVoor(gekozenVerzameling) : [];
+  const binder = binderVan(gekozenVerzameling);
   const voorstel = gekozen?.thema ?? (label === "etb" ? "etb" : "overig");
   const themaWaarde =
     thema === NIEUW_THEMA || themaLijst.some((t) => t.id === thema) ? thema : themaLijst.some((t) => t.id === voorstel) ? voorstel : "overig";
@@ -376,6 +378,13 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                   />
                 </label>
               </div>
+            )}
+            {verzameling && (
+              <p className="iv-hint">
+                {binder
+                  ? `Mapcode: pagina 1–${binder.paginas}, vakje 1–${binder.vakjes} (${binder.kort}).`
+                  : "Mapcode: pagina.vakje, bijv. 3.5. Kies bij de verzameling een binder om je kaarten in de map te zien."}
+              </p>
             )}
             {verzameling && themaWaarde === NIEUW_THEMA && (
               <label>

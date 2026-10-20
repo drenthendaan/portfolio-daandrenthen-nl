@@ -2,7 +2,7 @@ import { SEED } from "@/lib/pikachu";
 import { leesItems } from "@/lib/pokemon/items";
 import { KAARTEN, VASTE_PRIJZEN } from "@/lib/pokemon/kaarten";
 import { naarBits } from "@/lib/pokemon/regels.mjs";
-import { leesPrijsData, leesStatus } from "@/lib/pokemon/server";
+import { leesMeldingen, leesPrijsData, leesStatus } from "@/lib/pokemon/server";
 import Overzicht from "./Overzicht";
 import "./overzicht.css";
 
@@ -15,10 +15,11 @@ export const metadata = {
 
 export default async function PokemonPage() {
   // Valt terug op de startstand en vaste prijzen als de database even niet bereikbaar is
-  const [status, prijsData, items] = await Promise.all([
+  const [status, prijsData, items, meldingen] = await Promise.all([
     leesStatus().catch(() => null),
     leesPrijsData().catch(() => null),
     leesItems().catch(() => null),
+    leesMeldingen().catch(() => null),
   ]);
   const bits = {};
   for (const [id, v] of Object.entries(status ?? SEED)) {
@@ -32,6 +33,7 @@ export default async function PokemonPage() {
       beginPrijzen={prijsData}
       vastePrijzen={VASTE_PRIJZEN}
       beginItems={items}
+      beginMeldingen={meldingen}
     />
   );
 }

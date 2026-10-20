@@ -65,3 +65,56 @@
 .pika .verzamellijst { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
 @media (min-width: 640px) { .pika .verzamellijst { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .pika .verzamellijst .linkkaart { margin-top: 0; height: 100%; }
+
+/* Prijsmeldingen: belletje naast "live" */
+.pika .hero-acties { display: flex; align-items: center; gap: .5rem; flex: none; }
+.pika .bel { position: relative; display: inline-grid; place-items: center; width: 2rem; height: 2rem; padding: 0; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 50%; cursor: pointer; transition: border-color .15s; }
+.pika .bel:hover { border-color: var(--volt); }
+.pika .bel-teller { position: absolute; top: -.35rem; right: -.45rem; min-width: 1.15rem; height: 1.15rem; padding: 0 .3rem; font-size: .68rem; font-weight: 800; line-height: 1.15rem; text-align: center; color: var(--paper); background: var(--cheek); border-radius: 999px; font-variant-numeric: tabular-nums; }
+
+/* Venster met meldingen */
+.pika dialog.meldingvenster { width: min(36rem, calc(100vw - 2rem)); }
+.pika .mv h3 { font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--soft); margin: 0 0 .4rem; }
+.pika .mv-instellingen { display: flex; flex-direction: column; gap: .55rem; padding: .8rem .9rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.pika .mv-instellingen h3 { margin: 0; }
+.pika .mv .iv-knoppen .tweede { color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
+.pika .mv-drempel summary { cursor: pointer; font-size: .85rem; font-weight: 700; }
+.pika .mv-drempel form { display: flex; flex-direction: column; gap: .6rem; margin-top: .6rem; }
+.pika .mv-drempel .iv-rij { grid-template-columns: 1fr 1fr; }
+.pika .mv-drempel input { background: var(--paper) !important; }
+.pika .mv-drempel .iv-hint { margin-top: .4rem; }
+.pika .mv .seg { align-self: flex-start; flex-wrap: wrap; }
+.pika .mv .seg button { font-size: .78rem; padding: .3rem .4rem; }
+.pika .mv .leeg { margin: 0; }
+.pika .mv-lijst { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.pika .mv-lijst li + li { border-top: 1px solid var(--line); }
+.pika .mv-rij { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; gap: .7rem; align-items: center; width: 100%; padding: .55rem .7rem; font: inherit; color: var(--ink); text-align: left; background: none; border: 0; cursor: pointer; }
+.pika .mv-rij:hover { background: var(--panel); }
+.pika .mv-plaat { display: block; aspect-ratio: 63 / 88; border-radius: 4px; overflow: hidden; background: var(--panel); }
+.pika .mv-plaat.product { aspect-ratio: 1; border-radius: 6px; background: #fff; }
+.pika .mv-plaat img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pika .mv-plaat.product img { object-fit: contain; }
+.pika .mv-plaat .kaart-leeg { font-size: 1rem; }
+.pika .mv-tekst { display: flex; flex-direction: column; align-items: flex-start; gap: .1rem; min-width: 0; }
+.pika .mv-tekst b { font-size: .88rem; line-height: 1.25; }
+.pika .mv-tekst small { font-size: .75rem; color: var(--soft); max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pika .mv-nieuw { display: inline-block; width: .5rem; height: .5rem; margin-right: .35rem; vertical-align: .1em; border-radius: 50%; background: var(--cheek); }
+.pika .mv-prijs { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-variant-numeric: tabular-nums; }
+.pika .mv-prijs b { font-size: .95rem; font-weight: 800; white-space: nowrap; }
+.pika .mv-prijs small { font-size: .72rem; color: var(--soft); white-space: nowrap; }
+.pika .mv-prijs.op b { color: var(--groen); }
+.pika .mv-prijs.neer b { color: var(--cheek); }
+
+/* Label per melding: in je vault (groen), gekocht en onderweg (geel), nog kopen (blauw) */
+.pika .stand { display: inline-block; margin-top: .2rem; padding: 0 .5rem; font-size: .7rem; font-weight: 700; line-height: 1.5; white-space: nowrap; color: var(--ink); border: 1px solid; border-radius: 999px; }
+.pika .stand.bezit { background: color-mix(in srgb, var(--groen) 18%, var(--paper)); border-color: color-mix(in srgb, var(--groen) 60%, transparent); }
+.pika .stand.betaald { background: color-mix(in srgb, var(--volt) 32%, var(--paper)); border-color: color-mix(in srgb, var(--volt) 85%, transparent); }
+.pika .stand.nog { background: color-mix(in srgb, var(--blauw) 16%, var(--paper)); border-color: color-mix(in srgb, var(--blauw) 60%, transparent); }
+
+@media (max-width: 600px) {
+  .pika dialog.meldingvenster { width: 100vw; max-width: 100vw; }
+  .pika .mv-rij { gap: .55rem; padding: .5rem .6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pika .bel { transition: none; }
+}

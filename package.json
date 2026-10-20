@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "pokemon:koppel": "node scripts/pokemon/koppel-prijsbronnen.mjs",
-    "test:pokemon": "node --test lib/pokemon/regels.test.mjs lib/pokemon/themas.test.mjs"
+    "test:pokemon": "node --test lib/pokemon/regels.test.mjs lib/pokemon/themas.test.mjs lib/pokemon/binders.test.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -17,7 +17,8 @@
     "next": "^15.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sass": "^1.96.0"
+    "sass": "^1.96.0",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
