@@ -24,7 +24,8 @@ const tijdstip = (iso) =>
     timeZone: "Europe/Amsterdam",
   });
 
-const PRIJSSOORT = { l: "vraagprijs", v: "vaste prijs", h: "eigen waarde" };
+// Cardmarket is de standaard; een Amerikaanse prijs (TCGplayer) staat er altijd bij
+const PRIJSSOORT = { m: "TCGplayer", l: "TCGplayer-vraagprijs", v: "vaste prijs", h: "eigen waarde" };
 
 // Kop per label; eigen labels heten zoals je ze noemt
 const sectieTitel = (l) =>
@@ -492,12 +493,12 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       <details className="info">
         <summary>Hoe worden prijzen berekend?</summary>
         <p>
-          Per kaart de TCGplayer-marktprijs van precies jouw variant (zoals Cosmos Holo of een
-          stempelversie), omgerekend naar euro met de dagkoers van de ECB. Is er geen recente
-          verkoop, dan telt het laagste aanbod als vraagprijs. Zonder koppeling of prijs blijft de
-          vaste prijs van 5 oktober staan. Cardmarket-prijzen zie je per kaart als extra informatie.
-          Items die je zelf toevoegt en aan een TCGplayer-product koppelt, volgen dezelfde prijs;
-          anders telt de waarde die je zelf invult. De prijzen worden elke avond ververst. Gaat iets
+          Per kaart de Cardmarket-trendprijs: de Europese marktprijs, die Cardmarket elke nacht
+          berekent uit recente verkopen. Heeft Cardmarket geen prijs voor jouw kaart of variant (zoals
+          een stempelversie of Cosmos Holo), dan telt de TCGplayer-marktprijs uit de VS, omgerekend
+          met de dagkoers van de ECB; die is gemarkeerd met &lsquo;TCGplayer&rsquo;. Zonder koppeling
+          of prijs blijft de vaste prijs van 5 oktober staan. Items die je zelf toevoegt, volgen
+          dezelfde prijzen; anders telt de waarde die je zelf invult. Gaat iets
           wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij het belletje
           bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
@@ -507,8 +508,9 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
               Laatst ververst: {tijdstip(meta.tijd)} ({meta.status === "ok" ? "gelukt" : meta.status})
             </li>
             <li>
-              {meta.tellingen.m} marktprijs · {meta.tellingen.l} vraagprijs · {meta.tellingen.v} vaste
-              prijs · {meta.tellingen.o} onbekend · {meta.tellingen.cardmarket} met Cardmarket
+              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.m} TCGplayer ·{" "}
+              {meta.tellingen.l} TCGplayer-vraagprijs · {meta.tellingen.v} vaste prijs ·{" "}
+              {meta.tellingen.o} onbekend
             </li>
             <li>
               Koers: $ 1 = € {meta.fx.koers.toLocaleString("nl-NL", { maximumFractionDigits: 4 })} (
@@ -519,10 +521,12 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         <h3>Bronnen</h3>
         <ul>
           <li>
-            TCGplayer-prijzen en afbeeldingen via <a href="https://tcgcsv.com">tcgcsv.com</a>
+            Cardmarket-prijzen: de dagelijkse prijslijst van{" "}
+            <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>, gekoppeld via{" "}
+            <a href="https://tcgdex.dev">TCGdex</a>
           </li>
           <li>
-            Cardmarket-prijzen via <a href="https://tcgdex.dev">TCGdex</a>
+            TCGplayer-prijzen en afbeeldingen via <a href="https://tcgcsv.com">tcgcsv.com</a>
           </li>
           <li>
             Wisselkoers van de ECB via <a href="https://frankfurter.dev">Frankfurter</a>

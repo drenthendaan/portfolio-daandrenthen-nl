@@ -2,8 +2,13 @@
 // (catalogus en prijzen via tcgcsv.com) en, waar dat klopt, aan een TCGdex-kaart
 // (Cardmarket-prijs). Schrijft data/pokemon/koppelingen.json.
 //
-//   npm run pokemon:koppel                 downloadt hooguit één keer per tcgcsv-versie
-//   npm run pokemon:koppel -- --offline    gebruikt alleen wat al in de cache staat
+//   npm run pokemon:koppel                       downloadt hooguit één keer per tcgcsv-versie
+//   npm run pokemon:koppel -- --offline          gebruikt alleen wat al in de cache staat
+//   npm run pokemon:koppel -- --tcgcsv-cache     TCGplayer uit de cache, TCGdex vers
+//
+// Cardmarket loopt via TCGdex: eerst op het TCGplayer-productnummer dat TCGdex kent, anders
+// op set en kaartnummer (alleen voor kaarten zonder variant in de naam). Het resultaat is het
+// Cardmarket-product (cm.id) waarvan de verversing de trendprijs uit de prijslijst haalt.
 //
 // Correcties staan in data/pokemon/koppelingen-handmatig.json:
 //   { "<kaart-id>": { "product": 123 | null, "sub": "Holofoil", "dex": "xy12-35" | null,
@@ -13,6 +18,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { cardmarketPrijs, dexSetsVoorGroep, EIGEN_NUMMERING, kern, naamKern, nummer, opNaam, woorden } from "../../lib/pokemon/tcgdex.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const CACHE = path.join(ROOT, "scripts/pokemon/.cache");
@@ -22,6 +28,7 @@ const HANDMATIG = path.join(ROOT, "data/pokemon/koppelingen-handmatig.json");
 const CATALOGUS = path.join(ROOT, "data/pokemon/catalogus.json");
 const UA = "daandrenthen.nl-pokemon/1.0 (+https://daandrenthen.nl/pokemon)";
 const OFFLINE = process.argv.includes("--offline");
+const TCGCSV_CACHE = OFFLINE || process.argv.includes("--tcgcsv-cache");
 const USD_EUR = 0.88; // koers waarmee de vaste prijzen van 5 okt zijn omgerekend
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -63,7 +70,7 @@ async function haal(url, bestand, { tekst = false } = {}) {
 
 async function laadTcgcsv() {
   let versie;
-  if (OFFLINE) {
+  if (TCGCSV_CACHE) {
     versie = (await leesJSON(path.join(CACHE, "tcgcsv/laatste.json"), {})).versie;
     if (!versie) throw new Error("Geen tcgcsv-cache gevonden");
   } else {
@@ -101,6 +108,7 @@ async function laadTcgcsv() {
 async function laadTcgdex() {
   const dag = new Date().toISOString().slice(0, 10);
   const map = `tcgdex/${dag}`;
+  const sets = await haal("https://api.tcgdex.net/v2/en/sets", `${map}/sets.json`);
   const lijst = await haal("https://api.tcgdex.net/v2/en/cards?name=pikachu", `${map}/lijst.json`);
   const kaarten = [];
   for (let i = 0; i < lijst.length; i += 4) {
@@ -115,27 +123,13 @@ async function laadTcgdex() {
       ))
     );
   }
-  return kaarten.filter(Boolean);
+  return { sets, kaarten: kaarten.filter(Boolean) };
 }
 
 // ---------- Namen en nummers ontleden ----------
 
-const zonderAccent = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
-const woorden = (s) =>
-  zonderAccent(s)
-    .toLowerCase()
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .split(" ")
-    .filter(Boolean);
+export { nummer };
 const NUMMERWOORD = /^[a-z]{0,5}\d+[a-z]?$/;
-
-export function nummer(s) {
-  const kop = String(s || "").split("/")[0].replace(/\s+/g, "").toUpperCase();
-  const m = kop.match(/^([A-Z]*)0*(\d+)([A-Z]?)$/);
-  return m ? m[1] + m[2] + m[3] : kop;
-}
 
 function variantSet(lijst) {
   return new Set(lijst.flatMap(woorden).filter((w) => !NUMMERWOORD.test(w)));
@@ -176,10 +170,6 @@ function ontleedKaart(naam) {
     });
   return { basis: woorden(rest).join(""), varianten: variantSet(varianten), stempel };
 }
-
-// Setnaam zonder TCGplayer-voorvoegsel ("SV02:", "SWSH:", "XY -")
-const kern = (n) =>
-  woorden(n.replace(/^[A-Z]{1,6}\d{0,3}(\.\d+)?:\s*/, "").replace(/^(XY|SM|BW|DP|HGSS|EX)\s+-\s+/, "")).join("");
 
 const ALIAS = {
   [kern("Diverse promo's")]: ["Miscellaneous Cards & Products"],
@@ -261,7 +251,7 @@ async function main() {
   console.error("TCGplayer-catalogus laden…");
   const tp = await laadTcgcsv();
   console.error("TCGdex laden…");
-  const dex = await laadTcgdex();
+  const { sets: dexSets, kaarten: dex } = await laadTcgdex();
 
   const groepNaam = new Map(tp.groepen.map((g) => [g.groupId, g.name]));
   const productOpId = new Map(tp.producten.map((p) => [p.productId, p]));
@@ -281,9 +271,16 @@ async function main() {
     for (const id of ids) if (id && !dexOpProduct.has(id)) dexOpProduct.set(id, d);
   }
   const dexOpId = new Map(dex.map((d) => [d.id, d]));
+  // TCGdex-kaart per set en nummer, voor kaarten waarvan TCGdex het TCGplayer-product niet kent
+  const dexOpSetNummer = new Map();
+  for (const d of dex) {
+    const sleutel = `${d.set?.id}|${nummer(d.localId)}`;
+    if (!dexOpSetNummer.has(sleutel)) dexOpSetNummer.set(sleutel, []);
+    dexOpSetNummer.get(sleutel).push(d);
+  }
 
   const uit = {};
-  const rapport = { auto: [], controleren: [], geen: [], handmatig: [], cm: [] };
+  const rapport = { auto: [], controleren: [], geen: [], handmatig: [], cm: [], viaNummer: [] };
   const engels = bron.cards.filter((c) => c.list === "EN");
 
   for (const kaart of engels) {
@@ -351,18 +348,41 @@ async function main() {
       if (zekerheid !== "auto" && h.akkoord) zekerheid = "handmatig";
     }
 
-    // TCGdex / Cardmarket: alleen als de TCGdex-kaart bij precies dit product hoort
+    // TCGdex / Cardmarket: de TCGdex-kaart bij precies dit TCGplayer-product, anders (alleen
+    // zonder variant in de naam) de kaart met hetzelfde nummer in de bijbehorende TCGdex-set
     let dexKaart = null;
+    let viaNummer = false;
     if ("dex" in h) dexKaart = h.dex ? dexOpId.get(h.dex) ?? null : null;
-    else if (gekozen) dexKaart = dexOpProduct.get(gekozen.productId) ?? null;
+    else if (gekozen) {
+      dexKaart = dexOpProduct.get(gekozen.productId) ?? null;
+      const naam = naamKern(kaart.name);
+      if (!dexKaart && !naam.variant) {
+        const setIds = dexSetsVoorGroep(groepNaam.get(gekozen.groupId), dexSets);
+        const zelfdeNaam = (d) => naamKern(d.name).basis === naam.basis;
+        let opNummer = setIds.flatMap((id) => dexOpSetNummer.get(`${id}|${nr}`) || []).filter(zelfdeNaam);
+        // Classic Collections nummeren anders en sommige kaarten hebben geen nummer: dan op naam,
+        // als die in de set uniek is
+        if (!opNummer.length && (!nr || setIds.some((id) => EIGEN_NUMMERING.has(id)))) {
+          opNummer = opNaam(dex.filter((d) => setIds.includes(d.set?.id)), naam.basis);
+        }
+        if (opNummer.length === 1) {
+          dexKaart = opNummer[0];
+          viaNummer = true;
+        }
+      }
+    }
     let cm = null;
-    if (dexKaart?.pricing?.cardmarket) {
-      const veld = reverse.has(kaart.id) ? "holo" : "normal";
-      const trend = dexKaart.pricing.cardmarket[veld === "holo" ? "trend-holo" : "trend"];
+    const holo = reverse.has(kaart.id);
+    const cmPrijs = cardmarketPrijs(dexKaart?.pricing?.cardmarket, holo);
+    const cmId = dexKaart?.pricing?.cardmarket?.idProduct ?? null;
+    if (cmPrijs && cmId) {
+      const trend = cmPrijs.t / 100;
       const tpEur = prijsUsd ? prijsUsd * USD_EUR : null;
-      const r = trend && tpEur ? trend / tpEur : null;
-      if (trend && (r == null || (r >= 0.25 && r <= 4))) cm = veld;
-      else if (trend) rapport.cm.push(`${kaart.name} · ${kaart.set} ${kaart.number}: Cardmarket ${euro(trend)} vs TCGplayer ${euro(tpEur)} → genegeerd`);
+      const r = tpEur ? trend / tpEur : null;
+      if (r == null || (r >= 0.25 && r <= 4)) {
+        cm = { id: cmId, holo };
+        if (viaNummer) rapport.viaNummer.push(`  ${kaart.name} · ${kaart.set} ${kaart.number} → ${dexKaart.id} (Cardmarket ${euro(trend)}, TCGplayer ${euro(tpEur)})`);
+      } else rapport.cm.push(`${kaart.name} · ${kaart.set} ${kaart.number}: Cardmarket ${euro(trend)} vs TCGplayer ${euro(tpEur)} → genegeerd`);
     }
 
     const img = [];
@@ -409,13 +429,14 @@ async function main() {
   console.log(lijn);
   console.log(`Engelse kaarten: ${engels.length}`);
   for (const k of ["auto", "handmatig", "controleren", "geen"]) console.log(`  ${k.padEnd(12)} ${rapport[k].length}`);
-  console.log(`  met Cardmarket ${Object.values(kaarten).filter((k) => k.cm).length}`);
+  console.log(`  met Cardmarket ${Object.values(kaarten).filter((k) => k.cm).length} (waarvan ${rapport.viaNummer.length} via set en nummer)`);
   console.log(`  zonder plaatje ${Object.values(kaarten).filter((k) => !k.img.length).length}`);
   if (gewijzigd.length) console.log(`  gewijzigd t.o.v. vorige keer: ${gewijzigd.join(", ")}`);
   for (const k of ["controleren", "geen"]) {
     if (!rapport[k].length) continue;
     console.log(`${lijn}\n${k.toUpperCase()}\n${rapport[k].join("\n")}`);
   }
+  if (rapport.viaNummer.length) console.log(`${lijn}\nCARDMARKET VIA SET EN NUMMER\n${rapport.viaNummer.join("\n")}`);
   if (rapport.cm.length) console.log(`${lijn}\nCARDMARKET GENEGEERD\n  ${rapport.cm.join("\n  ")}`);
   console.log(lijn);
   console.log(`Geschreven: ${path.relative(ROOT, UIT)}`);

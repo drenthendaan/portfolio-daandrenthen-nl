@@ -11,8 +11,9 @@ const VELDEN = [
   ["a", "Afgerond"],
 ];
 const LABEL = {
-  m: "TCGplayer-marktprijs",
-  l: "Laagste aanbod op TCGplayer (vraagprijs)",
+  c: "Cardmarket-trendprijs (Europa)",
+  m: "TCGplayer-marktprijs (VS, omgerekend)",
+  l: "Laagste aanbod op TCGplayer (VS, omgerekend)",
   v: "Vaste prijs van 5 okt",
 };
 
@@ -115,19 +116,27 @@ export default function KaartDetail({ kaart, prijs, fx, reeks, status, onSluit, 
                   {LABEL[prijs.t]}
                   {prijs.t === "v" && prijs.vraag ? " (vraagprijs)" : ""}
                 </p>
+                {prijs.t === "c" && (
+                  <p className="dp-uitleg">
+                    Prijs van {datumKort(prijs.d)}
+                    {prijs.cm?.low != null && ` · vanaf ${euro(prijs.cm.low)}`}
+                    {prijs.cm?.a7 != null && ` · gem. 7 dagen ${euro(prijs.cm.a7)}`}
+                    {prijs.cm?.a30 != null && ` · 30 dagen ${euro(prijs.cm.a30)}`}
+                  </p>
+                )}
                 {(prijs.t === "m" || prijs.t === "l") && prijs.u != null && fx && (
                   <p className="dp-uitleg">
                     {dollar(prijs.u)} × {fx.koers.toLocaleString("nl-NL", { maximumFractionDigits: 4 })} (ECB) ·
-                    prijs van {datumKort(prijs.d)}
+                    prijs van {datumKort(prijs.d)} · geen Cardmarket-prijs voor deze kaart of variant
                   </p>
                 )}
               </>
             )}
-            {prijs?.cm && (
+            {prijs?.t === "c" && prijs.us && (
               <p className="dp-cm">
-                Cardmarket-trend <b>{euro(prijs.cm.t)}</b>
-                {prijs.cm.a7 != null && ` · gem. 7 dagen ${euro(prijs.cm.a7)}`}
-                {prijs.cm.a30 != null && ` · 30 dagen ${euro(prijs.cm.a30)}`}
+                TCGplayer (VS) <b>{euro(prijs.us.e)}</b>
+                {prijs.us.u != null && ` · ${dollar(prijs.us.u)}`}
+                {prijs.us.t === "l" ? " (laagste aanbod)" : ""}
               </p>
             )}
             {verschil != null && eersteDag && (

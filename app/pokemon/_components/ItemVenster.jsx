@@ -9,8 +9,9 @@ import KaartAfbeelding from "./KaartAfbeelding";
 import { datumKort } from "./KaartDetail";
 
 const PRIJSSOORT = {
-  m: "TCGplayer-marktprijs",
-  l: "laagste aanbod op TCGplayer",
+  c: "Cardmarket-trendprijs",
+  m: "TCGplayer-marktprijs (VS)",
+  l: "laagste aanbod op TCGplayer (VS)",
   h: "eigen waarde",
   o: "geen prijs bekend",
 };

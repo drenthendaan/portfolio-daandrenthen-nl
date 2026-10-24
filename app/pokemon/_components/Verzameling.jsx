@@ -85,10 +85,12 @@ function passes(v, show) {
   return true;
 }
 
-// Prijs (centen, per stuk) → [euro voor de tabel, soort]
+// Prijs (centen, per stuk) → [euro voor de tabel, soort]. Cardmarket is de standaard; een
+// Amerikaanse prijs (TCGplayer) krijgt in de tabel een label.
 function prijsVoorTabel(p, aantal = 1) {
   if (!p || p.e == null) return [null, "unknown"];
-  return [(p.e * aantal) / 100, p.t === "l" || p.vraag ? "asking" : p.t === "h" ? "eigen" : "market"];
+  const soort = p.t === "h" ? "eigen" : p.t === "l" ? "us-asking" : p.t === "m" ? "us" : p.vraag ? "asking" : "market";
+  return [(p.e * aantal) / 100, soort];
 }
 
 function zelfdeStatus(a, b) {
@@ -919,9 +921,10 @@ export default function Verzameling({
         <details className="info">
           <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
           <p className="legend">
-            Prijzen zijn de TCGplayer-marktprijs in euro en worden elke avond ververst. Bij
-            &lsquo;vraagprijs&rsquo; is er alleen een aanbieding, geen recente verkoop; een ? betekent dat
-            er geen prijs bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
+            Prijzen zijn de Cardmarket-trendprijs (Europa) en worden elke nacht ververst. Heeft
+            Cardmarket geen prijs, dan staat er &lsquo;TCGplayer&rsquo;: de Amerikaanse marktprijs,
+            omgerekend naar euro; bij &lsquo;vraagprijs&rsquo; is er alleen een aanbieding, geen recente
+            verkoop. Een ? betekent dat er geen prijs bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
             toegevoegd item om het te bewerken. &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
             1–3 zijn de bovenste rij, 4–6 de middelste en 7–9 de onderste.
           </p>
@@ -1083,8 +1086,10 @@ export default function Verzameling({
                   <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>
                 </li>
                 <li>
-                  Prijzen: TCGplayer via <a href="https://tcgcsv.com">tcgcsv.com</a>, elke avond ververst; de
-                  wisselkoers van de ECB via <a href="https://frankfurter.dev">Frankfurter</a>
+                  Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>{" "}
+                  (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); waar Cardmarket geen prijs heeft,
+                  TCGplayer via <a href="https://tcgcsv.com">tcgcsv.com</a> met de wisselkoers van de ECB via{" "}
+                  <a href="https://frankfurter.dev">Frankfurter</a>
                 </li>
                 <li>
                   Japanse kaarten en prijzen: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
@@ -1150,6 +1155,8 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
         <td className="p">
           {priceText(price)}
           {ptype === "asking" && <span className="tag">vraagprijs</span>}
+          {ptype === "us" && <span className="tag">TCGplayer</span>}
+          {ptype === "us-asking" && <span className="tag">TCGplayer-vraagprijs</span>}
           {ptype === "eigen" && <span className="tag">eigen waarde</span>}
         </td>
       )}

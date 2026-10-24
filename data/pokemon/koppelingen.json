@@ -1,5 +1,5 @@
 {
- "gemaakt": "2026-10-14T20:07:36.730Z",
+ "gemaakt": "2026-10-24T19:48:22.217Z",
  "tcgcsv": "2026-10-13T20:06:44+0000",
  "kaarten": {
   "k012a5cace1": {
@@ -10,7 +10,7 @@
    },
    "naam": "Pikachu & Zekrom GX (Secret) · SM - Team Up",
    "dex": "sm9-184",
-   "cm": "normal",
+   "cm": null,
    "img": [
     "t:183806",
     "d:en/sm/sm9/184"
@@ -26,7 +26,10 @@
    },
    "naam": "Pikachu - 018/091 · SV: Paldean Fates",
    "dex": "sv04.5-018",
-   "cm": "holo",
+   "cm": {
+    "id": 751545,
+    "holo": true
+   },
    "img": [
     "t:534163",
     "d:en/sv/sv04.5/018"
@@ -42,7 +45,10 @@
    },
    "naam": "Pikachu - 5/12 · McDonald's Promos 2017",
    "dex": "2017sm-5",
-   "cm": "normal",
+   "cm": {
+    "id": 301847,
+    "holo": false
+   },
    "img": [
     "t:152685"
    ],
@@ -56,10 +62,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 028/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-028",
+   "cm": {
+    "id": 907635,
+    "holo": false
+   },
    "img": [
-    "t:712937"
+    "t:712937",
+    "d:en/me/30th/028"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -71,10 +81,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu EX - XY174 · XY Promos",
-   "dex": null,
+   "dex": "xyp-XY174",
    "cm": null,
    "img": [
-    "t:123454"
+    "t:123454",
+    "d:en/xy/xyp/XY174"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -87,7 +98,10 @@
    },
    "naam": "Surfing Pikachu VMAX · Celebrations",
    "dex": "cel25-9",
-   "cm": "normal",
+   "cm": {
+    "id": 576754,
+    "holo": false
+   },
    "img": [
     "t:250307",
     "d:en/swsh/cel25/9"
@@ -133,7 +147,10 @@
    },
    "naam": "Pikachu V-Union - SWSH141 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH141",
-   "cm": "normal",
+   "cm": {
+    "id": 576740,
+    "holo": false
+   },
    "img": [
     "t:251097",
     "d:en/swsh/swshp/SWSH141"
@@ -149,7 +166,10 @@
    },
    "naam": "Pikachu - SM81 · SM Promos",
    "dex": "smp-SM81",
-   "cm": "normal",
+   "cm": {
+    "id": 295296,
+    "holo": false
+   },
    "img": [
     "t:148426",
     "d:en/sm/smp/SM81"
@@ -180,7 +200,10 @@
    },
    "naam": "Pikachu · HeartGold SoulSilver",
    "dex": "hgss1-78",
-   "cm": null,
+   "cm": {
+    "id": 279050,
+    "holo": false
+   },
    "img": [
     "t:88095",
     "d:en/hgss/hgss1/78"
@@ -196,7 +219,10 @@
    },
    "naam": "Pikachu · Undaunted",
    "dex": "hgss3-61",
-   "cm": "normal",
+   "cm": {
+    "id": 279314,
+    "holo": false
+   },
    "img": [
     "t:88097",
     "d:en/hgss/hgss3/61"
@@ -212,7 +238,10 @@
    },
    "naam": "Pikachu · Stormfront",
    "dex": "dp7-70",
-   "cm": "normal",
+   "cm": {
+    "id": 278368,
+    "holo": false
+   },
    "img": [
     "t:88090",
     "d:en/dp/dp7/70"
@@ -228,7 +257,10 @@
    },
    "naam": "Pikachu V-Union - SWSH142 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH142",
-   "cm": "normal",
+   "cm": {
+    "id": 576741,
+    "holo": false
+   },
    "img": [
     "t:251098",
     "d:en/swsh/swshp/SWSH142"
@@ -258,11 +290,10 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu (Delta Species) - 035 (Value Pack) · Nintendo Promos",
-   "dex": "np-35",
+   "dex": null,
    "cm": null,
    "img": [
-    "t:88109",
-    "d:en/pop/np/35"
+    "t:88109"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -275,7 +306,10 @@
    },
    "naam": "Detective Pikachu - SM170 · SM Promos",
    "dex": "smp-SM170",
-   "cm": "normal",
+   "cm": {
+    "id": 397979,
+    "holo": false
+   },
    "img": [
     "t:190940"
    ],
@@ -290,7 +324,10 @@
    },
    "naam": "Pikachu · EX FireRed & LeafGreen",
    "dex": "ex6-74",
-   "cm": "normal",
+   "cm": {
+    "id": 276250,
+    "holo": false
+   },
    "img": [
     "t:88078",
     "d:en/ex/ex6/74"
@@ -336,7 +373,10 @@
    },
    "naam": "Flying Pikachu VMAX · Celebrations",
    "dex": "cel25-7",
-   "cm": "normal",
+   "cm": {
+    "id": 576752,
+    "holo": false
+   },
    "img": [
     "t:250305",
     "d:en/swsh/cel25/7"
@@ -366,10 +406,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 025/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-025",
+   "cm": {
+    "id": 907632,
+    "holo": false
+   },
    "img": [
-    "t:712935"
+    "t:712935",
+    "d:en/me/30th/025"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -382,7 +426,10 @@
    },
    "naam": "Pikachu · POP Series 6",
    "dex": "pop6-9",
-   "cm": "normal",
+   "cm": {
+    "id": 277894,
+    "holo": false
+   },
    "img": [
     "t:88087",
     "d:en/pop/pop6/9"
@@ -413,7 +460,10 @@
    },
    "naam": "Pikachu · SWSH01: Sword & Shield Base Set",
    "dex": "swsh1-65",
-   "cm": "normal",
+   "cm": {
+    "id": 436459,
+    "holo": false
+   },
    "img": [
     "t:208362",
     "d:en/swsh/swsh1/65"
@@ -443,10 +493,11 @@
     "sub": "Normal"
    },
    "naam": "Surfing Pikachu · WoTC Promo",
-   "dex": null,
+   "dex": "basep-28",
    "cm": null,
    "img": [
-    "t:89643"
+    "t:89643",
+    "d:en/base/basep/28"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -459,7 +510,10 @@
    },
    "naam": "Pikachu V (Full Art) · SWSH04: Vivid Voltage",
    "dex": "swsh4-170",
-   "cm": "normal",
+   "cm": {
+    "id": 512560,
+    "holo": false
+   },
    "img": [
     "t:226431",
     "d:en/swsh/swsh4/170"
@@ -490,7 +544,10 @@
    },
    "naam": "Pikachu · Shining Legends",
    "dex": "sm3.5-28",
-   "cm": "normal",
+   "cm": {
+    "id": 302166,
+    "holo": false
+   },
    "img": [
     "t:146682"
    ],
@@ -505,7 +562,10 @@
    },
    "naam": "Pikachu · Base Set",
    "dex": "base1-58",
-   "cm": "normal",
+   "cm": {
+    "id": 273753,
+    "holo": false
+   },
    "img": [
     "t:42402",
     "d:en/base/base1/58"
@@ -521,7 +581,10 @@
    },
    "naam": "Lt. Surge's Pikachu · Gym Challenge",
    "dex": "gym2-84",
-   "cm": null,
+   "cm": {
+    "id": 274352,
+    "holo": false
+   },
    "img": [
     "t:86860",
     "d:en/gym/gym2/84"
@@ -536,10 +599,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 024/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-024",
+   "cm": {
+    "id": 907631,
+    "holo": false
+   },
    "img": [
-    "t:716309"
+    "t:716309",
+    "d:en/me/30th/024"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -567,7 +634,10 @@
    },
    "naam": "Pikachu - 5/12 · McDonald's Promos 2014",
    "dex": "2014xy-5",
-   "cm": "normal",
+   "cm": {
+    "id": 281657,
+    "holo": false
+   },
    "img": [
     "t:110410"
    ],
@@ -598,7 +668,10 @@
    },
    "naam": "Pikachu - SM76 · SM Promos",
    "dex": "smp-SM76",
-   "cm": "normal",
+   "cm": {
+    "id": 295296,
+    "holo": false
+   },
    "img": [
     "t:146980",
     "d:en/sm/smp/SM76"
@@ -614,7 +687,10 @@
    },
    "naam": "Ash's Pikachu - SM114 · SM Promos",
    "dex": "smp-SM114",
-   "cm": "normal",
+   "cm": {
+    "id": 313441,
+    "holo": false
+   },
    "img": [
     "t:153998",
     "d:en/sm/smp/SM114"
@@ -660,7 +736,10 @@
    },
    "naam": "Pikachu · SWSH12: Silver Tempest",
    "dex": "swsh12-049",
-   "cm": "normal",
+   "cm": {
+    "id": 682096,
+    "holo": false
+   },
    "img": [
     "t:451703",
     "d:en/swsh/swsh12/049"
@@ -722,7 +801,10 @@
    },
    "naam": "Pikachu · POP Series 2",
    "dex": "pop2-16",
-   "cm": "normal",
+   "cm": {
+    "id": 277447,
+    "holo": false
+   },
    "img": [
     "t:88081",
     "d:en/pop/pop2/16"
@@ -738,7 +820,10 @@
    },
    "naam": "Pikachu · Rising Rivals",
    "dex": "pl2-112",
-   "cm": "normal",
+   "cm": {
+    "id": 278686,
+    "holo": false
+   },
    "img": [
     "t:88091",
     "d:en/pl/pl2/112"
@@ -784,7 +869,10 @@
    },
    "naam": "Pikachu V · SWSH04: Vivid Voltage",
    "dex": "swsh4-43",
-   "cm": "normal",
+   "cm": {
+    "id": 511635,
+    "holo": false
+   },
    "img": [
     "t:226430",
     "d:en/swsh/swsh4/43"
@@ -800,7 +888,10 @@
    },
    "naam": "Pikachu - SM206 · SM Promos",
    "dex": "smp-SM206",
-   "cm": "normal",
+   "cm": {
+    "id": 377532,
+    "holo": false
+   },
    "img": [
     "t:198771",
     "d:en/sm/smp/SM206"
@@ -816,7 +907,10 @@
    },
    "naam": "Detective Pikachu · Detective Pikachu",
    "dex": "det1-10",
-   "cm": "normal",
+   "cm": {
+    "id": 370774,
+    "holo": false
+   },
    "img": [
     "t:186015",
     "d:en/sm/det1/10"
@@ -832,7 +926,10 @@
    },
    "naam": "Pikachu (Secret) · SM - Cosmic Eclipse",
    "dex": "sm12-241",
-   "cm": "normal",
+   "cm": {
+    "id": 398534,
+    "holo": false
+   },
    "img": [
     "t:201352",
     "d:en/sm/sm12/241"
@@ -878,7 +975,10 @@
    },
    "naam": "Pikachu · Skyridge",
    "dex": "ecard3-84",
-   "cm": "normal",
+   "cm": {
+    "id": 275342,
+    "holo": false
+   },
    "img": [
     "t:88074",
     "d:en/ecard/ecard3/84"
@@ -894,7 +994,10 @@
    },
    "naam": "Pikachu · SM - Unbroken Bonds",
    "dex": "sm10-54",
-   "cm": "normal",
+   "cm": {
+    "id": 372345,
+    "holo": false
+   },
    "img": [
     "t:189153",
     "d:en/sm/sm10/54"
@@ -910,7 +1013,10 @@
    },
    "naam": "Pikachu · Supreme Victors",
    "dex": "pl3-120",
-   "cm": "normal",
+   "cm": {
+    "id": 278811,
+    "holo": false
+   },
    "img": [
     "t:88093",
     "d:en/pl/pl3/120"
@@ -925,10 +1031,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 048/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-048",
+   "cm": {
+    "id": 907655,
+    "holo": false
+   },
    "img": [
-    "t:716316"
+    "t:716316",
+    "d:en/me/30th/048"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -940,8 +1050,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 7/15 · McDonald's Promos 2022",
-   "dex": null,
-   "cm": null,
+   "dex": "2022swsh-7",
+   "cm": {
+    "id": 670472,
+    "holo": false
+   },
    "img": [
     "t:282523"
    ],
@@ -956,7 +1069,10 @@
    },
    "naam": "Pikachu · Generations",
    "dex": "g1-26",
-   "cm": "normal",
+   "cm": {
+    "id": 288464,
+    "holo": false
+   },
    "img": [
     "t:113684",
     "d:en/xy/g1/26"
@@ -984,8 +1100,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · SWSH11: Lost Origin Trainer Gallery",
-   "dex": null,
-   "cm": null,
+   "dex": "swsh11tg-TG05",
+   "cm": {
+    "id": 674225,
+    "holo": false
+   },
    "img": [
     "t:284258"
    ],
@@ -1014,10 +1133,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 031/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-031",
+   "cm": {
+    "id": 907638,
+    "holo": false
+   },
    "img": [
-    "t:716312"
+    "t:716312",
+    "d:en/me/30th/031"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1030,7 +1153,10 @@
    },
    "naam": "Pikachu · Celebrations",
    "dex": "cel25-5",
-   "cm": "normal",
+   "cm": {
+    "id": 576750,
+    "holo": false
+   },
    "img": [
     "t:250303",
     "d:en/swsh/cel25/5"
@@ -1045,8 +1171,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu VMAX · SWSH11: Lost Origin Trainer Gallery",
-   "dex": null,
-   "cm": null,
+   "dex": "swsh11tg-TG17",
+   "cm": {
+    "id": 674235,
+    "holo": false
+   },
    "img": [
     "t:284283"
    ],
@@ -1061,7 +1190,10 @@
    },
    "naam": "Pikachu · Expedition",
    "dex": "ecard1-124",
-   "cm": "normal",
+   "cm": {
+    "id": 274999,
+    "holo": false
+   },
    "img": [
     "t:88076",
     "d:en/ecard/ecard1/124"
@@ -1076,10 +1208,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu - BW54 · Black and White Promos",
-   "dex": null,
+   "dex": "bwp-BW54",
    "cm": null,
    "img": [
-    "t:202379"
+    "t:202379",
+    "d:en/bw/bwp/BW54"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1092,7 +1225,10 @@
    },
    "naam": "Pikachu - SM234 · SM Promos",
    "dex": "smp-SM234",
-   "cm": "normal",
+   "cm": {
+    "id": 412934,
+    "holo": false
+   },
    "img": [
     "t:200275"
    ],
@@ -1107,7 +1243,10 @@
    },
    "naam": "Pikachu · SWSH07: Evolving Skies",
    "dex": "swsh7-49",
-   "cm": "normal",
+   "cm": {
+    "id": 574073,
+    "holo": false
+   },
    "img": [
     "t:246881",
     "d:en/swsh/swsh7/49"
@@ -1123,7 +1262,10 @@
    },
    "naam": "Pikachu · SV05: Temporal Forces",
    "dex": "sv05-051",
-   "cm": "normal",
+   "cm": {
+    "id": 760681,
+    "holo": false
+   },
    "img": [
     "t:542795",
     "d:en/sv/sv05/051"
@@ -1139,7 +1281,10 @@
    },
    "naam": "Pikachu V (Full Art) · SWSH09: Brilliant Stars",
    "dex": "swsh9-157",
-   "cm": "normal",
+   "cm": {
+    "id": 608703,
+    "holo": false
+   },
    "img": [
     "t:263876",
     "d:en/swsh/swsh9/157"
@@ -1169,10 +1314,11 @@
     "sub": "Holofoil"
    },
    "naam": "______'s Pikachu · WoTC Promo",
-   "dex": null,
+   "dex": "basep-24",
    "cm": null,
    "img": [
-    "t:90784"
+    "t:90784",
+    "d:en/base/basep/24"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1184,10 +1330,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu ex - 150/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-150",
+   "cm": {
+    "id": 907757,
+    "holo": false
+   },
    "img": [
-    "t:712954"
+    "t:712954",
+    "d:en/me/30th/150"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1200,7 +1350,10 @@
    },
    "naam": "Pikachu VMAX (Secret) · SWSH04: Vivid Voltage",
    "dex": "swsh4-188",
-   "cm": "normal",
+   "cm": {
+    "id": 512650,
+    "holo": false
+   },
    "img": [
     "t:226434",
     "d:en/swsh/swsh4/188"
@@ -1215,10 +1368,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 034/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-034",
+   "cm": {
+    "id": 907641,
+    "holo": false
+   },
    "img": [
-    "t:712941"
+    "t:712941",
+    "d:en/me/30th/034"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1230,7 +1387,7 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · McDonald's Promos 2023",
-   "dex": null,
+   "dex": "2023sv-6",
    "cm": null,
    "img": [
     "t:516517"
@@ -1246,7 +1403,10 @@
    },
    "naam": "Pikachu · XY - Furious Fists",
    "dex": "xy3-27",
-   "cm": "normal",
+   "cm": {
+    "id": 281691,
+    "holo": false
+   },
    "img": [
     "t:92202",
     "d:en/xy/xy3/27"
@@ -1262,7 +1422,10 @@
    },
    "naam": "Pikachu V · SWSH08: Fusion Strike",
    "dex": "swsh8-86",
-   "cm": "normal",
+   "cm": {
+    "id": 582411,
+    "holo": false
+   },
    "img": [
     "t:253241",
     "d:en/swsh/swsh8/86"
@@ -1278,7 +1441,10 @@
    },
    "naam": "Pikachu · XY - Evolutions",
    "dex": "xy12-35",
-   "cm": "normal",
+   "cm": {
+    "id": 293392,
+    "holo": false
+   },
    "img": [
     "t:124048",
     "d:en/xy/xy12/35"
@@ -1294,7 +1460,10 @@
    },
    "naam": "Pikachu & Zekrom GX · SM Promos",
    "dex": "smp-SM168",
-   "cm": "normal",
+   "cm": {
+    "id": 369468,
+    "holo": false
+   },
    "img": [
     "t:185985"
    ],
@@ -1309,7 +1478,10 @@
    },
    "naam": "Pikachu V - SWSH285 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH285",
-   "cm": "normal",
+   "cm": {
+    "id": 692429,
+    "holo": false
+   },
    "img": [
     "t:478423",
     "d:en/swsh/swshp/SWSH285"
@@ -1352,10 +1524,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 033/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-033",
+   "cm": {
+    "id": 907640,
+    "holo": false
+   },
    "img": [
-    "t:712940"
+    "t:712940",
+    "d:en/me/30th/033"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1368,7 +1544,10 @@
    },
    "naam": "Pikachu · POP Series 5",
    "dex": "pop5-12",
-   "cm": "normal",
+   "cm": {
+    "id": 277494,
+    "holo": false
+   },
    "img": [
     "t:88085",
     "d:en/pop/pop5/12"
@@ -1399,7 +1578,10 @@
    },
    "naam": "Pikachu ex · SV02: Paldea Evolved",
    "dex": "sv02-063",
-   "cm": "normal",
+   "cm": {
+    "id": 715538,
+    "holo": false
+   },
    "img": [
     "t:497474",
     "d:en/sv/sv02/063"
@@ -1415,7 +1597,10 @@
    },
    "naam": "Pikachu · POP Series 9",
    "dex": "pop9-15",
-   "cm": "normal",
+   "cm": {
+    "id": 278566,
+    "holo": false
+   },
    "img": [
     "t:88092",
     "d:en/pop/pop9/15"
@@ -1446,7 +1631,10 @@
    },
    "naam": "Pikachu V - SWSH145 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH145",
-   "cm": "normal",
+   "cm": {
+    "id": 576744,
+    "holo": false
+   },
    "img": [
     "t:251102",
     "d:en/swsh/swshp/SWSH145"
@@ -1462,7 +1650,10 @@
    },
    "naam": "Pikachu · Mysterious Treasures",
    "dex": "dp2-94",
-   "cm": "normal",
+   "cm": {
+    "id": 277723,
+    "holo": false
+   },
    "img": [
     "t:88086",
     "d:en/dp/dp2/94"
@@ -1478,7 +1669,10 @@
    },
    "naam": "Pikachu - SWSH234 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH234",
-   "cm": "normal",
+   "cm": {
+    "id": 653698,
+    "holo": false
+   },
    "img": [
     "t:277039",
     "d:en/swsh/swshp/SWSH234"
@@ -1494,7 +1688,10 @@
    },
    "naam": "Pikachu Star · EX Holon Phantoms",
    "dex": "ex13-104",
-   "cm": "normal",
+   "cm": {
+    "id": 277048,
+    "holo": false
+   },
    "img": [
     "t:88111",
     "d:en/ex/ex13/104"
@@ -1510,7 +1707,10 @@
    },
    "naam": "Pikachu ex - 057/191 · SV08: Surging Sparks",
    "dex": "sv08-057",
-   "cm": "normal",
+   "cm": {
+    "id": 794329,
+    "holo": false
+   },
    "img": [
     "t:590025",
     "d:en/sv/sv08/057"
@@ -1526,7 +1726,10 @@
    },
    "naam": "Pikachu V - SWSH061 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH061",
-   "cm": "normal",
+   "cm": {
+    "id": 540616,
+    "holo": false
+   },
    "img": [
     "t:232434",
     "d:en/swsh/swshp/SWSH061"
@@ -1541,8 +1744,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · McDonald's Promos 2024",
-   "dex": null,
-   "cm": null,
+   "dex": "2024sv-2",
+   "cm": {
+    "id": 802824,
+    "holo": false
+   },
    "img": [
     "t:614371"
    ],
@@ -1557,7 +1763,10 @@
    },
    "naam": "Pikachu V - SWSH143 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH143",
-   "cm": "normal",
+   "cm": {
+    "id": 576742,
+    "holo": false
+   },
    "img": [
     "t:251101",
     "d:en/swsh/swshp/SWSH143"
@@ -1573,7 +1782,10 @@
    },
    "naam": "Pikachu ex - 057/217 · ME: Ascended Heroes",
    "dex": "me02.5-057",
-   "cm": "normal",
+   "cm": {
+    "id": 869668,
+    "holo": false
+   },
    "img": [
     "t:675869",
     "d:en/me/me02.5/057"
@@ -1589,7 +1801,10 @@
    },
    "naam": "Pikachu & Zekrom GX (Full Art) · SM - Team Up",
    "dex": "sm9-162",
-   "cm": "normal",
+   "cm": {
+    "id": 369087,
+    "holo": false
+   },
    "img": [
     "t:183805",
     "d:en/sm/sm9/162"
@@ -1620,7 +1835,7 @@
    },
    "naam": "Ash's Pikachu - SM112 · SM Promos",
    "dex": "smp-SM112",
-   "cm": "normal",
+   "cm": null,
    "img": [
     "t:153996",
     "d:en/sm/smp/SM112"
@@ -1636,7 +1851,10 @@
    },
    "naam": "Pikachu ex - 028/131 · SV: Prismatic Evolutions",
    "dex": "sv08.5-028",
-   "cm": "normal",
+   "cm": {
+    "id": 805417,
+    "holo": false
+   },
    "img": [
     "t:610383",
     "d:en/sv/sv08.5/028"
@@ -1651,10 +1869,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 036/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-036",
+   "cm": {
+    "id": 907643,
+    "holo": false
+   },
    "img": [
-    "t:696680"
+    "t:696680",
+    "d:en/me/30th/036"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1681,10 +1903,14 @@
     "sub": "Normal"
    },
    "naam": "Pikachu - 101 · SV: Scarlet & Violet Promo Cards",
-   "dex": null,
-   "cm": null,
+   "dex": "svp-101",
+   "cm": {
+    "id": 740411,
+    "holo": false
+   },
    "img": [
-    "t:528365"
+    "t:528365",
+    "d:en/sv/svp/101"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1711,10 +1937,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 044/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-044",
+   "cm": {
+    "id": 907651,
+    "holo": false
+   },
    "img": [
-    "t:712948"
+    "t:712948",
+    "d:en/me/30th/044"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1727,7 +1957,10 @@
    },
    "naam": "Pikachu · SM - Burning Shadows",
    "dex": "sm3-40",
-   "cm": "normal",
+   "cm": {
+    "id": 299444,
+    "holo": false
+   },
    "img": [
     "t:138522",
     "d:en/sm/sm3/40"
@@ -1757,7 +1990,7 @@
     "sub": "Normal"
    },
    "naam": "Pikachu - 190 · SV: Scarlet & Violet Promo Cards",
-   "dex": null,
+   "dex": "svp-190",
    "cm": null,
    "img": [
     "t:562088"
@@ -1773,7 +2006,10 @@
    },
    "naam": "Pikachu - 6/12 · McDonald's Promos 2015",
    "dex": "2015xy-6",
-   "cm": "normal",
+   "cm": {
+    "id": 293322,
+    "holo": false
+   },
    "img": [
     "t:110424"
    ],
@@ -1787,10 +2023,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu ex - 149/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-149",
+   "cm": {
+    "id": 907756,
+    "holo": false
+   },
    "img": [
-    "t:712953"
+    "t:712953",
+    "d:en/me/30th/149"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1817,10 +2057,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu (Full Art) · Generations: Radiant Collection",
-   "dex": null,
+   "dex": "g1-RC29",
    "cm": null,
    "img": [
-    "t:113771"
+    "t:113771",
+    "d:en/xy/g1/RC29"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -1833,7 +2074,10 @@
    },
    "naam": "Pikachu - 025/165 · SV: Scarlet & Violet 151",
    "dex": "sv03.5-025",
-   "cm": "holo",
+   "cm": {
+    "id": 733620,
+    "holo": true
+   },
    "img": [
     "t:517033",
     "d:en/sv/sv03.5/025"
@@ -1849,7 +2093,10 @@
    },
    "naam": "Pikachu · Jungle",
    "dex": "base2-60",
-   "cm": "normal",
+   "cm": {
+    "id": 273857,
+    "holo": false
+   },
    "img": [
     "t:45163",
     "d:en/base/base2/60"
@@ -1865,7 +2112,10 @@
    },
    "naam": "Pikachu ex - 277/217 · ME: Ascended Heroes",
    "dex": "me02.5-277",
-   "cm": "normal",
+   "cm": {
+    "id": 869887,
+    "holo": false
+   },
    "img": [
     "t:676089",
     "d:en/me/me02.5/277"
@@ -1880,8 +2130,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · ME: 30th Celebration Classic Collection",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-c-014",
+   "cm": {
+    "id": 907939,
+    "holo": false
+   },
    "img": [
     "t:716194"
    ],
@@ -1896,7 +2149,10 @@
    },
    "naam": "Pikachu (28) · Pokemon GO",
    "dex": "swsh10.5-028",
-   "cm": "normal",
+   "cm": {
+    "id": 665261,
+    "holo": false
+   },
    "img": [
     "t:274461",
     "d:en/swsh/swsh10.5/028"
@@ -1927,7 +2183,10 @@
    },
    "naam": "Pikachu · ME: Ascended Heroes",
    "dex": "me02.5-055",
-   "cm": "normal",
+   "cm": {
+    "id": 869666,
+    "holo": false
+   },
    "img": [
     "t:675867",
     "d:en/me/me02.5/055"
@@ -1942,8 +2201,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu VMAX (Secret) · SWSH11: Lost Origin Trainer Gallery",
-   "dex": null,
-   "cm": null,
+   "dex": "swsh11tg-TG29",
+   "cm": {
+    "id": 674244,
+    "holo": false
+   },
    "img": [
     "t:284302"
    ],
@@ -1987,10 +2249,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu (27) · WoTC Promo",
-   "dex": null,
+   "dex": "basep-27",
    "cm": null,
    "img": [
-    "t:88069"
+    "t:88069",
+    "d:en/base/basep/27"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2063,7 +2326,10 @@
    },
    "naam": "Pikachu (#16) · HGSS Trainer Kit: Gyarados & Raichu",
    "dex": "tk-hs-r-16",
-   "cm": "normal",
+   "cm": {
+    "id": 279103,
+    "holo": false
+   },
    "img": [
     "t:88100"
    ],
@@ -2078,7 +2344,7 @@
    },
    "naam": "Pikachu (#29) · SM Trainer Kit: Lycanroc & Alolan Raichu",
    "dex": "tk-sm-r-29",
-   "cm": "normal",
+   "cm": null,
    "img": [],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2090,8 +2356,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu - 25/25 · McDonald's 25th Anniversary Promos",
-   "dex": null,
-   "cm": null,
+   "dex": "2021swsh-25",
+   "cm": {
+    "id": 539018,
+    "holo": false
+   },
    "img": [
     "t:232339"
    ],
@@ -2149,7 +2418,10 @@
    },
    "naam": "Pikachu VMAX - SWSH062 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH062",
-   "cm": "normal",
+   "cm": {
+    "id": 576730,
+    "holo": false
+   },
    "img": [
     "t:251086",
     "d:en/swsh/swshp/SWSH062"
@@ -2165,7 +2437,10 @@
    },
    "naam": "Pikachu - 173/165 · SV: Scarlet & Violet 151",
    "dex": "sv03.5-173",
-   "cm": "normal",
+   "cm": {
+    "id": 733768,
+    "holo": false
+   },
    "img": [
     "t:513721",
     "d:en/sv/sv03.5/173"
@@ -2181,7 +2456,10 @@
    },
    "naam": "Pikachu - SM162 · SM Promos",
    "dex": "smp-SM162",
-   "cm": "normal",
+   "cm": {
+    "id": 367365,
+    "holo": false
+   },
    "img": [
     "t:184483",
     "d:en/sm/smp/SM162"
@@ -2196,11 +2474,10 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - SWSH153 (Holiday Calendar) · SWSH: Sword & Shield Promo Cards",
-   "dex": "swshp-SWSH153",
-   "cm": "normal",
+   "dex": null,
+   "cm": null,
    "img": [
-    "t:283301",
-    "d:en/swsh/swshp/SWSH153"
+    "t:283301"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2212,10 +2489,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 035/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-035",
+   "cm": {
+    "id": 907642,
+    "holo": false
+   },
    "img": [
-    "t:716313"
+    "t:716313",
+    "d:en/me/30th/035"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2273,7 +2554,10 @@
    },
    "naam": "Pikachu - SM227 · SM Promos",
    "dex": "smp-SM227",
-   "cm": "normal",
+   "cm": {
+    "id": 412914,
+    "holo": false
+   },
    "img": [
     "t:205170"
    ],
@@ -2318,10 +2602,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 039/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-039",
+   "cm": {
+    "id": 907646,
+    "holo": false
+   },
    "img": [
-    "t:712943"
+    "t:712943",
+    "d:en/me/30th/039"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2379,7 +2667,10 @@
    },
    "naam": "Ash's Pikachu - SM113 · SM Promos",
    "dex": "smp-SM113",
-   "cm": "normal",
+   "cm": {
+    "id": 313440,
+    "holo": false
+   },
    "img": [
     "t:153997",
     "d:en/sm/smp/SM113"
@@ -2395,7 +2686,10 @@
    },
    "naam": "Ash's Pikachu - SM109 · SM Promos",
    "dex": "smp-SM109",
-   "cm": null,
+   "cm": {
+    "id": 313436,
+    "holo": false
+   },
    "img": [
     "t:151974",
     "d:en/sm/smp/SM109"
@@ -2410,10 +2704,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 023/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-023",
+   "cm": {
+    "id": 907630,
+    "holo": false
+   },
    "img": [
-    "t:712934"
+    "t:712934",
+    "d:en/me/30th/023"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2426,7 +2724,10 @@
    },
    "naam": "Flying Pikachu · XY - Evolutions",
    "dex": "xy12-110",
-   "cm": "normal",
+   "cm": {
+    "id": 293472,
+    "holo": false
+   },
    "img": [
     "t:124123",
     "d:en/xy/xy12/110"
@@ -2441,10 +2742,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu EX - XY124 · XY Promos",
-   "dex": null,
+   "dex": "xyp-XY124",
    "cm": null,
    "img": [
-    "t:123436"
+    "t:123436",
+    "d:en/xy/xyp/XY124"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2457,7 +2759,10 @@
    },
    "naam": "Pikachu (#14) · SM Trainer Kit: Lycanroc & Alolan Raichu",
    "dex": "tk-sm-r-14",
-   "cm": "normal",
+   "cm": {
+    "id": 297245,
+    "holo": false
+   },
    "img": [
     "t:152868"
    ],
@@ -2486,8 +2791,11 @@
     "sub": "Holofoil"
    },
    "naam": "______'s Pikachu · Celebrations: Classic Collection",
-   "dex": null,
-   "cm": null,
+   "dex": "cel25cc-CC008",
+   "cm": {
+    "id": 576778,
+    "holo": false
+   },
    "img": [
     "t:250325"
    ],
@@ -2532,7 +2840,10 @@
    },
    "naam": "Ash's Pikachu - SM111 · SM Promos",
    "dex": "smp-SM111",
-   "cm": "normal",
+   "cm": {
+    "id": 313438,
+    "holo": false
+   },
    "img": [
     "t:153995",
     "d:en/sm/smp/SM111"
@@ -2577,10 +2888,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 088 · SV: Scarlet & Violet Promo Cards",
-   "dex": null,
-   "cm": null,
+   "dex": "svp-088",
+   "cm": {
+    "id": 751813,
+    "holo": false
+   },
    "img": [
-    "t:542481"
+    "t:542481",
+    "d:en/sv/svp/088"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2608,7 +2923,10 @@
    },
    "naam": "Pikachu & Zekrom GX · SM - Team Up",
    "dex": "sm9-33",
-   "cm": "normal",
+   "cm": {
+    "id": 366888,
+    "holo": false
+   },
    "img": [
     "t:183804",
     "d:en/sm/sm9/33"
@@ -2624,7 +2942,10 @@
    },
    "naam": "Pikachu · Base Set 2",
    "dex": "base4-87",
-   "cm": null,
+   "cm": {
+    "id": 274010,
+    "holo": false
+   },
    "img": [
     "t:42538",
     "d:en/base/base4/87"
@@ -2670,7 +2991,10 @@
    },
    "naam": "Pikachu · Black and White",
    "dex": "bw1-115",
-   "cm": "normal",
+   "cm": {
+    "id": 279853,
+    "holo": false
+   },
    "img": [
     "t:88101",
     "d:en/bw/bw1/115"
@@ -2715,10 +3039,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 052/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-052",
+   "cm": {
+    "id": 907659,
+    "holo": false
+   },
    "img": [
-    "t:716318"
+    "t:716318",
+    "d:en/me/30th/052"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2731,7 +3059,10 @@
    },
    "naam": "Pikachu GX - SM232 · SM Promos",
    "dex": "smp-SM232",
-   "cm": "normal",
+   "cm": {
+    "id": 412924,
+    "holo": false
+   },
    "img": [
     "t:200273"
    ],
@@ -2746,7 +3077,10 @@
    },
    "naam": "Pikachu · EX Power Keepers",
    "dex": "ex16-57",
-   "cm": "normal",
+   "cm": {
+    "id": 277363,
+    "holo": false
+   },
    "img": [
     "t:88084",
     "d:en/ex/ex16/57"
@@ -2761,10 +3095,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · XY Promos",
-   "dex": null,
-   "cm": null,
+   "dex": "xyp-XY95",
+   "cm": {
+    "id": 289809,
+    "holo": false
+   },
    "img": [
-    "t:114004"
+    "t:114004",
+    "d:en/xy/xyp/XY95"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2792,7 +3130,10 @@
    },
    "naam": "Pikachu - 131/091 · SV: Paldean Fates",
    "dex": "sv04.5-131",
-   "cm": "normal",
+   "cm": {
+    "id": 751670,
+    "holo": false
+   },
    "img": [
     "t:534522",
     "d:en/sv/sv04.5/131"
@@ -2808,7 +3149,10 @@
    },
    "naam": "Pikachu · EX Trainer Kit 1: Latias & Latios",
    "dex": "tk-ex-latio-6",
-   "cm": "normal",
+   "cm": {
+    "id": 275763,
+    "holo": false
+   },
    "img": [
     "t:88079"
    ],
@@ -2823,7 +3167,10 @@
    },
    "naam": "Pikachu - SM04 · SM Promos",
    "dex": "smp-SM04",
-   "cm": "normal",
+   "cm": {
+    "id": 295296,
+    "holo": false
+   },
    "img": [
     "t:126032",
     "d:en/sm/smp/SM04"
@@ -2839,7 +3186,10 @@
    },
    "naam": "Pikachu (56) · SM - Unified Minds",
    "dex": "sm11-56",
-   "cm": "normal",
+   "cm": {
+    "id": 388097,
+    "holo": false
+   },
    "img": [
     "t:194982",
     "d:en/sm/sm11/56"
@@ -2855,7 +3205,10 @@
    },
    "naam": "Pikachu · EX Sandstorm",
    "dex": "ex2-72",
-   "cm": "normal",
+   "cm": {
+    "id": 275849,
+    "holo": false
+   },
    "img": [
     "t:88073",
     "d:en/ex/ex2/72"
@@ -2871,7 +3224,10 @@
    },
    "naam": "Pikachu V-Union - SWSH140 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH140",
-   "cm": "normal",
+   "cm": {
+    "id": 576739,
+    "holo": false
+   },
    "img": [
     "t:251096",
     "d:en/swsh/swshp/SWSH140"
@@ -2887,7 +3243,10 @@
    },
    "naam": "Pikachu · POP Series 4",
    "dex": "pop4-13",
-   "cm": "normal",
+   "cm": {
+    "id": 277478,
+    "holo": false
+   },
    "img": [
     "t:88083",
     "d:en/pop/pop4/13"
@@ -2902,10 +3261,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 027 · SV: Scarlet & Violet Promo Cards",
-   "dex": null,
-   "cm": null,
+   "dex": "svp-027",
+   "cm": {
+    "id": 703195,
+    "holo": false
+   },
    "img": [
-    "t:500263"
+    "t:500263",
+    "d:en/sv/svp/027"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2918,7 +3281,10 @@
    },
    "naam": "Pikachu · EX Holon Phantoms",
    "dex": "ex13-78",
-   "cm": "normal",
+   "cm": {
+    "id": 277048,
+    "holo": false
+   },
    "img": [
     "t:88082",
     "d:en/ex/ex13/78"
@@ -2933,10 +3299,14 @@
     "sub": "Normal"
    },
    "naam": "Pikachu (Delta Species) · EX Holon Phantoms",
-   "dex": null,
-   "cm": null,
+   "dex": "ex13-79",
+   "cm": {
+    "id": 277049,
+    "holo": false
+   },
    "img": [
-    "t:88108"
+    "t:88108",
+    "d:en/ex/ex13/79"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2948,10 +3318,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 042/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-042",
+   "cm": {
+    "id": 907649,
+    "holo": false
+   },
    "img": [
-    "t:712946"
+    "t:712946",
+    "d:en/me/30th/042"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -2964,7 +3338,10 @@
    },
    "naam": "Pikachu · Boundaries Crossed",
    "dex": "bw7-50",
-   "cm": "normal",
+   "cm": {
+    "id": 280637,
+    "holo": false
+   },
    "img": [
     "t:88103",
     "d:en/bw/bw7/50"
@@ -2995,7 +3372,10 @@
    },
    "naam": "Surfing Pikachu · Rising Rivals",
    "dex": "pl2-114",
-   "cm": "normal",
+   "cm": {
+    "id": 278688,
+    "holo": false
+   },
    "img": [
     "t:89644",
     "d:en/pl/pl2/114"
@@ -3011,7 +3391,10 @@
    },
    "naam": "Surfing Pikachu · XY - Evolutions",
    "dex": "xy12-111",
-   "cm": "normal",
+   "cm": {
+    "id": 293473,
+    "holo": false
+   },
    "img": [
     "t:124124",
     "d:en/xy/xy12/111"
@@ -3027,7 +3410,10 @@
    },
    "naam": "Pikachu - SM98 · SM Promos",
    "dex": "smp-SM98",
-   "cm": "normal",
+   "cm": {
+    "id": 302135,
+    "holo": false
+   },
    "img": [
     "t:166411",
     "d:en/sm/smp/SM98"
@@ -3073,7 +3459,10 @@
    },
    "naam": "Pikachu - 6/12 · McDonald's Promos 2016",
    "dex": "2016xy-6",
-   "cm": "normal",
+   "cm": {
+    "id": 295142,
+    "holo": false
+   },
    "img": [
     "t:275062"
    ],
@@ -3118,7 +3507,10 @@
    },
    "naam": "Pikachu - HGSS03 · HGSS Promos",
    "dex": "hgssp-HGSS03",
-   "cm": "normal",
+   "cm": {
+    "id": 275610,
+    "holo": false
+   },
    "img": [
     "t:88098",
     "d:en/hgss/hgssp/HGSS03"
@@ -3134,7 +3526,10 @@
    },
    "naam": "Pikachu · SV02: Paldea Evolved",
    "dex": "sv02-062",
-   "cm": "normal",
+   "cm": {
+    "id": 715537,
+    "holo": false
+   },
    "img": [
     "t:497473",
     "d:en/sv/sv02/062"
@@ -3150,7 +3545,10 @@
    },
    "naam": "Pikachu · Arceus",
    "dex": "pl4-71",
-   "cm": "normal",
+   "cm": {
+    "id": 278943,
+    "holo": false
+   },
    "img": [
     "t:88094",
     "d:en/pl/pl4/71"
@@ -3166,7 +3564,10 @@
    },
    "naam": "Pikachu V - SWSH198 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH198",
-   "cm": "normal",
+   "cm": {
+    "id": 604984,
+    "holo": false
+   },
    "img": [
     "t:260711",
     "d:en/swsh/swshp/SWSH198"
@@ -3213,7 +3614,10 @@
    },
    "naam": "Pikachu ex - 238/191 · SV08: Surging Sparks",
    "dex": "sv08-238",
-   "cm": "normal",
+   "cm": {
+    "id": 794611,
+    "holo": false
+   },
    "img": [
     "t:590027",
     "d:en/sv/sv08/238"
@@ -3273,10 +3677,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 029/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-029",
+   "cm": {
+    "id": 907636,
+    "holo": false
+   },
    "img": [
-    "t:716311"
+    "t:716311",
+    "d:en/me/30th/029"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3288,10 +3696,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu (Delta Species) · EX Legend Maker",
-   "dex": null,
-   "cm": null,
+   "dex": "ex12-93",
+   "cm": {
+    "id": 276970,
+    "holo": false
+   },
    "img": [
-    "t:88107"
+    "t:88107",
+    "d:en/ex/ex12/93"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3320,7 +3732,10 @@
    },
    "naam": "Flying Pikachu V · Celebrations",
    "dex": "cel25-6",
-   "cm": "normal",
+   "cm": {
+    "id": 576751,
+    "holo": false
+   },
    "img": [
     "t:250304",
     "d:en/swsh/cel25/6"
@@ -3336,7 +3751,10 @@
    },
    "naam": "Pikachu - SWSH039 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH039",
-   "cm": "normal",
+   "cm": {
+    "id": 491189,
+    "holo": false
+   },
    "img": [
     "t:220268",
     "d:en/swsh/swshp/SWSH039"
@@ -3351,10 +3769,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu (1) · WoTC Promo",
-   "dex": null,
+   "dex": "basep-1",
    "cm": null,
    "img": [
-    "t:121772"
+    "t:121772",
+    "d:en/base/basep/1"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3367,7 +3786,10 @@
    },
    "naam": "Pikachu VMAX - SWSH286 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH286",
-   "cm": "normal",
+   "cm": {
+    "id": 692432,
+    "holo": false
+   },
    "img": [
     "t:478424",
     "d:en/swsh/swshp/SWSH286"
@@ -3383,7 +3805,10 @@
    },
    "naam": "Pikachu ex - 219/191 · SV08: Surging Sparks",
    "dex": "sv08-219",
-   "cm": "normal",
+   "cm": {
+    "id": 794592,
+    "holo": false
+   },
    "img": [
     "t:590026",
     "d:en/sv/sv08/219"
@@ -3443,10 +3868,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu ex - 053/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-053",
+   "cm": {
+    "id": 907660,
+    "holo": false
+   },
    "img": [
-    "t:712951"
+    "t:712951",
+    "d:en/me/30th/053"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3458,10 +3887,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu EX - XY84 · XY Promos",
-   "dex": null,
+   "dex": "xyp-XY84",
    "cm": null,
    "img": [
-    "t:108614"
+    "t:108614",
+    "d:en/xy/xyp/XY84"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3473,10 +3903,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 050/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-050",
+   "cm": {
+    "id": 907657,
+    "holo": false
+   },
    "img": [
-    "t:712950"
+    "t:712950",
+    "d:en/me/30th/050"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3489,7 +3923,10 @@
    },
    "naam": "Ash's Pikachu - SM108 · SM Promos",
    "dex": "smp-SM108",
-   "cm": "normal",
+   "cm": {
+    "id": 301683,
+    "holo": false
+   },
    "img": [
     "t:151973",
     "d:en/sm/smp/SM108"
@@ -3504,10 +3941,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 047/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-047",
+   "cm": {
+    "id": 907654,
+    "holo": false
+   },
    "img": [
-    "t:696682"
+    "t:696682",
+    "d:en/me/30th/047"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3520,7 +3961,10 @@
    },
    "naam": "Pikachu · Hidden Fates",
    "dex": "sm115-19",
-   "cm": "normal",
+   "cm": {
+    "id": 394592,
+    "holo": false
+   },
    "img": [
     "t:197663",
     "d:en/sm/sm115/19"
@@ -3551,7 +3995,10 @@
    },
    "naam": "Pikachu · Neo Genesis",
    "dex": "neo1-70",
-   "cm": "normal",
+   "cm": {
+    "id": 274470,
+    "holo": false
+   },
    "img": [
     "t:88072",
     "d:en/neo/neo1/70"
@@ -3566,10 +4013,11 @@
     "sub": "Normal"
    },
    "naam": "Flying Pikachu · WoTC Promo",
-   "dex": null,
+   "dex": "basep-25",
    "cm": null,
    "img": [
-    "t:85534"
+    "t:85534",
+    "d:en/base/basep/25"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3582,7 +4030,10 @@
    },
    "naam": "Pikachu VMAX · SWSH04: Vivid Voltage",
    "dex": "swsh4-44",
-   "cm": "normal",
+   "cm": {
+    "id": 511640,
+    "holo": false
+   },
    "img": [
     "t:226432",
     "d:en/swsh/swsh4/44"
@@ -3597,10 +4048,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 037/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-037",
+   "cm": {
+    "id": 907644,
+    "holo": false
+   },
    "img": [
-    "t:696681"
+    "t:696681",
+    "d:en/me/30th/037"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3612,10 +4067,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 027/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-027",
+   "cm": {
+    "id": 907634,
+    "holo": false
+   },
    "img": [
-    "t:716310"
+    "t:716310",
+    "d:en/me/30th/027"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3628,7 +4087,10 @@
    },
    "naam": "Pikachu - SWSH020 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH020",
-   "cm": "normal",
+   "cm": {
+    "id": 461594,
+    "holo": false
+   },
    "img": [
     "t:214241",
     "d:en/swsh/swshp/SWSH020"
@@ -3659,7 +4121,10 @@
    },
    "naam": "Pikachu - SM157 · SM Promos",
    "dex": "smp-SM157",
-   "cm": "normal",
+   "cm": {
+    "id": 363384,
+    "holo": false
+   },
    "img": [
     "t:179377",
     "d:en/sm/smp/SM157"
@@ -3675,7 +4140,10 @@
    },
    "naam": "Pikachu ex - 276/217 · ME: Ascended Heroes",
    "dex": "me02.5-276",
-   "cm": "normal",
+   "cm": {
+    "id": 869888,
+    "holo": false
+   },
    "img": [
     "t:676088",
     "d:en/me/me02.5/276"
@@ -3691,7 +4159,10 @@
    },
    "naam": "Pikachu · Legendary Collection",
    "dex": "lc-86",
-   "cm": "normal",
+   "cm": {
+    "id": 274851,
+    "holo": false
+   },
    "img": [
     "t:88075",
     "d:en/lc/lc/86"
@@ -3721,8 +4192,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu V · SWSH11: Lost Origin Trainer Gallery",
-   "dex": null,
-   "cm": null,
+   "dex": "swsh11tg-TG16",
+   "cm": {
+    "id": 674234,
+    "holo": false
+   },
    "img": [
     "t:284278"
    ],
@@ -3737,7 +4211,10 @@
    },
    "naam": "Pikachu · XY - Roaring Skies",
    "dex": "xy6-20",
-   "cm": "normal",
+   "cm": {
+    "id": 282688,
+    "holo": false
+   },
    "img": [
     "t:98056",
     "d:en/xy/xy6/20"
@@ -3753,7 +4230,10 @@
    },
    "naam": "Pikachu (27) · Pokemon GO",
    "dex": "swsh10.5-027",
-   "cm": "normal",
+   "cm": {
+    "id": 665260,
+    "holo": false
+   },
    "img": [
     "t:276946",
     "d:en/swsh/swsh10.5/027"
@@ -3768,11 +4248,10 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 012 (EX Series Collector's Tin) · Nintendo Promos",
-   "dex": "np-12",
+   "dex": null,
    "cm": null,
    "img": [
-    "t:88067",
-    "d:en/pop/np/12"
+    "t:88067"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3799,10 +4278,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 051/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-051",
+   "cm": {
+    "id": 907658,
+    "holo": false
+   },
    "img": [
-    "t:716317"
+    "t:716317",
+    "d:en/me/30th/051"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3830,7 +4313,10 @@
    },
    "naam": "Pikachu (#2) · HGSS Trainer Kit: Gyarados & Raichu",
    "dex": "tk-hs-r-2",
-   "cm": "normal",
+   "cm": {
+    "id": 279098,
+    "holo": false
+   },
    "img": [
     "t:88099"
    ],
@@ -3844,10 +4330,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 043/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-043",
+   "cm": {
+    "id": 907650,
+    "holo": false
+   },
    "img": [
-    "t:712947"
+    "t:712947",
+    "d:en/me/30th/043"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3859,8 +4349,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu with Grey Felt Hat · SV: Scarlet & Violet Promo Cards",
-   "dex": null,
-   "cm": null,
+   "dex": "svp-085",
+   "cm": {
+    "id": 735302,
+    "holo": false
+   },
    "img": [
     "t:518861"
    ],
@@ -3874,10 +4367,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 041/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-041",
+   "cm": {
+    "id": 907648,
+    "holo": false
+   },
    "img": [
-    "t:712945"
+    "t:712945",
+    "d:en/me/30th/041"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3889,8 +4386,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu · My First Battle",
-   "dex": null,
-   "cm": null,
+   "dex": "mfb-17",
+   "cm": {
+    "id": 742000,
+    "holo": false
+   },
    "img": [
     "t:524060"
    ],
@@ -3905,7 +4405,10 @@
    },
    "naam": "Lt. Surge's Pikachu · Gym Heroes",
    "dex": "gym1-81",
-   "cm": null,
+   "cm": {
+    "id": 274217,
+    "holo": false
+   },
    "img": [
     "t:86859",
     "d:en/gym/gym1/81"
@@ -3921,7 +4424,10 @@
    },
    "naam": "Pikachu - SM86 · SM Promos",
    "dex": "smp-SM86",
-   "cm": "normal",
+   "cm": {
+    "id": 312557,
+    "holo": false
+   },
    "img": [
     "t:152608",
     "d:en/sm/smp/SM86"
@@ -3936,10 +4442,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 045/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-045",
+   "cm": {
+    "id": 907652,
+    "holo": false
+   },
    "img": [
-    "t:716314"
+    "t:716314",
+    "d:en/me/30th/045"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -3952,7 +4462,10 @@
    },
    "naam": "Pikachu ex - 179/131 · SV: Prismatic Evolutions",
    "dex": "sv08.5-179",
-   "cm": "normal",
+   "cm": {
+    "id": 805573,
+    "holo": false
+   },
    "img": [
     "t:610534",
     "d:en/sv/sv08.5/179"
@@ -3968,7 +4481,10 @@
    },
    "naam": "Pikachu (Secret) · SWSH: Crown Zenith",
    "dex": "swsh12.5-160",
-   "cm": "normal",
+   "cm": {
+    "id": 691879,
+    "holo": false
+   },
    "img": [
     "t:478103",
     "d:en/swsh/swsh12.5/160"
@@ -4029,7 +4545,10 @@
    },
    "naam": "Pikachu · Rumble",
    "dex": "ru1-7",
-   "cm": "normal",
+   "cm": {
+    "id": 278848,
+    "holo": false
+   },
    "img": [
     "t:88096",
     "d:en/pl/ru1/7"
@@ -4060,7 +4579,10 @@
    },
    "naam": "Pikachu - 4/12 · McDonald's Promos 2018",
    "dex": "2018sm-4",
-   "cm": "normal",
+   "cm": {
+    "id": 366772,
+    "holo": false
+   },
    "img": [
     "t:180452"
    ],
@@ -4075,7 +4597,10 @@
    },
    "naam": "Pikachu (55) · SM - Unified Minds",
    "dex": "sm11-55",
-   "cm": "normal",
+   "cm": {
+    "id": 388097,
+    "holo": false
+   },
    "img": [
     "t:194981",
     "d:en/sm/sm11/55"
@@ -4091,7 +4616,10 @@
    },
    "naam": "Pikachu (Delta Species) · POP Series 5",
    "dex": "pop5-13",
-   "cm": "normal",
+   "cm": {
+    "id": 277495,
+    "holo": false
+   },
    "img": [
     "t:88110",
     "d:en/pop/pop5/13"
@@ -4106,10 +4634,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 049/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-049",
+   "cm": {
+    "id": 907656,
+    "holo": false
+   },
    "img": [
-    "t:712949"
+    "t:712949",
+    "d:en/me/30th/049"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4181,10 +4713,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu ex - 054/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-054",
+   "cm": {
+    "id": 907661,
+    "holo": false
+   },
    "img": [
-    "t:712952"
+    "t:712952",
+    "d:en/me/30th/054"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4197,7 +4733,10 @@
    },
    "naam": "Pikachu · XY - BREAKthrough",
    "dex": "xy8-48",
-   "cm": "normal",
+   "cm": {
+    "id": 286294,
+    "holo": false
+   },
    "img": [
     "t:107167",
     "d:en/xy/xy8/48"
@@ -4242,8 +4781,11 @@
     "sub": "Normal"
    },
    "naam": "Pikachu - 093 · ME: Mega Evolution Promo",
-   "dex": null,
-   "cm": null,
+   "dex": "mep-093",
+   "cm": {
+    "id": 894884,
+    "holo": false
+   },
    "img": [
     "t:712963"
    ],
@@ -4272,8 +4814,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu & Zekrom GX · ME: 30th Celebration Classic Collection",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-c-008",
+   "cm": {
+    "id": 907963,
+    "holo": false
+   },
    "img": [
     "t:714373"
    ],
@@ -4317,10 +4862,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 030/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-030",
+   "cm": {
+    "id": 907637,
+    "holo": false
+   },
    "img": [
-    "t:712938"
+    "t:712938",
+    "d:en/me/30th/030"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4332,10 +4881,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 038/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-038",
+   "cm": {
+    "id": 907645,
+    "holo": false
+   },
    "img": [
-    "t:712942"
+    "t:712942",
+    "d:en/me/30th/038"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4363,7 +4916,10 @@
    },
    "naam": "Surfing Pikachu V · Celebrations",
    "dex": "cel25-8",
-   "cm": "normal",
+   "cm": {
+    "id": 576753,
+    "holo": false
+   },
    "img": [
     "t:250306",
     "d:en/swsh/cel25/8"
@@ -4378,10 +4934,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 040/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-040",
+   "cm": {
+    "id": 907647,
+    "holo": false
+   },
    "img": [
-    "t:712944"
+    "t:712944",
+    "d:en/me/30th/040"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4393,10 +4953,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 032/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-032",
+   "cm": {
+    "id": 907639,
+    "holo": false
+   },
    "img": [
-    "t:712939"
+    "t:712939",
+    "d:en/me/30th/032"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4424,7 +4988,10 @@
    },
    "naam": "Pikachu · SM - Crimson Invasion",
    "dex": "sm4-30",
-   "cm": "normal",
+   "cm": {
+    "id": 311880,
+    "holo": false
+   },
    "img": [
     "t:149053",
     "d:en/sm/sm4/30"
@@ -4470,7 +5037,10 @@
    },
    "naam": "Pikachu · EX Emerald",
    "dex": "ex9-60",
-   "cm": null,
+   "cm": {
+    "id": 276571,
+    "holo": false
+   },
    "img": [
     "t:88080",
     "d:en/ex/ex9/60"
@@ -4501,7 +5071,10 @@
    },
    "naam": "Ash's Pikachu - SM110 · SM Promos",
    "dex": "smp-SM110",
-   "cm": "normal",
+   "cm": {
+    "id": 313437,
+    "holo": false
+   },
    "img": [
     "t:152673",
     "d:en/sm/smp/SM110"
@@ -4531,10 +5104,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · Legendary Treasures: Radiant Collection",
-   "dex": null,
-   "cm": null,
+   "dex": "bw11-RC7",
+   "cm": {
+    "id": 281142,
+    "holo": false
+   },
    "img": [
-    "t:88105"
+    "t:88105",
+    "d:en/bw/bw11/RC7"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4547,7 +5124,10 @@
    },
    "naam": "Detective Pikachu - SM194 · SM Promos",
    "dex": "smp-SM194",
-   "cm": "normal",
+   "cm": {
+    "id": 368857,
+    "holo": false
+   },
    "img": [
     "t:185254"
    ],
@@ -4561,10 +5141,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 026/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-026",
+   "cm": {
+    "id": 907633,
+    "holo": false
+   },
    "img": [
-    "t:712936"
+    "t:712936",
+    "d:en/me/30th/026"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4592,7 +5176,10 @@
    },
    "naam": "Special Delivery Pikachu - SWSH074 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH074",
-   "cm": "normal",
+   "cm": {
+    "id": 516369,
+    "holo": false
+   },
    "img": [
     "t:227646"
    ],
@@ -4607,7 +5194,10 @@
    },
    "naam": "Pikachu V - SWSH063 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH063",
-   "cm": "normal",
+   "cm": {
+    "id": 496545,
+    "holo": false
+   },
    "img": [
     "t:220315",
     "d:en/swsh/swshp/SWSH063"
@@ -4623,7 +5213,10 @@
    },
    "naam": "Pikachu - SM183 · SM Promos",
    "dex": "smp-SM183",
-   "cm": "normal",
+   "cm": {
+    "id": 373093,
+    "holo": false
+   },
    "img": [
     "t:189756"
    ],
@@ -4651,7 +5244,10 @@
    },
    "naam": "Pikachu - 6/12 · McDonald's Promos 2019",
    "dex": "2019sm-6",
-   "cm": "normal",
+   "cm": {
+    "id": 412874,
+    "holo": false
+   },
    "img": [
     "t:200967"
    ],
@@ -4666,7 +5262,10 @@
    },
    "naam": "Pikachu ex - 247/191 · SV08: Surging Sparks",
    "dex": "sv08-247",
-   "cm": "normal",
+   "cm": {
+    "id": 794621,
+    "holo": false
+   },
    "img": [
     "t:593169",
     "d:en/sv/sv08/247"
@@ -4682,7 +5281,7 @@
    },
    "naam": "Pikachu · XY Base Set",
    "dex": "xy1-42",
-   "cm": "normal",
+   "cm": null,
    "img": [
     "t:88106",
     "d:en/xy/xy1/42"
@@ -4698,7 +5297,10 @@
    },
    "naam": "Pikachu · Next Destinies",
    "dex": "bw4-39",
-   "cm": "normal",
+   "cm": {
+    "id": 280264,
+    "holo": false
+   },
    "img": [
     "t:88102",
     "d:en/bw/bw4/39"
@@ -4714,7 +5316,10 @@
    },
    "naam": "Detective Pikachu - SM190 · SM Promos",
    "dex": "smp-SM190",
-   "cm": "normal",
+   "cm": {
+    "id": 372210,
+    "holo": false
+   },
    "img": [
     "t:189805"
    ],
@@ -4728,10 +5333,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - DP16 · Diamond and Pearl Promos",
-   "dex": null,
+   "dex": "dpp-DP16",
    "cm": null,
    "img": [
-    "t:88089"
+    "t:88089",
+    "d:en/dp/dpp/DP16"
    ],
    "zekerheid": "auto",
    "vast5okt": true
@@ -4758,8 +5364,11 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu · SWSH: Crown Zenith: Galarian Gallery",
-   "dex": null,
-   "cm": null,
+   "dex": "swsh12.5gg-GG30",
+   "cm": {
+    "id": 691909,
+    "holo": false
+   },
    "img": [
     "t:478058"
    ],
@@ -4789,7 +5398,10 @@
    },
    "naam": "Pikachu V-Union - SWSH139 · SWSH: Sword & Shield Promo Cards",
    "dex": "swshp-SWSH139",
-   "cm": "normal",
+   "cm": {
+    "id": 576738,
+    "holo": false
+   },
    "img": [
     "t:251095",
     "d:en/swsh/swshp/SWSH139"
@@ -4819,10 +5431,14 @@
     "sub": "Holofoil"
    },
    "naam": "Pikachu - 046/128 · ME: 30th Celebration",
-   "dex": null,
-   "cm": null,
+   "dex": "30th-046",
+   "cm": {
+    "id": 907653,
+    "holo": false
+   },
    "img": [
-    "t:716315"
+    "t:716315",
+    "d:en/me/30th/046"
    ],
    "zekerheid": "auto",
    "vast5okt": true
