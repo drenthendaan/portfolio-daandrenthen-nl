@@ -28,6 +28,9 @@ const SHOW = [
   ["a", "afgerond"],
 ];
 const LIVE_INTERVAL = 30_000;
+// Zo lang telt een net opgeslagen vinkje boven de serverstand: een verversing die al onderweg
+// was toen het opslaan klaar was, geeft nog de oude stand terug.
+const BEVESTIGD_MS = 20_000;
 const TOKEN = "pika-token";
 
 const lsGet = (k) => {
@@ -151,6 +154,7 @@ export default function Verzameling({
 
   const statusRef = useRef(seed);
   const pendingRef = useRef({});
+  const bevestigdRef = useRef({}); // net opgeslagen: { id: { v, tot } }
   const timerRef = useRef(null);
   const busyRef = useRef(false);
   const importRef = useRef(null);
@@ -265,7 +269,8 @@ export default function Verzameling({
   const flush = useCallback(async () => {
     timerRef.current = null;
     if (busyRef.current) return;
-    const patch = pendingRef.current;
+    // Een kopie: wat tijdens het opslaan wordt aangevinkt, komt in pendingRef en gaat erna mee
+    const patch = { ...pendingRef.current };
     if (!Object.keys(patch).length) return;
     const token = lsGet(TOKEN);
     if (!token) {
@@ -289,7 +294,9 @@ export default function Verzameling({
         throw new Error(String(res.status));
       } else {
         // Alleen weghalen wat sinds het versturen niet opnieuw is gewijzigd
+        const tot = Date.now() + BEVESTIGD_MS;
         for (const k of Object.keys(patch)) {
+          bevestigdRef.current[k] = { v: patch[k], tot };
           if (pendingRef.current[k] === patch[k]) delete pendingRef.current[k];
         }
         savePending();
@@ -333,9 +340,16 @@ export default function Verzameling({
       if (!res.ok) throw new Error(String(res.status));
       const data = await res.json();
       if (heeftVast) {
-        // De serverstand is compleet: wat niet in de bits staat, staat uit
+        // De serverstand is compleet: wat niet in de bits staat, staat uit. Net opgeslagen en
+        // nog niet verstuurde vinkjes gaan voor.
         const server = Object.fromEntries(vasteKaarten.map((c) => [c[0], vanBits(data.status?.[c[0]] ?? 0)]));
-        const next = { ...server, ...pendingRef.current };
+        const nu = Date.now();
+        const bevestigd = {};
+        for (const [k, x] of Object.entries(bevestigdRef.current)) {
+          if (x.tot > nu) bevestigd[k] = x.v;
+          else delete bevestigdRef.current[k];
+        }
+        const next = { ...server, ...bevestigd, ...pendingRef.current };
         if (!zelfdeStatus(next, statusRef.current)) applyStatus(next);
       }
       if (data.itemsVersie) setItemsVersieLive(data.itemsVersie);

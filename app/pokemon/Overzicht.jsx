@@ -289,7 +289,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
     live.zetLokaal(id, nieuw);
     try {
       await schrijf("/api/pikachu", { method: "PUT", body: { status: { [id]: nieuw } } });
-      live.klaarLokaal(id);
+      live.klaarLokaal(id, 20_000);
       // De Pikachu-pagina in deze browser houdt een eigen kopie bij
       try {
         const lokaal = JSON.parse(localStorage.getItem("pika-status") || "null");

@@ -3,25 +3,36 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { meldItemsGewijzigd, schrijf } from "./api";
 
+// Versies zijn ISO-tijden, dus een latere versie is ook alfabetisch groter
+const nieuwer = (a, b) => !!a && (!b || a > b);
+
 // Zelf toegevoegde items, labels en verzamelingen. Haalt ze opnieuw op als de itemsversie verandert
 // (via /api/pokemon/live), als het tabblad weer zichtbaar wordt, of als een ander
 // tabblad in deze browser iets heeft gewijzigd.
 export function useItems(begin, itemsVersieLive) {
   const [data, setData] = useState(begin ?? { items: [], labels: [], verzamelingen: [], versie: null });
   const versieRef = useRef(begin?.versie ?? null);
+  const lopendRef = useRef(0); // vinkjes die nog worden opgeslagen
+  const volgRef = useRef({}); // per item het nummer van de laatste vinkjeswijziging
+  const ketenRef = useRef({}); // per item de laatste opslag: de server leest en schrijft het hele item
 
+  // Een antwoord dat ouder is dan wat we al hebben, of dat binnenkomt terwijl er nog een vinkje
+  // wordt opgeslagen, telt niet: anders springt een net gezet vinkje terug
   const herlaad = useCallback(async () => {
+    if (lopendRef.current) return;
     try {
       const res = await fetch("/api/pokemon/items", { cache: "no-store" });
       if (!res.ok) return;
       const nieuw = await res.json();
+      const ouder = versieRef.current && nieuw.versie !== versieRef.current && !nieuwer(nieuw.versie, versieRef.current);
+      if (lopendRef.current || ouder) return;
       versieRef.current = nieuw.versie;
       setData(nieuw);
     } catch {}
   }, []);
 
   useEffect(() => {
-    if (itemsVersieLive && itemsVersieLive !== versieRef.current) herlaad();
+    if (nieuwer(itemsVersieLive, versieRef.current)) herlaad();
   }, [itemsVersieLive, herlaad]);
 
   useEffect(() => {
@@ -41,9 +52,9 @@ export function useItems(begin, itemsVersieLive) {
 
   // Na een eigen wijziging: lokaal bijwerken en andere tabbladen seintje geven
   const verwerk = useCallback((volgende, versie) => {
-    versieRef.current = versie;
-    setData((d) => ({ ...d, ...volgende(d), versie }));
-    meldItemsGewijzigd(versie);
+    if (nieuwer(versie, versieRef.current)) versieRef.current = versie;
+    setData((d) => ({ ...d, ...volgende(d), versie: versieRef.current }));
+    meldItemsGewijzigd(versieRef.current);
   }, []);
 
   const bewaar = useCallback(
@@ -79,21 +90,32 @@ export function useItems(begin, itemsVersieLive) {
     [verwerk]
   );
 
-  // Vinkje op een item zetten, met de wijziging meteen zichtbaar
+  // Vinkje op een item zetten, met de wijziging meteen zichtbaar. Alleen dit ene vinkje gaat naar
+  // de server, en per item na elkaar, zodat snel gezette vinkjes elkaar niet overschrijven.
   const zetStatus = useCallback(
     async (id, veld, aan) => {
       const oud = data.items.find((i) => i.id === id);
       if (!oud) return;
-      const status = { ...oud.status, [veld]: aan };
-      setData((d) => ({ ...d, items: d.items.map((i) => (i.id === id ? { ...i, status } : i)) }));
+      const zet = (f) => setData((d) => ({ ...d, items: d.items.map((i) => (i.id === id ? f(i) : i)) }));
+      const nr = (volgRef.current[id] = (volgRef.current[id] ?? 0) + 1);
+      zet((i) => ({ ...i, status: { ...i.status, [veld]: aan } }));
+      lopendRef.current++;
       try {
-        await bewaar({ status }, id);
+        const deze = (ketenRef.current[id] ?? Promise.resolve())
+          .catch(() => {})
+          .then(() => schrijf("/api/pokemon/items", { method: "PATCH", body: { id, status: { [veld]: aan } } }));
+        ketenRef.current[id] = deze;
+        const res = await deze;
+        // Een antwoord op een eerder vinkje mag een nieuwer vinkje niet terugzetten
+        if (volgRef.current[id] === nr) verwerk((d) => ({ items: d.items.map((i) => (i.id === id ? res.item : i)) }), res.versie);
       } catch (e) {
-        setData((d) => ({ ...d, items: d.items.map((i) => (i.id === id ? oud : i)) }));
+        if (volgRef.current[id] === nr) zet((i) => ({ ...i, status: { ...i.status, [veld]: !!oud.status?.[veld] } }));
         throw e;
+      } finally {
+        lopendRef.current--;
       }
     },
-    [data.items, bewaar]
+    [data.items, verwerk]
   );
 
   const maakVerzameling = useCallback(

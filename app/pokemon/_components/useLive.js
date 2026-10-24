@@ -148,9 +148,17 @@ export function useLive({ beginBits, beginPrijzen }) {
     },
     [zet]
   );
-  // Opslaan klaar (gelukt of teruggezet): vanaf nu geldt weer de serverstand
-  const klaarLokaal = useCallback((id) => {
-    delete lokaalRef.current[id];
+  // Opslaan klaar: vanaf nu geldt weer de serverstand. Na een gelukte opslag houden we de eigen
+  // stand nog `vasthouden` ms aan, omdat een verversing die al onderweg was de oude stand geeft.
+  const klaarLokaal = useCallback((id, vasthouden = 0) => {
+    if (!vasthouden) {
+      delete lokaalRef.current[id];
+      return;
+    }
+    const waarde = lokaalRef.current[id];
+    setTimeout(() => {
+      if (lokaalRef.current[id] === waarde) delete lokaalRef.current[id];
+    }, vasthouden);
   }, []);
 
   const status = useMemo(
