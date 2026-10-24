@@ -1092,9 +1092,10 @@ export default function Verzameling({
                   <a href="https://frankfurter.dev">Frankfurter</a>
                 </li>
                 <li>
-                  Japanse kaarten en prijzen: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
+                  Japanse kaarten: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
                   gecontroleerd op dubbelen met{" "}
-                  <a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(TCG)">Bulbapedia</a>, PSA 10-prijzen via{" "}
+                  <a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(TCG)">Bulbapedia</a>. Prijzen van Cardmarket
+                  (ongegradeerd); zonder Cardmarket-prijs de vaste prijs van Card Codex of de PSA 10-prijs via{" "}
                   <a href="https://samuraiswordtokyo.com/blogs/news/mario-pikachu-card-guide">Samurai Sword Tokyo</a>
                 </li>
                 <li>
