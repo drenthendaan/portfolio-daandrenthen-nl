@@ -6,6 +6,7 @@ import { bewaarToken, GeenToken } from "./api";
 import KaartAfbeelding from "./KaartAfbeelding";
 
 const VELDEN = [
+  ["w", "Wantlist"],
   ["b", "Betaald"],
   ["a", "Afgerond"],
 ];

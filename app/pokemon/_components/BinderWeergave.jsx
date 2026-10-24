@@ -141,10 +141,11 @@ function BinderPagina({ nummer, binder, kaarten, onOpen }) {
               <button
                 type="button"
                 onClick={() => onOpen(k)}
-                aria-label={`Vakje ${nummer}.${i + 1}: ${k.naam}, ${stand === "bezit" ? "in bezit" : stand === "betaald" ? "betaald, nog niet binnen" : "nog niet"}`}
+                aria-label={`Vakje ${nummer}.${i + 1}: ${k.naam}, ${stand === "bezit" ? "in bezit" : stand === "betaald" ? "betaald, nog niet binnen" : k.status.w ? "op je wantlist" : "nog niet"}`}
               >
                 <KaartAfbeelding key={k.img.join()} img={k.img} />
                 {stand === "betaald" && <span className="vaklabel">betaald</span>}
+                {stand === "nog" && k.status.w && <span className="vaklabel want">wantlist</span>}
                 {hier.length > 1 && <span className="vakdubbel">+{hier.length - 1}</span>}
               </button>
             </li>

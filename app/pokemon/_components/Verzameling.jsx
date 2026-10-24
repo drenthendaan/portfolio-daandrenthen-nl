@@ -13,14 +13,16 @@ import Kruimelpad from "./Kruimelpad";
 import { useItems } from "./useItems";
 import "./verzameling.css";
 
-// Twee vinkjes per kaart. Wantslijst (w) en onderweg (o) staan nog in de data van de
-// Pikachu-kaarten, maar worden niet meer getoond; bij wijzigen blijven ze ongemoeid.
+// Drie vinkjes per kaart: wantlist, betaald en afgerond. Onderweg (o) staat nog in de data
+// van de Pikachu-kaarten, maar wordt niet getoond; bij wijzigen blijft hij ongemoeid.
 const FIELDS = [
+  ["w", "Wantlist"],
   ["b", "Betaald"],
   ["a", "Afgerond"],
 ];
 const SHOW = [
   ["all", "alle kaarten"],
+  ["w", "op wantlist"],
   ["niets", "nog niet betaald"],
   ["b", "betaald, nog niet binnen"],
   ["a", "afgerond"],
@@ -73,6 +75,7 @@ const SHORT = {
 const pagesText = (p) => "pagina " + p[0] + (p[1] > p[0] ? "–" + p[1] : "");
 
 function passes(v, show) {
+  if (show === "w") return !!v.w;
   if (show === "niets") return !v.b && !v.a;
   if (show === "b") return v.b && !v.a;
   if (show === "a") return !!v.a;
@@ -571,7 +574,7 @@ export default function Verzameling({
 
   const countOf = (f) => all.filter((c) => statusVan(c[0])[f]).length;
   const filtered = nq || show !== "all";
-  const kolommen = bewerken ? 5 : 4;
+  const kolommen = bewerken ? 6 : 5;
 
   // Mapweergave: alles met een geldige plek in de binder, en wat erbuiten valt
   const binder = binderVan(verzameling);
@@ -711,6 +714,10 @@ export default function Verzameling({
 
         <dl className="track">
           <div>
+            <dt>Wantlist</dt>
+            <dd>{countOf("w")}</dd>
+          </div>
+          <div>
             <dt>Betaald</dt>
             <dd>{countOf("b")}</dd>
           </div>
@@ -833,6 +840,9 @@ export default function Verzameling({
                   Prijs
                 </th>
                 <th scope="col">Kaart</th>
+                <th className="ck" scope="col">
+                  Want&shy;list
+                </th>
                 <th className="ck" scope="col">
                   Betaald
                 </th>

@@ -421,6 +421,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
             </div>
             <ul className="statuschips" aria-label="Status">
               {[
+                ["w", "Wantlist"],
                 ["b", "Betaald"],
                 ["a", "Afgerond"],
               ].map(([f, l]) => (

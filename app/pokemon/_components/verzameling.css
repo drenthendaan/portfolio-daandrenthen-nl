@@ -13,7 +13,7 @@
 .pika .cats button[aria-selected="true"] .bar { background: color-mix(in srgb, var(--volt-ink) 18%, transparent); }
 
 /* Tellers en opslag */
-.pika .track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; margin: 0; }
+.pika .track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; margin: 0; }
 .pika .track div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .35rem .6rem .4rem; min-width: 0; }
 .pika .track dt { font-size: .72rem; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pika .track dd { margin: 0; font-size: 1.1rem; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; }
@@ -56,7 +56,7 @@
   .pika td { padding: .55rem .25rem; }
   .pika td.p { font-size: .9rem; padding-right: .4rem; }
   .pika thead th { padding: .45rem .25rem; }
-  .pika thead th.ck, .pika td.ck { width: 3.6rem; }
+  .pika thead th.ck, .pika td.ck { width: 3.1rem; }
   .pika thead th.ck { font-size: .7rem; }
 }
 
@@ -123,6 +123,7 @@
 .pika .vak.nog img { filter: grayscale(1); opacity: .32; }
 .pika .vak.nog .kaart-leeg { opacity: .4; }
 .pika .vaklabel { position: absolute; left: 50%; bottom: .3rem; transform: translateX(-50%); font-size: .6rem; font-weight: 800; color: var(--volt-ink); background: var(--volt); border-radius: 999px; padding: .05rem .4rem; white-space: nowrap; }
+.pika .vaklabel.want { color: var(--paper); background: var(--blauw); }
 .pika .vakdubbel { position: absolute; top: .25rem; right: .25rem; font-size: .62rem; font-weight: 800; color: #fff; background: var(--cheek); border-radius: 999px; padding: .02rem .35rem; }
 .pika .vak button:focus-visible { outline: 3px solid var(--volt); outline-offset: -3px; }
 .pika .binder-paginanr { margin: .35rem 0 0; text-align: center; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
