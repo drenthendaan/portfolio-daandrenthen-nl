@@ -1,7 +1,7 @@
 import collectie from "@/data/pikachu-collectie.json";
-import koppelingen from "@/data/pokemon/koppelingen.json";
 import { SEED } from "@/lib/pikachu";
 import { leesItems } from "@/lib/pokemon/items";
+import { vasteRijen } from "@/lib/pokemon/kaarten";
 import { leesPrijsData } from "@/lib/pokemon/server";
 import { STANDAARD_PIKACHU_BINDER } from "@/lib/pokemon/binders.mjs";
 import { PIKACHU } from "@/lib/pokemon/verzamelingen";
@@ -14,22 +14,9 @@ export const metadata = {
   description: "Daans Pikachu-verzameling: wat betaald en binnen is, en de binder.",
 };
 
-// Alleen wat de pagina nodig heeft:
-// [id, naam, set, nummer, prijs, prijstype, notitie, sectie, mapcode, positie, plaatjes, TCGplayer-product]
-const CARDS = collectie.cards.map((c) => [
-  c.id,
-  c.name,
-  c.set,
-  c.number,
-  c.price_eur,
-  c.price_type,
-  c.note,
-  c.section,
-  c.binder?.code ?? null,
-  c.binder ? c.binder.page * 100 + c.binder.slot : 99999,
-  koppelingen.kaarten[c.id]?.img ?? [],
-  koppelingen.kaarten[c.id]?.tp?.product ?? null,
-]);
+// De Engelse kaarten; de Japanse promo's staan in hun eigen verzameling
+const CARDS = vasteRijen(PIKACHU.id);
+const SECTIES = collectie.sections.filter((s) => s.id !== "JP");
 
 export default async function PikachuPage() {
   // Zonder database: gewoon de vaste lijst met de prijzen van 5 oktober
@@ -42,7 +29,7 @@ export default async function PikachuPage() {
     <Verzameling
       verzameling={verzameling}
       vasteKaarten={CARDS}
-      vasteSecties={collectie.sections}
+      vasteSecties={SECTIES}
       seed={SEED}
       beginItems={items}
       beginPrijzen={prijsData}

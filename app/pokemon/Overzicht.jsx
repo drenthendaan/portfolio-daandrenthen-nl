@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { dagwaarden, euro, itemPrijs, meldingStand, totalen } from "@/lib/pokemon/regels.mjs";
+import { VASTE_IDS, vasteVerzamelingVan } from "@/lib/pokemon/vast.mjs";
 import { schrijf } from "./_components/api";
 import ItemVenster from "./_components/ItemVenster";
 import KaartAfbeelding from "./_components/KaartAfbeelding";
@@ -238,11 +239,13 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       .filter((l) => l.id !== "kaarten" && t.perLabel[l.id]?.bezit.n)
       .map((l) => `${t.perLabel[l.id].bezit.n} ${telwoord(l, t.perLabel[l.id].bezit.n)}`),
   ].join(" · ");
-  // Per verzameling: voortgang en waarde van wat je hebt. Pikachu = vaste kaarten (zonder
-  // verborgen) plus items; eigen verzamelingen bestaan alleen uit items.
+  // Per verzameling: voortgang en waarde van wat je hebt. Pikachu en Japanse Pikachu = hun vaste
+  // kaarten (zonder verborgen) plus items; eigen verzamelingen bestaan alleen uit items.
   const verzamelingen = items.verzamelingen.map((v) => {
     const verborgen = new Set(v.verborgen ?? []);
-    const vast = v.id === "pikachu" ? kaarten.filter((k) => !verborgen.has(k.id)) : [];
+    const vast = VASTE_IDS.has(v.id)
+      ? kaarten.filter((k) => vasteVerzamelingVan(k.list) === v.id && !verborgen.has(k.id))
+      : [];
     const eigen = items.items.filter((i) => i.verzameling === v.id);
     let afgerond = 0;
     let cent = 0;
@@ -263,17 +266,17 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
   const detailKaart = detail ? kaarten.find((k) => k.id === detail) : null;
 
   // De stand van nu (koop je iets na de melding, dan staat er "In je vault")
-  const verborgenPikachu = useMemo(
-    () => new Set(items.verzamelingen.find((v) => v.id === "pikachu")?.verborgen ?? []),
+  const verborgenVast = useMemo(
+    () => new Set(items.verzamelingen.filter((v) => VASTE_IDS.has(v.id)).flatMap((v) => v.verborgen ?? [])),
     [items.verzamelingen]
   );
   const standVan = useCallback(
     (m) => {
-      if (m.soort === "kaart") return meldingStand(status[m.id], !verborgenPikachu.has(m.id)) ?? m.stand;
+      if (m.soort === "kaart") return meldingStand(status[m.id], !verborgenVast.has(m.id)) ?? m.stand;
       const item = items.items.find((i) => i.id === m.id);
       return (item && meldingStand(item.status, !!item.verzameling)) ?? m.stand;
     },
-    [status, items.items, verborgenPikachu]
+    [status, items.items, verborgenVast]
   );
   function openMelding(m) {
     if (m.soort === "kaart") {
@@ -476,7 +479,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
             <li key={v.id}>
               <Link href={`/pokemon/${v.id}`} className="linkkaart">
                 <span className="lk-titel">
-                  {v.id === "pikachu" ? "⚡ " : ""}
+                  {VASTE_IDS.has(v.id) ? "⚡ " : ""}
                   {v.naam}
                 </span>
                 <span className="lk-sub">

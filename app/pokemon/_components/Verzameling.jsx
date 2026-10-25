@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { binderVan, BINDERS, EIGEN_VAKJES, leesMapcode, mapPositie } from "@/lib/pokemon/binders.mjs";
 import { itemPrijs, vanBits } from "@/lib/pokemon/regels.mjs";
-import { SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
+import { japansThema, SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
+import { JAPANS, PIKACHU } from "@/lib/pokemon/vast.mjs";
 import { GeenToken } from "./api";
 import BinderWeergave from "./BinderWeergave";
 import ItemVenster from "./ItemVenster";
@@ -113,7 +114,7 @@ function zelfdeStatus(a, b) {
   });
 }
 
-// Lijst van een verzameling: de vaste Pikachu-kaarten (alleen bij Pikachu) plus zelf
+// Lijst van een verzameling: de vaste kaarten (alleen bij Pikachu en Japanse Pikachu) plus zelf
 // toegevoegde items, met thema's als tabbladen.
 //   vasteKaarten: [id, naam, set, nummer, prijs, prijstype, notitie, sectie, mapcode, positie]
 export default function Verzameling({
@@ -128,10 +129,15 @@ export default function Verzameling({
   const heeftVast = vasteKaarten.length > 0;
   const LS = useMemo(
     () =>
-      id === "pikachu"
+      id === PIKACHU.id
         ? { status: "pika-status", pending: "pika-pending", cat: "pika-cat", order: "pika-order", weergave: "pika-weergave" }
-        : { cat: `pk-${id}-cat`, order: `pk-${id}-order`, weergave: `pk-${id}-weergave` },
-    [id]
+        : {
+            ...(heeftVast ? { status: `pk-${id}-status`, pending: `pk-${id}-pending` } : {}),
+            cat: `pk-${id}-cat`,
+            order: `pk-${id}-order`,
+            weergave: `pk-${id}-weergave`,
+          },
+    [id, heeftVast]
   );
   const router = useRouter();
 
@@ -142,7 +148,7 @@ export default function Verzameling({
   const prijzen = prijsData?.prijzen ?? null;
 
   const [status, setStatus] = useState(seed);
-  const [cat, setCat] = useState(heeftVast ? "wizards" : "ALL");
+  const [cat, setCat] = useState(id === PIKACHU.id ? "wizards" : "ALL");
   const [order, setOrder] = useState("map");
   const [show, setShow] = useState("all");
   const [q, setQ] = useState("");
@@ -196,7 +202,8 @@ export default function Verzameling({
     () =>
       vasteKaarten.map((c) => {
         const [prijs, soort] = prijzen?.[c[0]] ? prijsVoorTabel(prijzen[c[0]]) : [c[4], c[5]];
-        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false, c[10] ?? [], c[11] ?? null];
+        const thema = c[7] === "JP" ? japansThema(c[2]) : SECTIE_THEMA[c[7]];
+        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], thema, c[8], c[9], false, c[10] ?? [], c[11] ?? null];
       }),
     [vasteKaarten, prijzen]
   );
@@ -242,20 +249,20 @@ export default function Verzameling({
   const statusVan = (rid) => (rid.startsWith("i") ? itemStatus[rid] || {} : status[rid] || {});
 
   // Tabbladen: thema's met kaarten, eigen thema's, en bij Pikachu ook altijd ETB's en Overig
-  const metaVan = (t) => (t.pages ? pagesText(t.pages) : t.id === "japans" ? "niet in de binder" : "");
+  const metaVan = (t) => (t.pages ? pagesText(t.pages) : "");
   const cats = [
     {
       id: "ALL",
       short: "Alles",
       name: heeftVast ? "Hele verzameling" : verzameling.naam,
-      meta: heeftVast ? "binder + Japanse promo's" : "",
+      meta: id === PIKACHU.id ? "in de binder" : "",
     },
     ...themas
       .filter(
         (t) =>
           rijenPerThema[t.id]?.length ||
           eigenThemaIds.has(t.id) ||
-          (heeftVast && (t.id === "etb" || t.id === "overig"))
+          (id === PIKACHU.id && (t.id === "etb" || t.id === "overig"))
       )
       .map((t) => ({ id: t.id, short: t.kort ?? t.naam, name: t.naam, meta: metaVan(t) })),
   ];
@@ -521,7 +528,7 @@ export default function Verzameling({
     );
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `pikachu-status-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `${id}-status-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(a.href);
   };
@@ -560,7 +567,7 @@ export default function Verzameling({
 
   const all = rowsFor(actief);
   const nq = norm(q.trim());
-  const mapOrder = actief !== "japans" && order === "map";
+  const mapOrder = order === "map";
   let list = all.filter(
     (c) => (!nq || norm(c[1] + " " + c[2] + " " + c[3]).includes(nq)) && passes(statusVan(c[0]), show)
   );
@@ -590,8 +597,8 @@ export default function Verzameling({
     " · samen ± " +
     eur(total);
   const extra =
-    actief === "japans"
-      ? "Elke promo is op Bulbapedia gecontroleerd; promo's met dezelfde tekening als een Engelse kaart staan er niet in. Ze passen niet meer in je binder."
+    id === JAPANS.id && actief === "ALL"
+      ? "Elke promo is op Bulbapedia gecontroleerd; promo's met dezelfde tekening als een Engelse kaart staan er niet in."
       : actief === "topstukken"
         ? "Alle kaarten van € 200 en meer, achterin je binder."
         : !all.length && !heeftVast
@@ -718,17 +725,13 @@ export default function Verzameling({
               onChange={(e) => setQ(e.target.value)}
             />
           </div>
-          {actief !== "japans" && (
-            <>
-              <label htmlFor="pika-order" className="visually-hidden">
-                Volgorde
-              </label>
-              <select id="pika-order" value={order} onChange={(e) => chooseOrder(e.target.value)}>
-                <option value="price">goedkoop → duur</option>
-                <option value="map">zoals in je map</option>
-              </select>
-            </>
-          )}
+          <label htmlFor="pika-order" className="visually-hidden">
+            Volgorde
+          </label>
+          <select id="pika-order" value={order} onChange={(e) => chooseOrder(e.target.value)}>
+            <option value="price">goedkoop → duur</option>
+            <option value="map">{binder ? "zoals in je map" : "per thema"}</option>
+          </select>
           <label htmlFor="pika-show" className="visually-hidden">
             Toon
           </label>
@@ -852,7 +855,7 @@ export default function Verzameling({
         <p className="count">
           <span aria-live="polite">
             {(filtered ? list.length + " van " + all.length : aantalTekst) +
-              (mapOrder ? " · volgorde van je map" : " · goedkoopste eerst") +
+              (mapOrder ? (binder ? " · volgorde van je map" : " · per thema") : " · goedkoopste eerst") +
               (verborgen.size ? ` · ${verborgen.size} verborgen` : "")}
           </span>
           {saveMsg && (
@@ -1095,29 +1098,36 @@ export default function Verzameling({
               </div>
               <h3>Waar de gegevens vandaan komen</h3>
               <ul>
-                <li>
-                  Engelse kaarten: <a href="https://github.com/PokemonTCG/pokemon-tcg-data">Pokémon TCG-database</a>,
-                  gecontroleerd met <a href="https://github.com/tcgdex/cards-database">TCGdex</a> en{" "}
-                  <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>
-                </li>
+                {id === PIKACHU.id && (
+                  <li>
+                    Engelse kaarten: <a href="https://github.com/PokemonTCG/pokemon-tcg-data">Pokémon TCG-database</a>,
+                    gecontroleerd met <a href="https://github.com/tcgdex/cards-database">TCGdex</a> en{" "}
+                    <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>
+                  </li>
+                )}
                 <li>
                   Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>{" "}
                   (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); waar Cardmarket geen prijs heeft, de
                   vaste prijs uit de lijst. Afbeeldingen via <a href="https://tcgcsv.com">tcgcsv.com</a>
                 </li>
-                <li>
-                  Japanse kaarten: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
-                  gecontroleerd op dubbelen met{" "}
-                  <a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(TCG)">Bulbapedia</a>. Prijzen van Cardmarket
-                  (ongegradeerd); zonder Cardmarket-prijs de vaste prijs van Card Codex of de PSA 10-prijs via{" "}
-                  <a href="https://samuraiswordtokyo.com/blogs/news/mario-pikachu-card-guide">Samurai Sword Tokyo</a>
-                </li>
-                <li>
-                  Pikachu Illustrator:{" "}
-                  <a href="https://www.guinnessworldrecords.com/world-records/782465-most-expensive-trading-card-sold-at-auction-overall">
-                    Guinness World Records
-                  </a>
-                </li>
+                {id === JAPANS.id && (
+                  <>
+                    <li>
+                      Japanse kaarten: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
+                      gecontroleerd op dubbelen met{" "}
+                      <a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(TCG)">Bulbapedia</a>. Prijzen van
+                      Cardmarket (ongegradeerd); zonder Cardmarket-prijs de vaste prijs van Card Codex of de PSA
+                      10-prijs via{" "}
+                      <a href="https://samuraiswordtokyo.com/blogs/news/mario-pikachu-card-guide">Samurai Sword Tokyo</a>
+                    </li>
+                    <li>
+                      Pikachu Illustrator:{" "}
+                      <a href="https://www.guinnessworldrecords.com/world-records/782465-most-expensive-trading-card-sold-at-auction-overall">
+                        Guinness World Records
+                      </a>
+                    </li>
+                  </>
+                )}
               </ul>
             </>
           )}
