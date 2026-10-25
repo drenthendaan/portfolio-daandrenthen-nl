@@ -243,7 +243,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                 {product.nummer ? ` · ${product.nummer}` : ""}
               </small>
               {gekozen ? (
-                <p>De prijs komt na het toevoegen van Cardmarket.</p>
+                <p>De prijs komt van TCGplayer en wordt elke dag bijgewerkt.</p>
               ) : prijs?.e != null ? (
                 <p>
                   {euro(prijs.e)} per stuk · {prijsBron(prijs)}

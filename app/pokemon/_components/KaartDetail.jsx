@@ -23,18 +23,17 @@ export const datumKort = (d) =>
 // "2026-10-25" → "25-10-2026"
 export const datumNL = (d) => (d ? String(d).slice(0, 10).split("-").reverse().join("-") : "");
 
-// Welke prijs het is: "Cardmarket trend", "Cardmarket 30-daags gemiddelde", "TCGplayer-marktprijs", ...
+// Welke prijs het is: "TCGplayer-marktprijs", "vaste prijs uit de lijst", ...
 export function prijsBron(p) {
   if (!p) return "";
-  if (p.t === "c") {
-    const soort = p.cm?.soort === "avg30" ? "Cardmarket 30-daags gemiddelde" : "Cardmarket trend";
-    return p.cm?.gok ? soort + " (schatting: welke versie het is, is niet zeker)" : soort;
-  }
-  if (p.t === "m") return "TCGplayer-marktprijs (VS, omgerekend)";
+  if (p.t === "m") return "TCGplayer-marktprijs";
   if (p.t === "v") return p.vraag ? "vaste prijs uit de lijst (vraagprijs)" : "vaste prijs uit de lijst";
   if (p.t === "h") return "eigen waarde";
   return "";
 }
+
+const dollar = (c) =>
+  "$ " + (c / 100).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 // Detailvenster van één kaart. Met `onWijzig` (async) zijn de vinkjes te wijzigen; zonder
 // token op dit apparaat vraagt het venster erom en probeert het daarna opnieuw.
@@ -123,29 +122,11 @@ export default function KaartDetail({ kaart, prijs, reeks, status, onSluit, onWi
                   Prijs: {prijsBron(prijs)}
                   {prijs.d && prijs.t !== "v" ? `, bijgewerkt op ${datumNL(prijs.d)}` : ""}
                 </p>
-                {prijs.t === "c" && (prijs.cm?.a7 != null || prijs.cm?.a30 != null) && (
-                  <p className="dp-uitleg">
-                    {[
-                      prijs.cm.a7 != null && `gemiddeld 7 dagen ${euro(prijs.cm.a7)}`,
-                      prijs.cm.a30 != null && `30 dagen ${euro(prijs.cm.a30)}`,
-                    ]
-                      .filter(Boolean)
-                      .join(" · ")}
-                  </p>
+                {prijs.t === "m" && prijs.u != null && (
+                  <p className="dp-uitleg">{dollar(prijs.u)} in de VS, omgerekend naar euro</p>
                 )}
-                {(prijs.t === "v" || prijs.t === "m") && !prijs.controle && (
-                  <p className="dp-uitleg">Geen Cardmarket-prijs voor deze kaart of variant</p>
-                )}
+                {prijs.t === "v" && <p className="dp-uitleg">Geen TCGplayer-marktprijs voor deze kaart</p>}
               </>
-            )}
-            {prijs?.controle && (
-              <p className="dp-controle" role="note">
-                <b>Controleren:</b> {prijsBron(prijs.controle)} geeft nu {euro(prijs.controle.e)} (bijgewerkt op{" "}
-                {datumNL(prijs.controle.d)}).{" "}
-                {prijs.controle.reden?.includes("lijst")
-                  ? "Dat wijkt meer dan 5× af van de prijs in je lijst. De oude prijs blijft staan tot dit is nagekeken."
-                  : "Dat is meer dan 50% anders dan de vorige prijs. De oude prijs blijft staan; blijft de nieuwe prijs drie dagen zo, dan wordt hij overgenomen."}
-              </p>
             )}
             {verschil != null && eersteDag && (
               <p className={`dp-verloop ${verschil > 0 ? "op" : verschil < 0 ? "neer" : ""}`}>

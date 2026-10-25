@@ -14,9 +14,7 @@ export const metadata = {
   description: "Daans Pikachu-verzameling: wat betaald en binnen is, en de binder.",
 };
 
-// De Engelse kaarten; de Japanse promo's staan in hun eigen verzameling
 const CARDS = vasteRijen(PIKACHU.id);
-const SECTIES = collectie.sections.filter((s) => s.id !== "JP");
 
 export default async function PikachuPage() {
   // Zonder database: gewoon de vaste lijst met de prijzen van 5 oktober
@@ -29,7 +27,7 @@ export default async function PikachuPage() {
     <Verzameling
       verzameling={verzameling}
       vasteKaarten={CARDS}
-      vasteSecties={SECTIES}
+      vasteSecties={collectie.sections}
       seed={SEED}
       beginItems={items}
       beginPrijzen={prijsData}

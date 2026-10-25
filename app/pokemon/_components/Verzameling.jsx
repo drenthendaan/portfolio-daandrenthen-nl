@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { binderVan, BINDERS, EIGEN_VAKJES, leesMapcode, mapPositie } from "@/lib/pokemon/binders.mjs";
 import { itemPrijs, vanBits } from "@/lib/pokemon/regels.mjs";
-import { japansThema, SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
-import { JAPANS, PIKACHU } from "@/lib/pokemon/vast.mjs";
+import { SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
+import { PIKACHU } from "@/lib/pokemon/vast.mjs";
 import { GeenToken } from "./api";
 import BinderWeergave from "./BinderWeergave";
 import ItemVenster from "./ItemVenster";
@@ -74,7 +74,6 @@ const SHORT = {
   7: "Scarlet & Violet",
   8: "Mega & 30th",
   9: "Topstukken",
-  JP: "Japans",
 };
 const pagesText = (p) => "pagina " + p[0] + (p[1] > p[0] ? "–" + p[1] : "");
 
@@ -86,25 +85,11 @@ function passes(v, show) {
   return true;
 }
 
-// Prijs (centen, per stuk) → [euro voor de tabel, soort]. De Cardmarket-trend is de standaard;
-// al het andere krijgt in de tabel een label.
+// Prijs (centen, per stuk) → [euro voor de tabel, soort]. De TCGplayer-marktprijs is de
+// standaard; al het andere krijgt in de tabel een label.
 function prijsVoorTabel(p, aantal = 1) {
   if (!p || p.e == null) return [null, "unknown"];
-  const soort = p.controle
-    ? "controle"
-    : p.t === "h"
-      ? "eigen"
-      : p.t === "m"
-        ? "us"
-        : p.t === "c"
-          ? p.cm?.gok
-            ? "schatting"
-            : p.cm?.soort === "avg30"
-              ? "avg30"
-              : "market"
-          : p.vraag
-            ? "asking"
-            : "vast";
+  const soort = p.t === "h" ? "eigen" : p.t === "m" ? "market" : p.vraag ? "asking" : "vast";
   return [(p.e * aantal) / 100, soort];
 }
 
@@ -206,8 +191,7 @@ export default function Verzameling({
     () =>
       vasteKaarten.map((c) => {
         const [prijs, soort] = prijzen?.[c[0]] ? prijsVoorTabel(prijzen[c[0]]) : [c[4], c[5]];
-        const thema = c[7] === "JP" ? japansThema(c[2]) : SECTIE_THEMA[c[7]];
-        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], thema, c[8], c[9], false, c[10] ?? [], c[11] ?? null];
+        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false, c[10] ?? [], c[11] ?? null];
       }),
     [vasteKaarten, prijzen]
   );
@@ -601,9 +585,7 @@ export default function Verzameling({
     " · samen ± " +
     eur(total);
   const extra =
-    id === JAPANS.id && actief === "ALL"
-      ? "Elke promo is op Bulbapedia gecontroleerd; promo's met dezelfde tekening als een Engelse kaart staan er niet in."
-      : actief === "topstukken"
+    actief === "topstukken"
         ? "Alle kaarten van € 200 en meer, achterin je binder."
         : !all.length && !heeftVast
           ? "Nog leeg. Voeg kaarten, ETB's of andere items toe met + Toevoegen."
@@ -709,8 +691,8 @@ export default function Verzameling({
             {current.name} {current.meta && <small>{current.meta}</small>}
           </h2>
           <p className="summary">{summary}</p>
-          {prijsData?.meta?.cardmarket?.dag && (
-            <p className="extra">Prijs: Cardmarket trend, bijgewerkt op {datumNL(prijsData.meta.cardmarket.dag)}</p>
+          {prijsData?.meta?.dag && (
+            <p className="extra">Prijs: TCGplayer-marktprijs, bijgewerkt op {datumNL(prijsData.meta.dag)}</p>
           )}
           {extra && <p className="extra">{extra}</p>}
         </div>
@@ -941,15 +923,10 @@ export default function Verzameling({
         <details className="info">
           <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
           <p className="legend">
-            Prijzen zijn de Cardmarket-trendprijs (Europa), elke nacht om 04:00 bijgewerkt. Zonder trend
-            telt het gemiddelde van 30 dagen (&lsquo;30-dagen gem.&rsquo;), nooit de laagste prijs. Varianten
-            die Cardmarket niet apart heeft, volgen de TCGplayer-marktprijs (&lsquo;TCGplayer&rsquo;);
-            Japanse promo&rsquo;s met meerdere versies de meest waarschijnlijke versie op Cardmarket
-            (&lsquo;schatting&rsquo;). Alleen zonder enige bron blijft de prijs uit de lijst staan
-            (&lsquo;vaste prijs&rsquo;). Springt een prijs meer dan 50% of wijkt hij meer dan 5× af van de
-            prijs in je lijst, dan blijft de oude prijs eerst staan met &lsquo;controleren&rsquo;; blijft de
-            nieuwe prijs drie dagen zo, dan wordt hij vanzelf overgenomen. Een ? betekent dat er geen
-            prijs bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
+            Prijzen zijn de TCGplayer-marktprijs (de gemiddelde verkoopprijs van de laatste tijd, nooit de
+            laagste prijs), omgerekend naar euro en elke dag bijgewerkt. Heeft TCGplayer geen marktprijs,
+            dan staat de prijs uit de lijst er (&lsquo;vaste prijs&rsquo;). Een ? betekent dat er geen prijs
+            bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
             toegevoegd item om het te bewerken. &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
             1–3 zijn de bovenste rij, 4–6 de middelste en 7–9 de onderste.
           </p>
@@ -1105,36 +1082,15 @@ export default function Verzameling({
               </div>
               <h3>Waar de gegevens vandaan komen</h3>
               <ul>
-                {id === PIKACHU.id && (
-                  <li>
-                    Engelse kaarten: <a href="https://github.com/PokemonTCG/pokemon-tcg-data">Pokémon TCG-database</a>,
-                    gecontroleerd met <a href="https://github.com/tcgdex/cards-database">TCGdex</a> en{" "}
-                    <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>
-                  </li>
-                )}
                 <li>
-                  Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>{" "}
-                  (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); voor varianten TCGplayer via{" "}
-                  <a href="https://tcgcsv.com">tcgcsv.com</a> met de wisselkoers van de ECB. Afbeeldingen via tcgcsv.com
+                  Kaarten: <a href="https://github.com/PokemonTCG/pokemon-tcg-data">Pokémon TCG-database</a>,
+                  gecontroleerd met <a href="https://github.com/tcgdex/cards-database">TCGdex</a> en{" "}
+                  <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>
                 </li>
-                {id === JAPANS.id && (
-                  <>
-                    <li>
-                      Japanse kaarten: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
-                      gecontroleerd op dubbelen met{" "}
-                      <a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(TCG)">Bulbapedia</a>. Prijzen van
-                      Cardmarket (ongegradeerd); zonder Cardmarket-prijs de vaste prijs van Card Codex of de PSA
-                      10-prijs via{" "}
-                      <a href="https://samuraiswordtokyo.com/blogs/news/mario-pikachu-card-guide">Samurai Sword Tokyo</a>
-                    </li>
-                    <li>
-                      Pikachu Illustrator:{" "}
-                      <a href="https://www.guinnessworldrecords.com/world-records/782465-most-expensive-trading-card-sold-at-auction-overall">
-                        Guinness World Records
-                      </a>
-                    </li>
-                  </>
-                )}
+                <li>
+                  Prijzen en afbeeldingen: TCGplayer via <a href="https://tcgcsv.com">tcgcsv.com</a>, met de
+                  wisselkoers van de ECB via <a href="https://frankfurter.dev">Frankfurter</a>
+                </li>
               </ul>
             </>
           )}
@@ -1184,12 +1140,8 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
       ) : (
         <td className="p">
           {priceText(price)}
-          {ptype === "controle" && <span className="tag controle">controleren</span>}
-          {ptype === "avg30" && <span className="tag">30-dagen gem.</span>}
           {ptype === "asking" && <span className="tag">vraagprijs</span>}
           {ptype === "vast" && <span className="tag">vaste prijs</span>}
-          {ptype === "us" && <span className="tag">TCGplayer</span>}
-          {ptype === "schatting" && <span className="tag">schatting</span>}
           {ptype === "eigen" && <span className="tag">eigen waarde</span>}
         </td>
       )}
