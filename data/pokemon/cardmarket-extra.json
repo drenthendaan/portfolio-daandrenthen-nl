@@ -976,6 +976,62 @@
    },
    "hoe": "enige in de set",
    "kaart": "Pikachu · Trick or Trade BOOster Bundle 049/203"
+  },
+  "kf6ebf1f6f0": {
+   "cm": {
+    "id": 281379,
+    "holo": false
+   },
+   "hoe": "enige Pikachu in de set, aanvallen kloppen (TCGdex geeft hetzelfde)",
+   "kaart": "Pikachu · XY Base Set 42/146"
+  },
+  "k2a5af577d1": {
+   "cm": {
+    "id": 278119,
+    "holo": false
+   },
+   "hoe": "enige Pikachu in de set, aanvallen kloppen (TCGdex geeft hetzelfde)",
+   "kaart": "Pikachu · Majestic Dawn 70/100"
+  },
+  "ka9204728e1": {
+   "cm": {
+    "id": 278687,
+    "holo": false
+   },
+   "hoe": "enige Flying Pikachu in de set, aanvallen kloppen (TCGdex geeft hetzelfde)",
+   "kaart": "Flying Pikachu · Rising Rivals 113/111"
+  },
+  "k256c0a6a34": {
+   "cm": {
+    "id": 674062,
+    "holo": false
+   },
+   "hoe": "TCGdex; het andere product met deze aanvallen is TG05 uit de Trainer Gallery",
+   "kaart": "Pikachu · Lost Origin 052/196"
+  },
+  "k794275c395": {
+   "cm": {
+    "id": 276020,
+    "holo": false
+   },
+   "hoe": "enige Pikachu in de set, aanvallen kloppen (TCGdex gaf een Lileep)",
+   "kaart": "Pikachu · EX Team Magma vs Team Aqua 43/95"
+  },
+  "k8d2929a756": {
+   "cm": {
+    "id": 917602,
+    "holo": false
+   },
+   "hoe": "enige met deze naam in de Mega Evolution-promo's",
+   "kaart": "Pokémon RUN Pikachu · Mega Evolution Promo 131"
+  },
+  "k7a96b7c9ac": {
+   "cm": {
+    "id": 572023,
+    "holo": false
+   },
+   "hoe": "enige met deze naam",
+   "kaart": "Pikachu (BEAMS) · BW-P promo (zonder nummer)"
   }
  },
  "twijfel": {
@@ -1243,6 +1299,116 @@
     297276
    ],
    "waarom": "twee gelijke Pikachu's in de Trainer Kit (14/30 en 29/30) met twee producten; gekozen op volgorde"
+  },
+  "k826876a38b": {
+   "kaart": "Pikachu-EX · XY Promos XY124",
+   "gok": 293003,
+   "kandidaten": [
+    293003,
+    363899
+   ],
+   "waarom": "drie Pikachu EX-versies met dezelfde aanvallen; XY84 is de eerste, welke van de andere twee XY124 is, is niet te zien (TCGdex gaf een Japanse promo)"
+  },
+  "kecff2019ae": {
+   "kaart": "Pikachu (Winner) · Mega Evolution Promo 093",
+   "gok": 894885,
+   "kandidaten": [
+    894885,
+    914473
+   ],
+   "waarom": "twee dure versies van deze promo; welke de Winner-versie is, is niet te zien"
+  },
+  "k7b0864a2cd": {
+   "kaart": "Pitch's Pikachu · XY-P promo (zonder nummer)",
+   "gok": 554180,
+   "kandidaten": [
+    554180,
+    554185
+   ],
+   "waarom": "twee versies van Pitch's Pikachu; gekozen op volgorde"
+  },
+  "kbe6ae06657": {
+   "kaart": "Pitch's Pikachu (tweede versie) · XY-P promo (zonder nummer)",
+   "gok": 554185,
+   "kandidaten": [
+    554180,
+    554185
+   ],
+   "waarom": "twee versies van Pitch's Pikachu; gekozen op volgorde"
+  },
+  "k0e54069bda": {
+   "kaart": "_____'s Pikachu · BW-P promo (zonder nummer)",
+   "gok": 572008,
+   "kandidaten": [
+    572008,
+    572009
+   ],
+   "waarom": "twee versies in de BW-P-promo's; gekozen op volgorde"
+  },
+  "k4aa49c0c05": {
+   "kaart": "_____'s Pikachu (tweede versie) · BW-P promo (zonder nummer)",
+   "gok": 572009,
+   "kandidaten": [
+    572008,
+    572009
+   ],
+   "waarom": "twee versies in de BW-P-promo's; gekozen op volgorde"
+  },
+  "k22f9df3cb5": {
+   "kaart": "_____'s Pikachu (Pokémon Center-promo) · Ongenummerde promo",
+   "gok": 571802,
+   "kandidaten": [
+    571802,
+    571803,
+    572007
+   ],
+   "waarom": "meerdere ongenummerde versies; welke de Pokémon Center-promo is, is niet te zien"
+  },
+  "kc5c203a34e": {
+   "kaart": "Poncho-wearing Pikachu · SM-P promo 037",
+   "gok": 468554,
+   "kandidaten": [
+    468554,
+    468559
+   ],
+   "waarom": "twee versies in de SM-P-promo's; gekozen op volgorde"
+  },
+  "kbc21975b0c": {
+   "kaart": "Poncho-wearing Pikachu · SM-P promo 038",
+   "gok": 468559,
+   "kandidaten": [
+    468554,
+    468559
+   ],
+   "waarom": "twee versies in de SM-P-promo's; gekozen op volgorde"
+  },
+  "k896421cb01": {
+   "kaart": "Pikachu · Trading Card Game Classic 008/034",
+   "gok": 745700,
+   "kandidaten": [
+    744599,
+    745700
+   ],
+   "waarom": "twee Classic-sets bij Cardmarket (waarschijnlijk Engels en Japans); welke Engels is, is niet te zien"
+  },
+  "kf82153b373": {
+   "kaart": "Pikachu · Diamond and Pearl Promos DP16",
+   "gok": 275563,
+   "kandidaten": [
+    275563,
+    787789
+   ],
+   "waarom": "twee versies in de DP-promo's; de eerste is waarschijnlijk de gewone"
+  },
+  "k795dcf47e7": {
+   "kaart": "Pikachu · Countdown Calendar Promos DP16",
+   "gok": 275628,
+   "kandidaten": [
+    275563,
+    275628,
+    787789
+   ],
+   "waarom": "Countdown Calendar-versie; niet zeker welke set van Cardmarket dat is"
   }
  }
 }
