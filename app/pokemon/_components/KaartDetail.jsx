@@ -23,10 +23,14 @@ export const datumKort = (d) =>
 // "2026-10-25" → "25-10-2026"
 export const datumNL = (d) => (d ? String(d).slice(0, 10).split("-").reverse().join("-") : "");
 
-// Welke prijs het is: "Cardmarket trend", "Cardmarket 30-daags gemiddelde", "vaste prijs uit de lijst", ...
+// Welke prijs het is: "Cardmarket trend", "Cardmarket 30-daags gemiddelde", "TCGplayer-marktprijs", ...
 export function prijsBron(p) {
   if (!p) return "";
-  if (p.t === "c") return p.cm?.soort === "avg30" ? "Cardmarket 30-daags gemiddelde" : "Cardmarket trend";
+  if (p.t === "c") {
+    const soort = p.cm?.soort === "avg30" ? "Cardmarket 30-daags gemiddelde" : "Cardmarket trend";
+    return p.cm?.gok ? soort + " (schatting: welke versie het is, is niet zeker)" : soort;
+  }
+  if (p.t === "m") return "TCGplayer-marktprijs (VS, omgerekend)";
   if (p.t === "v") return p.vraag ? "vaste prijs uit de lijst (vraagprijs)" : "vaste prijs uit de lijst";
   if (p.t === "h") return "eigen waarde";
   return "";
@@ -129,7 +133,7 @@ export default function KaartDetail({ kaart, prijs, reeks, status, onSluit, onWi
                       .join(" · ")}
                   </p>
                 )}
-                {prijs.t === "v" && !prijs.controle && (
+                {(prijs.t === "v" || prijs.t === "m") && !prijs.controle && (
                   <p className="dp-uitleg">Geen Cardmarket-prijs voor deze kaart of variant</p>
                 )}
               </>

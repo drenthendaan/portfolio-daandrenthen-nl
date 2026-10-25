@@ -26,9 +26,15 @@ const tijdstip = (iso) =>
   });
 
 // Cardmarket-trend is de standaard; al het andere staat bij de prijs
-const PRIJSSOORT = { v: "vaste prijs", h: "eigen waarde" };
+const PRIJSSOORT = { m: "TCGplayer", v: "vaste prijs", h: "eigen waarde" };
 const prijsLabel = (p) =>
-  p?.controle ? "controleren" : p?.t === "c" && p.cm?.soort === "avg30" ? "30-dagen gem." : PRIJSSOORT[p?.t];
+  p?.controle
+    ? "controleren"
+    : p?.cm?.gok
+      ? "schatting"
+      : p?.t === "c" && p.cm?.soort === "avg30"
+        ? "30-dagen gem."
+        : PRIJSSOORT[p?.t];
 
 // Kop per label; eigen labels heten zoals je ze noemt
 const sectieTitel = (l) =>
@@ -340,7 +346,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       } else if (data.overgeslagen) {
         setMelding("Er zijn nog geen nieuwere prijzen.");
       } else if (data.ok) {
-        setMelding(`Ververst: ${data.tellingen?.cmVers ?? 0} Cardmarket-prijzen.`);
+        setMelding(`Ververst: ${(data.tellingen?.cmVers ?? 0) + (data.tellingen?.tcgVers ?? 0)} nieuwe prijzen.`);
         await haalPrijzen();
       } else {
         setMelding(`Verversen lukte niet (${data.status || res.status}).`);
@@ -500,14 +506,15 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       <details className="info">
         <summary>Hoe worden prijzen berekend?</summary>
         <p>
-          Alle prijzen komen van Cardmarket: per kaart de trendprijs, de Europese marktprijs die
-          Cardmarket elke nacht berekent uit recente verkopen. Hier wordt hij elke nacht om 04:00
-          bijgewerkt. Zonder trend telt het gemiddelde van 30 dagen, nooit de laagste prijs. Heeft
-          Cardmarket geen prijs voor jouw kaart of variant, dan blijft de vaste prijs uit de lijst staan
-          (&lsquo;vaste prijs&rsquo;). Springt een prijs meer dan 50% of wijkt hij meer dan 5× af van de
-          prijs in je lijst, dan blijft de oude prijs staan met &lsquo;controleren&rsquo;. Items die je
-          zelf toevoegt, volgen dezelfde prijzen; zonder Cardmarket-prijs telt de waarde die je zelf
-          invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
+          Per kaart de Cardmarket-trendprijs: de Europese marktprijs, die Cardmarket elke nacht
+          berekent uit recente verkopen en die hier elke nacht om 04:00 wordt bijgewerkt. Zonder trend
+          telt het gemiddelde van 30 dagen, nooit de laagste prijs. Varianten die Cardmarket niet apart
+          heeft, volgen de TCGplayer-marktprijs (&lsquo;TCGplayer&rsquo;); Japanse promo&rsquo;s met meerdere
+          versies de meest waarschijnlijke versie (&lsquo;schatting&rsquo;). Alleen zonder enige bron blijft
+          de vaste prijs uit de lijst staan. Springt een prijs meer dan 50% of wijkt hij meer dan 5× af
+          van de prijs in je lijst, dan blijft de oude prijs eerst staan met &lsquo;controleren&rsquo; en
+          wordt de nieuwe na drie stabiele dagen vanzelf overgenomen. Items die je zelf toevoegt, volgen
+          dezelfde prijzen; anders telt de waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
           het belletje bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
         {meta && (
@@ -517,7 +524,8 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
               {meta.cardmarket?.dag ? `, prijslijst van ${datumNL(meta.cardmarket.dag)}` : ""}
             </li>
             <li>
-              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.v} vaste prijs · {meta.tellingen.o} onbekend
+              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.m ?? 0} TCGplayer · {meta.tellingen.v} vaste
+              prijs · {meta.tellingen.o} onbekend
               {meta.tellingen.controle ? ` · ${meta.tellingen.controle} te controleren` : ""}
             </li>
           </ul>
@@ -529,8 +537,9 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
             gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>
           </li>
           <li>
-            Afbeeldingen en de catalogus voor &lsquo;item toevoegen&rsquo; via{" "}
-            <a href="https://tcgcsv.com">tcgcsv.com</a> (TCGplayer)
+            TCGplayer-prijzen voor varianten, afbeeldingen en de catalogus voor &lsquo;item toevoegen&rsquo;
+            via <a href="https://tcgcsv.com">tcgcsv.com</a>; wisselkoers van de ECB via{" "}
+            <a href="https://frankfurter.dev">Frankfurter</a>
           </li>
         </ul>
         {heeftToken && (

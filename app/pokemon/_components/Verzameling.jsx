@@ -94,13 +94,17 @@ function prijsVoorTabel(p, aantal = 1) {
     ? "controle"
     : p.t === "h"
       ? "eigen"
-      : p.t === "c"
-        ? p.cm?.soort === "avg30"
-          ? "avg30"
-          : "market"
-        : p.vraag
-          ? "asking"
-          : "vast";
+      : p.t === "m"
+        ? "us"
+        : p.t === "c"
+          ? p.cm?.gok
+            ? "schatting"
+            : p.cm?.soort === "avg30"
+              ? "avg30"
+              : "market"
+          : p.vraag
+            ? "asking"
+            : "vast";
   return [(p.e * aantal) / 100, soort];
 }
 
@@ -937,11 +941,14 @@ export default function Verzameling({
         <details className="info">
           <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
           <p className="legend">
-            Alle prijzen komen van Cardmarket: de trendprijs (Europa), elke nacht om 04:00 bijgewerkt.
-            Zonder trend telt het gemiddelde van 30 dagen (&lsquo;30-dagen gem.&rsquo;), nooit de laagste
-            prijs. Heeft Cardmarket geen prijs, dan blijft de prijs uit de lijst staan (&lsquo;vaste
-            prijs&rsquo;). Springt een prijs meer dan 50% of wijkt hij meer dan 5× af van de prijs in je
-            lijst, dan blijft de oude prijs staan met &lsquo;controleren&rsquo;. Een ? betekent dat er geen
+            Prijzen zijn de Cardmarket-trendprijs (Europa), elke nacht om 04:00 bijgewerkt. Zonder trend
+            telt het gemiddelde van 30 dagen (&lsquo;30-dagen gem.&rsquo;), nooit de laagste prijs. Varianten
+            die Cardmarket niet apart heeft, volgen de TCGplayer-marktprijs (&lsquo;TCGplayer&rsquo;);
+            Japanse promo&rsquo;s met meerdere versies de meest waarschijnlijke versie op Cardmarket
+            (&lsquo;schatting&rsquo;). Alleen zonder enige bron blijft de prijs uit de lijst staan
+            (&lsquo;vaste prijs&rsquo;). Springt een prijs meer dan 50% of wijkt hij meer dan 5× af van de
+            prijs in je lijst, dan blijft de oude prijs eerst staan met &lsquo;controleren&rsquo;; blijft de
+            nieuwe prijs drie dagen zo, dan wordt hij vanzelf overgenomen. Een ? betekent dat er geen
             prijs bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
             toegevoegd item om het te bewerken. &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
             1–3 zijn de bovenste rij, 4–6 de middelste en 7–9 de onderste.
@@ -1107,8 +1114,8 @@ export default function Verzameling({
                 )}
                 <li>
                   Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>{" "}
-                  (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); waar Cardmarket geen prijs heeft, de
-                  vaste prijs uit de lijst. Afbeeldingen via <a href="https://tcgcsv.com">tcgcsv.com</a>
+                  (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); voor varianten TCGplayer via{" "}
+                  <a href="https://tcgcsv.com">tcgcsv.com</a> met de wisselkoers van de ECB. Afbeeldingen via tcgcsv.com
                 </li>
                 {id === JAPANS.id && (
                   <>
@@ -1181,6 +1188,8 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
           {ptype === "avg30" && <span className="tag">30-dagen gem.</span>}
           {ptype === "asking" && <span className="tag">vraagprijs</span>}
           {ptype === "vast" && <span className="tag">vaste prijs</span>}
+          {ptype === "us" && <span className="tag">TCGplayer</span>}
+          {ptype === "schatting" && <span className="tag">schatting</span>}
           {ptype === "eigen" && <span className="tag">eigen waarde</span>}
         </td>
       )}

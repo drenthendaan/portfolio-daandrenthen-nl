@@ -134,7 +134,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
         status,
       };
       if (nieuw && gekozen) invoer.product = gekozen.product;
-      else if (!item?.cm) invoer.waarde = waarde;
+      else if (!item?.tp) invoer.waarde = waarde;
       await acties.bewaar(invoer, item?.id);
       ref.current?.close();
     } catch (err) {
@@ -250,7 +250,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                   {prijs.d && prijs.t !== "v" ? `, bijgewerkt op ${datumNL(prijs.d)}` : ""}
                 </p>
               ) : (
-                <p>Geen Cardmarket-prijs voor dit product. Vul hieronder zelf een waarde in.</p>
+                <p>Nog geen prijs voor dit product.</p>
               )}
               {nieuw && (
                 <button type="button" className="iv-link" onClick={() => setGekozen(null)}>
@@ -278,7 +278,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
               Naam
               <input value={naam} onChange={(e) => setNaam(e.target.value)} maxLength={120} required />
             </label>
-            {(handmatig || (item && !item.cm)) && (
+            {(handmatig || (item && !item.tp)) && (
               <label>
                 Waarde per stuk (€)
                 <input
