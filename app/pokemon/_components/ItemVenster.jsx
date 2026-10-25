@@ -6,15 +6,8 @@ import { binderVan } from "@/lib/pokemon/binders.mjs";
 import { themasVoor } from "@/lib/pokemon/themas.mjs";
 import { bewaarToken, GeenToken, leesToken } from "./api";
 import KaartAfbeelding from "./KaartAfbeelding";
-import { datumKort } from "./KaartDetail";
+import { datumNL, prijsBron } from "./KaartDetail";
 
-const PRIJSSOORT = {
-  c: "Cardmarket-trendprijs",
-  m: "TCGplayer-marktprijs (VS)",
-  l: "laagste aanbod op TCGplayer (VS)",
-  h: "eigen waarde",
-  o: "geen prijs bekend",
-};
 const NIEUW_LABEL = "__nieuw";
 const NIEUW_THEMA = "__nieuw_thema";
 
@@ -25,7 +18,7 @@ const alsInvoer = (c) =>
 // Toevoegen (item = null) of bewerken van een zelf toegevoegd item.
 //   acties: { bewaar, verwijder, maakLabel, wijzigVerzameling } uit useItems
 //   standaard: { label, verzameling, thema } voor een nieuw item
-export default function ItemVenster({ item, labels, verzamelingen = [], standaard, fx, prijzen, acties, onSluit }) {
+export default function ItemVenster({ item, labels, verzamelingen = [], standaard, prijzen, acties, onSluit }) {
   const nieuw = !item;
   const ref = useRef(null);
   const terug = useRef(null);
@@ -87,9 +80,6 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
     return () => clearTimeout(t);
   }, [zoekterm, nieuw, gekozen, handmatig]);
 
-  const koers = fx?.koers ?? 0.88;
-  const indicatie = (usd) => (usd ? "± " + euro(Math.round(usd * koers)) : "geen prijs");
-
   function kies(r) {
     setGekozen(r);
     setNaam(r.naam);
@@ -144,7 +134,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
         status,
       };
       if (nieuw && gekozen) invoer.product = gekozen.product;
-      else if (!item?.tp) invoer.waarde = waarde;
+      else if (!item?.cm) invoer.waarde = waarde;
       await acties.bewaar(invoer, item?.id);
       ref.current?.close();
     } catch (err) {
@@ -223,7 +213,6 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                           {r.nummer ? ` · ${r.nummer}` : ""}
                         </small>
                       </span>
-                      <span className="iv-prijs">{indicatie(r.usd)}</span>
                     </button>
                   </li>
                 ))}
@@ -254,14 +243,14 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                 {product.nummer ? ` · ${product.nummer}` : ""}
               </small>
               {gekozen ? (
-                <p>{indicatie(gekozen.usd)} per stuk (TCGplayer)</p>
+                <p>De prijs komt na het toevoegen van Cardmarket.</p>
+              ) : prijs?.e != null ? (
+                <p>
+                  {euro(prijs.e)} per stuk · {prijsBron(prijs)}
+                  {prijs.d && prijs.t !== "v" ? `, bijgewerkt op ${datumNL(prijs.d)}` : ""}
+                </p>
               ) : (
-                prijs && (
-                  <p>
-                    {euro(prijs.e)} per stuk · {PRIJSSOORT[prijs.t]}
-                    {prijs.d ? ` (${datumKort(prijs.d)})` : ""}
-                  </p>
-                )
+                <p>Geen Cardmarket-prijs voor dit product. Vul hieronder zelf een waarde in.</p>
               )}
               {nieuw && (
                 <button type="button" className="iv-link" onClick={() => setGekozen(null)}>
@@ -274,7 +263,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
 
         {!nieuw && !item.tp && prijs && (
           <p className="iv-hint">
-            {euro(prijs.e)} per stuk · {PRIJSSOORT[prijs.t]}
+            {euro(prijs.e)} per stuk · {prijsBron(prijs) || "geen prijs bekend"}
           </p>
         )}
         {winst != null && (
@@ -289,7 +278,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
               Naam
               <input value={naam} onChange={(e) => setNaam(e.target.value)} maxLength={120} required />
             </label>
-            {(handmatig || (item && !item.tp)) && (
+            {(handmatig || (item && !item.cm)) && (
               <label>
                 Waarde per stuk (€)
                 <input

@@ -276,7 +276,7 @@ export default function Meldingen({ meldingen, drempel = STANDAARD_DREMPEL, nieu
         <h2 id="mv-titel">Prijsmeldingen</h2>
         <p className="iv-hint">
           Bij ≥ {procentTekst(drempel.procent)}% én ≥ {euro(drempel.minimum)} verschil met de prijs van 24 uur
-          eerder, voor wat je hebt en wat je nog wilt kopen. Na elke prijsupdate (elke avond).
+          eerder, voor wat je hebt en wat je nog wilt kopen. Na elke prijsupdate (elke nacht).
         </p>
 
         <section className="mv-instellingen" aria-labelledby="mv-push">

@@ -10,12 +10,6 @@ const VELDEN = [
   ["b", "Betaald"],
   ["a", "Afgerond"],
 ];
-const LABEL = {
-  c: "Cardmarket-trendprijs (Europa)",
-  m: "TCGplayer-marktprijs (VS, omgerekend)",
-  l: "Laagste aanbod op TCGplayer (VS, omgerekend)",
-  v: "Vaste prijs van 5 okt",
-};
 
 export const datumKort = (d) =>
   d
@@ -26,12 +20,21 @@ export const datumKort = (d) =>
       })
     : "";
 
-const dollar = (c) =>
-  "$ " + (c / 100).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// "2026-10-25" → "25-10-2026"
+export const datumNL = (d) => (d ? String(d).slice(0, 10).split("-").reverse().join("-") : "");
+
+// Welke prijs het is: "Cardmarket trend", "Cardmarket 30-daags gemiddelde", "vaste prijs uit de lijst", ...
+export function prijsBron(p) {
+  if (!p) return "";
+  if (p.t === "c") return p.cm?.soort === "avg30" ? "Cardmarket 30-daags gemiddelde" : "Cardmarket trend";
+  if (p.t === "v") return p.vraag ? "vaste prijs uit de lijst (vraagprijs)" : "vaste prijs uit de lijst";
+  if (p.t === "h") return "eigen waarde";
+  return "";
+}
 
 // Detailvenster van één kaart. Met `onWijzig` (async) zijn de vinkjes te wijzigen; zonder
 // token op dit apparaat vraagt het venster erom en probeert het daarna opnieuw.
-export default function KaartDetail({ kaart, prijs, fx, reeks, status, onSluit, onWijzig }) {
+export default function KaartDetail({ kaart, prijs, reeks, status, onSluit, onWijzig }) {
   const ref = useRef(null);
   const terug = useRef(null); // knop die het venster opende; krijgt na sluiten de focus terug
   const wachtend = useRef(null); // klik die op de token wacht
@@ -113,30 +116,31 @@ export default function KaartDetail({ kaart, prijs, fx, reeks, status, onSluit, 
               <>
                 <p className="dp-hoofd">{euro(prijs.e)}</p>
                 <p className="dp-label">
-                  {LABEL[prijs.t]}
-                  {prijs.t === "v" && prijs.vraag ? " (vraagprijs)" : ""}
+                  Prijs: {prijsBron(prijs)}
+                  {prijs.d && prijs.t !== "v" ? `, bijgewerkt op ${datumNL(prijs.d)}` : ""}
                 </p>
-                {prijs.t === "c" && (
+                {prijs.t === "c" && (prijs.cm?.a7 != null || prijs.cm?.a30 != null) && (
                   <p className="dp-uitleg">
-                    Prijs van {datumKort(prijs.d)}
-                    {prijs.cm?.low != null && ` · vanaf ${euro(prijs.cm.low)}`}
-                    {prijs.cm?.a7 != null && ` · gem. 7 dagen ${euro(prijs.cm.a7)}`}
-                    {prijs.cm?.a30 != null && ` · 30 dagen ${euro(prijs.cm.a30)}`}
+                    {[
+                      prijs.cm.a7 != null && `gemiddeld 7 dagen ${euro(prijs.cm.a7)}`,
+                      prijs.cm.a30 != null && `30 dagen ${euro(prijs.cm.a30)}`,
+                    ]
+                      .filter(Boolean)
+                      .join(" · ")}
                   </p>
                 )}
-                {(prijs.t === "m" || prijs.t === "l") && prijs.u != null && fx && (
-                  <p className="dp-uitleg">
-                    {dollar(prijs.u)} × {fx.koers.toLocaleString("nl-NL", { maximumFractionDigits: 4 })} (ECB) ·
-                    prijs van {datumKort(prijs.d)} · geen Cardmarket-prijs voor deze kaart of variant
-                  </p>
+                {prijs.t === "v" && !prijs.controle && (
+                  <p className="dp-uitleg">Geen Cardmarket-prijs voor deze kaart of variant</p>
                 )}
               </>
             )}
-            {prijs?.t === "c" && prijs.us && (
-              <p className="dp-cm">
-                TCGplayer (VS) <b>{euro(prijs.us.e)}</b>
-                {prijs.us.u != null && ` · ${dollar(prijs.us.u)}`}
-                {prijs.us.t === "l" ? " (laagste aanbod)" : ""}
+            {prijs?.controle && (
+              <p className="dp-controle" role="note">
+                <b>Controleren:</b> {prijsBron(prijs.controle)} geeft nu {euro(prijs.controle.e)} (bijgewerkt op{" "}
+                {datumNL(prijs.controle.d)}).{" "}
+                {prijs.controle.reden?.includes("lijst")
+                  ? "Dat wijkt meer dan 5× af van de prijs in je lijst. De oude prijs blijft staan tot dit is nagekeken."
+                  : "Dat is meer dan 50% anders dan de vorige prijs. De oude prijs blijft staan; blijft de nieuwe prijs drie dagen zo, dan wordt hij overgenomen."}
               </p>
             )}
             {verschil != null && eersteDag && (

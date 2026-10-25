@@ -29,9 +29,9 @@
 .pika .detail-prijs p { margin: 0; }
 .pika .dp-hoofd { font-size: 1.6rem; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
 .pika .dp-label { font-size: .85rem; font-weight: 600; }
-.pika .dp-uitleg, .pika .dp-cm, .pika .dp-verloop { font-size: .8rem; color: var(--soft); margin-top: .3rem !important; }
-.pika .dp-cm b { color: var(--ink); }
+.pika .dp-uitleg, .pika .dp-verloop { font-size: .8rem; color: var(--soft); margin-top: .3rem !important; }
 .pika .dp-verloop.op { color: var(--groen); }
+.pika .dp-controle { margin-top: .55rem !important; padding: .5rem .65rem; font-size: .8rem; line-height: 1.4; color: var(--ink); background: color-mix(in srgb, var(--cheek) 13%, transparent); border: 1px solid color-mix(in srgb, var(--cheek) 45%, transparent); border-radius: 8px; }
 .pika .dp-verloop.neer { color: var(--cheek); }
 .pika .statuschips { list-style: none; margin: 0 0 .9rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
 .pika .statuschips span,
@@ -67,7 +67,6 @@
 .pika .iv-tekst { display: flex; flex-direction: column; min-width: 0; }
 .pika .iv-tekst b { font-size: .85rem; font-weight: 700; line-height: 1.25; }
 .pika .iv-tekst small, .pika .iv-product small { font-size: .75rem; color: var(--soft); }
-.pika .iv-prijs { font-size: .8rem; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pika .iv-hint { margin: 0; font-size: .8rem; color: var(--soft); min-height: 1em; }
 .pika .iv-link { align-self: flex-start; font: inherit; font-size: .85rem; font-weight: 600; color: var(--ink); text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; }
 .pika .iv-product { display: grid; grid-template-columns: 5.5rem 1fr; gap: .9rem; align-items: start; padding: .7rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }

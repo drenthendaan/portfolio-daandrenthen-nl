@@ -1,7 +1,7 @@
 {
   "framework": "nextjs",
   "crons": [
-    { "path": "/api/pokemon/ververs", "schedule": "0 21 * * *" },
-    { "path": "/api/pokemon/ververs", "schedule": "0 6 * * *" }
+    { "path": "/api/pokemon/ververs", "schedule": "0 3 * * *" },
+    { "path": "/api/pokemon/ververs", "schedule": "0 9 * * *" }
   ]
 }

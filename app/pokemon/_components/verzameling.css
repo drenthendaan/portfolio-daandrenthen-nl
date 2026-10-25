@@ -34,6 +34,7 @@
 .pika td.p.unk { color: var(--soft); font-weight: 600; }
 .pika td.ck { text-align: center; vertical-align: middle; padding: .4rem .1rem; width: 3.6rem; }
 .pika .tag { display: block; font-size: .72rem; font-weight: 600; color: var(--cheek); }
+.pika .tag.controle { display: inline-block; margin-top: .15rem; padding: 0 .4rem; color: var(--paper); background: var(--cheek); border-radius: 999px; }
 .pika .name { display: block; font-weight: 600; }
 .pika .set { display: block; font-size: .9rem; color: var(--soft); }
 .pika .note { display: block; font-size: .85rem; color: var(--cheek); }

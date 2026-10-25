@@ -8,7 +8,7 @@ import { SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
 import { GeenToken } from "./api";
 import BinderWeergave from "./BinderWeergave";
 import ItemVenster from "./ItemVenster";
-import KaartDetail from "./KaartDetail";
+import KaartDetail, { datumNL } from "./KaartDetail";
 import Kruimelpad from "./Kruimelpad";
 import { useItems } from "./useItems";
 import "./verzameling.css";
@@ -85,11 +85,21 @@ function passes(v, show) {
   return true;
 }
 
-// Prijs (centen, per stuk) → [euro voor de tabel, soort]. Cardmarket is de standaard; een
-// Amerikaanse prijs (TCGplayer) krijgt in de tabel een label.
+// Prijs (centen, per stuk) → [euro voor de tabel, soort]. De Cardmarket-trend is de standaard;
+// al het andere krijgt in de tabel een label.
 function prijsVoorTabel(p, aantal = 1) {
   if (!p || p.e == null) return [null, "unknown"];
-  const soort = p.t === "h" ? "eigen" : p.t === "l" ? "us-asking" : p.t === "m" ? "us" : p.vraag ? "asking" : "market";
+  const soort = p.controle
+    ? "controle"
+    : p.t === "h"
+      ? "eigen"
+      : p.t === "c"
+        ? p.cm?.soort === "avg30"
+          ? "avg30"
+          : "market"
+        : p.vraag
+          ? "asking"
+          : "vast";
   return [(p.e * aantal) / 100, soort];
 }
 
@@ -688,6 +698,9 @@ export default function Verzameling({
             {current.name} {current.meta && <small>{current.meta}</small>}
           </h2>
           <p className="summary">{summary}</p>
+          {prijsData?.meta?.cardmarket?.dag && (
+            <p className="extra">Prijs: Cardmarket trend, bijgewerkt op {datumNL(prijsData.meta.cardmarket.dag)}</p>
+          )}
           {extra && <p className="extra">{extra}</p>}
         </div>
         {/* Zoeken en filters gelden voor de lijst, niet voor de map */}
@@ -921,10 +934,12 @@ export default function Verzameling({
         <details className="info">
           <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
           <p className="legend">
-            Prijzen zijn de Cardmarket-trendprijs (Europa) en worden elke nacht ververst. Heeft
-            Cardmarket geen prijs, dan staat er &lsquo;TCGplayer&rsquo;: de Amerikaanse marktprijs,
-            omgerekend naar euro; bij &lsquo;vraagprijs&rsquo; is er alleen een aanbieding, geen recente
-            verkoop. Een ? betekent dat er geen prijs bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
+            Alle prijzen komen van Cardmarket: de trendprijs (Europa), elke nacht om 04:00 bijgewerkt.
+            Zonder trend telt het gemiddelde van 30 dagen (&lsquo;30-dagen gem.&rsquo;), nooit de laagste
+            prijs. Heeft Cardmarket geen prijs, dan blijft de prijs uit de lijst staan (&lsquo;vaste
+            prijs&rsquo;). Springt een prijs meer dan 50% of wijkt hij meer dan 5× af van de prijs in je
+            lijst, dan blijft de oude prijs staan met &lsquo;controleren&rsquo;. Een ? betekent dat er geen
+            prijs bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
             toegevoegd item om het te bewerken. &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
             1–3 zijn de bovenste rij, 4–6 de middelste en 7–9 de onderste.
           </p>
@@ -1087,9 +1102,8 @@ export default function Verzameling({
                 </li>
                 <li>
                   Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>{" "}
-                  (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); waar Cardmarket geen prijs heeft,
-                  TCGplayer via <a href="https://tcgcsv.com">tcgcsv.com</a> met de wisselkoers van de ECB via{" "}
-                  <a href="https://frankfurter.dev">Frankfurter</a>
+                  (gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>); waar Cardmarket geen prijs heeft, de
+                  vaste prijs uit de lijst. Afbeeldingen via <a href="https://tcgcsv.com">tcgcsv.com</a>
                 </li>
                 <li>
                   Japanse kaarten: <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>,
@@ -1121,7 +1135,6 @@ export default function Verzameling({
             <KaartDetail
               kaart={{ id: r[0], n: r[1], s: r[2], nr: r[3], img: r[11] ?? [], map: r[8], note: r[6], tp: r[12] }}
               prijs={prijs}
-              fx={prijsData?.meta?.fx}
               reeks={prijsData?.reeks}
               status={statusVan(r[0])}
               onWijzig={wijzigVanuitVenster}
@@ -1135,7 +1148,6 @@ export default function Verzameling({
           standaard={venster.standaard}
           labels={items.labels}
           verzamelingen={items.verzamelingen}
-          fx={prijsData?.meta?.fx}
           prijzen={prijzen ?? {}}
           acties={items}
           onSluit={() => setVenster(null)}
@@ -1155,9 +1167,10 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
       ) : (
         <td className="p">
           {priceText(price)}
+          {ptype === "controle" && <span className="tag controle">controleren</span>}
+          {ptype === "avg30" && <span className="tag">30-dagen gem.</span>}
           {ptype === "asking" && <span className="tag">vraagprijs</span>}
-          {ptype === "us" && <span className="tag">TCGplayer</span>}
-          {ptype === "us-asking" && <span className="tag">TCGplayer-vraagprijs</span>}
+          {ptype === "vast" && <span className="tag">vaste prijs</span>}
           {ptype === "eigen" && <span className="tag">eigen waarde</span>}
         </td>
       )}

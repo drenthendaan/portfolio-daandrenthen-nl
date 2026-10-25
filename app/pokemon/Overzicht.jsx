@@ -7,7 +7,7 @@ import { dagwaarden, euro, itemPrijs, meldingStand, totalen } from "@/lib/pokemo
 import { schrijf } from "./_components/api";
 import ItemVenster from "./_components/ItemVenster";
 import KaartAfbeelding from "./_components/KaartAfbeelding";
-import KaartDetail, { datumKort } from "./_components/KaartDetail";
+import KaartDetail, { datumKort, datumNL } from "./_components/KaartDetail";
 import Kruimelpad from "./_components/Kruimelpad";
 import Meldingen from "./_components/Meldingen";
 import NieuweVerzameling from "./_components/NieuweVerzameling";
@@ -24,8 +24,10 @@ const tijdstip = (iso) =>
     timeZone: "Europe/Amsterdam",
   });
 
-// Cardmarket is de standaard; een Amerikaanse prijs (TCGplayer) staat er altijd bij
-const PRIJSSOORT = { m: "TCGplayer", l: "TCGplayer-vraagprijs", v: "vaste prijs", h: "eigen waarde" };
+// Cardmarket-trend is de standaard; al het andere staat bij de prijs
+const PRIJSSOORT = { v: "vaste prijs", h: "eigen waarde" };
+const prijsLabel = (p) =>
+  p?.controle ? "controleren" : p?.t === "c" && p.cm?.soort === "avg30" ? "30-dagen gem." : PRIJSSOORT[p?.t];
 
 // Kop per label; eigen labels heten zoals je ze noemt
 const sectieTitel = (l) =>
@@ -335,7 +337,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       } else if (data.overgeslagen) {
         setMelding("Er zijn nog geen nieuwere prijzen.");
       } else if (data.ok) {
-        setMelding(`Ververst: ${data.tellingen?.m ?? 0} marktprijzen.`);
+        setMelding(`Ververst: ${data.tellingen?.cmVers ?? 0} Cardmarket-prijzen.`);
         await haalPrijzen();
       } else {
         setMelding(`Verversen lukte niet (${data.status || res.status}).`);
@@ -382,7 +384,9 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         )}
         <p className="hero-sub">
           {bezitTekst} in bezit
-          {meta?.dag ? ` · prijzen van ${datumKort(meta.dag)}` : " · vaste prijzen van 5 okt"}
+          {meta?.cardmarket?.dag
+            ? ` · Cardmarket trend, bijgewerkt op ${datumNL(meta.cardmarket.dag)}`
+            : " · vaste prijzen van 5 okt"}
         </p>
       </section>
 
@@ -493,43 +497,37 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       <details className="info">
         <summary>Hoe worden prijzen berekend?</summary>
         <p>
-          Per kaart de Cardmarket-trendprijs: de Europese marktprijs, die Cardmarket elke nacht
-          berekent uit recente verkopen. Heeft Cardmarket geen prijs voor jouw kaart of variant (zoals
-          een stempelversie of Cosmos Holo), dan telt de TCGplayer-marktprijs uit de VS, omgerekend
-          met de dagkoers van de ECB; die is gemarkeerd met &lsquo;TCGplayer&rsquo;. Zonder koppeling
-          of prijs blijft de vaste prijs van 5 oktober staan. Items die je zelf toevoegt, volgen
-          dezelfde prijzen; anders telt de waarde die je zelf invult. Gaat iets
-          wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij het belletje
-          bovenaan, en als je dat aanzet ook als pushmelding.
+          Alle prijzen komen van Cardmarket: per kaart de trendprijs, de Europese marktprijs die
+          Cardmarket elke nacht berekent uit recente verkopen. Hier wordt hij elke nacht om 04:00
+          bijgewerkt. Zonder trend telt het gemiddelde van 30 dagen, nooit de laagste prijs. Heeft
+          Cardmarket geen prijs voor jouw kaart of variant, dan blijft de vaste prijs uit de lijst staan
+          (&lsquo;vaste prijs&rsquo;). Springt een prijs meer dan 50% of wijkt hij meer dan 5× af van de
+          prijs in je lijst, dan blijft de oude prijs staan met &lsquo;controleren&rsquo;. Items die je
+          zelf toevoegt, volgen dezelfde prijzen; zonder Cardmarket-prijs telt de waarde die je zelf
+          invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
+          het belletje bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
         {meta && (
           <ul>
             <li>
               Laatst ververst: {tijdstip(meta.tijd)} ({meta.status === "ok" ? "gelukt" : meta.status})
+              {meta.cardmarket?.dag ? `, prijslijst van ${datumNL(meta.cardmarket.dag)}` : ""}
             </li>
             <li>
-              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.m} TCGplayer ·{" "}
-              {meta.tellingen.l} TCGplayer-vraagprijs · {meta.tellingen.v} vaste prijs ·{" "}
-              {meta.tellingen.o} onbekend
-            </li>
-            <li>
-              Koers: $ 1 = € {meta.fx.koers.toLocaleString("nl-NL", { maximumFractionDigits: 4 })} (
-              {meta.fx.bron === "ecb" ? `ECB, ${datumKort(meta.fx.datum)}` : "vaste koers"})
+              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.v} vaste prijs · {meta.tellingen.o} onbekend
+              {meta.tellingen.controle ? ` · ${meta.tellingen.controle} te controleren` : ""}
             </li>
           </ul>
         )}
         <h3>Bronnen</h3>
         <ul>
           <li>
-            Cardmarket-prijzen: de dagelijkse prijslijst van{" "}
-            <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>, gekoppeld via{" "}
-            <a href="https://tcgdex.dev">TCGdex</a>
+            Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com/en/Pokemon">Cardmarket</a>,
+            gekoppeld via <a href="https://tcgdex.dev">TCGdex</a>
           </li>
           <li>
-            TCGplayer-prijzen en afbeeldingen via <a href="https://tcgcsv.com">tcgcsv.com</a>
-          </li>
-          <li>
-            Wisselkoers van de ECB via <a href="https://frankfurter.dev">Frankfurter</a>
+            Afbeeldingen en de catalogus voor &lsquo;item toevoegen&rsquo; via{" "}
+            <a href="https://tcgcsv.com">tcgcsv.com</a> (TCGplayer)
           </li>
         </ul>
         {heeftToken && (
@@ -564,7 +562,6 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         <KaartDetail
           kaart={detailKaart}
           prijs={prijzen[detailKaart.id]}
-          fx={meta?.fx}
           reeks={reeks}
           status={status[detailKaart.id]}
           onWijzig={wijzigKaart}
@@ -577,7 +574,6 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           standaard={venster.standaard}
           labels={items.labels}
           verzamelingen={items.verzamelingen}
-          fx={meta?.fx}
           prijzen={prijzen}
           acties={items}
           onSluit={() => setVenster(null)}
@@ -620,7 +616,7 @@ function Galerij({ lijst, onOpen, leeg }) {
               {x.set && <span className="kaartje-set">{x.set}</span>}
               <span className="kaartje-prijs">
                 {euro(totaal)}
-                {PRIJSSOORT[p?.t] && <small> {PRIJSSOORT[p.t]}</small>}
+                {prijsLabel(p) && <small> {prijsLabel(p)}</small>}
               </span>
             </button>
           </li>

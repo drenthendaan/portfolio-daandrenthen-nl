@@ -280,7 +280,7 @@ async function main() {
   }
 
   const uit = {};
-  const rapport = { auto: [], controleren: [], geen: [], handmatig: [], cm: [], viaNummer: [] };
+  const rapport = { auto: [], controleren: [], geen: [], handmatig: [], cm: [], viaNummer: [], dubbel: [] };
   const engels = bron.cards.filter((c) => c.list === "EN");
 
   for (const kaart of engels) {
@@ -377,7 +377,9 @@ async function main() {
     const cmId = dexKaart?.pricing?.cardmarket?.idProduct ?? null;
     if (cmPrijs && cmId) {
       const trend = cmPrijs.t / 100;
-      const tpEur = prijsUsd ? prijsUsd * USD_EUR : null;
+      // Vergelijken met TCGplayer, of zonder TCGplayer-prijs met de prijs in de lijst: zonder
+      // vergelijking kwam Pikachu ★ (lijst € 1.672) op het product van een gewone Pikachu (€ 2,70)
+      const tpEur = prijsUsd ? prijsUsd * USD_EUR : kaart.price_eur > 0 ? kaart.price_eur : null;
       const r = tpEur ? trend / tpEur : null;
       if (r == null || (r >= 0.25 && r <= 4)) {
         cm = { id: cmId, holo };
@@ -413,6 +415,20 @@ async function main() {
     rapport[zekerheid].push(`  ${omschrijving}${prijsTekst}\n${kandidatenTekst}`);
   }
 
+  // Verschillende kaartnummers op hetzelfde Cardmarket-product: minstens één is fout (TCGdex
+  // geeft soms meerdere kaarten hetzelfde product). Corrigeren in cardmarket-extra.json (voorrang).
+  const perCm = new Map();
+  for (const [id, r] of Object.entries(uit)) {
+    if (!r.cm) continue;
+    if (!perCm.has(r.cm.id)) perCm.set(r.cm.id, []);
+    perCm.get(r.cm.id).push(id);
+  }
+  const kaartOpId = new Map(engels.map((k) => [k.id, k]));
+  for (const [cmId, ids] of perCm) {
+    if (new Set(ids.map((id) => nummer(kaartOpId.get(id).number))).size < 2) continue;
+    rapport.dubbel.push(`  Cardmarket ${cmId}: ` + ids.map((id) => `${kaartOpId.get(id).name} ${kaartOpId.get(id).set} ${kaartOpId.get(id).number}`).join(" | "));
+  }
+
   // Wegschrijven, gesorteerd zodat diffs rustig blijven
   const kaarten = Object.fromEntries(Object.keys(uit).sort().map((k) => [k, uit[k]]));
   await mkdir(path.dirname(UIT), { recursive: true });
@@ -438,6 +454,7 @@ async function main() {
   }
   if (rapport.viaNummer.length) console.log(`${lijn}\nCARDMARKET VIA SET EN NUMMER\n${rapport.viaNummer.join("\n")}`);
   if (rapport.cm.length) console.log(`${lijn}\nCARDMARKET GENEGEERD\n  ${rapport.cm.join("\n  ")}`);
+  if (rapport.dubbel.length) console.log(`${lijn}\nZELFDE CARDMARKET-PRODUCT BIJ VERSCHILLENDE NUMMERS (zie voorrang)\n${rapport.dubbel.join("\n")}`);
   console.log(lijn);
   console.log(`Geschreven: ${path.relative(ROOT, UIT)}`);
   if (rapport.controleren.length || rapport.geen.length) process.exitCode = 1;

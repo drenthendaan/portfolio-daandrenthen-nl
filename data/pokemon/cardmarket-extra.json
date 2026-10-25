@@ -1,15 +1,150 @@
 {
- "uitleg": "Cardmarket-producten voor kaarten die TCGdex niet koppelt (koppelingen.json gaat voor). Gevonden in de productcatalogus van Cardmarket op naam en aanvallen (van TCGplayer). Welke Cardmarket-set bij een TCGplayer-set hoort, is bepaald door alle kaarten van beide sets te vergelijken. Bij meerdere versies in één set: op volgorde (Japanse promo's), op prijs of op de datum waarop Cardmarket de versie toevoegde. Varianten die Cardmarket niet apart heeft, en twijfelgevallen, staan er niet in en houden de TCGplayer-prijs.",
+ "uitleg": "Cardmarket-producten voor kaarten die TCGdex niet koppelt (koppelingen.json gaat voor). Gevonden in de productcatalogus van Cardmarket op naam en aanvallen (van TCGplayer). Welke Cardmarket-set bij een TCGplayer-set hoort, is bepaald door alle kaarten van beide sets te vergelijken. Voorrang gaat boven alles (ook boven TCGdex): koppelingen die met de hand zijn gecontroleerd of gecorrigeerd; cm: null betekent bewust zonder Cardmarket. Twijfel: kaarten met meerdere mogelijke producten; die tellen niet mee en houden de vaste prijs uit de lijst tot het product is bevestigd (gok = de beste schatting). Varianten die Cardmarket niet apart heeft, staan er niet in.",
  "gemaakt": "2026-10-24",
- "kaarten": {
-  "k0573aacacf": {
+ "bijgewerkt": "2026-10-25",
+ "voorrang": {
+  "k4e2963029a": {
    "cm": {
-    "id": 363931,
+    "id": 277074,
     "holo": false
    },
-   "hoe": "dichtstbijzijnde prijs",
-   "kaart": "Pikachu-EX · XY Promos XY174"
+   "kaart": "Pikachu ★ · EX Holon Phantoms 104/110",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/EX-Holon-Phantoms/Pikachu-Gold-Star-HP104"
   },
+  "k2b9ac4e8f0": {
+   "cm": {
+    "id": 511635,
+    "holo": false
+   },
+   "kaart": "Pikachu V · Vivid Voltage 043/185",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/Vivid-Voltage/Pikachu-V-V1-VIV43"
+  },
+  "k4f3cb392fd": {
+   "cm": {
+    "id": 540616,
+    "holo": false
+   },
+   "kaart": "Pikachu V · Sword & Shield Promo Cards SWSH061",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Pikachu-V-V1-SWSH061"
+  },
+  "k5da0f86106": {
+   "cm": {
+    "id": 550171,
+    "holo": false
+   },
+   "kaart": "Pikachu (stempel #2) · Battle Academy 019/068",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/Battle-Academy-2020/Pikachu-V1-HIF19"
+  },
+  "k6b55d663be": {
+   "cm": {
+    "id": 833972,
+    "holo": false
+   },
+   "kaart": "Pikachu (stempel #15) · Battle Academy 019/068",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/Battle-Academy-2020/Pikachu-V2-BA20P15"
+  },
+  "k216d375975": {
+   "cm": {
+    "id": 833973,
+    "holo": false
+   },
+   "kaart": "Pikachu (stempel #30) · Battle Academy 019/068",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/Battle-Academy-2020/Pikachu-V3-BA20P30"
+  },
+  "k318479909a": {
+   "cm": {
+    "id": 833974,
+    "holo": false
+   },
+   "kaart": "Pikachu (stempel #55) · Battle Academy 019/068",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/Battle-Academy-2020/Pikachu-V4-BA20P55"
+  },
+  "ka11e6c9edf": {
+   "cm": {
+    "id": 278943,
+    "holo": false
+   },
+   "kaart": "Pikachu · Arceus 71/99",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/Arceus/Pikachu-Lv17-AR71"
+  },
+  "k359d6a0481": {
+   "cm": {
+    "id": 670472,
+    "holo": false
+   },
+   "kaart": "Pikachu · McDonald's Promos 2022 007/015",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/McDonalds-Collection-2022/Pikachu-MCD227"
+  },
+  "k42911af7de": {
+   "cm": {
+    "id": 725423,
+    "holo": false
+   },
+   "kaart": "Pikachu · McDonald's Promos 2023 006/015",
+   "bron": "gecontroleerd door Daan: https://www.cardmarket.com/en/Pokemon/Products/Singles/McDonalds-Match-Battle-2023/Pikachu-M23006"
+  },
+  "k909137023d": {
+   "cm": {
+    "id": 388102,
+    "holo": false
+   },
+   "kaart": "Pikachu · Unified Minds 56/236",
+   "bron": "TCGdex gaf 55 en 56 hetzelfde product; 56 is [Tail Whap | Electric Ball]"
+  },
+  "k8ecd14cf37": {
+   "cm": {
+    "id": 289815,
+    "holo": false
+   },
+   "kaart": "Pikachu · XY Promos XY95",
+   "bron": "TCGdex gaf een Pikachu EX; XY95 is [Let's Eat Together | Quick Attack]"
+  },
+  "k26624a3cd4": {
+   "cm": null,
+   "kaart": "Pikachu · SM Promos SM76",
+   "bron": "niet zeker, zie twijfel; TCGdex gaf SM04, SM76 en SM81 hetzelfde product"
+  },
+  "k07007acfe6": {
+   "cm": null,
+   "kaart": "Pikachu · SM Promos SM81",
+   "bron": "niet zeker, zie twijfel; TCGdex gaf SM04, SM76 en SM81 hetzelfde product"
+  },
+  "k8f9bcc0f53": {
+   "cm": null,
+   "kaart": "Pikachu · SM Promos SM04",
+   "bron": "niet zeker, zie twijfel; TCGdex gaf SM04, SM76 en SM81 hetzelfde product"
+  },
+  "kd1367c6e5b": {
+   "cm": {
+    "id": 388097,
+    "holo": false
+   },
+   "kaart": "Pikachu · Unified Minds 55/236",
+   "bron": "TCGdex gaf 55 en 56 hetzelfde product; 55 is [Meal Time | Gnaw]"
+  },
+  "kb0b215f840": {
+   "cm": {
+    "id": 289809,
+    "holo": false
+   },
+   "kaart": "Pikachu-EX · XY Promos XY84",
+   "bron": "TCGdex gaf XY84 en XY95 hetzelfde product; XY84 is de eerste Pikachu EX"
+  },
+  "k943c30f821": {
+   "cm": {
+    "id": 277048,
+    "holo": false
+   },
+   "kaart": "Pikachu · EX Holon Phantoms 78/110",
+   "bron": "TCGdex gaf 78 en Pikachu ★ 104 hetzelfde product; 78 is de gewone Pikachu"
+  },
+  "k84cea9a713": {
+   "cm": null,
+   "kaart": "Pikachu · SM Trainer Kit: Lycanroc & Alolan Raichu 14/30",
+   "bron": "TCGdex gaf een Rockruff (297245); het goede product is niet zeker, zie twijfel"
+  }
+ },
+ "kaarten": {
   "k066661e816": {
    "cm": {
     "id": 727072,
@@ -17,14 +152,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Detective Pikachu · SV-P promo 098"
-  },
-  "k06bd1d268d": {
-   "cm": {
-    "id": 275420,
-    "holo": false
-   },
-   "hoe": "enige in de set",
-   "kaart": "Pikachu (Misprint) · Wizards Black Star Promo 01/53"
   },
   "k06ec0aa5f5": {
    "cm": {
@@ -58,14 +185,6 @@
    "hoe": "enige in de set",
    "kaart": "Pikachu δ (Value Pack) · Nintendo Promos 035"
   },
-  "k1341d3b8d5": {
-   "cm": {
-    "id": 295142,
-    "holo": false
-   },
-   "hoe": "dichtstbijzijnde prijs",
-   "kaart": "Pikachu (Build-A-Bear Workshop Exclusive) · Diverse promo's 020/108"
-  },
   "k15ee70cd8f": {
    "cm": {
     "id": 839259,
@@ -89,14 +208,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Fukuoka's Pikachu · SV-P promo 289"
-  },
-  "k1ba8f79e2c": {
-   "cm": {
-    "id": 553059,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Pikachu · XY-P promo 068"
   },
   "k1bf0a0d91a": {
    "cm": {
@@ -129,14 +240,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Surfing Pikachu · Wizards Black Star Promo 28/53"
-  },
-  "k216d375975": {
-   "cm": {
-    "id": 833972,
-    "holo": false
-   },
-   "hoe": "verdeling op prijs",
-   "kaart": "Pikachu (stempel #30) · Battle Academy 019/068"
   },
   "k2409e50d1d": {
    "cm": {
@@ -185,22 +288,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Pretend Comedian Pikachu · SM-P promo 407"
-  },
-  "k2fdab79151": {
-   "cm": {
-    "id": 552579,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Luigi Pikachu · XY-P promo 296"
-  },
-  "k318479909a": {
-   "cm": {
-    "id": 833974,
-    "holo": false
-   },
-   "hoe": "verdeling op prijs",
-   "kaart": "Pikachu (stempel #55) · Battle Academy 019/068"
   },
   "k319360be5a": {
    "cm": {
@@ -282,22 +369,6 @@
    "hoe": "enige in de set",
    "kaart": "PokéPark's Pikachu · PCG-P promo 043"
   },
-  "k42c0c684aa": {
-   "cm": {
-    "id": 552564,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Mario Pikachu · XY-P promo 293"
-  },
-  "k430ba979bc": {
-   "cm": {
-    "id": 553204,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Warm Pikachu · XY-P promo 097"
-  },
   "k43cd5c77f8": {
    "cm": {
     "id": 469509,
@@ -362,22 +433,6 @@
    "hoe": "herdruk in de World Collection",
    "kaart": "Pikachu (Snap) · Pikachu World Collection Promos 4"
   },
-  "k5b77b4fa20": {
-   "cm": {
-    "id": 525400,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Kanazawa's Pikachu · S-P promo 144"
-  },
-  "k5da0f86106": {
-   "cm": {
-    "id": 550171,
-    "holo": false
-   },
-   "hoe": "verdeling op prijs",
-   "kaart": "Pikachu (stempel #2) · Battle Academy 019/068"
-  },
   "k5dbd8c99a8": {
    "cm": {
     "id": 832224,
@@ -401,14 +456,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Yokohama's Pikachu · SM-P promo 280"
-  },
-  "k619a150569": {
-   "cm": {
-    "id": 553189,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Warm Pikachu · XY-P promo 094"
   },
   "k619ce363a0": {
    "cm": {
@@ -442,14 +489,6 @@
    "hoe": "enige in de set",
    "kaart": "Pikachu · Wizards Black Star Promo 27/53"
   },
-  "k6b55d663be": {
-   "cm": {
-    "id": 833973,
-    "holo": false
-   },
-   "hoe": "verdeling op prijs",
-   "kaart": "Pikachu (stempel #15) · Battle Academy 019/068"
-  },
   "k6c338ce8df": {
    "cm": {
     "id": 469969,
@@ -457,22 +496,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Yokohama's Pikachu · SM-P promo 282"
-  },
-  "k6c4f6de075": {
-   "cm": {
-    "id": 313453,
-    "holo": false
-   },
-   "hoe": "dichtstbijzijnde prijs",
-   "kaart": "Pikachu (Target Non-Holo) · SM Promos SM04"
-  },
-  "k6ce0dfe868": {
-   "cm": {
-    "id": 412874,
-    "holo": false
-   },
-   "hoe": "dichtstbijzijnde prijs",
-   "kaart": "Pikachu (Cracked Ice Holo) · Deck Exclusives 028/073"
   },
   "k6dbaeaeb5f": {
    "cm": {
@@ -489,14 +512,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Yokohama's Pikachu · SM-P promo 283"
-  },
-  "k6f48404585": {
-   "cm": {
-    "id": 553209,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Mega Tokyo's Pikachu · XY-P promo 098"
   },
   "k6febb53379": {
    "cm": {
@@ -562,14 +577,6 @@
    "hoe": "enige in de set",
    "kaart": "Pikachu (SNAP Promo) · Wizards Black Star Promo 26/53"
   },
-  "k78f61db1a3": {
-   "cm": {
-    "id": 552569,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Mario Pikachu · XY-P promo 294"
-  },
   "k7a344911a7": {
    "cm": {
     "id": 469489,
@@ -585,14 +592,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Pikachu (Cosmos Holo) · Trick or Trade BOOster Bundle 2024 018/091"
-  },
-  "k816c40e35d": {
-   "cm": {
-    "id": 553723,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Poncho-wearing Pikachu · XY-P promo 203"
   },
   "k828dc0ec97": {
    "cm": {
@@ -666,14 +665,6 @@
    "hoe": "enige in de set",
    "kaart": "Pretend Boss Pikachu Team Flare · SM-P promo 196"
   },
-  "k901ee6cda9": {
-   "cm": {
-    "id": 571234,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Pikachu · P Promos 044"
-  },
   "k90c3217f87": {
    "cm": {
     "id": 553469,
@@ -682,14 +673,6 @@
    "hoe": "enige in de set",
    "kaart": "Pretend Magikarp Pikachu · XY-P promo 150"
   },
-  "k90e73108db": {
-   "cm": {
-    "id": 553069,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Pikachu · XY-P promo 070"
-  },
   "k95f0007eb2": {
    "cm": {
     "id": 469544,
@@ -697,14 +680,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Pikachu · SM-P promo 200"
-  },
-  "k96f78f308c": {
-   "cm": {
-    "id": 525415,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Kanazawa's Pikachu · S-P promo 147"
   },
   "k980a2fd184": {
    "cm": {
@@ -786,22 +761,6 @@
    "hoe": "verdeling op prijs",
    "kaart": "Pikachu Libre (holo) · XY Trainer Kit: Pikachu Libre & Suicune 30/30"
   },
-  "kb00363f9eb": {
-   "cm": {
-    "id": 553728,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Mega Tokyo's Pikachu · XY-P promo 204"
-  },
-  "kb041de11ac": {
-   "cm": {
-    "id": 553194,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Warm Pikachu · XY-P promo 095"
-  },
   "kb0b215f840": {
    "cm": {
     "id": 289809,
@@ -866,14 +825,6 @@
    "hoe": "dichtstbijzijnde prijs",
    "kaart": "Pikachu (EX Series Collector's Tin) · Nintendo Promos 012"
   },
-  "kbf7bc0d660": {
-   "cm": {
-    "id": 870225,
-    "holo": false
-   },
-   "hoe": "patroonversie, op prijs",
-   "kaart": "Pikachu (Friend Ball) · Ascended Heroes 055/217"
-  },
   "kc39c0ab08a": {
    "cm": {
     "id": 572006,
@@ -898,14 +849,6 @@
    "hoe": "enige in de set",
    "kaart": "Playing in the Sea Pikachu · SM-P promo 392"
   },
-  "kcc0bea297a": {
-   "cm": {
-    "id": 571228,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Pikachu · P Promos 038"
-  },
   "kccbbe8ef49": {
    "cm": {
     "id": 468419,
@@ -914,14 +857,6 @@
    "hoe": "enige in de set",
    "kaart": "Pretend Team Skull Pikachu · SM-P promo 013"
   },
-  "kcd97365c81": {
-   "cm": {
-    "id": 870226,
-    "holo": false
-   },
-   "hoe": "patroonversie, op prijs",
-   "kaart": "Pikachu (Energy Symbol Pattern) · Ascended Heroes 055/217"
-  },
   "kcf659b8027": {
    "cm": {
     "id": 553863,
@@ -929,14 +864,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Poncho-wearing Pikachu · XY-P promo 230"
-  },
-  "kd3228f2450": {
-   "cm": {
-    "id": 397979,
-    "holo": false
-   },
-   "hoe": "enige in de set",
-   "kaart": "Detective Pikachu (Stamped) · SM Promos SM170"
   },
   "kd5605ec0af": {
    "cm": {
@@ -1002,30 +929,6 @@
    "hoe": "enige in de set",
    "kaart": "Pikachu · S-P promo 227"
   },
-  "ke9e554bd9b": {
-   "cm": {
-    "id": 553199,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Warm Pikachu · XY-P promo 096"
-  },
-  "kea26987a3f": {
-   "cm": {
-    "id": 554093,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Poncho-wearing Pikachu · XY-P promo 275"
-  },
-  "kead3ea9145": {
-   "cm": {
-    "id": 552574,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Luigi Pikachu · XY-P promo 295"
-  },
   "kf1c5733af7": {
    "cm": {
     "id": 834862,
@@ -1041,14 +944,6 @@
    },
    "hoe": "enige in de set",
    "kaart": "Poncho-wearing Pikachu · XY-P promo 207"
-  },
-  "kf775e72a4b": {
-   "cm": {
-    "id": 553064,
-    "holo": false
-   },
-   "hoe": "op volgorde in de set",
-   "kaart": "Pikachu · XY-P promo 069"
   },
   "kf9d0ec189a": {
    "cm": {
@@ -1081,6 +976,273 @@
    },
    "hoe": "enige in de set",
    "kaart": "Pikachu · Trick or Trade BOOster Bundle 049/203"
+  }
+ },
+ "twijfel": {
+  "k1ba8f79e2c": {
+   "kaart": "Pikachu · XY-P promo 068",
+   "gok": 553059,
+   "kandidaten": [
+    553059,
+    553064,
+    553069
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k2fdab79151": {
+   "kaart": "Luigi Pikachu · XY-P promo 296",
+   "gok": 552579,
+   "kandidaten": [
+    552574,
+    552579
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k42c0c684aa": {
+   "kaart": "Mario Pikachu · XY-P promo 293",
+   "gok": 552564,
+   "kandidaten": [
+    552564,
+    552569
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k430ba979bc": {
+   "kaart": "Warm Pikachu · XY-P promo 097",
+   "gok": 553204,
+   "kandidaten": [
+    553189,
+    553194,
+    553199,
+    553204
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k5b77b4fa20": {
+   "kaart": "Kanazawa's Pikachu · S-P promo 144",
+   "gok": 525400,
+   "kandidaten": [
+    525400,
+    525415
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k619a150569": {
+   "kaart": "Warm Pikachu · XY-P promo 094",
+   "gok": 553189,
+   "kandidaten": [
+    553189,
+    553194,
+    553199,
+    553204
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k6f48404585": {
+   "kaart": "Mega Tokyo's Pikachu · XY-P promo 098",
+   "gok": 553209,
+   "kandidaten": [
+    553209,
+    553728
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k78f61db1a3": {
+   "kaart": "Mario Pikachu · XY-P promo 294",
+   "gok": 552569,
+   "kandidaten": [
+    552564,
+    552569
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k816c40e35d": {
+   "kaart": "Poncho-wearing Pikachu · XY-P promo 203",
+   "gok": 553723,
+   "kandidaten": [
+    553723,
+    554093
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k901ee6cda9": {
+   "kaart": "Pikachu · P Promos 044",
+   "gok": 571234,
+   "kandidaten": [
+    571228,
+    571234
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k90e73108db": {
+   "kaart": "Pikachu · XY-P promo 070",
+   "gok": 553069,
+   "kandidaten": [
+    553059,
+    553064,
+    553069
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k96f78f308c": {
+   "kaart": "Kanazawa's Pikachu · S-P promo 147",
+   "gok": 525415,
+   "kandidaten": [
+    525400,
+    525415
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kb00363f9eb": {
+   "kaart": "Mega Tokyo's Pikachu · XY-P promo 204",
+   "gok": 553728,
+   "kandidaten": [
+    553209,
+    553728
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kb041de11ac": {
+   "kaart": "Warm Pikachu · XY-P promo 095",
+   "gok": 553194,
+   "kandidaten": [
+    553189,
+    553194,
+    553199,
+    553204
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kbf7bc0d660": {
+   "kaart": "Pikachu (Friend Ball) · Ascended Heroes 055/217",
+   "gok": 870225,
+   "kandidaten": [
+    870225,
+    870226
+   ],
+   "waarom": "twee patroonversies met bijna dezelfde prijs; gekozen op prijs"
+  },
+  "kcc0bea297a": {
+   "kaart": "Pikachu · P Promos 038",
+   "gok": 571228,
+   "kandidaten": [
+    571228,
+    571234
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kcd97365c81": {
+   "kaart": "Pikachu (Energy Symbol Pattern) · Ascended Heroes 055/217",
+   "gok": 870226,
+   "kandidaten": [
+    870225,
+    870226
+   ],
+   "waarom": "twee patroonversies met bijna dezelfde prijs; gekozen op prijs"
+  },
+  "ke9e554bd9b": {
+   "kaart": "Warm Pikachu · XY-P promo 096",
+   "gok": 553199,
+   "kandidaten": [
+    553189,
+    553194,
+    553199,
+    553204
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kea26987a3f": {
+   "kaart": "Poncho-wearing Pikachu · XY-P promo 275",
+   "gok": 554093,
+   "kandidaten": [
+    553723,
+    554093
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kead3ea9145": {
+   "kaart": "Luigi Pikachu · XY-P promo 295",
+   "gok": 552574,
+   "kandidaten": [
+    552574,
+    552579
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "kf775e72a4b": {
+   "kaart": "Pikachu · XY-P promo 069",
+   "gok": 553064,
+   "kandidaten": [
+    553059,
+    553064,
+    553069
+   ],
+   "waarom": "meerdere versies met dezelfde naam en aanvallen; gekozen op volgorde"
+  },
+  "k0573aacacf": {
+   "kaart": "Pikachu-EX · XY Promos XY174",
+   "gok": 363931,
+   "kandidaten": [
+    295165,
+    363931
+   ],
+   "waarom": "twee Pikachu EX-versies met dezelfde aanvallen; de lijstprijs past bij de ene, TCGplayer bij de andere"
+  },
+  "kd3228f2450": {
+   "kaart": "Detective Pikachu (Stamped) · SM Promos SM170",
+   "gok": 397979,
+   "kandidaten": [
+    397979
+   ],
+   "waarom": "Cardmarket heeft hier één product voor de gewone én de gestempelde versie"
+  },
+  "k8f9bcc0f53": {
+   "kaart": "Pikachu · SM Promos SM04",
+   "gok": 295296,
+   "kandidaten": [
+    295296,
+    311416,
+    313453
+   ],
+   "waarom": "drie versies met dezelfde aanvallen (SM04, SM76, SM81); datum van toevoegen en prijs wijzen verschillende kanten op"
+  },
+  "k26624a3cd4": {
+   "kaart": "Pikachu · SM Promos SM76",
+   "gok": 311416,
+   "kandidaten": [
+    295296,
+    311416,
+    313453
+   ],
+   "waarom": "drie versies met dezelfde aanvallen (SM04, SM76, SM81); datum van toevoegen en prijs wijzen verschillende kanten op"
+  },
+  "k07007acfe6": {
+   "kaart": "Pikachu · SM Promos SM81",
+   "gok": 313453,
+   "kandidaten": [
+    295296,
+    311416,
+    313453
+   ],
+   "waarom": "drie versies met dezelfde aanvallen (SM04, SM76, SM81); datum van toevoegen en prijs wijzen verschillende kanten op"
+  },
+  "k84cea9a713": {
+   "kaart": "Pikachu · SM Trainer Kit: Lycanroc & Alolan Raichu 14/30",
+   "gok": 297275,
+   "kandidaten": [
+    297275,
+    297276
+   ],
+   "waarom": "twee gelijke Pikachu's in de Trainer Kit (14/30 en 29/30) met twee producten; gekozen op volgorde"
+  },
+  "k6f2455119d": {
+   "kaart": "Pikachu · SM Trainer Kit: Lycanroc & Alolan Raichu 29/30",
+   "gok": 297276,
+   "kandidaten": [
+    297275,
+    297276
+   ],
+   "waarom": "twee gelijke Pikachu's in de Trainer Kit (14/30 en 29/30) met twee producten; gekozen op volgorde"
   }
  }
 }
