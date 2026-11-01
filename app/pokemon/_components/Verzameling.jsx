@@ -73,7 +73,6 @@ const SHORT = {
   6: "Sword & Shield",
   7: "Scarlet & Violet",
   8: "Mega & 30th",
-  9: "Topstukken",
 };
 const pagesText = (p) => "pagina " + p[0] + (p[1] > p[0] ? "–" + p[1] : "");
 
@@ -587,11 +586,7 @@ export default function Verzameling({
     " · samen ± " +
     eur(total);
   const extra =
-    actief === "topstukken"
-        ? "Alle kaarten van € 200 en meer, achterin je binder."
-        : !all.length && !heeftVast
-          ? "Nog leeg. Voeg kaarten, ETB's of andere items toe met + Toevoegen."
-          : null;
+    !all.length && !heeftVast ? "Nog leeg. Voeg kaarten, ETB's of andere items toe met + Toevoegen." : null;
 
   const countOf = (f) => all.filter((c) => statusVan(c[0])[f]).length;
   const filtered = nq || show !== "all";
