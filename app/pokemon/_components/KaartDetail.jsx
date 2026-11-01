@@ -23,9 +23,10 @@ export const datumKort = (d) =>
 // "2026-10-25" → "25-10-2026"
 export const datumNL = (d) => (d ? String(d).slice(0, 10).split("-").reverse().join("-") : "");
 
-// Welke prijs het is: "TCGplayer-marktprijs", "vaste prijs uit de lijst", ...
+// Welke prijs het is: "Cardmarket-trend", "vaste prijs uit de lijst", ...
 export function prijsBron(p) {
   if (!p) return "";
+  if (p.t === "c") return p.s === "avg30" ? "Cardmarket, gemiddelde van 30 dagen" : "Cardmarket-trend";
   if (p.t === "m") return "TCGplayer-marktprijs";
   if (p.t === "v") return p.vraag ? "vaste prijs uit de lijst (vraagprijs)" : "vaste prijs uit de lijst";
   if (p.t === "h") return "eigen waarde";
@@ -125,7 +126,7 @@ export default function KaartDetail({ kaart, prijs, reeks, status, onSluit, onWi
                 {prijs.t === "m" && prijs.u != null && (
                   <p className="dp-uitleg">{dollar(prijs.u)} in de VS, omgerekend naar euro</p>
                 )}
-                {prijs.t === "v" && <p className="dp-uitleg">Geen TCGplayer-marktprijs voor deze kaart</p>}
+                {prijs.t === "v" && <p className="dp-uitleg">Geen Cardmarket-prijs voor deze kaart</p>}
               </>
             )}
             {verschil != null && eersteDag && (
@@ -180,15 +181,26 @@ export default function KaartDetail({ kaart, prijs, reeks, status, onSluit, onWi
             </p>
           )}
 
-          {kaart.tp && (
+          {kaart.cm ? (
             <a
               className="extern"
-              href={`https://www.tcgplayer.com/product/${kaart.tp}`}
+              href={`https://www.cardmarket.com/en/Pokemon/Products?idProduct=${kaart.cm}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Bekijk op TCGplayer ↗
+              Bekijk op Cardmarket ↗
             </a>
+          ) : (
+            kaart.tp && (
+              <a
+                className="extern"
+                href={`https://www.tcgplayer.com/product/${kaart.tp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bekijk op TCGplayer ↗
+              </a>
+            )
           )}
         </div>
       </div>

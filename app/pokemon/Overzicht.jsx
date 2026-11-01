@@ -25,7 +25,7 @@ const tijdstip = (iso) =>
     timeZone: "Europe/Amsterdam",
   });
 
-// TCGplayer-marktprijs is de standaard; al het andere staat bij de prijs
+// De Cardmarket-trend is de standaard; al het andere staat bij de prijs
 const PRIJSSOORT = { v: "vaste prijs", h: "eigen waarde" };
 const prijsLabel = (p) => PRIJSSOORT[p?.t];
 
@@ -387,7 +387,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         <p className="hero-sub">
           {bezitTekst} in bezit
           {meta?.dag
-            ? ` · TCGplayer-marktprijs, bijgewerkt op ${datumNL(meta.dag)}`
+            ? ` · Cardmarket-trend, bijgewerkt op ${datumNL(meta.dag)}`
             : " · vaste prijzen van 5 okt"}
         </p>
       </section>
@@ -499,11 +499,12 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       <details className="info">
         <summary>Hoe worden prijzen berekend?</summary>
         <p>
-          Per kaart de TCGplayer-marktprijs: de gemiddelde verkoopprijs van de laatste tijd (nooit de
-          laagste prijs), omgerekend naar euro met de dagkoers van de ECB en elke dag bijgewerkt. Elke
-          kaart is gekoppeld aan zijn eigen TCGplayer-product, ook varianten. Zonder marktprijs blijft de
-          vaste prijs uit de lijst staan. Items die je zelf toevoegt, volgen dezelfde prijzen; anders telt
-          de waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
+          Per kaart de Cardmarket-trend: de verkoopprijs van de laatste tijd in Europa (nooit de laagste
+          prijs), elke nacht bijgewerkt uit de prijslijst van Cardmarket. Is de trend duidelijk kapot (meer
+          dan 4× naast het gemiddelde van 30 dagen), dan telt dat gemiddelde. Elke kaart is gekoppeld aan
+          zijn eigen Cardmarket-product, ook varianten. Zonder prijs blijft de vaste prijs uit de lijst
+          staan. Items die je zelf toevoegt, worden ook aan Cardmarket gekoppeld; lukt dat niet, dan volgen
+          ze de TCGplayer-marktprijs (omgerekend met de ECB-koers) of de waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
           het belletje bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
         {meta && (
@@ -512,9 +513,10 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
               Laatst ververst: {tijdstip(meta.tijd)} ({meta.status === "ok" ? "gelukt" : meta.status})
             </li>
             <li>
-              {meta.tellingen.m ?? 0} TCGplayer · {meta.tellingen.v} vaste prijs · {meta.tellingen.o} onbekend
+              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.v} vaste prijs · {meta.tellingen.o} onbekend
+              {meta.tellingen.itemsTcg ? ` · ${meta.tellingen.itemsTcg} items via TCGplayer` : ""}
             </li>
-            {meta.fx && (
+            {meta.fx && meta.tellingen.itemsTcg > 0 && (
               <li>
                 Koers: $ 1 = € {meta.fx.koers.toLocaleString("nl-NL", { maximumFractionDigits: 4 })} (
                 {meta.fx.bron === "ecb" ? `ECB, ${datumKort(meta.fx.datum)}` : "vaste koers"})
@@ -525,7 +527,10 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         <h3>Bronnen</h3>
         <ul>
           <li>
-            Prijzen, afbeeldingen en de catalogus voor &lsquo;item toevoegen&rsquo;: TCGplayer via{" "}
+            Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com">Cardmarket</a>
+          </li>
+          <li>
+            Afbeeldingen en de catalogus voor &lsquo;item toevoegen&rsquo;: TCGplayer via{" "}
             <a href="https://tcgcsv.com">tcgcsv.com</a>
           </li>
           <li>

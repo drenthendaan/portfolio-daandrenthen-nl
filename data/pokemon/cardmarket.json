@@ -1,0 +1,2832 @@
+{
+ "uitleg": "Cardmarket-product per kaart uit de collectie. Gecontroleerd op cardmarket.com (versiepagina's, productfoto's en omschrijvingen van verkopers). pad = /en/Pokemon/Products/Singles/<pad>. holo: true = de reverse-holoprijs van het product. Het koppelscript (koppel-prijsbronnen.mjs) raakt dit bestand niet aan.",
+ "gemaakt": "2026-11-01",
+ "kaarten": {
+  "ka03084695d": {
+   "cm": {
+    "id": 715537,
+    "holo": false
+   },
+   "pad": "Paldea-Evolved/Pikachu-V1-PAL062",
+   "naam": "Pikachu · SV02: Paldea Evolved",
+   "hoe": "Paldea Evolved V1 PAL062: de gewone (V2 heeft een Rain City-stempel)"
+  },
+  "k65e4158f5f": {
+   "cm": {
+    "id": 869666,
+    "holo": false
+   },
+   "pad": "Ascended-Heroes/Pikachu-ASC055",
+   "naam": "Pikachu · ME: Ascended Heroes",
+   "hoe": "set en nummer"
+  },
+  "k025457ae15": {
+   "cm": {
+    "id": 751545,
+    "holo": true
+   },
+   "pad": "Paldean-Fates/Pikachu-V1-PAF018",
+   "naam": "Pikachu - 018/091 · SV: Paldean Fates",
+   "hoe": "Paldean Fates V1 PAF018, reverse holo"
+  },
+  "k6276fd1664": {
+   "cm": {
+    "id": 733620,
+    "holo": true
+   },
+   "pad": "151/Pikachu-V1-MEW025",
+   "naam": "Pikachu - 025/165 · SV: Scarlet & Violet 151",
+   "hoe": "151 V1 MEW025, reverse holo"
+  },
+  "kbef25b9dd2": {
+   "cm": {
+    "id": 665260,
+    "holo": false
+   },
+   "pad": "Pokemon-GO/Pikachu-V1-PGO027",
+   "naam": "Pikachu (27) · Pokemon GO",
+   "hoe": "Pokémon GO V1 PGO027: de gewone"
+  },
+  "k3e29acdecd": {
+   "cm": {
+    "id": 574073,
+    "holo": false
+   },
+   "pad": "Evolving-Skies/Pikachu-V1-EVS049",
+   "naam": "Pikachu · SWSH07: Evolving Skies",
+   "hoe": "Evolving Skies V1 EVS049: de gewone"
+  },
+  "k3e7a0640d4": {
+   "cm": {
+    "id": 760681,
+    "holo": false
+   },
+   "pad": "Temporal-Forces/Pikachu-V1-TEF051",
+   "naam": "Pikachu · SV05: Temporal Forces",
+   "hoe": "Temporal Forces V1 TEF051: de gewone"
+  },
+  "kfdf9d9d5d1": {
+   "cm": {
+    "id": 671571,
+    "holo": false
+   },
+   "pad": "Trick-or-Trade/Pikachu-BOOEVS-049",
+   "naam": "Pikachu · Trick or Trade BOOster Bundle",
+   "hoe": "set en nummer"
+  },
+  "k2a337c84b9": {
+   "cm": {
+    "id": 682096,
+    "holo": false
+   },
+   "pad": "Silver-Tempest/Pikachu-V1-SIT049",
+   "naam": "Pikachu · SWSH12: Silver Tempest",
+   "hoe": "Silver Tempest V1 SIT049: de gewone"
+  },
+  "k9f9b476d36": {
+   "cm": {
+    "id": 731939,
+    "holo": false
+   },
+   "pad": "Trick-or-Trade-2023/Pikachu-BOO23PAL-062",
+   "naam": "Pikachu · Trick or Trade BOOster Bundle 2023",
+   "hoe": "set en nummer"
+  },
+  "k1c5565d389": {
+   "cm": {
+    "id": 907632,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C025",
+   "naam": "Pikachu - 025/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k8e3eb62277": {
+   "cm": {
+    "id": 907659,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C052",
+   "naam": "Pikachu - 052/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kcd97365c81": {
+   "cm": {
+    "id": 870226,
+    "holo": false
+   },
+   "pad": "Ascended-Heroes-Additionals/Pikachu-V2-xASC055",
+   "naam": "Pikachu (Energy Symbol Pattern) · ME: Ascended Heroes",
+   "hoe": "Ascended Heroes Additionals V2: Energy Symbol Pattern (patroon niet op foto gecontroleerd; V1 en V2 kosten bijna hetzelfde)"
+  },
+  "kb19754ff72": {
+   "cm": {
+    "id": 907654,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C047",
+   "naam": "Pikachu - 047/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kdc84fe7f5c": {
+   "cm": {
+    "id": 907637,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C030",
+   "naam": "Pikachu - 030/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kc83aafe5b6": {
+   "cm": {
+    "id": 907652,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C045",
+   "naam": "Pikachu - 045/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k585a8cd56c": {
+   "cm": {
+    "id": 907651,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C044",
+   "naam": "Pikachu - 044/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kd1c6cea906": {
+   "cm": {
+    "id": 907656,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C049",
+   "naam": "Pikachu - 049/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k22d45dd644": {
+   "cm": {
+    "id": 907631,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C024",
+   "naam": "Pikachu - 024/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kc00b73b141": {
+   "cm": {
+    "id": 907658,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C051",
+   "naam": "Pikachu - 051/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k80ae91f410": {
+   "cm": {
+    "id": 907630,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C023",
+   "naam": "Pikachu - 023/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kc3e5e85942": {
+   "cm": {
+    "id": 907648,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C041",
+   "naam": "Pikachu - 041/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kff5fc743e9": {
+   "cm": {
+    "id": 907653,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C046",
+   "naam": "Pikachu - 046/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kb796771d11": {
+   "cm": {
+    "id": 907644,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C037",
+   "naam": "Pikachu - 037/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kec7494c6fd": {
+   "cm": {
+    "id": 907633,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C026",
+   "naam": "Pikachu - 026/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kb0d79677fa": {
+   "cm": {
+    "id": 907657,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C050",
+   "naam": "Pikachu - 050/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kdcbe85ea33": {
+   "cm": {
+    "id": 907645,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C038",
+   "naam": "Pikachu - 038/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k1e36cc46a8": {
+   "cm": {
+    "id": 436459,
+    "holo": false
+   },
+   "pad": "Sword-Shield/Pikachu-V1-SSH65",
+   "naam": "Pikachu · SWSH01: Sword & Shield Base Set",
+   "hoe": "Sword & Shield V1 SSH065: de gewone"
+  },
+  "k46dacdca68": {
+   "cm": {
+    "id": 907640,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C033",
+   "naam": "Pikachu - 033/128 · ME: 30th Celebration",
+   "hoe": "30th Celebration 30C033"
+  },
+  "k352fcd74c7": {
+   "cm": {
+    "id": 907655,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C048",
+   "naam": "Pikachu - 048/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k05634b8890": {
+   "cm": {
+    "id": 907635,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C028",
+   "naam": "Pikachu - 028/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k95c0c3818d": {
+   "cm": {
+    "id": 907649,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C042",
+   "naam": "Pikachu - 042/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k37cbaab8f8": {
+   "cm": {
+    "id": 907638,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C031",
+   "naam": "Pikachu - 031/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kbf7bc0d660": {
+   "cm": {
+    "id": 870225,
+    "holo": false
+   },
+   "pad": "Ascended-Heroes-Additionals/Pikachu-V1-xASC055",
+   "naam": "Pikachu (Friend Ball) · ME: Ascended Heroes",
+   "hoe": "Ascended Heroes Additionals V1: Friend Ball (patroon niet op foto gecontroleerd; V1 en V2 kosten bijna hetzelfde)"
+  },
+  "ka8360be7a9": {
+   "cm": {
+    "id": 907636,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C029",
+   "naam": "Pikachu - 029/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k43cba8fede": {
+   "cm": {
+    "id": 293392,
+    "holo": false
+   },
+   "pad": "Evolutions/Pikachu-EVO35",
+   "naam": "Pikachu · XY - Evolutions",
+   "hoe": "set en nummer"
+  },
+  "kc16f7f45a1": {
+   "cm": {
+    "id": 907650,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C043",
+   "naam": "Pikachu - 043/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k778d9fbfe3": {
+   "cm": {
+    "id": 907642,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C035",
+   "naam": "Pikachu - 035/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kdfee6245f7": {
+   "cm": {
+    "id": 907639,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C032",
+   "naam": "Pikachu - 032/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k84cea9a713": {
+   "cm": {
+    "id": 297275,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (#14) · SM Trainer Kit: Lycanroc & Alolan Raichu",
+   "hoe": "SM Trainer Kit Lycanroc & Alolan Raichu: Pikachu #14 (de andere is #29)"
+  },
+  "k7ade7cad60": {
+   "cm": {
+    "id": 907646,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C039",
+   "naam": "Pikachu - 039/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kb242ac0dbc": {
+   "cm": {
+    "id": 394592,
+    "holo": false
+   },
+   "pad": "Hidden-Fates/Pikachu-V1-HIF19",
+   "naam": "Pikachu · Hidden Fates",
+   "hoe": "set en nummer"
+  },
+  "kaf762f27cd": {
+   "cm": {
+    "id": 907660,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-ex-V1-30C053",
+   "naam": "Pikachu ex - 053/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kb9f8fae130": {
+   "cm": {
+    "id": 907634,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C027",
+   "naam": "Pikachu - 027/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kd6da99fac7": {
+   "cm": {
+    "id": 907661,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-ex-V1-30C054",
+   "naam": "Pikachu ex - 054/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k56005f328b": {
+   "cm": {
+    "id": 907643,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C036",
+   "naam": "Pikachu - 036/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kd7b1909097": {
+   "cm": {
+    "id": 286294,
+    "holo": false
+   },
+   "pad": "BREAKthrough/Pikachu-BKT48",
+   "naam": "Pikachu · XY - BREAKthrough",
+   "hoe": "set en nummer"
+  },
+  "k256c0a6a34": {
+   "cm": {
+    "id": 674062,
+    "holo": false
+   },
+   "pad": "Lost-Origin/Pikachu-V1-LOR052",
+   "naam": "Pikachu · SWSH11: Lost Origin",
+   "hoe": "set en nummer"
+  },
+  "k4226144551": {
+   "cm": {
+    "id": 907641,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C034",
+   "naam": "Pikachu - 034/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k6f2455119d": {
+   "cm": {
+    "id": 297276,
+    "holo": false
+   },
+   "pad": "SM-Trainer-Kit-Lycanroc-Alolan-Raichu/Pikachu-V2-TK10A29",
+   "naam": "Pikachu (#29) · SM Trainer Kit: Lycanroc & Alolan Raichu",
+   "hoe": "set en nummer"
+  },
+  "k5cc079bf69": {
+   "cm": {
+    "id": 299444,
+    "holo": false
+   },
+   "pad": "Burning-Shadows/Pikachu-BUS40",
+   "naam": "Pikachu · SM - Burning Shadows",
+   "hoe": "set en nummer"
+  },
+  "kbd4d1d2f72": {
+   "cm": {
+    "id": 282688,
+    "holo": false
+   },
+   "pad": "Roaring-Skies/Pikachu-V1-ROS20",
+   "naam": "Pikachu · XY - Roaring Skies",
+   "hoe": "Roaring Skies V1 ROS20: de gewone"
+  },
+  "kd1367c6e5b": {
+   "cm": {
+    "id": 388097,
+    "holo": false
+   },
+   "pad": "Unified-Minds/Pikachu-UNM55",
+   "naam": "Pikachu (55) · SM - Unified Minds",
+   "hoe": "set en nummer"
+  },
+  "k32fdcdb390": {
+   "cm": {
+    "id": 372345,
+    "holo": false
+   },
+   "pad": "Unbroken-Bonds/Pikachu-UNB54",
+   "naam": "Pikachu · SM - Unbroken Bonds",
+   "hoe": "set en nummer"
+  },
+  "k647ffa3052": {
+   "cm": {
+    "id": 665261,
+    "holo": false
+   },
+   "pad": "Pokemon-GO/Pikachu-PGO028",
+   "naam": "Pikachu (28) · Pokemon GO",
+   "hoe": "set en nummer"
+  },
+  "k7b2f0ebe40": {
+   "cm": {
+    "id": 785608,
+    "holo": false
+   },
+   "pad": "Trick-or-Trade-2024/Pikachu-BOO24PAF-018",
+   "naam": "Pikachu - 018/091 (Cosmos Holo) · Trick or Trade BOOster Bundle 2024",
+   "hoe": "set en nummer"
+  },
+  "k4f3cb392fd": {
+   "cm": {
+    "id": 540616,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-V1-SWSH061",
+   "naam": "Pikachu V - SWSH061 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k21a0a1ae2d": {
+   "cm": {
+    "id": 302166,
+    "holo": false
+   },
+   "pad": "Shining-Legends/Pikachu-SLG28",
+   "naam": "Pikachu · Shining Legends",
+   "hoe": "Shining Legends SLG28"
+  },
+  "ka2eefdeefc": {
+   "cm": {
+    "id": 407979,
+    "holo": false
+   },
+   "pad": "Cosmic-Eclipse/Pikachu-V1-CEC66",
+   "naam": "Pikachu · SM - Cosmic Eclipse",
+   "hoe": "set en nummer"
+  },
+  "kdecf649f11": {
+   "cm": {
+    "id": 907647,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30C040",
+   "naam": "Pikachu - 040/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "k55f5ed74f0": {
+   "cm": {
+    "id": 805417,
+    "holo": false
+   },
+   "pad": "Prismatic-Evolutions/Pikachu-ex-PRE028",
+   "naam": "Pikachu ex - 028/131 · SV: Prismatic Evolutions",
+   "hoe": "set en nummer"
+  },
+  "k2b9ac4e8f0": {
+   "cm": {
+    "id": 511635,
+    "holo": false
+   },
+   "pad": "Vivid-Voltage/Pikachu-V-V1-VIV43",
+   "naam": "Pikachu V · SWSH04: Vivid Voltage",
+   "hoe": "Vivid Voltage V1 VIV043: de gewone"
+  },
+  "k6b55d663be": {
+   "cm": {
+    "id": 833972,
+    "holo": false
+   },
+   "pad": "Battle-Academy-2020/Pikachu-V2-BA20P15",
+   "naam": "Pikachu - 19/68 (#15 Pikachu Stamped) · Battle Academy",
+   "hoe": "Battle Academy 2020 V2: stempel #15"
+  },
+  "kf6ebf1f6f0": {
+   "cm": {
+    "id": 281379,
+    "holo": false
+   },
+   "pad": "XY/Pikachu-XY42",
+   "naam": "Pikachu · XY Base Set",
+   "hoe": "set en nummer"
+  },
+  "k7227510ace": {
+   "cm": {
+    "id": 870424,
+    "holo": false
+   },
+   "pad": "Temporal-Forces/Pikachu-V3-TEF051",
+   "naam": "Pikachu (Pokemon Day 2026) · Miscellaneous Cards & Products",
+   "hoe": "Temporal Forces V3 TEF051: Pokémon Day-stempel"
+  },
+  "ka14e1040c2": {
+   "cm": {
+    "id": 604984,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-V6-SWSH198",
+   "naam": "Pikachu V - SWSH198 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "SWSH Black Star Promos V6 SWSH198 (V7 is de jumbo)"
+  },
+  "ke0fbe227ff": {
+   "cm": {
+    "id": 311880,
+    "holo": false
+   },
+   "pad": "Crimson-Invasion/Pikachu-CIN30",
+   "naam": "Pikachu · SM - Crimson Invasion",
+   "hoe": "set en nummer"
+  },
+  "k6dbaeaeb5f": {
+   "cm": {
+    "id": 800144,
+    "holo": false
+   },
+   "pad": "Temporal-Forces/Pikachu-V2-TEF051",
+   "naam": "Pikachu - 051/162 (Cosmos Holo) · Miscellaneous Cards & Products",
+   "hoe": "Temporal Forces V2 TEF051: Cosmos Holo uit de Box Set"
+  },
+  "k8b89acca92": {
+   "cm": {
+    "id": 274010,
+    "holo": false
+   },
+   "pad": "Base-Set-2/Pikachu-B287",
+   "naam": "Pikachu · Base Set 2",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k53c6c85d5a": {
+   "cm": {
+    "id": 869668,
+    "holo": false
+   },
+   "pad": "Ascended-Heroes/Pikachu-ex-V1-ASC057",
+   "naam": "Pikachu ex - 057/217 · ME: Ascended Heroes",
+   "hoe": "set en nummer"
+  },
+  "k216d375975": {
+   "cm": {
+    "id": 833973,
+    "holo": false
+   },
+   "pad": "Battle-Academy-2020/Pikachu-V3-BA20P30",
+   "naam": "Pikachu - 19/68 (#30 Pikachu Stamped) · Battle Academy",
+   "hoe": "Battle Academy 2020 V3: stempel #30"
+  },
+  "k5da0f86106": {
+   "cm": {
+    "id": 550171,
+    "holo": false
+   },
+   "pad": "Battle-Academy-2020/Pikachu-V1-HIF19",
+   "naam": "Pikachu - 19/68 (#2 Pikachu Stamped) · Battle Academy",
+   "hoe": "Battle Academy 2020 V1: stempel #2"
+  },
+  "k3606066400": {
+   "cm": {
+    "id": 288464,
+    "holo": false
+   },
+   "pad": "Generations/Pikachu-V1-GEN26",
+   "naam": "Pikachu · Generations",
+   "hoe": "Generations V1 GEN26: de gewone"
+  },
+  "kcf4a262fa2": {
+   "cm": {
+    "id": 845404,
+    "holo": false
+   },
+   "pad": "151/Pikachu-V5-MEW025",
+   "naam": "Pikachu - 025/165 (Holiday Calendar) · Miscellaneous Cards & Products",
+   "hoe": "151 V5 MEW025: Holiday Calendar, sneeuwvlok-stempel"
+  },
+  "kda32973c2e": {
+   "cm": {
+    "id": 740467,
+    "holo": false
+   },
+   "pad": "Silver-Tempest/Pikachu-V2-SIT049",
+   "naam": "Pikachu - 049/195 (Holiday Calendar) · Miscellaneous Cards & Products",
+   "hoe": "Silver Tempest V2 SIT049: Holiday Calendar 2023"
+  },
+  "k4399408ed1": {
+   "cm": {
+    "id": 582411,
+    "holo": false
+   },
+   "pad": "Fusion-Strike/Pikachu-V",
+   "naam": "Pikachu V · SWSH08: Fusion Strike",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k7051e5820e": {
+   "cm": {
+    "id": 539018,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-25th-Anniversary/Pikachu-V1",
+   "naam": "Pikachu - 25/25 · McDonald's 25th Anniversary Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kab32264a0e": {
+   "cm": {
+    "id": 576751,
+    "holo": false
+   },
+   "pad": "Celebrations/Flying-Pikachu-V",
+   "naam": "Flying Pikachu V · Celebrations",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kf1c5733af7": {
+   "cm": {
+    "id": 834862,
+    "holo": false
+   },
+   "pad": "WCD-2022/Flying-Pikachu-V-WCD22CEL-006",
+   "naam": "Flying Pikachu V - 2022 (Ondrej Skubal) · World Championship Decks",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k4698cb2c03": {
+   "cm": {
+    "id": 669496,
+    "holo": false
+   },
+   "pad": "Pokemon-GO/Pikachu-V2-PGO027",
+   "naam": "Pikachu - 027/078 (Cosmos Holo) · Miscellaneous Cards & Products",
+   "hoe": "Pokémon GO V2 PGO027: de holo uit de Gift Tin"
+  },
+  "kdea2157be8": {
+   "cm": {
+    "id": 576753,
+    "holo": false
+   },
+   "pad": "Celebrations/Surfing-Pikachu-V",
+   "naam": "Surfing Pikachu V · Celebrations",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k96f7e4c653": {
+   "cm": {
+    "id": 280637,
+    "holo": false
+   },
+   "pad": "Boundaries-Crossed/Pikachu-BCR50",
+   "naam": "Pikachu · Boundaries Crossed",
+   "hoe": "set en nummer"
+  },
+  "kf76a0b5210": {
+   "cm": {
+    "id": 280264,
+    "holo": false
+   },
+   "pad": "Next-Destinies/Pikachu-NXD39",
+   "naam": "Pikachu · Next Destinies",
+   "hoe": "set en nummer"
+  },
+  "k4eb712555c": {
+   "cm": {
+    "id": 794329,
+    "holo": false
+   },
+   "pad": "Surging-Sparks/Pikachu-ex-V1-SSP057",
+   "naam": "Pikachu ex - 057/191 · SV08: Surging Sparks",
+   "hoe": "set en nummer"
+  },
+  "k72eaa643a5": {
+   "cm": {
+    "id": 884297,
+    "holo": false
+   },
+   "pad": "WCD-2025/Pikachu-ex-WCD25057",
+   "naam": "Pikachu ex - 2025 (Liao Fu Guan) · World Championship Decks",
+   "hoe": "WCD 2025: Pikachu ex (Liao Fu Guan)"
+  },
+  "k47d0fd03e5": {
+   "cm": {
+    "id": 715538,
+    "holo": false
+   },
+   "pad": "Paldea-Evolved/Pikachu-ex-V1-PAL063",
+   "naam": "Pikachu ex · SV02: Paldea Evolved",
+   "hoe": "Paldea Evolved V1 PAL063: de gewone Pikachu ex"
+  },
+  "k44aeb6bad3": {
+   "cm": {
+    "id": 692429,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-SWSH285",
+   "naam": "Pikachu V - SWSH285 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k42ba66d131": {
+   "cm": {
+    "id": 281691,
+    "holo": false
+   },
+   "pad": "Furious-Fists/Pikachu-FFI27",
+   "naam": "Pikachu · XY - Furious Fists",
+   "hoe": "set en nummer"
+  },
+  "k1e31e2136d": {
+   "cm": {
+    "id": 674246,
+    "holo": false
+   },
+   "pad": "Battle-Academy-2022/Pikachu-V-VIV43",
+   "naam": "Pikachu V - 043/185 (#60 Pikachu Stamped) · Battle Academy 2022",
+   "hoe": "set en nummer"
+  },
+  "k388594bf95": {
+   "cm": {
+    "id": 576750,
+    "holo": false
+   },
+   "pad": "Celebrations/Pikachu-V1-CEL005",
+   "naam": "Pikachu · Celebrations",
+   "hoe": "set en nummer"
+  },
+  "k318479909a": {
+   "cm": {
+    "id": 833974,
+    "holo": false
+   },
+   "pad": "Battle-Academy-2020/Pikachu-V4-BA20P55",
+   "naam": "Pikachu - 19/68 (#55 Pikachu Stamped) · Battle Academy",
+   "hoe": "Battle Academy 2020 V4: stempel #55"
+  },
+  "k4fc3319937": {
+   "cm": {
+    "id": 802824,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2024/Pikachu-M24002",
+   "naam": "Pikachu · McDonald's Promos 2024",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k367ad628b6": {
+   "cm": {
+    "id": 834861,
+    "holo": false
+   },
+   "pad": "WCD-2022/Flying-Pikachu-VMAX-WCD22CEL-007",
+   "naam": "Flying Pikachu VMAX - 2022 (Ondrej Skubal) · World Championship Decks",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k909137023d": {
+   "cm": {
+    "id": 388102,
+    "holo": false
+   },
+   "pad": "Unified-Minds/Pikachu-UNM56",
+   "naam": "Pikachu (56) · SM - Unified Minds",
+   "hoe": "set en nummer"
+  },
+  "k89adb07627": {
+   "cm": {
+    "id": 794911,
+    "holo": true
+   },
+   "pad": "151/Pikachu-V4-MEW025",
+   "naam": "Pikachu - 025/165 (Reverse Cosmos Holo) (Costco Exclusive) · Miscellaneous Cards & Products",
+   "hoe": "151 V4 MEW025: Reverse Cosmos Holo (Costco)"
+  },
+  "k4deac73f53": {
+   "cm": {
+    "id": 653698,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V4-SWSH234",
+   "naam": "Pikachu - SWSH234 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k1ab97fc4af": {
+   "cm": {
+    "id": 576752,
+    "holo": false
+   },
+   "pad": "Celebrations/Flying-Pikachu-VMAX",
+   "naam": "Flying Pikachu VMAX · Celebrations",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k05e904bed2": {
+   "cm": {
+    "id": 576754,
+    "holo": false
+   },
+   "pad": "Celebrations/Surfing-Pikachu-VMAX",
+   "naam": "Surfing Pikachu VMAX · Celebrations",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kefd964b258": {
+   "cm": {
+    "id": 496545,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-SWSH63",
+   "naam": "Pikachu V - SWSH063 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "kf7b8db71cc": {
+   "cm": {
+    "id": 372210,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Detective-Pikachu-V1-SM190",
+   "naam": "Detective Pikachu - SM190 · SM Promos",
+   "hoe": "SM Black Star Promos V1 SM190: zonder stempel"
+  },
+  "k24614993a7": {
+   "cm": {
+    "id": 549406,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V2",
+   "naam": "Pikachu - SWSH039 (General Mills) · Miscellaneous Cards & Products",
+   "hoe": "SWSH Black Star Promos V2 SWSH039: 25th Anniversary-stempel (de General Mills-promo)"
+  },
+  "kbc2b4291ac": {
+   "cm": {
+    "id": 274851,
+    "holo": false
+   },
+   "pad": "Legendary-Collection/Pikachu-LC86",
+   "naam": "Pikachu · Legendary Collection",
+   "hoe": "set en nummer"
+  },
+  "k8c8cb40268": {
+   "cm": {
+    "id": 832224,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-V5-SVP225",
+   "naam": "Pikachu - 225 (World Championship 2025) · SV: Scarlet & Violet Promo Cards",
+   "hoe": "SV Black Star Promos V5 SVP225: World Championship 2025 (zonder Winner)"
+  },
+  "k91d1b68f2e": {
+   "cm": {
+    "id": 576739,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-UNION-V2",
+   "naam": "Pikachu V-Union - SWSH140 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kfbd74e3dbd": {
+   "cm": {
+    "id": 576738,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-UNION-V1",
+   "naam": "Pikachu V-Union - SWSH139 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kad1c23996f": {
+   "cm": {
+    "id": 692432,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-VMAX-V1-SWSH286",
+   "naam": "Pikachu VMAX - SWSH286 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "SWSH Black Star Promos V1 SWSH286 (V2 is de jumbo)"
+  },
+  "k8f7b581fc2": {
+   "cm": {
+    "id": 275763,
+    "holo": false
+   },
+   "pad": "EX-Trainer-Kit/Pikachu-TK1Latios-6",
+   "naam": "Pikachu · EX Trainer Kit 1: Latias & Latios",
+   "hoe": "set en nummer"
+  },
+  "ka11e6c9edf": {
+   "cm": {
+    "id": 278943,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Arceus",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k2a5af577d1": {
+   "cm": {
+    "id": 278119,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Majestic Dawn",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k359d6a0481": {
+   "cm": {
+    "id": 670472,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2022/Pikachu-MCD227",
+   "naam": "Pikachu - 7/15 · McDonald's Promos 2022",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k0d3004039d": {
+   "cm": {
+    "id": 576741,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-UNION-V4",
+   "naam": "Pikachu V-Union - SWSH142 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kf83769052c": {
+   "cm": {
+    "id": 302166,
+    "holo": false
+   },
+   "pad": "Shining-Legends/Pikachu-SLG28",
+   "naam": "Pikachu - 28/73 (Water Web Holo) · Miscellaneous Cards & Products",
+   "hoe": "Shining Legends SLG28: Water Web Holo heeft geen eigen product"
+  },
+  "k351d98241d": {
+   "cm": {
+    "id": 278811,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Supreme Victors",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k5dbd8c99a8": {
+   "cm": {
+    "id": 780209,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-V3-SVP190",
+   "naam": "Pikachu - 190 · SV: Scarlet & Violet Promo Cards",
+   "hoe": "SV Black Star Promos V3 SVP190: met Worlds-stempel (V4 is Zuidoost-Azië zonder)"
+  },
+  "k06f24d101e": {
+   "cm": {
+    "id": 576740,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-UNION-V3",
+   "naam": "Pikachu V-Union - SWSH141 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kda88bb8948": {
+   "cm": {
+    "id": 894884,
+    "holo": false
+   },
+   "pad": "MEP-Black-Star-Promos/Pikachu-V1-MEP093",
+   "naam": "Pikachu - 093 · ME: Mega Evolution Promo",
+   "hoe": "MEP Black Star Promos V1 MEP093: de gewone (V2 Winner, V3 Game On)"
+  },
+  "k80ea7ddfc8": {
+   "cm": {
+    "id": 293472,
+    "holo": false
+   },
+   "pad": "Evolutions/Flying-Pikachu-EVO110",
+   "naam": "Flying Pikachu · XY - Evolutions",
+   "hoe": "set en nummer"
+  },
+  "kac15fe7083": {
+   "cm": {
+    "id": 491189,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V1-SWSH039",
+   "naam": "Pikachu - SWSH039 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k99e94b9565": {
+   "cm": {
+    "id": 293473,
+    "holo": false
+   },
+   "pad": "Evolutions/Surfing-Pikachu-EVO111",
+   "naam": "Surfing Pikachu · XY - Evolutions",
+   "hoe": "set en nummer"
+  },
+  "k42911af7de": {
+   "cm": {
+    "id": 725423,
+    "holo": false
+   },
+   "pad": "McDonalds-Match-Battle-2023/Pikachu-M23006",
+   "naam": "Pikachu · McDonald's Promos 2023",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kc151a45bd8": {
+   "cm": {
+    "id": 279098,
+    "holo": false
+   },
+   "pad": "HS-Trainer-Kit/Pikachu-V1-TK4yellow-2",
+   "naam": "Pikachu (#2) · HGSS Trainer Kit: Gyarados & Raichu",
+   "hoe": "set en nummer"
+  },
+  "k0d2166ef61": {
+   "cm": {
+    "id": 278368,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Stormfront",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "kebe566ae82": {
+   "cm": {
+    "id": 368857,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Detective-Pikachu-SMSM194",
+   "naam": "Detective Pikachu - SM194 · SM Promos",
+   "hoe": "SM Black Star Promos SM194 (V2 is de jumbo)"
+  },
+  "k10a4461062": {
+   "cm": {
+    "id": 276250,
+    "holo": false
+   },
+   "pad": "EX-FireRed-LeafGreen/Pikachu-FL74",
+   "naam": "Pikachu · EX FireRed & LeafGreen",
+   "hoe": "set en nummer"
+  },
+  "k943c30f821": {
+   "cm": {
+    "id": 277048,
+    "holo": false
+   },
+   "pad": "EX-Holon-Phantoms/Pikachu-HP78",
+   "naam": "Pikachu · EX Holon Phantoms",
+   "hoe": "set en nummer"
+  },
+  "kb6613bb42a": {
+   "cm": {
+    "id": 511640,
+    "holo": false
+   },
+   "pad": "Vivid-Voltage/Pikachu-VMAX-VIV44",
+   "naam": "Pikachu VMAX · SWSH04: Vivid Voltage",
+   "hoe": "set en nummer"
+  },
+  "k0b83c3d7fd": {
+   "cm": {
+    "id": 279050,
+    "holo": false
+   },
+   "pad": "HeartGold-SoulSilver/Pikachu-V1-HS78",
+   "naam": "Pikachu · HeartGold SoulSilver",
+   "hoe": "HeartGold SoulSilver V1 HS78"
+  },
+  "kc117a52c08": {
+   "cm": {
+    "id": 785463,
+    "holo": false
+   },
+   "pad": "Paldea-Evolved/Pikachu-ex-V2-PAL063",
+   "naam": "Pikachu ex (Holiday Calendar) · Miscellaneous Cards & Products",
+   "hoe": "Paldea Evolved V2 PAL063: Pikachu ex met Holiday Calendar-sneeuwvlok"
+  },
+  "kd5605ec0af": {
+   "cm": {
+    "id": 769402,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-ex-SVP106",
+   "naam": "Pikachu ex (Pikachu 60) · Battle Academy 2024",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k21b0d4ae5b": {
+   "cm": {
+    "id": 273753,
+    "holo": false
+   },
+   "pad": "Base-Set/Pikachu-V1-BS58",
+   "naam": "Pikachu · Base Set",
+   "hoe": "Base Set V1: gewone Base Set-Pikachu (trend kapot, telt 30-daags gemiddelde)"
+  },
+  "k6ce0dfe868": {
+   "cm": {
+    "id": 302166,
+    "holo": false
+   },
+   "pad": "Shining-Legends/Pikachu-SLG28",
+   "naam": "Pikachu - 28/73 (Cracked Ice Holo) · Deck Exclusives",
+   "hoe": "Shining Legends SLG28: Cracked Ice Holo heeft geen eigen product"
+  },
+  "k6c4f6de075": {
+   "cm": {
+    "id": 295296,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-V1-SMSM04",
+   "naam": "Pikachu - SM04 (Target Non-Holo) · SM Promos",
+   "hoe": "SM Black Star Promos V1 SMSM04: Target non-holo heeft geen eigen product"
+  },
+  "k509b1f578e": {
+   "cm": {
+    "id": 576742,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-V4",
+   "naam": "Pikachu V - SWSH143 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k0cb3f74d59": {
+   "cm": {
+    "id": 279314,
+    "holo": false
+   },
+   "pad": "Undaunted/Pikachu-UD61",
+   "naam": "Pikachu · Undaunted",
+   "hoe": "set en nummer"
+  },
+  "k8f9bcc0f53": {
+   "cm": {
+    "id": 295296,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-V1-SMSM04",
+   "naam": "Pikachu - SM04 · SM Promos",
+   "hoe": "SM Black Star Promos V1 SMSM04"
+  },
+  "k6e7d017120": {
+   "cm": {
+    "id": 279103,
+    "holo": false
+   },
+   "pad": "HS-Trainer-Kit/Pikachu-V2-TK4R16",
+   "naam": "Pikachu (#16) · HGSS Trainer Kit: Gyarados & Raichu",
+   "hoe": "set en nummer"
+  },
+  "k945238f98d": {
+   "cm": {
+    "id": 277049,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (Delta Species) · EX Holon Phantoms",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k73fd1f7093": {
+   "cm": {
+    "id": 576730,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-VMAX",
+   "naam": "Pikachu VMAX - SWSH062 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kdc32dbb7df": {
+   "cm": {
+    "id": 794904,
+    "holo": true
+   },
+   "pad": "Paldean-Fates/Pikachu-V3-PAF018",
+   "naam": "Pikachu - 018/091 (Reverse Cosmos Holo) · Miscellaneous Cards & Products",
+   "hoe": "Paldean Fates V3 PAF018: Reverse Cosmos Holo"
+  },
+  "k2c2dcd05e6": {
+   "cm": {
+    "id": 370774,
+    "holo": false
+   },
+   "pad": "Detective-Pikachu/Detective-Pikachu-DET10",
+   "naam": "Detective Pikachu · Detective Pikachu",
+   "hoe": "set en nummer"
+  },
+  "k8816eb20c9": {
+   "cm": {
+    "id": 281379,
+    "holo": false
+   },
+   "pad": "XY/Pikachu-XY42",
+   "naam": "Pikachu - 42/146 (2014 Movie Promo) · Miscellaneous Cards & Products",
+   "hoe": "XY XY42: de 2014-filmpromo heeft geen eigen product"
+  },
+  "ka18210cc7c": {
+   "cm": {
+    "id": 576939,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V11",
+   "naam": "Pikachu (Ivy) · Pikachu World Collection Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "ke6300e39bc": {
+   "cm": {
+    "id": 276571,
+    "holo": false
+   },
+   "pad": "EX-Emerald/Pikachu-EM60",
+   "naam": "Pikachu · EX Emerald",
+   "hoe": "set en nummer"
+  },
+  "kf0191ccdb2": {
+   "cm": {
+    "id": 373093,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SMSM183",
+   "naam": "Pikachu - SM183 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k91cce6f927": {
+   "cm": {
+    "id": 275849,
+    "holo": false
+   },
+   "pad": "EX-Sandstorm/Pikachu-SS72",
+   "naam": "Pikachu · EX Sandstorm",
+   "hoe": "set en nummer"
+  },
+  "k47287c51d2": {
+   "cm": {
+    "id": 810398,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-SVP214",
+   "naam": "Pikachu - 214 (Illustration Contest 2024) · SV: Scarlet & Violet Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k4bca50b7ad": {
+   "cm": {
+    "id": 277723,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Mysterious Treasures",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k8ebdb39c65": {
+   "cm": {
+    "id": 277363,
+    "holo": false
+   },
+   "pad": "EX-Power-Keepers/Pikachu-PK57",
+   "naam": "Pikachu · EX Power Keepers",
+   "hoe": "set en nummer"
+  },
+  "kc5022855d3": {
+   "cm": {
+    "id": 742000,
+    "holo": false
+   },
+   "pad": "My-First-Battle/Pikachu-V2-MFB",
+   "naam": "Pikachu · My First Battle",
+   "hoe": "My First Battle V2: de gewone (op prijs)"
+  },
+  "k8f2dd3816d": {
+   "cm": {
+    "id": 751840,
+    "holo": false
+   },
+   "pad": "Evolving-Skies/Pikachu-V2-EVS049",
+   "naam": "Pikachu - 049/203 (Pokemon League) · League & Championship Cards",
+   "hoe": "Evolving Skies V2 EVS049: Pokémon League-stempel, reverse holo"
+  },
+  "k63be570044": {
+   "cm": {
+    "id": 907939,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-30CBS-58",
+   "naam": "Pikachu · ME: 30th Celebration Classic Collection",
+   "hoe": "set en nummer"
+  },
+  "k9229a8ff97": {
+   "cm": {
+    "id": 703195,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-V1-SVPen027",
+   "naam": "Pikachu - 027 · SV: Scarlet & Violet Promo Cards",
+   "hoe": "SV Black Star Promos V1 SVP027"
+  },
+  "k26624a3cd4": {
+   "cm": {
+    "id": 313453,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-V3-SMSM76",
+   "naam": "Pikachu - SM76 · SM Promos",
+   "hoe": "SM Black Star Promos V3 SMSM76"
+  },
+  "kcd253d1f07": {
+   "cm": {
+    "id": 302166,
+    "holo": false
+   },
+   "pad": "Shining-Legends/Pikachu-SLG28",
+   "naam": "Pikachu - 28/73 (General Mills) · Miscellaneous Cards & Products",
+   "hoe": "Shining Legends SLG28: General Mills heeft geen eigen product"
+  },
+  "k8a6aeb4a46": {
+   "cm": {
+    "id": 751813,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-SVP088",
+   "naam": "Pikachu - 088 · SV: Scarlet & Violet Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k47e97dbe24": {
+   "cm": {
+    "id": 278566,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · POP Series 9",
+   "hoe": "POP Series 9 V1: de gewone"
+  },
+  "ke9699aa1a7": {
+   "cm": {
+    "id": 293392,
+    "holo": false
+   },
+   "pad": "Evolutions/Pikachu-EVO35",
+   "naam": "Pikachu - 35/108 (Cracked Ice Holo) · Deck Exclusives",
+   "hoe": "Evolutions EVO35: Cracked Ice Holo heeft geen eigen product"
+  },
+  "k409ba34528": {
+   "cm": {
+    "id": 295296,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-V1-SMSM04",
+   "naam": "Pikachu - SM04 (General Mills) · Miscellaneous Cards & Products",
+   "hoe": "SM Black Star Promos V1 SMSM04: General Mills heeft geen eigen product"
+  },
+  "kd5f6a08e7c": {
+   "cm": {
+    "id": 576490,
+    "holo": false
+   },
+   "pad": "XY-Trainer-Kit-Pikachu-Libre-Suicune/Pikachu-Libre-V1",
+   "naam": "Pikachu Libre (14 - Non-Holo) · XY Trainer Kit: Pikachu Libre & Suicune",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k78cce54972": {
+   "cm": {
+    "id": 412914,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SMSM227",
+   "naam": "Pikachu - SM227 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k3ddc128e5c": {
+   "cm": {
+    "id": 412934,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SMSM234",
+   "naam": "Pikachu - SM234 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k661ce6eb14": {
+   "cm": {
+    "id": 674244,
+    "holo": false
+   },
+   "pad": "Lost-Origin/Pikachu-VMAX-V2-LORTG29",
+   "naam": "Pikachu VMAX (Secret) · SWSH11: Lost Origin Trainer Gallery",
+   "hoe": "set en nummer"
+  },
+  "kdbaec34229": {
+   "cm": {
+    "id": 907963,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-Zekrom-GX-30CTEU-33",
+   "naam": "Pikachu & Zekrom GX · ME: 30th Celebration Classic Collection",
+   "hoe": "30th Celebration 30C TEU-33: Pikachu & Zekrom GX"
+  },
+  "kd3eb1bcc9e": {
+   "cm": {
+    "id": 842683,
+    "holo": false
+   },
+   "pad": "Play-Pokemon-Prize-Pack-Series-Seven/Pikachu-ex-PPS7SSP-057",
+   "naam": "Pikachu ex - 057/191 · Prize Pack Series Cards",
+   "hoe": "Play! Pokémon Prize Pack Series Seven: Pikachu ex SSP057"
+  },
+  "k8eb64c0aee": {
+   "cm": {
+    "id": 412924,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-GX-SM232",
+   "naam": "Pikachu GX - SM232 · SM Promos",
+   "hoe": "SM Black Star Promos SM232"
+  },
+  "k40047117ba": {
+   "cm": {
+    "id": 608703,
+    "holo": false
+   },
+   "pad": "Brilliant-Stars/Pikachu-V-BRS157",
+   "naam": "Pikachu V (Full Art) · SWSH09: Brilliant Stars",
+   "hoe": "set en nummer"
+  },
+  "k21b91c0965": {
+   "cm": {
+    "id": 274352,
+    "holo": false
+   },
+   "pad": "Gym-Challenge/Lt-Surges-Pikachu-GC84",
+   "naam": "Lt. Surge's Pikachu · Gym Challenge",
+   "hoe": "set en nummer"
+  },
+  "ke29753d9ed": {
+   "cm": {
+    "id": 887470,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Detective-Pikachu-V2-SM190",
+   "naam": "Detective Pikachu - SM190 (Stamped) · SM Promos",
+   "hoe": "SM Black Star Promos V2 SM190: met Detective Pikachu-stempel"
+  },
+  "kad1ef291ac": {
+   "cm": {
+    "id": 794592,
+    "holo": false
+   },
+   "pad": "Surging-Sparks/Pikachu-ex-V2-SSP219",
+   "naam": "Pikachu ex - 219/191 · SV08: Surging Sparks",
+   "hoe": "set en nummer"
+  },
+  "k6284151576": {
+   "cm": {
+    "id": 273857,
+    "holo": false
+   },
+   "pad": "Jungle/Pikachu-JU60",
+   "naam": "Pikachu · Jungle",
+   "hoe": "set en nummer"
+  },
+  "kb11c9f412d": {
+   "cm": {
+    "id": 301683,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM108",
+   "naam": "Ash's Pikachu - SM108 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k66a1a43b53": {
+   "cm": {
+    "id": 741999,
+    "holo": false
+   },
+   "pad": "My-First-Battle/Pikachu-V1-MFB",
+   "naam": "Pikachu (Blue Border) · My First Battle",
+   "hoe": "My First Battle V1: Blue Border (op prijs: de foto's zijn gelijk, V1 is de duurdere, net als bij TCGplayer)"
+  },
+  "k3cd3a0c86b": {
+   "cm": {
+    "id": 274999,
+    "holo": false
+   },
+   "pad": "Expedition-Base-Set/Pikachu-EX124",
+   "naam": "Pikachu · Expedition",
+   "hoe": "set en nummer"
+  },
+  "k858b7e139b": {
+   "cm": {
+    "id": 576778,
+    "holo": false
+   },
+   "pad": "Celebrations/s-Pikachu",
+   "naam": "______'s Pikachu · Celebrations: Classic Collection",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kc55675ac5d": {
+   "cm": {
+    "id": 274217,
+    "holo": false
+   },
+   "pad": "Gym-Heroes/Lt-Surges-Pikachu-GH81",
+   "naam": "Lt. Surge's Pikachu · Gym Heroes",
+   "hoe": "set en nummer"
+  },
+  "k2bbcdcac5b": {
+   "cm": {
+    "id": 377532,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu - SM206 · SM Promos",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k0405dc699a": {
+   "cm": {
+    "id": 301847,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2017/Pikachu-MCD175",
+   "naam": "Pikachu - 5/12 · McDonald's Promos 2017",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k67a185c42b": {
+   "cm": {
+    "id": 275446,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Pikachu-WP27",
+   "naam": "Pikachu (27) · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "k0573aacacf": {
+   "cm": {
+    "id": 295165,
+    "holo": false
+   },
+   "pad": "XY-Black-Star-Promos/Pikachu-EX-V3-XYPRXY174",
+   "naam": "Pikachu EX - XY174 · XY Promos",
+   "hoe": "XY Black Star Promos V3 XY174 (V2 is de jumbo)"
+  },
+  "k794275c395": {
+   "cm": {
+    "id": 276020,
+    "holo": false
+   },
+   "pad": "EX-Team-Magma-vs-Team-Aqua/Pikachu-MA43",
+   "naam": "Pikachu · EX Team Magma vs Team Aqua",
+   "hoe": "set en nummer"
+  },
+  "kbc0ef77bc2": {
+   "cm": {
+    "id": 363384,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SM157",
+   "naam": "Pikachu - SM157 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k8bbfd4fd43": {
+   "cm": {
+    "id": 742024,
+    "holo": true
+   },
+   "pad": "Sword-Shield/Pikachu-V3-SSH065",
+   "naam": "Pikachu - 065/202 (Reverse Cosmos Holo) · Miscellaneous Cards & Products",
+   "hoe": "Sword & Shield V3 SSH065: Reverse Cosmos Holo"
+  },
+  "k9e6e9e112c": {
+   "cm": {
+    "id": 295142,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2016/Pikachu-MCD166",
+   "naam": "Pikachu - 6/12 · McDonald's Promos 2016",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kb2a5e607be": {
+   "cm": {
+    "id": 302166,
+    "holo": false
+   },
+   "pad": "Shining-Legends/Pikachu-SLG28",
+   "naam": "Pikachu - 28/73 (Cosmos Holo) · Miscellaneous Cards & Products",
+   "hoe": "Shining Legends SLG28: Cosmos Holo heeft geen eigen product"
+  },
+  "kd3228f2450": {
+   "cm": {
+    "id": 397979,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Detective-Pikachu-SMSM170",
+   "naam": "Detective Pikachu - SM170 (Stamped) · SM Promos",
+   "hoe": "SM Black Star Promos SM170: enige product; verkopers bieden vooral de gestempelde aan"
+  },
+  "k45aea94768": {
+   "cm": {
+    "id": 862437,
+    "holo": false
+   },
+   "pad": "WCD-2019/Pikachu-Zekrom-GX-WCD19TEU-033",
+   "naam": "Pikachu & Zekrom GX - 2019 (Haruki Miyamoto) · World Championship Decks",
+   "hoe": "WCD 2019: Pikachu & Zekrom GX (Haruki Miyamoto)"
+  },
+  "k07007acfe6": {
+   "cm": {
+    "id": 311416,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-V2-SMSM81",
+   "naam": "Pikachu - SM81 · SM Promos",
+   "hoe": "SM Black Star Promos V2 SMSM81"
+  },
+  "ka642c87a23": {
+   "cm": {
+    "id": 576720,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-Zekrom-GX-V2",
+   "naam": "Pikachu & Zekrom GX - SM248 · SM Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k9217d50f82": {
+   "cm": {
+    "id": 277478,
+    "holo": false
+   },
+   "pad": "POP-Series-4/Pikachu-POP413",
+   "naam": "Pikachu · POP Series 4",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kf1e39721e8": {
+   "cm": {
+    "id": 412874,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2019/Pikachu-MCD196",
+   "naam": "Pikachu - 6/12 · McDonald's Promos 2019",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kf93a6a78d4": {
+   "cm": {
+    "id": 691909,
+    "holo": false
+   },
+   "pad": "Crown-Zenith/Pikachu-CRZGG30",
+   "naam": "Pikachu · SWSH: Crown Zenith: Galarian Gallery",
+   "hoe": "set en nummer"
+  },
+  "k5df5725fda": {
+   "cm": {
+    "id": 293322,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2015/Pikachu-MCD156",
+   "naam": "Pikachu - 6/12 · McDonald's Promos 2015",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kb44908888d": {
+   "cm": {
+    "id": 274470,
+    "holo": false
+   },
+   "pad": "Neo-Genesis/Pikachu-NG70",
+   "naam": "Pikachu · Neo Genesis",
+   "hoe": "set en nummer"
+  },
+  "k1341d3b8d5": {
+   "cm": {
+    "id": 886888,
+    "holo": false
+   },
+   "pad": "Roaring-Skies/Pikachu-V2-ROS20",
+   "naam": "Pikachu - 20/108 (Build-A-Bear Workshop Exclusive) · Miscellaneous Cards & Products",
+   "hoe": "Roaring Skies V2 ROS20: Build-A-Bear Workshop-stempel"
+  },
+  "kc7712c9849": {
+   "cm": {
+    "id": 312557,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu - SM86 · SM Promos",
+   "hoe": "SM Black Star Promos SM86: de gewone (de andere is Build-A-Bear)"
+  },
+  "k56963e5985": {
+   "cm": {
+    "id": 740411,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-V2-SVP101",
+   "naam": "Pikachu - 101 · SV: Scarlet & Violet Promo Cards",
+   "hoe": "SV Black Star Promos V2 SVP101: Play! Pokémon-stempel (V1 is Asia Championship)"
+  },
+  "kd097535937": {
+   "cm": {
+    "id": 366772,
+    "holo": false
+   },
+   "pad": "McDonald-s-Collection-2018-2/Pikachu-MCD184",
+   "naam": "Pikachu - 4/12 · McDonald's Promos 2018",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k373f37a1a5": {
+   "cm": {
+    "id": 674225,
+    "holo": false
+   },
+   "pad": "Lost-Origin/Pikachu-V2-LORTG05",
+   "naam": "Pikachu · SWSH11: Lost Origin Trainer Gallery",
+   "hoe": "set en nummer"
+  },
+  "kcbec72d44c": {
+   "cm": {
+    "id": 691879,
+    "holo": false
+   },
+   "pad": "Crown-Zenith/Pikachu-CRZ160",
+   "naam": "Pikachu (Secret) · SWSH: Crown Zenith",
+   "hoe": "set en nummer"
+  },
+  "kac32ef9628": {
+   "cm": {
+    "id": 275420,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Pikachu-WP1",
+   "naam": "Pikachu (1) · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "k9eec43e9e6": {
+   "cm": {
+    "id": 275423,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Pikachu-WP4",
+   "naam": "Pikachu (Movie Promo) · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "k0ecf084902": {
+   "cm": {
+    "id": 397979,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Detective-Pikachu-SMSM170",
+   "naam": "Detective Pikachu - SM170 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k256b444523": {
+   "cm": {
+    "id": 281657,
+    "holo": false
+   },
+   "pad": "McDonalds-Collection-2014/Pikachu-MCD145",
+   "naam": "Pikachu - 5/12 · McDonald's Promos 2014",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k6559141b58": {
+   "cm": {
+    "id": 312557,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu - SM86 (General Mills Promo) · Miscellaneous Cards & Products",
+   "hoe": "SM Black Star Promos SM86: de gewone holo (General Mills heeft geen eigen product)"
+  },
+  "k9fd2859318": {
+   "cm": {
+    "id": 275610,
+    "holo": false
+   },
+   "pad": "HGSS-Black-Star-Promos/Pikachu-HGSS03",
+   "naam": "Pikachu - HGSS03 · HGSS Promos",
+   "hoe": "set en nummer"
+  },
+  "k1ff29446f0": {
+   "cm": {
+    "id": 512560,
+    "holo": false
+   },
+   "pad": "Vivid-Voltage/Pikachu-V-V2-VIV170",
+   "naam": "Pikachu V (Full Art) · SWSH04: Vivid Voltage",
+   "hoe": "set en nummer"
+  },
+  "k31e6a1312a": {
+   "cm": {
+    "id": 289812,
+    "holo": false
+   },
+   "pad": "XY-Black-Star-Promos/Pikachu-XYPRXY89",
+   "naam": "Pikachu (Collector Chest) · XY Promos",
+   "hoe": "set en nummer"
+  },
+  "k771cbb04cd": {
+   "cm": {
+    "id": 672386,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-SWSH153",
+   "naam": "Pikachu - SWSH153 (Holiday Calendar) · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k279aa34283": {
+   "cm": {
+    "id": 313441,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM114",
+   "naam": "Ash's Pikachu - SM114 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k77bab2e10e": {
+   "cm": {
+    "id": 576937,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Flying-Pikachu",
+   "naam": "Pikachu (Flying) · Pikachu World Collection Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k980a2fd184": {
+   "cm": {
+    "id": 576944,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V16",
+   "naam": "Pikachu (Base Set) · Pikachu World Collection Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k66cea96df1": {
+   "cm": {
+    "id": 576943,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V15",
+   "naam": "Pikachu (Jungle) · Pikachu World Collection Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k896421cb01": {
+   "cm": {
+    "id": 745700,
+    "holo": false
+   },
+   "pad": "Pokemon-Trading-Card-Game-Classic-Charizard-Ho-Oh-ex-Deck/Pikachu-CLC008",
+   "naam": "Pikachu · Trading Card Game Classic",
+   "hoe": "Pokémon Trading Card Game Classic CLC008"
+  },
+  "kf9d0ec189a": {
+   "cm": {
+    "id": 576940,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V12-PWCWP-4",
+   "naam": "Pikachu (Movie) · Pikachu World Collection Promos",
+   "hoe": "set en nummer"
+  },
+  "k8b18006b95": {
+   "cm": {
+    "id": 366888,
+    "holo": false
+   },
+   "pad": "Team-Up/Pikachu-Zekrom-GX-V1-TEU33",
+   "naam": "Pikachu & Zekrom GX · SM - Team Up",
+   "hoe": "set en nummer"
+  },
+  "k7e6a519963": {
+   "cm": {
+    "id": 313440,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM113",
+   "naam": "Ash's Pikachu - SM113 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k623f7e7ad0": {
+   "cm": {
+    "id": 651144,
+    "holo": true
+   },
+   "pad": null,
+   "naam": "Pikachu - 70/100 [Platinum] · Burger King Promos",
+   "hoe": "Burger King Platinum Promos 2009: enige Engelse Lv.12-Pikachu buiten Majestic Dawn (niet op foto gecontroleerd; Cardmarket heeft nog geen prijs)"
+  },
+  "ke81ccf5a17": {
+   "cm": {
+    "id": 576929,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V3",
+   "naam": "Pikachu (Korean) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V3: Koreaans"
+  },
+  "k8b9c1cba41": {
+   "cm": {
+    "id": 576938,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Surfing-Pikachu",
+   "naam": "Pikachu (Surfing) · Pikachu World Collection Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "ke0eae11ad1": {
+   "cm": {
+    "id": 742023,
+    "holo": false
+   },
+   "pad": "Sword-Shield/Pikachu-V2-SSH065",
+   "naam": "Pikachu - 065/202 (Cosmos Holo) · League & Championship Cards",
+   "hoe": "Sword & Shield V2 SSH065: Cosmos Holo (League)"
+  },
+  "k610c69c40a": {
+   "cm": {
+    "id": 907756,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-ex-V2-30C149",
+   "naam": "Pikachu ex - 149/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kcb2aa9a1e9": {
+   "cm": {
+    "id": 805573,
+    "holo": false
+   },
+   "pad": "Prismatic-Evolutions/Pikachu-ex-PRE179",
+   "naam": "Pikachu ex - 179/131 · SV: Prismatic Evolutions",
+   "hoe": "set en nummer"
+  },
+  "k06ec0aa5f5": {
+   "cm": {
+    "id": 295187,
+    "holo": false
+   },
+   "pad": "XY-Black-Star-Promos/Pikachu-XYPRXY202",
+   "naam": "Pikachu - XY202 (Pokemon League) · League & Championship Cards",
+   "hoe": "XY Black Star Promos XY202: de League-stempel heeft geen eigen product"
+  },
+  "k887f5dfc9e": {
+   "cm": {
+    "id": 313438,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM111",
+   "naam": "Ash's Pikachu - SM111 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k558b18f486": {
+   "cm": {
+    "id": 313439,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM112",
+   "naam": "Ash's Pikachu - SM112 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k2b09bc2040": {
+   "cm": {
+    "id": 277447,
+    "holo": false
+   },
+   "pad": "POP-Series-2/Pikachu-POP216",
+   "naam": "Pikachu · POP Series 2",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "kcd6609b11e": {
+   "cm": {
+    "id": 886725,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SM86",
+   "naam": "Pikachu - SM86 (Build-A-Bear Workshop Exclusive) · Miscellaneous Cards & Products",
+   "hoe": "SM Black Star Promos SM86: Build-A-Bear Workshop-stempel"
+  },
+  "k788f52e4e1": {
+   "cm": {
+    "id": 275568,
+    "holo": false
+   },
+   "pad": "Base-Set/Pikachu-V4-BS58",
+   "naam": "Pikachu - 58/102 (E3 Stamped) · Miscellaneous Cards & Products",
+   "hoe": "Base Set V4: E3-stempel"
+  },
+  "ke82f7c8264": {
+   "cm": {
+    "id": 313437,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM110",
+   "naam": "Ash's Pikachu - SM110 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "kd18e9ee7d8": {
+   "cm": {
+    "id": 277495,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (Delta Species) · POP Series 5",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k9c140477cd": {
+   "cm": {
+    "id": 302135,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SMSM98",
+   "naam": "Pikachu - SM98 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k471f0cd427": {
+   "cm": {
+    "id": 277494,
+    "holo": false
+   },
+   "pad": "POP-Series-5/Pikachu-POP512",
+   "naam": "Pikachu · POP Series 5",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k1f36cda3c5": {
+   "cm": {
+    "id": 275447,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Surfing-Pikachu-WP28",
+   "naam": "Surfing Pikachu · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "k41495d8867": {
+   "cm": {
+    "id": 907757,
+    "holo": false
+   },
+   "pad": "30th-Celebration/Pikachu-ex-V2-30C150",
+   "naam": "Pikachu ex - 150/128 · ME: 30th Celebration",
+   "hoe": "set en nummer"
+  },
+  "kad33f1cbcc": {
+   "cm": {
+    "id": 290263,
+    "holo": false
+   },
+   "pad": "XY-Trainer-Kit-Pikachu-Libre-Suicune/Pikachu-Libre-V2-TK9P-30",
+   "naam": "Pikachu Libre (30 - Holo) · XY Trainer Kit: Pikachu Libre & Suicune",
+   "hoe": "set en nummer"
+  },
+  "k8f5901cb89": {
+   "cm": {
+    "id": 751670,
+    "holo": false
+   },
+   "pad": "Paldean-Fates/Pikachu-V2-PAF131",
+   "naam": "Pikachu - 131/091 · SV: Paldean Fates",
+   "hoe": "set en nummer"
+  },
+  "k74f4da703a": {
+   "cm": {
+    "id": 733768,
+    "holo": false
+   },
+   "pad": "151/Pikachu-V2-MEW173",
+   "naam": "Pikachu - 173/165 · SV: Scarlet & Violet 151",
+   "hoe": "set en nummer"
+  },
+  "kf30f5819b3": {
+   "cm": {
+    "id": 794621,
+    "holo": false
+   },
+   "pad": "Surging-Sparks/Pikachu-ex-V4-SSP248",
+   "naam": "Pikachu ex - 247/191 · SV08: Surging Sparks",
+   "hoe": "Surging Sparks V4: gouden Pikachu ex (Cardmarket noemt hem SSP248)"
+  },
+  "k5828192496": {
+   "cm": {
+    "id": 576941,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V13",
+   "naam": "Pikachu (Snap) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V13: WP 26 (Snap)"
+  },
+  "k2a82be6d5e": {
+   "cm": {
+    "id": 576928,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V2",
+   "naam": "Pikachu (Italian) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V2: Italiaans (Ciao!)"
+  },
+  "kb5ba6d3e77": {
+   "cm": {
+    "id": 275444,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Flying-Pikachu-WP25",
+   "naam": "Flying Pikachu · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "kb0b215f840": {
+   "cm": {
+    "id": 289809,
+    "holo": false
+   },
+   "pad": "XY-Black-Star-Promos/Pikachu-EX-XYPRXY84",
+   "naam": "Pikachu EX - XY84 · XY Promos",
+   "hoe": "XY Black Star Promos XY84"
+  },
+  "k9c9d189445": {
+   "cm": {
+    "id": 576933,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V7",
+   "naam": "Pikachu (German) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V7: Duits (Hallo!)"
+  },
+  "k0e87c044d4": {
+   "cm": {
+    "id": 752372,
+    "holo": false
+   },
+   "pad": "Generations/Pikachu-V3-GEN26",
+   "naam": "Pikachu - 26/83 (Toys R Us) · Miscellaneous Cards & Products",
+   "hoe": "Generations V3 GEN26: Toys R Us-stempel"
+  },
+  "k78a7cfba76": {
+   "cm": {
+    "id": 275445,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Pikachu-WP26",
+   "naam": "Pikachu (SNAP Promo) · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "kea79f39ee9": {
+   "cm": {
+    "id": 281142,
+    "holo": false
+   },
+   "pad": "Legendary-Treasures/Pikachu-LTRRC7",
+   "naam": "Pikachu · Legendary Treasures: Radiant Collection",
+   "hoe": "set en nummer"
+  },
+  "kbb85f7fe16": {
+   "cm": {
+    "id": 576942,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V14-PWCWP-27",
+   "naam": "Pikachu (Baby) · Pikachu World Collection Promos",
+   "hoe": "set en nummer"
+  },
+  "k3cdfe0e29e": {
+   "cm": {
+    "id": 279876,
+    "holo": false
+   },
+   "pad": "BW-Black-Star-Promos/Pikachu-BWBW54",
+   "naam": "Pikachu - BW54 · Black and White Promos",
+   "hoe": "set en nummer"
+  },
+  "k2942da5106": {
+   "cm": {
+    "id": 573478,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (Pokemon Day Stamped) · POP Series 6",
+   "hoe": "POP Series 6 V2: Pokémon Day-stempel"
+  },
+  "kad6556cf10": {
+   "cm": {
+    "id": 576926,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V1",
+   "naam": "Pikachu (English) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V1: Engels (Hello!)"
+  },
+  "k8aad714f0c": {
+   "cm": {
+    "id": 576934,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V9",
+   "naam": "Pikachu (Polish) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V9: Pools (Witaj!)"
+  },
+  "k144f78c32b": {
+   "cm": {
+    "id": 576935,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V10",
+   "naam": "Pikachu (Portuguese) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V10: Portugees (Olá!)"
+  },
+  "k4bba782037": {
+   "cm": {
+    "id": 576744,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-V-V5",
+   "naam": "Pikachu V - SWSH145 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k3c8fc65337": {
+   "cm": {
+    "id": 674235,
+    "holo": false
+   },
+   "pad": "Lost-Origin/Pikachu-VMAX-V1-LORTG17",
+   "naam": "Pikachu VMAX · SWSH11: Lost Origin Trainer Gallery",
+   "hoe": "set en nummer"
+  },
+  "k9d3c4aa9b8": {
+   "cm": {
+    "id": 576927,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V8",
+   "naam": "Pikachu (French) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V8: Frans (Bonjour !)"
+  },
+  "kbb42c347a7": {
+   "cm": {
+    "id": 461594,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Pikachu-SWSH20",
+   "naam": "Pikachu - SWSH020 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k374de0f3fd": {
+   "cm": {
+    "id": 275628,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu - 94/123 (Diamond & Pearl) · Burger King Promos",
+   "hoe": "Burger King DP Promos 2008: MT 94 (stond eerder bij de Countdown Calendar)"
+  },
+  "kbc4278d572": {
+   "cm": {
+    "id": 576931,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V5",
+   "naam": "Pikachu (Japanese) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V5: Japans, blauwe achtergrond"
+  },
+  "k7ec47b6d1e": {
+   "cm": {
+    "id": 313436,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Ashs-Pikachu-SMSM109",
+   "naam": "Ash's Pikachu - SM109 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "kbcb65e4736": {
+   "cm": {
+    "id": 674234,
+    "holo": false
+   },
+   "pad": "Lost-Origin/Pikachu-V-LORTG16",
+   "naam": "Pikachu V · SWSH11: Lost Origin Trainer Gallery",
+   "hoe": "set en nummer"
+  },
+  "k1de1ee982a": {
+   "cm": {
+    "id": 277894,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · POP Series 6",
+   "hoe": "POP Series 6 V1: de gewone"
+  },
+  "k7289732c1b": {
+   "cm": {
+    "id": 576930,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V4",
+   "naam": "Pikachu (Spanish) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V4: Spaans (¡Hola!)"
+  },
+  "k4a37ea3d3e": {
+   "cm": {
+    "id": 838393,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-V6-SVP225",
+   "naam": "Pikachu - 225 (World Championship 2025) [Winner] · SV: Scarlet & Violet Promo Cards",
+   "hoe": "SV Black Star Promos V6 SVP225: Winner-stempel"
+  },
+  "kecff2019ae": {
+   "cm": {
+    "id": 894885,
+    "holo": false
+   },
+   "pad": "MEP-Black-Star-Promos/Pikachu-V2-MEP093",
+   "naam": "Pikachu - 093 (Winner) · ME: Mega Evolution Promo",
+   "hoe": "MEP Black Star Promos V2 MEP093: Winner-stempel"
+  },
+  "ka685e8da3e": {
+   "cm": {
+    "id": 748474,
+    "holo": false
+   },
+   "pad": "151/Pikachu-V3-MEW025",
+   "naam": "Pikachu - 025/165 (Pokemon Together) · Miscellaneous Cards & Products",
+   "hoe": "151 V3 MEW025: Pokémon Together-stempel"
+  },
+  "ka528714601": {
+   "cm": {
+    "id": 722695,
+    "holo": false
+   },
+   "pad": "Generations/Pikachu-V4-GEN26",
+   "naam": "Pikachu - 26/83 (20th Anniversary) · Miscellaneous Cards & Products",
+   "hoe": "Generations V4 GEN26: 20th Anniversary-stempel"
+  },
+  "k75f7b70883": {
+   "cm": {
+    "id": 367365,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-SMSM162",
+   "naam": "Pikachu - SM162 · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "k6258de23f0": {
+   "cm": {
+    "id": 288538,
+    "holo": false
+   },
+   "pad": "Generations/Pikachu-V2-GENRC29",
+   "naam": "Pikachu (Full Art) · Generations: Radiant Collection",
+   "hoe": "set en nummer"
+  },
+  "kbf4b496e9f": {
+   "cm": {
+    "id": 275485,
+    "holo": false
+   },
+   "pad": "Nintendo-Black-Star-Promos/Pikachu-NP12",
+   "naam": "Pikachu - 012 (EX Series Collector's Tin) · Nintendo Promos",
+   "hoe": "Nintendo Black Star Promos NP12: de gewone (EX-tin)"
+  },
+  "k8800b4558c": {
+   "cm": {
+    "id": 703196,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-V2-SVPen027",
+   "naam": "Pikachu - 027 (Pokemon Center Exclusive) · SV: Scarlet & Violet Promo Cards",
+   "hoe": "SV Black Star Promos V2 SVP027: Pokémon Center-exclusive"
+  },
+  "k2878a7749d": {
+   "cm": {
+    "id": 580161,
+    "holo": false
+   },
+   "pad": "Celebrations/Pikachu-V2-CELBS-58",
+   "naam": "Pikachu - 58/102 (Celebrations Metal Card) · Miscellaneous Cards & Products",
+   "hoe": "Celebrations V2 CEL BS-58: metalen kaart uit de Ultra Premium Collection (V3 is de gewone kaart van ± € 5)"
+  },
+  "k41c591213c": {
+   "cm": {
+    "id": 512650,
+    "holo": false
+   },
+   "pad": "Vivid-Voltage/Pikachu-VMAX-V2-VIV188",
+   "naam": "Pikachu VMAX (Secret) · SWSH04: Vivid Voltage",
+   "hoe": "set en nummer"
+  },
+  "k5494c70fa4": {
+   "cm": {
+    "id": 369087,
+    "holo": false
+   },
+   "pad": "Team-Up/Pikachu-Zekrom-GX-V2-TEU162",
+   "naam": "Pikachu & Zekrom GX (Full Art) · SM - Team Up",
+   "hoe": "set en nummer"
+  },
+  "k8c0602ccd4": {
+   "cm": {
+    "id": 279853,
+    "holo": false
+   },
+   "pad": "Black-White/Pikachu-BLW115",
+   "naam": "Pikachu · Black and White",
+   "hoe": "set en nummer"
+  },
+  "kdc014094d0": {
+   "cm": {
+    "id": 793388,
+    "holo": false
+   },
+   "pad": "Paldea-Evolved/Pikachu-V2-PAL062",
+   "naam": "Pikachu (Rain City Showcase) · Miscellaneous Cards & Products",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k1bf0a0d91a": {
+   "cm": {
+    "id": 660169,
+    "holo": false
+   },
+   "pad": "Base-Set/Pikachu-V2-BS58",
+   "naam": "Pikachu · Base Set (Shadowless)",
+   "hoe": "Base Set V2: Shadowless, gele wangen"
+  },
+  "kde9af5c567": {
+   "cm": {
+    "id": 573479,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (Pokemon Day 2009) · POP Series 9",
+   "hoe": "POP Series 9 V2: Pokémon Day 2009-stempel"
+  },
+  "kd8ccb149a0": {
+   "cm": {
+    "id": 573476,
+    "holo": false
+   },
+   "pad": "Nintendo-Black-Star-Promos/Pikachu-V2",
+   "naam": "Pikachu - 012 (10th Anniversary) · Miscellaneous Cards & Products",
+   "hoe": "Nintendo Black Star Promos V2 NP12: 10th Anniversary-stempel"
+  },
+  "k1eca1e6e76": {
+   "cm": {
+    "id": 506930,
+    "holo": false
+   },
+   "pad": "Futsal-Promos/Pikachu-on-the-Ball-FUT201",
+   "naam": "Pikachu on the Ball - 001/005 (Pokemon Futsal) · Miscellaneous Cards & Products",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k8ecd14cf37": {
+   "cm": {
+    "id": 289815,
+    "holo": false
+   },
+   "pad": "XY-Black-Star-Promos/Pikachu-XYPRXY95",
+   "naam": "Pikachu · XY Promos",
+   "hoe": "XY Black Star Promos XY95"
+  },
+  "ka9204728e1": {
+   "cm": {
+    "id": 278687,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Flying Pikachu · Rising Rivals",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k44a9643856": {
+   "cm": {
+    "id": 369468,
+    "holo": false
+   },
+   "pad": "SM-Black-Star-Promos/Pikachu-Zekrom-GX-V1-SM168",
+   "naam": "Pikachu & Zekrom GX · SM Promos",
+   "hoe": "set en nummer"
+  },
+  "ka89d430d58": {
+   "cm": {
+    "id": 276970,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (Delta Species) · EX Legend Maker",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k2cf9274480": {
+   "cm": {
+    "id": 398534,
+    "holo": false
+   },
+   "pad": "Cosmic-Eclipse/Pikachu-V2-CEC241",
+   "naam": "Pikachu (Secret) · SM - Cosmic Eclipse",
+   "hoe": "set en nummer"
+  },
+  "k320e9cf1cc": {
+   "cm": {
+    "id": 275342,
+    "holo": false
+   },
+   "pad": "Skyridge/Pikachu-SK84",
+   "naam": "Pikachu · Skyridge",
+   "hoe": "set en nummer"
+  },
+  "kf82153b373": {
+   "cm": {
+    "id": 275563,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu - DP16 · Diamond and Pearl Promos",
+   "hoe": "DP Black Star Promos V1 DP16: de gewone holo"
+  },
+  "k012a5cace1": {
+   "cm": {
+    "id": 369109,
+    "holo": false
+   },
+   "pad": "Team-Up/Pikachu-Zekrom-GX-V3-TEU184",
+   "naam": "Pikachu & Zekrom GX (Secret) · SM - Team Up",
+   "hoe": "set en nummer"
+  },
+  "k56133ae44b": {
+   "cm": {
+    "id": 275592,
+    "holo": false
+   },
+   "pad": "W-Promos/Pikachu-WPRJU-60",
+   "naam": "Pikachu [W Stamped] · WoTC Promo",
+   "hoe": "W Promos: Jungle 60 met W-stempel"
+  },
+  "k0ea783596b": {
+   "cm": {
+    "id": 275508,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu (Delta Species) - 035 (Value Pack) · Nintendo Promos",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k554d465308": {
+   "cm": {
+    "id": 699945,
+    "holo": false
+   },
+   "pad": "Play-Pokemon-Prize-Pack-Series-One/Pikachu-V-PPS1VIV-043",
+   "naam": "Pikachu V - 043/185 · Prize Pack Series Cards",
+   "hoe": "Play! Pokémon Prize Pack Series One: Pikachu V VIV043"
+  },
+  "ka36c2d5f06": {
+   "cm": {
+    "id": 794611,
+    "holo": false
+   },
+   "pad": "Surging-Sparks/Pikachu-ex-V3-SSP238",
+   "naam": "Pikachu ex - 238/191 · SV08: Surging Sparks",
+   "hoe": "set en nummer"
+  },
+  "k2b94123e42": {
+   "cm": {
+    "id": 895617,
+    "holo": false
+   },
+   "pad": "MEP-Black-Star-Promos/Pikachu-ex-MEP109",
+   "naam": "Pikachu ex - 109 (30th Celebration) · ME: Mega Evolution Promo",
+   "hoe": "set en nummer"
+  },
+  "kaed655aa80": {
+   "cm": {
+    "id": 275586,
+    "holo": false
+   },
+   "pad": "Base-Set/Pikachu-V5-BS58",
+   "naam": "Pikachu - 58/102 (PokeTour 1999) · Miscellaneous Cards & Products",
+   "hoe": "Base Set V5: PokéTour-stempel (verkopers: 'PokéTour Stamp')"
+  },
+  "k850fb99e44": {
+   "cm": {
+    "id": 276571,
+    "holo": false
+   },
+   "pad": "EX-Emerald/Pikachu-EM60",
+   "naam": "Pikachu - 60/106 (SDCC 2005) · Miscellaneous Cards & Products",
+   "hoe": "EX Emerald EM60: de SDCC 2005-versie heeft geen eigen product"
+  },
+  "k62d77269bf": {
+   "cm": {
+    "id": 869887,
+    "holo": false
+   },
+   "pad": "Ascended-Heroes/Pikachu-ex-V2-ASC277",
+   "naam": "Pikachu ex - 277/217 · ME: Ascended Heroes",
+   "hoe": "set en nummer"
+  },
+  "kda9f251b1e": {
+   "cm": {
+    "id": 576936,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/s-Pikachu",
+   "naam": "______'s Pikachu · Pikachu World Collection Promos",
+   "hoe": "eerdere koppeling, set gecontroleerd"
+  },
+  "k2b0dbc8c4f": {
+   "cm": {
+    "id": 278686,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Rising Rivals",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k795dcf47e7": {
+   "cm": {
+    "id": 787789,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu - DP16 · Countdown Calendar Promos",
+   "hoe": "DP Black Star Promos V2 DP16: sneeuwvlok-stempel, Countdown Calendar"
+  },
+  "k99d6b25a65": {
+   "cm": {
+    "id": 278688,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Surfing Pikachu · Rising Rivals",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k7b173ab979": {
+   "cm": {
+    "id": 275568,
+    "holo": false
+   },
+   "pad": "Base-Set/Pikachu-V4-BS58",
+   "naam": "Pikachu - 58/102 (E3 Stamped with Red Cheeks) · Miscellaneous Cards & Products",
+   "hoe": "Base Set V4: E3-stempel; Cardmarket heeft geen aparte rode-wangen-E3"
+  },
+  "k08c4abac97": {
+   "cm": {
+    "id": 895615,
+    "holo": false
+   },
+   "pad": "MEP-Black-Star-Promos/Pikachu-ex-MEP107",
+   "naam": "Pikachu ex - 107 (30th Celebration) · ME: Mega Evolution Promo",
+   "hoe": "set en nummer"
+  },
+  "k2b42291ec7": {
+   "cm": {
+    "id": 660170,
+    "holo": false
+   },
+   "pad": "Base-Set/Pikachu-V3-BS58",
+   "naam": "Pikachu (Red Cheeks) · Base Set (Shadowless)",
+   "hoe": "Base Set V3: Shadowless, rode wangen (verkopers: 'red cheeks')"
+  },
+  "kef1b6c55cf": {
+   "cm": {
+    "id": 516369,
+    "holo": false
+   },
+   "pad": "SWSH-Black-Star-Promos/Special-Delivery-Pikachu-SWSH74",
+   "naam": "Special Delivery Pikachu - SWSH074 · SWSH: Sword & Shield Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "ke1be27515c": {
+   "cm": {
+    "id": 605996,
+    "holo": false
+   },
+   "pad": "Poke-Card-Creator-Pack/Pikachu-PCCP5",
+   "naam": "Pikachu - 5/5 · Kids WB Promos",
+   "hoe": "Poké Card Creator Pack PCCP5: het enige product voor deze Kids WB-promo"
+  },
+  "k40a7c07b58": {
+   "cm": {
+    "id": 275443,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/s-Pikachu-WP24",
+   "naam": "______'s Pikachu · WoTC Promo",
+   "hoe": "set en nummer"
+  },
+  "k826876a38b": {
+   "cm": {
+    "id": 293003,
+    "holo": false
+   },
+   "pad": "XY-Black-Star-Promos/Pikachu-EX-V1-XYPRXY124",
+   "naam": "Pikachu EX - XY124 · XY Promos",
+   "hoe": "XY Black Star Promos V1 XY124 (V4 is de jumbo)"
+  },
+  "k7e2694f61e": {
+   "cm": {
+    "id": 697096,
+    "holo": false
+   },
+   "pad": "Play-Pokemon-Prize-Pack-Series-One/Pikachu-VMAX-PPS1VIV-044",
+   "naam": "Pikachu VMAX - 044/185 · Prize Pack Series Cards",
+   "hoe": "Play! Pokémon Prize Pack Series One: Pikachu VMAX VIV044"
+  },
+  "kce8a63307e": {
+   "cm": {
+    "id": 278848,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pikachu · Rumble",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "kbc17bb08eb": {
+   "cm": {
+    "id": 869888,
+    "holo": false
+   },
+   "pad": "Ascended-Heroes/Pikachu-ex-ASC276",
+   "naam": "Pikachu ex - 276/217 · ME: Ascended Heroes",
+   "hoe": "set en nummer"
+  },
+  "kc2c86af0da": {
+   "cm": {
+    "id": 735302,
+    "holo": false
+   },
+   "pad": "SV-Black-Star-Promos/Pikachu-with-Grey-Felt-Hat-SVP085",
+   "naam": "Pikachu with Grey Felt Hat · SV: Scarlet & Violet Promo Cards",
+   "hoe": "set en nummer"
+  },
+  "k4e2963029a": {
+   "cm": {
+    "id": 277074,
+    "holo": false
+   },
+   "pad": "EX-Holon-Phantoms/Pikachu-Gold-Star-HP104",
+   "naam": "Pikachu Star · EX Holon Phantoms",
+   "hoe": "set en nummer"
+  },
+  "k06bd1d268d": {
+   "cm": {
+    "id": 275420,
+    "holo": false
+   },
+   "pad": "Wizards-Black-Star-Promos/Pikachu-WP1",
+   "naam": "Pikachu (1) (Misprint) · WoTC Promo",
+   "hoe": "Wizards Black Star Promos WP1: de misdruk heeft geen eigen product"
+  },
+  "k8d2929a756": {
+   "cm": {
+    "id": 917602,
+    "holo": false
+   },
+   "pad": null,
+   "naam": "Pokemon Run Pikachu - 131 · Southeast Asia Exclusives",
+   "hoe": "eerdere koppeling (TCGdex)"
+  },
+  "k2a91a608ad": {
+   "cm": {
+    "id": 576932,
+    "holo": false
+   },
+   "pad": "Pikachu-World-Collection/Pikachu-V6",
+   "naam": "Pikachu (Japanese) (Green) · Pikachu World Collection Promos",
+   "hoe": "Pikachu World Collection V6: Japans, groene achtergrond"
+  }
+ }
+}

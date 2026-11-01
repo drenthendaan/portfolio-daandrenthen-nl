@@ -85,11 +85,12 @@ function passes(v, show) {
   return true;
 }
 
-// Prijs (centen, per stuk) → [euro voor de tabel, soort]. De TCGplayer-marktprijs is de
-// standaard; al het andere krijgt in de tabel een label.
+// Prijs (centen, per stuk) → [euro voor de tabel, soort]. De Cardmarket-trend (en bij eigen items
+// zonder Cardmarket-product de TCGplayer-marktprijs) is de standaard; al het andere krijgt in de
+// tabel een label.
 function prijsVoorTabel(p, aantal = 1) {
   if (!p || p.e == null) return [null, "unknown"];
-  const soort = p.t === "h" ? "eigen" : p.t === "m" ? "market" : p.vraag ? "asking" : "vast";
+  const soort = p.t === "h" ? "eigen" : p.t === "c" || p.t === "m" ? "market" : p.vraag ? "asking" : "vast";
   return [(p.e * aantal) / 100, soort];
 }
 
@@ -186,12 +187,12 @@ export default function Verzameling({
   const verborgen = useMemo(() => new Set(verzameling.verborgen ?? []), [verzameling.verborgen]);
 
   // Eén rijformaat: [id, naam, set, nummer, prijs €, soort, notitie, thema, mapcode, positie,
-  // isItem, plaatjes, TCGplayer-product]
+  // isItem, plaatjes, TCGplayer-product, Cardmarket-product]
   const vasteRijen = useMemo(
     () =>
       vasteKaarten.map((c) => {
         const [prijs, soort] = prijzen?.[c[0]] ? prijsVoorTabel(prijzen[c[0]]) : [c[4], c[5]];
-        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false, c[10] ?? [], c[11] ?? null];
+        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false, c[10] ?? [], c[11] ?? null, c[12] ?? null];
       }),
     [vasteKaarten, prijzen]
   );
@@ -215,6 +216,7 @@ export default function Verzameling({
           true,
           i.img ?? [],
           i.tp?.product ?? null,
+          i.cm?.id ?? null,
         ];
       }),
     [eigenItems, prijzen]
@@ -692,7 +694,7 @@ export default function Verzameling({
           </h2>
           <p className="summary">{summary}</p>
           {prijsData?.meta?.dag && (
-            <p className="extra">Prijs: TCGplayer-marktprijs, bijgewerkt op {datumNL(prijsData.meta.dag)}</p>
+            <p className="extra">Prijs: Cardmarket-trend, bijgewerkt op {datumNL(prijsData.meta.dag)}</p>
           )}
           {extra && <p className="extra">{extra}</p>}
         </div>
@@ -923,9 +925,9 @@ export default function Verzameling({
         <details className="info">
           <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
           <p className="legend">
-            Prijzen zijn de TCGplayer-marktprijs (de gemiddelde verkoopprijs van de laatste tijd, nooit de
-            laagste prijs), omgerekend naar euro en elke dag bijgewerkt. Heeft TCGplayer geen marktprijs,
-            dan staat de prijs uit de lijst er (&lsquo;vaste prijs&rsquo;). Een ? betekent dat er geen prijs
+            Prijzen zijn de Cardmarket-trend (de verkoopprijs van de laatste tijd in Europa, nooit de
+            laagste prijs), elke nacht bijgewerkt. Heeft Cardmarket geen prijs, dan staat de prijs uit de
+            lijst er (&lsquo;vaste prijs&rsquo;). Een ? betekent dat er geen prijs
             bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
             toegevoegd item om het te bewerken. &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
             1–3 zijn de bovenste rij, 4–6 de middelste en 7–9 de onderste.
@@ -1088,8 +1090,8 @@ export default function Verzameling({
                   <a href="https://cardcodex.com/pokemon/card-list/pikachu/">Card Codex</a>
                 </li>
                 <li>
-                  Prijzen en afbeeldingen: TCGplayer via <a href="https://tcgcsv.com">tcgcsv.com</a>, met de
-                  wisselkoers van de ECB via <a href="https://frankfurter.dev">Frankfurter</a>
+                  Prijzen: de dagelijkse prijslijst van <a href="https://www.cardmarket.com">Cardmarket</a>;
+                  afbeeldingen: TCGplayer via <a href="https://tcgcsv.com">tcgcsv.com</a>
                 </li>
               </ul>
             </>
@@ -1106,7 +1108,7 @@ export default function Verzameling({
             : prijzen?.[r[0]] ?? (r[4] != null ? { e: Math.round(r[4] * 100), t: "v" } : null);
           return (
             <KaartDetail
-              kaart={{ id: r[0], n: r[1], s: r[2], nr: r[3], img: r[11] ?? [], map: r[8], note: r[6], tp: r[12] }}
+              kaart={{ id: r[0], n: r[1], s: r[2], nr: r[3], img: r[11] ?? [], map: r[8], note: r[6], tp: r[12], cm: r[13] }}
               prijs={prijs}
               reeks={prijsData?.reeks}
               status={statusVan(r[0])}
