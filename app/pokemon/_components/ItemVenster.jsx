@@ -34,6 +34,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   const [cm, setCm] = useState(null);
   const [cmKeuze, setCmKeuze] = useState(null);
   const [cmHolo, setCmHolo] = useState(item?.cm?.holo ?? false);
+  const [cmPoging, setCmPoging] = useState(0);
 
   const [naam, setNaam] = useState(item?.naam ?? "");
   const [label, setLabel] = useState(item?.label ?? standaard?.label ?? "etb");
@@ -111,13 +112,12 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
       .catch(() => {
         if (!weg) {
           setCm({ fout: true, kandidaten: [] });
-          setCmKeuze("geen");
         }
       });
     return () => {
       weg = true;
     };
-  }, [cmBron, item?.cm?.id]);
+  }, [cmBron, item?.cm?.id, cmPoging]);
 
   function kies(r) {
     setGekozen(r);
@@ -323,7 +323,14 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
               <>
                 <p className="iv-hint">
                   {cm?.fout
-                    ? "Cardmarket is nu niet bereikbaar. Probeer het zo nog eens, of vul zelf een waarde in."
+                    ? (
+                        <>
+                          Het zoeken op Cardmarket lukte nu niet.{" "}
+                          <button type="button" className="iv-link" onClick={() => setCmPoging((n) => n + 1)}>
+                            Opnieuw proberen
+                          </button>
+                        </>
+                      )
                     : cm?.kandidaten?.length
                       ? cm.gekozen
                         ? "Gevonden op Cardmarket. Klopt het niet, kies dan een andere versie."
