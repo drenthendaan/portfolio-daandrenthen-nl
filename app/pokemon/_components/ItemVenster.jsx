@@ -29,6 +29,11 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   const [zoekt, setZoekt] = useState(false);
   const [gekozen, setGekozen] = useState(null);
   const [handmatig, setHandmatig] = useState(false);
+  // Cardmarket-product: de opties bij het gekozen product, en wat je kiest (id of "geen")
+  const [cmOpen, setCmOpen] = useState(false);
+  const [cm, setCm] = useState(null);
+  const [cmKeuze, setCmKeuze] = useState(null);
+  const [cmHolo, setCmHolo] = useState(item?.cm?.holo ?? false);
 
   const [naam, setNaam] = useState(item?.naam ?? "");
   const [label, setLabel] = useState(item?.label ?? standaard?.label ?? "etb");
@@ -55,7 +60,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
     if (ref.current && !ref.current.open) ref.current.showModal();
   }, []);
 
-  // Zoeken in de TCGplayer-catalogus, 300 ms na het laatste toetsaanslag
+  // Zoeken in de catalogus, 300 ms na het laatste toetsaanslag
   useEffect(() => {
     if (!nieuw || gekozen || handmatig) return;
     const q = zoekterm.trim();
@@ -79,6 +84,40 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
     }, 300);
     return () => clearTimeout(t);
   }, [zoekterm, nieuw, gekozen, handmatig]);
+
+  // Welk product er een Cardmarket-keuze nodig heeft: het gekozen zoekresultaat, of bij bewerken
+  // een item zonder Cardmarket-product (of als je een ander product wilt kiezen)
+  const cmBron = nieuw ? gekozen?.product ?? null : item.tp?.product && (cmOpen || !item.cm) ? item.tp.product : null;
+  useEffect(() => {
+    if (!cmBron) {
+      setCm(null);
+      setCmKeuze(null);
+      return;
+    }
+    let weg = false;
+    setCm({ laden: true });
+    setCmKeuze(null);
+    fetch(`/api/pokemon/cardmarket?product=${cmBron}`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (weg) return;
+        if (!Array.isArray(d.kandidaten)) throw new Error();
+        setCm(d);
+        const huidig = item?.cm?.id;
+        setCmKeuze(
+          huidig && d.kandidaten.some((k) => k.id === huidig) ? huidig : d.gekozen ?? (d.kandidaten.length ? null : "geen")
+        );
+      })
+      .catch(() => {
+        if (!weg) {
+          setCm({ fout: true, kandidaten: [] });
+          setCmKeuze("geen");
+        }
+      });
+    return () => {
+      weg = true;
+    };
+  }, [cmBron, item?.cm?.id]);
 
   function kies(r) {
     setGekozen(r);
@@ -115,6 +154,8 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
     if (!naam.trim()) return setFout("Geef het item een naam.");
     if (label === NIEUW_LABEL && !nieuwLabel.trim()) return setFout("Geef het nieuwe label een naam.");
     if (verzameling && themaWaarde === NIEUW_THEMA && !nieuwThema.trim()) return setFout("Geef het nieuwe thema een naam.");
+    if (cmBron && cm?.laden) return setFout("Even wachten: de Cardmarket-producten worden nog opgehaald.");
+    if (cmBron && cmKeuze == null) return setFout("Kies welk Cardmarket-product het is.");
     setBezig(true);
     try {
       let labelId = label;
@@ -134,7 +175,8 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
         status,
       };
       if (nieuw && gekozen) invoer.product = gekozen.product;
-      else if (!item?.tp) invoer.waarde = waarde;
+      if (cmBron && typeof cmKeuze === "number") invoer.cm = { id: cmKeuze, holo: cmHolo && !!gekozenCm?.holo };
+      else if (!item?.cm) invoer.waarde = waarde;
       await acties.bewaar(invoer, item?.id);
       ref.current?.close();
     } catch (err) {
@@ -165,7 +207,15 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   const n = Number(aantal) || 1;
   const winst = prijs?.e != null && item?.aankoop != null ? (prijs.e - item.aankoop) * (item.aantal || 1) : null;
   const toonVelden = !nieuw || gekozen || handmatig;
-  const product = gekozen ?? (item?.tp ? item : null);
+  const product = gekozen ?? (item?.tp || item?.cm ? item : null);
+  const gekozenCm = cm?.kandidaten?.find((k) => k.id === cmKeuze) ?? null;
+  // Zelf een waarde invullen: zonder product, of als het niet op Cardmarket staat
+  const eigenWaarde = handmatig || (cmBron ? cmKeuze === "geen" : item ? !item.cm : false);
+  // Dezelfde naam meer dan eens: versie 1, 2, ... in de volgorde van Cardmarket
+  const versie = (k) => {
+    const zelfde = (cm?.kandidaten ?? []).filter((x) => x.naam === k.naam).sort((a, b) => a.id - b.id);
+    return zelfde.length > 1 ? ` · versie ${zelfde.findIndex((x) => x.id === k.id) + 1}` : "";
+  };
 
   return (
     <dialog
@@ -188,7 +238,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
 
         {nieuw && !gekozen && !handmatig && (
           <div className="iv-zoek">
-            <label htmlFor="iv-q">Zoek in TCGplayer</label>
+            <label htmlFor="iv-q">Zoek een kaart of product</label>
             <input
               id="iv-q"
               type="search"
@@ -242,12 +292,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                 {product.set}
                 {product.nummer ? ` · ${product.nummer}` : ""}
               </small>
-              {gekozen ? (
-                <p>
-                  De prijs komt van Cardmarket zodra het item daar gekoppeld is (dat gebeurt bij de volgende
-                  verversing); tot dan van TCGplayer. Elke dag bijgewerkt.
-                </p>
-              ) : prijs?.e != null ? (
+              {gekozen ? null : prijs?.e != null ? (
                 <p>
                   {euro(prijs.e)} per stuk · {prijsBron(prijs)}
                   {prijs.d && prijs.t !== "v" ? `, bijgewerkt op ${datumNL(prijs.d)}` : ""}
@@ -260,11 +305,85 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                   Ander product kiezen
                 </button>
               )}
+              {!nieuw && item.cm && item.tp && !cmOpen && (
+                <button type="button" className="iv-link" onClick={() => setCmOpen(true)}>
+                  Ander Cardmarket-product kiezen
+                </button>
+              )}
             </div>
           </div>
         )}
 
-        {!nieuw && !item.tp && prijs && (
+        {cmBron && (
+          <fieldset className="iv-cm">
+            <legend>Cardmarket-product</legend>
+            {cm?.laden ? (
+              <p className="iv-hint">Cardmarket-producten zoeken…</p>
+            ) : (
+              <>
+                <p className="iv-hint">
+                  {cm?.fout
+                    ? "Cardmarket is nu niet bereikbaar. Probeer het zo nog eens, of vul zelf een waarde in."
+                    : cm?.kandidaten?.length
+                      ? cm.gekozen
+                        ? "Gevonden op Cardmarket. Klopt het niet, kies dan een andere versie."
+                        : "Welke is het? Bekijk ze op Cardmarket als je twijfelt."
+                      : "Niets gevonden op Cardmarket. Vul zelf een waarde in."}
+                </p>
+                <ul className="iv-cm-lijst">
+                  {(cm?.kandidaten ?? []).map((k) => (
+                    <li key={k.id}>
+                      <label>
+                        <input
+                          type="radio"
+                          name="iv-cm"
+                          checked={cmKeuze === k.id}
+                          onChange={() => setCmKeuze(k.id)}
+                        />
+                        <span>
+                          {k.naam}
+                          {versie(k)}
+                          <small>
+                            {k.prijs != null ? euro(k.prijs) : k.holo != null ? `${euro(k.holo)} (reverse holo)` : "nog geen prijs"}
+                          </small>
+                        </span>
+                      </label>
+                      <a
+                        href={`https://www.cardmarket.com/en/Pokemon/Products?idProduct=${k.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${k.naam}${versie(k)} op Cardmarket`}
+                      >
+                        ↗
+                      </a>
+                    </li>
+                  ))}
+                  {!item?.cm && (
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="iv-cm"
+                          checked={cmKeuze === "geen"}
+                          onChange={() => setCmKeuze("geen")}
+                        />
+                        <span>Staat niet op Cardmarket (zelf een waarde invullen)</span>
+                      </label>
+                    </li>
+                  )}
+                </ul>
+                {gekozenCm?.holo != null && gekozenCm.prijs != null && (
+                  <label className="iv-vink">
+                    <input type="checkbox" checked={cmHolo} onChange={(e) => setCmHolo(e.target.checked)} />
+                    Reverse holo ({euro(gekozenCm.holo)})
+                  </label>
+                )}
+              </>
+            )}
+          </fieldset>
+        )}
+
+        {!nieuw && !item.tp && !item.cm && prijs && (
           <p className="iv-hint">
             {euro(prijs.e)} per stuk · {prijsBron(prijs) || "geen prijs bekend"}
           </p>
@@ -281,7 +400,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
               Naam
               <input value={naam} onChange={(e) => setNaam(e.target.value)} maxLength={120} required />
             </label>
-            {(handmatig || (item && !item.tp)) && (
+            {eigenWaarde && (
               <label>
                 Waarde per stuk (€)
                 <input

@@ -503,8 +503,8 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           prijs), elke nacht bijgewerkt uit de prijslijst van Cardmarket. Is de trend duidelijk kapot (meer
           dan 4× naast het gemiddelde van 30 dagen), dan telt dat gemiddelde. Elke kaart is gekoppeld aan
           zijn eigen Cardmarket-product, ook varianten. Zonder prijs blijft de vaste prijs uit de lijst
-          staan. Items die je zelf toevoegt, worden ook aan Cardmarket gekoppeld; lukt dat niet, dan volgen
-          ze de TCGplayer-marktprijs (omgerekend met de ECB-koers) of de waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
+          staan. Bij een item dat je zelf toevoegt, kies je het Cardmarket-product; staat het er niet op,
+          dan telt de waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
           het belletje bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
         {meta && (
@@ -514,14 +514,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
             </li>
             <li>
               {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.v} vaste prijs · {meta.tellingen.o} onbekend
-              {meta.tellingen.itemsTcg ? ` · ${meta.tellingen.itemsTcg} items via TCGplayer` : ""}
             </li>
-            {meta.fx && meta.tellingen.itemsTcg > 0 && (
-              <li>
-                Koers: $ 1 = € {meta.fx.koers.toLocaleString("nl-NL", { maximumFractionDigits: 4 })} (
-                {meta.fx.bron === "ecb" ? `ECB, ${datumKort(meta.fx.datum)}` : "vaste koers"})
-              </li>
-            )}
           </ul>
         )}
         <h3>Bronnen</h3>
@@ -532,9 +525,6 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           <li>
             Afbeeldingen en de catalogus voor &lsquo;item toevoegen&rsquo;: TCGplayer via{" "}
             <a href="https://tcgcsv.com">tcgcsv.com</a>
-          </li>
-          <li>
-            Wisselkoers van de ECB via <a href="https://frankfurter.dev">Frankfurter</a>
           </li>
         </ul>
         {heeftToken && (
