@@ -1,7 +1,5 @@
 import collectie from "@/data/pikachu-collectie.json";
-import { SEED } from "@/lib/pikachu";
 import { leesItems } from "@/lib/pokemon/items";
-import { vasteRijen } from "@/lib/pokemon/kaarten";
 import { leesPrijsData } from "@/lib/pokemon/server";
 import { STANDAARD_PIKACHU_BINDER } from "@/lib/pokemon/binders.mjs";
 import { PIKACHU } from "@/lib/pokemon/verzamelingen";
@@ -14,21 +12,17 @@ export const metadata = {
   description: "Daans Pikachu-verzameling: wat betaald en binnen is, en de binder.",
 };
 
-const CARDS = vasteRijen(PIKACHU.id);
-
 export default async function PikachuPage() {
-  // Zonder database: gewoon de vaste lijst met de prijzen van 5 oktober
   const [items, prijsData] = await Promise.all([
     leesItems().catch(() => null),
     leesPrijsData().catch(() => null),
   ]);
   const verzameling = items?.verzamelingen.find((v) => v.id === PIKACHU.id) ?? { ...PIKACHU, binder: STANDAARD_PIKACHU_BINDER, themas: [], verborgen: [] };
+  // De secties van de oorspronkelijke lijst geven de tabbladen hun naam en paginabereik
   return (
     <Verzameling
       verzameling={verzameling}
-      vasteKaarten={CARDS}
-      vasteSecties={collectie.sections}
-      seed={SEED}
+      secties={collectie.sections}
       beginItems={items}
       beginPrijzen={prijsData}
     />

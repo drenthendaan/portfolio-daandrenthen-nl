@@ -6,7 +6,7 @@ import { binderVan } from "@/lib/pokemon/binders.mjs";
 import { themasVoor } from "@/lib/pokemon/themas.mjs";
 import { bewaarToken, GeenToken, leesToken } from "./api";
 import KaartAfbeelding from "./KaartAfbeelding";
-import { datumNL, prijsBron } from "./KaartDetail";
+import { datumKort, datumNL, prijsBron } from "./opmaak";
 
 const NIEUW_LABEL = "__nieuw";
 const NIEUW_THEMA = "__nieuw_thema";
@@ -15,10 +15,11 @@ const NIEUW_THEMA = "__nieuw_thema";
 const alsInvoer = (c) =>
   c == null ? "" : (c / 100).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: false });
 
-// Toevoegen (item = null) of bewerken van een zelf toegevoegd item.
+// Toevoegen (item = null) of bewerken van een item: elke kaart, ETB of ander product.
 //   acties: { bewaar, verwijder, maakLabel, wijzigVerzameling } uit useItems
 //   standaard: { label, verzameling, thema } voor een nieuw item
-export default function ItemVenster({ item, labels, verzamelingen = [], standaard, prijzen, acties, onSluit }) {
+//   reeks: de prijsgeschiedenis (voor "▲ € 0,12 sinds 1 nov")
+export default function ItemVenster({ item, labels, verzamelingen = [], standaard, prijzen, reeks, acties, onSluit }) {
   const nieuw = !item;
   const ref = useRef(null);
   const terug = useRef(null);
@@ -48,6 +49,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   const [aantal, setAantal] = useState(String(item?.aantal ?? 1));
   const [aankoop, setAankoop] = useState(alsInvoer(item?.aankoop));
   const [waarde, setWaarde] = useState(alsInvoer(item?.waarde));
+  const [notitie, setNotitie] = useState(item?.notitie ?? "");
   const [status, setStatus] = useState(item?.status ?? { b: false, a: true });
 
   const [heeftToken, setHeeftToken] = useState(true);
@@ -172,6 +174,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
         map: verzameling ? map.trim() : null,
         aantal: Number(aantal),
         aankoop,
+        notitie,
         status,
       };
       if (nieuw && gekozen) invoer.product = gekozen.product;
@@ -206,6 +209,10 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   const prijs = item ? itemPrijs(item, prijzen) : null;
   const n = Number(aantal) || 1;
   const winst = prijs?.e != null && item?.aankoop != null ? (prijs.e - item.aankoop) * (item.aantal || 1) : null;
+  // Verloop sinds het begin van de prijsgeschiedenis
+  const rij = item ? reeks?.kaarten?.[item.id] : null;
+  const eersteDag = rij ? reeks.dagen[0] : null;
+  const verloop = rij && prijs?.e != null && rij[0] != null ? prijs.e - rij[0] : null;
   const toonVelden = !nieuw || gekozen || handmatig;
   const product = gekozen ?? (item?.tp || item?.cm ? item : null);
   const gekozenCm = cm?.kandidaten?.find((k) => k.id === cmKeuze) ?? null;
@@ -299,6 +306,22 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                 </p>
               ) : (
                 <p>Nog geen prijs voor dit product.</p>
+              )}
+              {!gekozen && verloop != null && eersteDag && (
+                <p className={`iv-verloop ${verloop > 0 ? "op" : verloop < 0 ? "neer" : ""}`}>
+                  {verloop > 0 ? "▲" : verloop < 0 ? "▼" : "="} {euro(Math.abs(verloop))} sinds {datumKort(eersteDag)}
+                  {reeks.geschat?.includes(eersteDag) ? " (geschat)" : ""}
+                </p>
+              )}
+              {!nieuw && item.cm?.id && (
+                <a
+                  className="iv-link"
+                  href={`https://www.cardmarket.com/en/Pokemon/Products?idProduct=${item.cm.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bekijk op Cardmarket ↗
+                </a>
               )}
               {nieuw && (
                 <button type="button" className="iv-link" onClick={() => setGekozen(null)}>
@@ -538,6 +561,16 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
                 />
               </label>
             </div>
+            <label>
+              Notitie
+              <textarea
+                rows={2}
+                maxLength={500}
+                placeholder="optioneel, bijv. reverse holo gekregen"
+                value={notitie}
+                onChange={(e) => setNotitie(e.target.value)}
+              />
+            </label>
             <ul className="statuschips" aria-label="Status">
               {[
                 ["w", "Wantlist"],

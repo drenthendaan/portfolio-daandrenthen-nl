@@ -56,7 +56,8 @@
 .pika .iv label { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; font-weight: 600; }
 .pika .iv input:not([type="checkbox"]):not([type="radio"]) { font: inherit; font-size: 1rem; font-weight: 400; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; height: 2.6rem; padding: 0 .75rem; width: 100%; min-width: 0; }
 .pika .iv select.keuze { height: 2.6rem; font-size: 1rem; font-weight: 400; width: 100%; }
-.pika .iv input::placeholder { color: var(--soft); }
+.pika .iv textarea { font: inherit; font-size: 1rem; font-weight: 400; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .55rem .75rem; width: 100%; min-width: 0; resize: vertical; }
+.pika .iv input::placeholder, .pika .iv textarea::placeholder { color: var(--soft); }
 .pika .iv-zoek { display: flex; flex-direction: column; gap: .4rem; }
 .pika .iv-resultaten { list-style: none; margin: 0; padding: 0; max-height: 50dvh; overflow-y: auto; border: 1px solid var(--line); border-radius: 12px; }
 .pika .iv-resultaten li + li { border-top: 1px solid var(--line); }
@@ -87,6 +88,9 @@
 .pika .iv-winst { margin: 0; font-size: .85rem; font-weight: 700; }
 .pika .iv-winst.op { color: var(--groen); }
 .pika .iv-winst.neer { color: var(--cheek); }
+.pika .iv-product .iv-verloop { margin: 0 0 .3rem; font-weight: 700; }
+.pika .iv-verloop.op { color: var(--groen); }
+.pika .iv-verloop.neer { color: var(--cheek); }
 .pika .iv-velden { display: flex; flex-direction: column; gap: .75rem; }
 .pika .iv-rij { display: grid; grid-template-columns: 6rem 1fr; gap: .6rem; }
 .pika .iv .iv-vink { flex-direction: row; align-items: center; gap: .55rem; font-weight: 600; }

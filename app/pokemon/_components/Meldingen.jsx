@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { dagErvoor, euro, STAND_LABEL, STANDAARD_DREMPEL } from "@/lib/pokemon/regels.mjs";
 import { bewaarToken, GeenToken, leesToken, schrijf } from "./api";
 import KaartAfbeelding from "./KaartAfbeelding";
-import { datumKort } from "./KaartDetail";
+import { datumKort } from "./opmaak";
 
 const SW = "/pokemon-app/sw.js";
 const SCOPE = "/pokemon";

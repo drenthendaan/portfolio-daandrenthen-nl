@@ -1,75 +1,18 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { naarBits, vanBits } from "@/lib/pokemon/regels.mjs";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // Interval van het opvragen: 30 s, en langzamer bij fouten
 const INTERVAL = [30_000, 60_000, 120_000, 300_000];
 
-function lsJSON(sleutel) {
-  try {
-    const v = JSON.parse(localStorage.getItem(sleutel) || "null");
-    return v && typeof v === "object" ? v : null;
-  } catch {
-    return null;
-  }
-}
-
-// { id: {w,b,o,a} } → { id: bits } (alleen kaarten met iets aan)
-function bitsVan(statusObject) {
-  const uit = {};
-  for (const [id, v] of Object.entries(statusObject || {})) {
-    const b = naarBits(v);
-    if (b) uit[id] = b;
-  }
-  return uit;
-}
-
-function zelfde(a, b) {
-  const ka = Object.keys(a);
-  if (ka.length !== Object.keys(b).length) return false;
-  return ka.every((k) => a[k] === b[k]);
-}
-
-// Houdt de vinkjes en prijzen bij. Vraagt de stand op zolang het tabblad zichtbaar is,
-// direct opnieuw bij terugkeren, en volgt wijzigingen uit andere tabbladen in dezelfde
-// browser via het storage-event (de Pikachu-pagina schrijft "pika-status").
-export function useLive({ beginBits, beginPrijzen }) {
-  const [bits, setBits] = useState(beginBits);
+// Houdt de prijzen bij en meldt wanneer de items gewijzigd zijn (de itemsversie). Vraagt de stand
+// op zolang het tabblad zichtbaar is, en direct opnieuw bij terugkeren.
+export function useLive({ beginPrijzen }) {
   const [prijsData, setPrijsData] = useState(beginPrijzen);
   const [verbinding, setVerbinding] = useState("ok");
   const [puls, setPuls] = useState(0);
   const [itemsVersie, setItemsVersie] = useState(null);
-  const bitsRef = useRef(beginBits);
-  const serverRef = useRef(beginBits);
-  const lokaalRef = useRef({}); // wijzigingen van deze pagina die nog onderweg zijn naar de server
   const versieRef = useRef(beginPrijzen?.versie ?? null);
-
-  const zet = useCallback((volgende) => {
-    if (zelfde(volgende, bitsRef.current)) return;
-    bitsRef.current = volgende;
-    setBits(volgende);
-    setPuls((p) => p + 1);
-  }, []);
-
-  // Serverstand, met nog niet verstuurde wijzigingen van dit apparaat erover
-  const pasToe = useCallback(
-    (server) => {
-      serverRef.current = server;
-      const volgende = { ...server };
-      for (const [id, v] of Object.entries(lsJSON("pika-pending") ?? {})) {
-        const b = naarBits(v);
-        if (b) volgende[id] = b;
-        else delete volgende[id];
-      }
-      for (const [id, b] of Object.entries(lokaalRef.current)) {
-        if (b) volgende[id] = b;
-        else delete volgende[id];
-      }
-      zet(volgende);
-    },
-    [zet]
-  );
 
   const haalPrijzen = useCallback(async () => {
     const res = await fetch("/api/pokemon/prijzen", { cache: "no-store" });
@@ -97,7 +40,6 @@ export function useLive({ beginBits, beginPrijzen }) {
         const data = await res.json();
         fouten = 0;
         setVerbinding("ok");
-        pasToe(data.status || {});
         if (data.itemsVersie) setItemsVersie(data.itemsVersie);
         if (data.versie && data.versie !== versieRef.current) await haalPrijzen();
       } catch {
@@ -111,59 +53,19 @@ export function useLive({ beginBits, beginPrijzen }) {
     const opnieuw = () => {
       if (document.visibilityState === "visible") vraag();
     };
-    const opslag = (e) => {
-      if (e.key === "pika-status") {
-        const lokaal = lsJSON("pika-status");
-        if (lokaal) zet(bitsVan(lokaal));
-      } else if (e.key === "pika-pending") {
-        pasToe(serverRef.current);
-      }
-    };
 
-    pasToe(serverRef.current);
     timer = setTimeout(vraag, INTERVAL[0]);
     document.addEventListener("visibilitychange", opnieuw);
     window.addEventListener("focus", opnieuw);
     window.addEventListener("online", opnieuw);
-    window.addEventListener("storage", opslag);
     return () => {
       actief = false;
       clearTimeout(timer);
       document.removeEventListener("visibilitychange", opnieuw);
       window.removeEventListener("focus", opnieuw);
       window.removeEventListener("online", opnieuw);
-      window.removeEventListener("storage", opslag);
     };
-  }, [pasToe, zet, haalPrijzen]);
+  }, [haalPrijzen]);
 
-  // Vinkje meteen tonen terwijl het wordt opgeslagen (statusObject = { w, b, o, a })
-  const zetLokaal = useCallback(
-    (id, statusObject) => {
-      const b = naarBits(statusObject);
-      lokaalRef.current[id] = b;
-      const volgende = { ...bitsRef.current };
-      if (b) volgende[id] = b;
-      else delete volgende[id];
-      zet(volgende);
-    },
-    [zet]
-  );
-  // Opslaan klaar: vanaf nu geldt weer de serverstand. Na een gelukte opslag houden we de eigen
-  // stand nog `vasthouden` ms aan, omdat een verversing die al onderweg was de oude stand geeft.
-  const klaarLokaal = useCallback((id, vasthouden = 0) => {
-    if (!vasthouden) {
-      delete lokaalRef.current[id];
-      return;
-    }
-    const waarde = lokaalRef.current[id];
-    setTimeout(() => {
-      if (lokaalRef.current[id] === waarde) delete lokaalRef.current[id];
-    }, vasthouden);
-  }, []);
-
-  const status = useMemo(
-    () => Object.fromEntries(Object.entries(bits).map(([id, b]) => [id, vanBits(b)])),
-    [bits]
-  );
-  return { status, prijsData, verbinding, puls, haalPrijzen, itemsVersie, zetLokaal, klaarLokaal };
+  return { prijsData, verbinding, puls, haalPrijzen, itemsVersie };
 }

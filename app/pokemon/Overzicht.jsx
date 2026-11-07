@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { dagwaarden, euro, itemPrijs, meldingStand, totalen } from "@/lib/pokemon/regels.mjs";
-import { VASTE_IDS, vasteVerzamelingVan } from "@/lib/pokemon/vast.mjs";
-import { schrijf } from "./_components/api";
+import { mapPositie } from "@/lib/pokemon/binders.mjs";
+import { PIKACHU, VASTE_IDS } from "@/lib/pokemon/vast.mjs";
 import ItemVenster from "./_components/ItemVenster";
 import KaartAfbeelding from "./_components/KaartAfbeelding";
-import KaartDetail, { datumKort, datumNL } from "./_components/KaartDetail";
+import { datumKort, datumNL } from "./_components/opmaak";
 import Kruimelpad from "./_components/Kruimelpad";
 import Meldingen from "./_components/Meldingen";
 import NieuweVerzameling from "./_components/NieuweVerzameling";
@@ -48,17 +48,16 @@ const BelIcoon = () => (
   </svg>
 );
 
-export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijzen, beginItems, beginMeldingen }) {
-  const live = useLive({ beginBits, beginPrijzen });
-  const { status, prijsData, verbinding, puls, haalPrijzen } = live;
+export default function Overzicht({ beginPrijzen, beginItems, beginMeldingen }) {
+  const live = useLive({ beginPrijzen });
+  const { prijsData, verbinding, puls, haalPrijzen } = live;
   const items = useItems(beginItems, live.itemsVersie);
-  const prijzen = prijsData?.prijzen ?? vastePrijzen;
+  const prijzen = useMemo(() => prijsData?.prijzen ?? {}, [prijsData]);
   const meta = prijsData?.meta ?? null;
   const reeks = prijsData?.reeks ?? null;
 
   const [tab, setTab] = useState("bezit");
   const [sortering, setSortering] = useState("waarde");
-  const [detail, setDetail] = useState(null);
   const [venster, setVenster] = useState(null); // { item } of { standaard }
   const [nieuweVerzameling, setNieuweVerzameling] = useState(false);
   const router = useRouter();
@@ -150,10 +149,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
     } catch {}
   }, []);
 
-  const t = useMemo(
-    () => totalen({ kaarten, status, prijzen, items: items.items }),
-    [kaarten, status, prijzen, items.items]
-  );
+  const t = useMemo(() => totalen({ prijzen, items: items.items }), [prijzen, items.items]);
   const itemPrijzen = useMemo(
     () => Object.fromEntries(items.items.map((i) => [i.id, itemPrijs(i, prijzen)])),
     [items.items, prijzen]
@@ -163,7 +159,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
   const verschil = useMemo(() => {
     if (!reeks || reeks.dagen.length < 2) return null;
     const bezitItems = items.items.filter((i) => i.status?.a);
-    const ids = [...kaarten.filter((k) => status[k.id]?.a).map((k) => k.id), ...bezitItems.map((i) => i.id)];
+    const ids = bezitItems.map((i) => i.id);
     const aantal = Object.fromEntries(bezitItems.map((i) => [i.id, i.aantal || 1]));
     const w = dagwaarden(ids, reeks, { ...prijzen, ...itemPrijzen }, aantal);
     const n = w.length;
@@ -172,39 +168,24 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       cent: w[n - 1] - w[n - 2],
       sinds: datumKort(vorigeDag) + (reeks.geschat?.includes(vorigeDag) ? " (geschat)" : ""),
     };
-  }, [reeks, kaarten, status, prijzen, items.items, itemPrijzen]);
+  }, [reeks, prijzen, items.items, itemPrijzen]);
 
-  // Eén lijst voor de galerij: kaarten uit de verzameling en zelf toegevoegde items
+  // Eén lijst voor de galerij. "Zoals in je map": eerst de Pikachu-binder op volgorde, dan de rest.
   const tegels = useMemo(
-    () => [
-      ...kaarten.map((k) => ({
-        id: k.id,
-        soort: "kaart",
-        label: "kaarten",
-        naam: k.n,
-        set: k.s,
-        nummer: k.nr,
-        img: k.img,
-        prijs: prijzen[k.id],
-        aantal: 1,
-        pos: k.pos,
-        status: status[k.id] || {},
-      })),
-      ...items.items.map((i, n) => ({
+    () =>
+      items.items.map((i, n) => ({
         id: i.id,
-        soort: "item",
         label: i.label,
         naam: i.naam,
         set: i.set,
         nummer: i.nummer,
-        img: i.img,
+        img: i.img ?? [],
         prijs: itemPrijzen[i.id],
         aantal: i.aantal || 1,
-        pos: 100000 + n,
+        pos: (i.verzameling === PIKACHU.id && mapPositie(i.map)) || 1_000_000 + n,
         status: i.status || {},
       })),
-    ],
-    [kaarten, prijzen, status, items.items, itemPrijzen]
+    [items.items, itemPrijzen]
   );
 
   const sorteer = (lijst) =>
@@ -238,82 +219,32 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
       .filter((l) => l.id !== "kaarten" && t.perLabel[l.id]?.bezit.n)
       .map((l) => `${t.perLabel[l.id].bezit.n} ${telwoord(l, t.perLabel[l.id].bezit.n)}`),
   ].join(" · ");
-  // Per verzameling: voortgang en waarde van wat je hebt. Pikachu en Japanse Pikachu = hun vaste
-  // kaarten (zonder verborgen) plus items; eigen verzamelingen bestaan alleen uit items.
+  // Per verzameling: voortgang en waarde van wat je hebt
   const verzamelingen = items.verzamelingen.map((v) => {
-    const verborgen = new Set(v.verborgen ?? []);
-    const vast = VASTE_IDS.has(v.id)
-      ? kaarten.filter((k) => vasteVerzamelingVan(k.list) === v.id && !verborgen.has(k.id))
-      : [];
     const eigen = items.items.filter((i) => i.verzameling === v.id);
     let afgerond = 0;
     let cent = 0;
-    for (const k of vast) {
-      if (status[k.id]?.a) {
-        afgerond++;
-        cent += prijzen[k.id]?.e ?? 0;
-      }
-    }
     for (const i of eigen) {
       if (i.status?.a) {
         afgerond++;
         cent += (itemPrijzen[i.id]?.e ?? 0) * (i.aantal || 1);
       }
     }
-    return { ...v, totaal: vast.length + eigen.length, afgerond, cent };
+    return { ...v, totaal: eigen.length, afgerond, cent };
   });
-  const detailKaart = detail ? kaarten.find((k) => k.id === detail) : null;
 
   // De stand van nu (koop je iets na de melding, dan staat er "In je vault")
-  const verborgenVast = useMemo(
-    () => new Set(items.verzamelingen.filter((v) => VASTE_IDS.has(v.id)).flatMap((v) => v.verborgen ?? [])),
-    [items.verzamelingen]
-  );
   const standVan = useCallback(
     (m) => {
-      if (m.soort === "kaart") return meldingStand(status[m.id], !verborgenVast.has(m.id)) ?? m.stand;
       const item = items.items.find((i) => i.id === m.id);
       return (item && meldingStand(item.status, !!item.verzameling)) ?? m.stand;
     },
-    [status, items.items, verborgenVast]
+    [items.items]
   );
-  function openMelding(m) {
-    if (m.soort === "kaart") {
-      if (kaarten.some((k) => k.id === m.id)) setDetail(m.id);
-      return;
-    }
-    const item = items.items.find((i) => i.id === m.id);
+  const openItem = (id) => {
+    const item = items.items.find((i) => i.id === id);
     if (item) setVenster({ item });
-  }
-
-  // Vinkje van een Pikachu-kaart wijzigen vanuit het detailvenster: meteen tonen, dan
-  // opslaan; bij een fout (bijv. geen token) terugzetten en de fout doorgeven.
-  async function wijzigKaart(id, veld, aan) {
-    const oud = status[id] || {};
-    const nieuw = { w: !!oud.w, b: !!oud.b, o: !!oud.o, a: !!oud.a, [veld]: aan };
-    live.zetLokaal(id, nieuw);
-    try {
-      await schrijf("/api/pikachu", { method: "PUT", body: { status: { [id]: nieuw } } });
-      live.klaarLokaal(id, 20_000);
-      // De Pikachu-pagina in deze browser houdt een eigen kopie bij
-      try {
-        const lokaal = JSON.parse(localStorage.getItem("pika-status") || "null");
-        if (lokaal && typeof lokaal === "object") {
-          lokaal[id] = nieuw;
-          localStorage.setItem("pika-status", JSON.stringify(lokaal));
-        }
-      } catch {}
-    } catch (e) {
-      live.zetLokaal(id, oud);
-      live.klaarLokaal(id);
-      throw e;
-    }
-  }
-
-  function openTegel(x) {
-    if (x.soort === "kaart") setDetail(x.id);
-    else setVenster({ item: items.items.find((i) => i.id === x.id) });
-  }
+  };
 
   async function nuVerversen() {
     let token = null;
@@ -440,7 +371,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
         </div>
         <Galerij
           lijst={kaartLijst}
-          onOpen={openTegel}
+          onOpen={(x) => openItem(x.id)}
           leeg={tab === "bezit" ? "Nog geen kaarten afgerond." : "Alles wat je betaald hebt, is binnen."}
         />
       </section>
@@ -455,7 +386,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
             </div>
             <Galerij
               lijst={lijst}
-              onOpen={openTegel}
+              onOpen={(x) => openItem(x.id)}
               leeg={
                 label.id === "etb"
                   ? "Nog geen ETB's. Voeg er een toe met + Toevoegen bij Mijn kaarten."
@@ -502,9 +433,10 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           Per kaart de Cardmarket-trend: de verkoopprijs van de laatste tijd in Europa (nooit de laagste
           prijs), elke nacht bijgewerkt uit de prijslijst van Cardmarket. Is de trend duidelijk kapot (meer
           dan 4× naast het gemiddelde van 30 dagen), dan telt dat gemiddelde. Elke kaart is gekoppeld aan
-          zijn eigen Cardmarket-product, ook varianten. Zonder prijs blijft de vaste prijs uit de lijst
-          staan. Bij een item dat je zelf toevoegt, kies je het Cardmarket-product; staat het er niet op,
-          dan telt de waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
+          zijn eigen Cardmarket-product, ook varianten; bij het toevoegen kies je dat product. Zonder
+          Cardmarket-prijs telt de prijs van het moment van toevoegen (bij de kaarten uit de
+          oorspronkelijke lijst de vaste prijs van 5 oktober), en staat iets niet op Cardmarket, dan de
+          waarde die je zelf invult. Gaat iets wat je hebt of nog wilt kopen flink omhoog of omlaag, dan zie je dat bij
           het belletje bovenaan, en als je dat aanzet ook als pushmelding.
         </p>
         {meta && (
@@ -513,7 +445,8 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
               Laatst ververst: {tijdstip(meta.tijd)} ({meta.status === "ok" ? "gelukt" : meta.status})
             </li>
             <li>
-              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.v} vaste prijs · {meta.tellingen.o} onbekend
+              {meta.tellingen.c ?? 0} Cardmarket · {meta.tellingen.v ?? 0} vaste prijs ·{" "}
+              {meta.tellingen.h ?? 0} eigen waarde · {meta.tellingen.o ?? 0} onbekend
             </li>
           </ul>
         )}
@@ -547,22 +480,12 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           drempel={meldingData.drempel ?? undefined}
           nieuwVanaf={nieuwVanaf}
           standVan={standVan}
-          onOpen={openMelding}
+          onOpen={(m) => openItem(m.id)}
           onDrempel={(drempel) => setMeldingData((d) => ({ ...d, drempel }))}
           onSluit={() => {
             setMeldingenOpen(false);
             setNieuwVanaf(null);
           }}
-        />
-      )}
-      {detailKaart && (
-        <KaartDetail
-          kaart={detailKaart}
-          prijs={prijzen[detailKaart.id]}
-          reeks={reeks}
-          status={status[detailKaart.id]}
-          onWijzig={wijzigKaart}
-          onSluit={() => setDetail(null)}
         />
       )}
       {venster && (
@@ -572,6 +495,7 @@ export default function Overzicht({ kaarten, beginBits, beginPrijzen, vastePrijz
           labels={items.labels}
           verzamelingen={items.verzamelingen}
           prijzen={prijzen}
+          reeks={reeks}
           acties={items}
           onSluit={() => setVenster(null)}
         />
@@ -602,7 +526,7 @@ function Galerij({ lijst, onOpen, leeg }) {
               onClick={() => onOpen(x)}
               aria-label={`${x.aantal > 1 ? x.aantal + "× " : ""}${x.naam}${x.set ? ", " + x.set : ""}${x.nummer ? " " + x.nummer : ""}, ${euro(totaal)}`}
             >
-              <span className={`kaartje-plaat${x.soort === "item" && !/^\d/.test(x.nummer || "") ? " product" : ""}`}>
+              <span className={`kaartje-plaat${x.nummer ? "" : " product"}`}>
                 <KaartAfbeelding key={x.img.join()} img={x.img} />
                 {x.aantal > 1 && <span className="kaartje-aantal">{x.aantal}×</span>}
                 {!x.status.a && (

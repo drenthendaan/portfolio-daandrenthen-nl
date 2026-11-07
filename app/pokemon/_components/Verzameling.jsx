@@ -3,19 +3,18 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { binderVan, BINDERS, EIGEN_VAKJES, leesMapcode, mapPositie } from "@/lib/pokemon/binders.mjs";
-import { itemPrijs, vanBits } from "@/lib/pokemon/regels.mjs";
+import { itemPrijs } from "@/lib/pokemon/regels.mjs";
 import { SECTIE_THEMA, themasVoor } from "@/lib/pokemon/themas.mjs";
 import { PIKACHU } from "@/lib/pokemon/vast.mjs";
 import { GeenToken } from "./api";
 import BinderWeergave from "./BinderWeergave";
 import ItemVenster from "./ItemVenster";
-import KaartDetail, { datumNL } from "./KaartDetail";
 import Kruimelpad from "./Kruimelpad";
+import { datumNL } from "./opmaak";
 import { useItems } from "./useItems";
 import "./verzameling.css";
 
-// Drie vinkjes per kaart: wantlist, betaald en afgerond. Onderweg (o) staat nog in de data
-// van de Pikachu-kaarten, maar wordt niet getoond; bij wijzigen blijft hij ongemoeid.
+// Drie vinkjes per kaart: wantlist, betaald en afgerond
 const FIELDS = [
   ["w", "Wantlist"],
   ["b", "Betaald"],
@@ -29,9 +28,6 @@ const SHOW = [
   ["a", "afgerond"],
 ];
 const LIVE_INTERVAL = 30_000;
-// Zo lang telt een net opgeslagen vinkje boven de serverstand: een verversing die al onderweg
-// was toen het opslaan klaar was, geeft nog de oude stand terug.
-const BEVESTIGD_MS = 20_000;
 const TOKEN = "pika-token";
 
 const lsGet = (k) => {
@@ -47,15 +43,6 @@ const lsSet = (k, v) => {
     else localStorage.setItem(k, v);
   } catch {}
 };
-const lsJSON = (k) => {
-  try {
-    const v = JSON.parse(lsGet(k) || "null");
-    return v && typeof v === "object" ? v : null;
-  } catch {
-    return null;
-  }
-};
-
 const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const eur = (n) => "€ " + Math.round(n).toLocaleString("nl-NL");
 const priceText = (n) =>
@@ -93,40 +80,17 @@ function prijsVoorTabel(p, aantal = 1) {
   return [(p.e * aantal) / 100, soort];
 }
 
-function zelfdeStatus(a, b) {
-  const ka = Object.keys(a);
-  if (ka.length !== Object.keys(b).length) return false;
-  return ka.every((k) => {
-    const x = a[k] || {};
-    const y = b[k] || {};
-    return !!x.w === !!y.w && !!x.b === !!y.b && !!x.o === !!y.o && !!x.a === !!y.a;
-  });
-}
-
-// Lijst van een verzameling: de vaste kaarten (alleen bij Pikachu en Japanse Pikachu) plus zelf
-// toegevoegde items, met thema's als tabbladen.
-//   vasteKaarten: [id, naam, set, nummer, prijs, prijstype, notitie, sectie, mapcode, positie]
-export default function Verzameling({
-  verzameling: beginVerzameling,
-  vasteKaarten = [],
-  vasteSecties = [],
-  seed = {},
-  beginItems,
-  beginPrijzen,
-}) {
+// Lijst van een verzameling: de items erin, met thema's als tabbladen.
+//   secties: bij Pikachu de secties van de oorspronkelijke lijst (naam en paginabereik per thema)
+export default function Verzameling({ verzameling: beginVerzameling, secties = [], beginItems, beginPrijzen }) {
   const id = beginVerzameling.id;
-  const heeftVast = vasteKaarten.length > 0;
+  const isPikachu = id === PIKACHU.id;
   const LS = useMemo(
     () =>
-      id === PIKACHU.id
-        ? { status: "pika-status", pending: "pika-pending", cat: "pika-cat", order: "pika-order", weergave: "pika-weergave" }
-        : {
-            ...(heeftVast ? { status: `pk-${id}-status`, pending: `pk-${id}-pending` } : {}),
-            cat: `pk-${id}-cat`,
-            order: `pk-${id}-order`,
-            weergave: `pk-${id}-weergave`,
-          },
-    [id, heeftVast]
+      isPikachu
+        ? { cat: "pika-cat", order: "pika-order", weergave: "pika-weergave" }
+        : { cat: `pk-${id}-cat`, order: `pk-${id}-order`, weergave: `pk-${id}-weergave` },
+    [id, isPikachu]
   );
   const router = useRouter();
 
@@ -136,8 +100,7 @@ export default function Verzameling({
   const [prijsData, setPrijsData] = useState(beginPrijzen);
   const prijzen = prijsData?.prijzen ?? null;
 
-  const [status, setStatus] = useState(seed);
-  const [cat, setCat] = useState(id === PIKACHU.id ? "wizards" : "ALL");
+  const [cat, setCat] = useState(isPikachu ? "wizards" : "ALL");
   const [order, setOrder] = useState("map");
   const [show, setShow] = useState("all");
   const [q, setQ] = useState("");
@@ -148,7 +111,6 @@ export default function Verzameling({
   const [bewerken, setBewerken] = useState(false);
   const [weergave, setWeergave] = useState("lijst"); // "lijst" of "map"
   const [binderPagina, setBinderPagina] = useState(1);
-  const [detailRij, setDetailRij] = useState(null); // kaart in het venster vanuit de map
   const [binderType, setBinderType] = useState(beginVerzameling.binder?.type ?? "");
   const [eigenBinder, setEigenBinder] = useState({
     naam: beginVerzameling.binder?.naam ?? "",
@@ -159,12 +121,6 @@ export default function Verzameling({
   const [themaInvoer, setThemaInvoer] = useState("");
   const [instelMelding, setInstelMelding] = useState("");
 
-  const statusRef = useRef(seed);
-  const pendingRef = useRef({});
-  const bevestigdRef = useRef({}); // net opgeslagen: { id: { v, tot } }
-  const timerRef = useRef(null);
-  const busyRef = useRef(false);
-  const importRef = useRef(null);
   const tabsRef = useRef(null);
   const prijsVersieRef = useRef(beginPrijzen?.versie ?? null);
 
@@ -172,29 +128,20 @@ export default function Verzameling({
 
   const themas = useMemo(() => {
     const lijst = themasVoor(verzameling);
-    if (!heeftVast) return lijst;
-    // Pikachu: namen en pagina's uit de secties van de collectie
-    const sectie = Object.fromEntries(vasteSecties.map((s) => [SECTIE_THEMA[s.id], s]));
+    if (!secties.length) return lijst;
+    // Pikachu: namen en pagina's uit de secties van de oorspronkelijke lijst
+    const sectie = Object.fromEntries(secties.map((s) => [SECTIE_THEMA[s.id], s]));
     return lijst.map((t) =>
       sectie[t.id]
         ? { ...t, naam: sectie[t.id].name, kort: SHORT[sectie[t.id].id] ?? t.kort, pages: sectie[t.id].pages }
         : t
     );
-  }, [verzameling, heeftVast, vasteSecties]);
+  }, [verzameling, secties]);
   const themaIndex = useMemo(() => Object.fromEntries(themas.map((t, i) => [t.id, i])), [themas]);
   const eigenThemaIds = useMemo(() => new Set((verzameling.themas ?? []).map((t) => t.id)), [verzameling.themas]);
-  const verborgen = useMemo(() => new Set(verzameling.verborgen ?? []), [verzameling.verborgen]);
 
-  // Eén rijformaat: [id, naam, set, nummer, prijs €, soort, notitie, thema, mapcode, positie,
-  // isItem, plaatjes, TCGplayer-product, Cardmarket-product]
-  const vasteRijen = useMemo(
-    () =>
-      vasteKaarten.map((c) => {
-        const [prijs, soort] = prijzen?.[c[0]] ? prijsVoorTabel(prijzen[c[0]]) : [c[4], c[5]];
-        return [c[0], c[1], c[2], c[3], prijs, soort, c[6], SECTIE_THEMA[c[7]], c[8], c[9], false, c[10] ?? [], c[11] ?? null, c[12] ?? null];
-      }),
-    [vasteKaarten, prijzen]
-  );
+  // Eén rij per item: [id, naam, set, nummer, prijs €, soort, notitie, thema, mapcode, positie,
+  // (vrij), plaatjes, TCGplayer-product, Cardmarket-product, label]
   const eigenItems = useMemo(() => items.items.filter((i) => i.verzameling === id), [items.items, id]);
   const itemRijen = useMemo(
     () =>
@@ -208,23 +155,20 @@ export default function Verzameling({
           i.nummer ?? "",
           prijs,
           soort,
-          null,
+          i.notitie ?? null,
           i.thema ?? (i.label === "etb" ? "etb" : "overig"),
           i.map,
           mapPositie(i.map) ?? 100000 + n,
-          true,
+          null,
           i.img ?? [],
           i.tp?.product ?? null,
           i.cm?.id ?? null,
+          i.label,
         ];
       }),
     [eigenItems, prijzen]
   );
-  const alleRijen = useMemo(
-    () => [...vasteRijen.filter((r) => !verborgen.has(r[0])), ...itemRijen],
-    [vasteRijen, itemRijen, verborgen]
-  );
-  const verborgenRijen = vasteRijen.filter((r) => verborgen.has(r[0]));
+  const alleRijen = itemRijen;
   const rijenPerThema = useMemo(() => {
     const m = {};
     for (const r of alleRijen) (m[r[7]] ??= []).push(r);
@@ -235,7 +179,7 @@ export default function Verzameling({
     () => Object.fromEntries(items.items.map((i) => [i.id, i.status || {}])),
     [items.items]
   );
-  const statusVan = (rid) => (rid.startsWith("i") ? itemStatus[rid] || {} : status[rid] || {});
+  const statusVan = (rid) => itemStatus[rid] || {};
 
   // Tabbladen: thema's met kaarten, eigen thema's, en bij Pikachu ook altijd ETB's en Overig
   const metaVan = (t) => (t.pages ? pagesText(t.pages) : "");
@@ -243,100 +187,22 @@ export default function Verzameling({
     {
       id: "ALL",
       short: "Alles",
-      name: heeftVast ? "Hele verzameling" : verzameling.naam,
-      meta: id === PIKACHU.id ? "in de binder" : "",
+      name: isPikachu ? "Hele verzameling" : verzameling.naam,
+      meta: isPikachu ? "in de binder" : "",
     },
     ...themas
       .filter(
         (t) =>
           rijenPerThema[t.id]?.length ||
           eigenThemaIds.has(t.id) ||
-          (id === PIKACHU.id && (t.id === "etb" || t.id === "overig"))
+          (isPikachu && (t.id === "etb" || t.id === "overig"))
       )
       .map((t) => ({ id: t.id, short: t.kort ?? t.naam, name: t.naam, meta: metaVan(t) })),
   ];
   const actief = cats.some((c) => c.id === cat) ? cat : "ALL";
   const rowsFor = (cid) => (cid === "ALL" ? alleRijen : rijenPerThema[cid] ?? []);
 
-  // ---------- Vinkjes van de vaste kaarten (Pikachu) ----------
-
-  const applyStatus = useCallback(
-    (next) => {
-      statusRef.current = next;
-      setStatus(next);
-      if (LS.status) lsSet(LS.status, JSON.stringify(next));
-    },
-    [LS]
-  );
-
-  const savePending = useCallback(() => {
-    if (!LS.pending) return;
-    lsSet(LS.pending, Object.keys(pendingRef.current).length ? JSON.stringify(pendingRef.current) : null);
-  }, [LS]);
-
-  const flush = useCallback(async () => {
-    timerRef.current = null;
-    if (busyRef.current) return;
-    // Een kopie: wat tijdens het opslaan wordt aangevinkt, komt in pendingRef en gaat erna mee
-    const patch = { ...pendingRef.current };
-    if (!Object.keys(patch).length) return;
-    const token = lsGet(TOKEN);
-    if (!token) {
-      setAskToken(true);
-      setSaveMsg("Alleen op dit apparaat bewaard – voer je token in");
-      return;
-    }
-    busyRef.current = true;
-    setSaveMsg("Opslaan…");
-    try {
-      const res = await fetch("/api/pikachu", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", "x-pikachu-token": token },
-        body: JSON.stringify({ status: patch }),
-      });
-      if (res.status === 401) {
-        lsSet(TOKEN, null);
-        setAskToken(true);
-        setSaveMsg("Token klopt niet – voer hem opnieuw in");
-      } else if (!res.ok) {
-        throw new Error(String(res.status));
-      } else {
-        // Alleen weghalen wat sinds het versturen niet opnieuw is gewijzigd
-        const tot = Date.now() + BEVESTIGD_MS;
-        for (const k of Object.keys(patch)) {
-          bevestigdRef.current[k] = { v: patch[k], tot };
-          if (pendingRef.current[k] === patch[k]) delete pendingRef.current[k];
-        }
-        savePending();
-        setSaveMsg("Opgeslagen");
-      }
-    } catch {
-      setSaveMsg("Niet opgeslagen – offline, wordt opnieuw geprobeerd");
-      timerRef.current = setTimeout(flush, 10000);
-    } finally {
-      busyRef.current = false;
-    }
-    if (Object.keys(pendingRef.current).length && !timerRef.current && lsGet(TOKEN)) {
-      timerRef.current = setTimeout(flush, 600);
-    }
-  }, [savePending]);
-
-  const queue = useCallback(
-    (changes) => {
-      const next = { ...statusRef.current };
-      for (const [k, v] of Object.entries(changes)) {
-        next[k] = v;
-        pendingRef.current[k] = v;
-      }
-      applyStatus(next);
-      savePending();
-      clearTimeout(timerRef.current);
-      timerRef.current = setTimeout(flush, 600);
-    },
-    [applyStatus, savePending, flush]
-  );
-
-  // ---------- Live: vinkjes, prijzen en items ----------
+  // ---------- Live: prijzen en items ----------
 
   const vraagLive = useCallback(async () => {
     try {
@@ -347,19 +213,6 @@ export default function Verzameling({
       }
       if (!res.ok) throw new Error(String(res.status));
       const data = await res.json();
-      if (heeftVast) {
-        // De serverstand is compleet: wat niet in de bits staat, staat uit. Net opgeslagen en
-        // nog niet verstuurde vinkjes gaan voor.
-        const server = Object.fromEntries(vasteKaarten.map((c) => [c[0], vanBits(data.status?.[c[0]] ?? 0)]));
-        const nu = Date.now();
-        const bevestigd = {};
-        for (const [k, x] of Object.entries(bevestigdRef.current)) {
-          if (x.tot > nu) bevestigd[k] = x.v;
-          else delete bevestigdRef.current[k];
-        }
-        const next = { ...server, ...bevestigd, ...pendingRef.current };
-        if (!zelfdeStatus(next, statusRef.current)) applyStatus(next);
-      }
       if (data.itemsVersie) setItemsVersieLive(data.itemsVersie);
       if (data.versie && data.versie !== prijsVersieRef.current) {
         const pr = await fetch("/api/pokemon/prijzen", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null));
@@ -368,13 +221,11 @@ export default function Verzameling({
           setPrijsData(pr);
         }
       }
-      if (!Object.keys(pendingRef.current).length) {
-        setSaveMsg((m) => (m.startsWith("Token") || m.startsWith("Voer") || m.startsWith("Alleen") ? m : "Opgeslagen"));
-      }
+      setSaveMsg((m) => (m.startsWith("Offline") ? "" : m));
     } catch {
       setSaveMsg("Offline – je ziet de stand van dit apparaat");
     }
-  }, [heeftVast, vasteKaarten, applyStatus]);
+  }, []);
 
   // Opstarten: eerst de lokale stand, dan de database
   useEffect(() => {
@@ -384,13 +235,7 @@ export default function Verzameling({
     const volgorde = lsGet(LS.order);
     if (volgorde === "map" || volgorde === "price") setOrder(volgorde);
     if (lsGet(LS.weergave) === "map") setWeergave("map");
-    if (heeftVast) {
-      pendingRef.current = lsJSON(LS.pending) ?? {};
-      applyStatus({ ...seed, ...(lsJSON(LS.status) ?? {}), ...pendingRef.current });
-    }
-    vraagLive().then(() => {
-      if (Object.keys(pendingRef.current).length) flush();
-    });
+    vraagLive();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -406,19 +251,17 @@ export default function Verzameling({
     const zichtbaar = () => {
       if (document.visibilityState === "visible") vraagLive();
     };
-    const online = () => flush();
     document.addEventListener("visibilitychange", zichtbaar);
     window.addEventListener("focus", zichtbaar);
-    window.addEventListener("online", online);
+    window.addEventListener("online", zichtbaar);
     return () => {
       bezig = false;
       clearTimeout(timer);
-      clearTimeout(timerRef.current);
       document.removeEventListener("visibilitychange", zichtbaar);
       window.removeEventListener("focus", zichtbaar);
-      window.removeEventListener("online", online);
+      window.removeEventListener("online", zichtbaar);
     };
-  }, [vraagLive, flush]);
+  }, [vraagLive]);
 
   useEffect(() => {
     tabsRef.current
@@ -455,23 +298,15 @@ export default function Verzameling({
     }
   };
 
-  // Vinkje wijzigen vanuit het kaartvenster in de map
-  async function wijzigVanuitVenster(rid, veld, aan) {
-    if (rid.startsWith("i")) return items.zetStatus(rid, veld, aan);
-    if (!lsGet(TOKEN)) throw new GeenToken("Voer je token in om op te slaan");
-    queue({ [rid]: { ...statusRef.current[rid], [veld]: aan } });
-  }
+  const openItem = (iid) => {
+    const item = items.items.find((i) => i.id === iid);
+    if (item) setVenster({ item });
+  };
   const chooseOrder = (v) => {
     setOrder(v);
     lsSet(LS.order, v);
   };
-  const toggle = (rid, f, checked) => {
-    if (rid.startsWith("i")) {
-      items.zetStatus(rid, f, checked).catch(toonFout);
-      return;
-    }
-    queue({ [rid]: { ...statusRef.current[rid], [f]: checked } });
-  };
+  const toggle = (rid, f, checked) => items.zetStatus(rid, f, checked).catch(toonFout);
 
   const submitToken = (e) => {
     e.preventDefault();
@@ -480,20 +315,14 @@ export default function Verzameling({
     lsSet(TOKEN, t);
     setTokenInput("");
     setAskToken(false);
-    setSaveMsg("");
-    flush();
+    setSaveMsg("Token bewaard. Probeer het opnieuw.");
   };
 
   async function verwijderRij(r) {
-    const [rid, naam, , , , , , , , , isItem] = r;
+    const [rid, naam] = r;
     try {
-      if (isItem) {
-        if (!window.confirm(`"${naam}" verwijderen?`)) return;
-        await items.verwijder(rid);
-      } else {
-        if (!window.confirm(`"${naam}" uit de lijst halen? Je kunt hem terugzetten onder ‘Verborgen kaarten’.`)) return;
-        await items.wijzigVerzameling(id, { verberg: rid });
-      }
+      if (!window.confirm(`"${naam}" verwijderen?`)) return;
+      await items.verwijder(rid);
     } catch (e) {
       toonFout(e);
     }
@@ -509,48 +338,6 @@ export default function Verzameling({
       setInstelMelding(e.message);
     }
   }
-
-  const exportJSON = () => {
-    const blob = new Blob(
-      [JSON.stringify({ exported: new Date().toISOString(), status: statusRef.current }, null, 2)],
-      { type: "application/json" }
-    );
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = `${id}-status-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(a.href);
-  };
-
-  const importJSON = async (e) => {
-    const file = e.target.files?.[0];
-    e.target.value = "";
-    if (!file) return;
-    try {
-      const data = JSON.parse(await file.text());
-      let incoming = data?.status ?? data;
-      // Ook het volledige collectiebestand (cards[].status met lange sleutels)
-      if (Array.isArray(data?.cards)) {
-        incoming = Object.fromEntries(
-          data.cards.map((c) => [
-            c.id,
-            { w: !!c.status?.wantlist, b: !!c.status?.paid, o: !!c.status?.shipped, a: !!c.status?.owned },
-          ])
-        );
-      }
-      const changes = {};
-      for (const [k, v] of Object.entries(incoming || {})) {
-        if (!(k in seed) || !v || typeof v !== "object") continue;
-        changes[k] = { w: v.w === true, b: v.b === true, o: v.o === true, a: v.a === true };
-      }
-      const n = Object.keys(changes).length;
-      if (!n) throw new Error("leeg");
-      if (!window.confirm(`${n} kaarten importeren en de huidige vinkjes daarvan overschrijven?`)) return;
-      queue(changes);
-    } catch {
-      setSaveMsg("Importeren lukte niet: geen geldig bestand");
-    }
-  };
 
   // ---------- Afgeleide gegevens ----------
 
@@ -571,8 +358,8 @@ export default function Verzameling({
   const prices = all.map((c) => c[4]).filter((p) => p !== null);
   const total = prices.reduce((a, b) => a + b, 0);
   const current = cats.find((c) => c.id === actief) ?? cats[0];
-  // "36 kaarten", "2 items" of "426 kaarten en 2 items"
-  const nItems = all.filter((c) => c[10]).length;
+  // "36 kaarten", "2 items" of "426 kaarten en 2 items" (items: alles wat geen kaart is)
+  const nItems = all.filter((c) => c[14] !== "kaarten").length;
   const meervoud = (n, een, veel) => n + " " + (n === 1 ? een : veel);
   const aantalTekst =
     nItems && nItems < all.length
@@ -586,7 +373,7 @@ export default function Verzameling({
     " · samen ± " +
     eur(total);
   const extra =
-    !all.length && !heeftVast ? "Nog leeg. Voeg kaarten, ETB's of andere items toe met + Toevoegen." : null;
+    !all.length && !isPikachu ? "Nog leeg. Voeg kaarten, ETB's of andere items toe met + Toevoegen." : null;
 
   const countOf = (f) => all.filter((c) => statusVan(c[0])[f]).length;
   const filtered = nq || show !== "all";
@@ -637,7 +424,7 @@ export default function Verzameling({
         card={c}
         v={statusVan(c[0])}
         onToggle={toggle}
-        onEdit={(iid) => setVenster({ item: items.items.find((i) => i.id === iid) })}
+        onEdit={openItem}
         bewerken={bewerken}
         onWeg={verwijderRij}
       />
@@ -806,7 +593,7 @@ export default function Verzameling({
                 plekken={plekken}
                 pagina={binderPagina}
                 onPagina={setBinderPagina}
-                onOpen={(k) => setDetailRij(k.rij)}
+                onOpen={(k) => openItem(k.id)}
               />
             ) : (
               <p className="geen-binder">
@@ -820,7 +607,7 @@ export default function Verzameling({
                 <ul>
                   {buitenMap.map((r) => (
                     <li key={r[0]}>
-                      <button type="button" onClick={() => setDetailRij(r)}>
+                      <button type="button" onClick={() => openItem(r[0])}>
                         {r[1]}
                       </button>
                       {r[2] ? ` · ${r[2]}` : ""}
@@ -838,8 +625,7 @@ export default function Verzameling({
         <p className="count">
           <span aria-live="polite">
             {(filtered ? list.length + " van " + all.length : aantalTekst) +
-              (mapOrder ? (binder ? " · volgorde van je map" : " · per thema") : " · goedkoopste eerst") +
-              (verborgen.size ? ` · ${verborgen.size} verborgen` : "")}
+              (mapOrder ? (binder ? " · volgorde van je map" : " · per thema") : " · goedkoopste eerst")}
           </span>
           {saveMsg && (
             <span className="saved" role="status">
@@ -892,39 +678,14 @@ export default function Verzameling({
         </>
         )}
 
-        {weergave === "lijst" && bewerken && verborgenRijen.length > 0 && (
-          <div className="verborgen">
-            <h3>Verborgen kaarten ({verborgenRijen.length})</h3>
-            <ul>
-              {verborgenRijen.map((r) => (
-                <li key={r[0]}>
-                  <span>
-                    <b>{r[1]}</b>
-                    <small>
-                      {r[2]}
-                      {r[3] ? ", " + r[3] : ""}
-                    </small>
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => instelling(() => items.wijzigVerzameling(id, { toon: r[0] }))}
-                  >
-                    Terugzetten
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
         <details className="info">
-          <summary>Uitleg en instellingen{heeftVast ? ", opslag en bronnen" : ""}</summary>
+          <summary>Uitleg en instellingen{isPikachu ? " en bronnen" : ""}</summary>
           <p className="legend">
             Prijzen zijn de Cardmarket-trend (de verkoopprijs van de laatste tijd in Europa, nooit de
             laagste prijs), elke nacht bijgewerkt. Heeft Cardmarket geen prijs, dan staat de prijs uit de
             lijst er (&lsquo;vaste prijs&rsquo;). Een ? betekent dat er geen prijs
-            bekend is. Tik op een vakje om iets af te vinken, en op de naam van een
-            toegevoegd item om het te bewerken. &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
+            bekend is. Tik op een vakje om iets af te vinken, en op de naam om de kaart te bewerken
+            (aantal, aankoopprijs, mapplek, Cardmarket-product). &ldquo;Map 1.7&rdquo; betekent pagina 1, vakje 7: vakjes
             1–3 zijn de bovenste rij, 4–6 de middelste en 7–9 de onderste.
           </p>
 
@@ -1061,22 +822,8 @@ export default function Verzameling({
             </p>
           )}
 
-          {heeftVast && (
+          {isPikachu && (
             <>
-              <h3>Opslag</h3>
-              <p>
-                Je vinkjes staan in de database, zodat telefoon en laptop gelijk blijven. Hier kun je
-                een reservekopie maken of terugzetten.
-              </p>
-              <div className="tools">
-                <button type="button" onClick={exportJSON}>
-                  Exporteer JSON
-                </button>
-                <button type="button" onClick={() => importRef.current?.click()}>
-                  Importeer JSON
-                </button>
-                <input ref={importRef} type="file" accept="application/json,.json" hidden onChange={importJSON} />
-              </div>
               <h3>Waar de gegevens vandaan komen</h3>
               <ul>
                 <li>
@@ -1094,24 +841,6 @@ export default function Verzameling({
         </details>
       </section>
 
-      {detailRij &&
-        (() => {
-          const r = detailRij;
-          const item = r[10] ? items.items.find((i) => i.id === r[0]) : null;
-          const prijs = item
-            ? itemPrijs(item, prijzen ?? {})
-            : prijzen?.[r[0]] ?? (r[4] != null ? { e: Math.round(r[4] * 100), t: "v" } : null);
-          return (
-            <KaartDetail
-              kaart={{ id: r[0], n: r[1], s: r[2], nr: r[3], img: r[11] ?? [], map: r[8], note: r[6], tp: r[12], cm: r[13] }}
-              prijs={prijs}
-              reeks={prijsData?.reeks}
-              status={statusVan(r[0])}
-              onWijzig={wijzigVanuitVenster}
-              onSluit={() => setDetailRij(null)}
-            />
-          );
-        })()}
       {venster && (
         <ItemVenster
           item={venster.item ?? null}
@@ -1119,6 +848,7 @@ export default function Verzameling({
           labels={items.labels}
           verzamelingen={items.verzamelingen}
           prijzen={prijzen ?? {}}
+          reeks={prijsData?.reeks}
           acties={items}
           onSluit={() => setVenster(null)}
         />
@@ -1128,7 +858,7 @@ export default function Verzameling({
 }
 
 function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
-  const [id, name, set, number, price, ptype, note, , code, , isItem] = card;
+  const [id, name, set, number, price, ptype, note, , code] = card;
   const setline = set + (number ? (set ? ", " : "") + number : "");
   return (
     <tr className={v.a ? "done" : undefined}>
@@ -1143,13 +873,9 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
         </td>
       )}
       <td>
-        {isItem ? (
-          <button type="button" className="name itemnaam" onClick={() => onEdit(id)}>
-            {name}
-          </button>
-        ) : (
-          <span className="name">{name}</span>
-        )}
+        <button type="button" className="name itemnaam" onClick={() => onEdit(id)}>
+          {name}
+        </button>
         {setline && <span className="set">{setline}</span>}
         {note && <span className="note">{note}</span>}
         {code && <span className="map">Map {code}</span>}
@@ -1166,7 +892,7 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
       ))}
       {bewerken && (
         <td className="weg">
-          <button type="button" onClick={() => onWeg(card)} aria-label={`${isItem ? "Verwijder" : "Verberg"} ${name}`}>
+          <button type="button" onClick={() => onWeg(card)} aria-label={`Verwijder ${name}`}>
             ×
           </button>
         </td>
