@@ -535,6 +535,7 @@ function Galerij({ lijst, onOpen, leeg }) {
               </span>
               <span className="kaartje-naam">{x.naam}</span>
               {x.set && <span className="kaartje-set">{x.set}</span>}
+              {x.nummer && <span className="kaartje-nr">{x.nummer}</span>}
               <span className="kaartje-prijs">
                 {euro(totaal)}
                 {prijsLabel(p) && <small> {prijsLabel(p)}</small>}

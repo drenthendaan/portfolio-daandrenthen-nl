@@ -34,6 +34,7 @@
 .pika .kaartje-plaat img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .pika .kaartje-naam { font-size: .8rem; font-weight: 700; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .pika .kaartje-set { font-size: .72rem; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pika .kaartje-nr { align-self: flex-start; margin-top: .2rem; font-size: .68rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: .05rem .4rem; }
 .pika .kaartje-prijs { font-size: .85rem; font-weight: 800; font-variant-numeric: tabular-nums; }
 .pika .kaartje-prijs small { font-size: .68rem; font-weight: 600; color: var(--cheek); }
 .pika .leeg { color: var(--soft); font-size: .9rem; margin: .5rem 0; }
