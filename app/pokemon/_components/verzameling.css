@@ -38,6 +38,7 @@
 .pika .name { display: block; font-weight: 600; }
 .pika .set { display: block; font-size: .9rem; color: var(--soft); }
 .pika .note { display: block; font-size: .85rem; color: var(--cheek); }
+.pika .elders { display: block; font-size: .8rem; color: var(--soft); }
 .pika .map { display: inline-block; margin-top: .25rem; font-size: .75rem; font-weight: 700; padding: .08rem .45rem; border-radius: 999px; background: color-mix(in srgb, var(--volt) 30%, transparent); color: var(--ink); }
 .pika .empty { padding: 1.4rem .4rem; color: var(--soft); }
 .pika tr.done td { background: color-mix(in srgb, var(--volt) 12%, transparent); }

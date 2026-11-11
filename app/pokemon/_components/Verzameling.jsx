@@ -169,6 +169,17 @@ export default function Verzameling({ verzameling: beginVerzameling, secties = [
     [eigenItems, prijzen]
   );
   const alleRijen = itemRijen;
+  // Hetzelfde Cardmarket-product in een andere verzameling: "Ook 2× in Pikachu-verzameling".
+  // Een kaart zit in één binder; zo zie je dat je hem elders al hebt.
+  const elders = useMemo(() => {
+    const naam = Object.fromEntries(items.verzamelingen.map((v) => [v.id, v.naam]));
+    const per = {};
+    for (const i of items.items) {
+      if (!i.cm?.id || i.verzameling === id || !i.status?.a) continue;
+      (per[i.cm.id] ??= []).push(`${i.aantal || 1}× in ${naam[i.verzameling] ?? "je kaarten zonder verzameling"}`);
+    }
+    return per;
+  }, [items.items, items.verzamelingen, id]);
   const rijenPerThema = useMemo(() => {
     const m = {};
     for (const r of alleRijen) (m[r[7]] ??= []).push(r);
@@ -423,6 +434,7 @@ export default function Verzameling({ verzameling: beginVerzameling, secties = [
         key={c[0]}
         card={c}
         v={statusVan(c[0])}
+        elders={c[13] ? elders[c[13]] : null}
         onToggle={toggle}
         onEdit={openItem}
         bewerken={bewerken}
@@ -857,7 +869,7 @@ export default function Verzameling({ verzameling: beginVerzameling, secties = [
   );
 }
 
-function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
+function CardRow({ card, v, elders, onToggle, onEdit, bewerken, onWeg }) {
   const [id, name, set, number, price, ptype, note, , code] = card;
   const setline = set + (number ? (set ? ", " : "") + number : "");
   return (
@@ -878,6 +890,7 @@ function CardRow({ card, v, onToggle, onEdit, bewerken, onWeg }) {
         </button>
         {setline && <span className="set">{setline}</span>}
         {note && <span className="note">{note}</span>}
+        {elders && <span className="elders">Ook {elders.join(", ")}</span>}
         {code && <span className="map">Map {code}</span>}
       </td>
       {FIELDS.map(([f, label]) => (
