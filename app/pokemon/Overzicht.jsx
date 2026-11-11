@@ -184,12 +184,19 @@ export default function Overzicht({ beginPrijzen, beginItems, beginMeldingen }) 
         aantal: i.aantal || 1,
         pos: (i.verzameling === PIKACHU.id && mapPositie(i.map)) || 1_000_000 + n,
         status: i.status || {},
+        // Dezelfde kaart (zelfde Cardmarket-product, of anders zelfde set, nummer en naam) in
+        // verschillende verzamelingen is in het overzicht één tegel
+        soort: i.cm?.id
+          ? `cm:${i.cm.id}:${i.cm.holo ? 1 : 0}`
+          : i.nummer
+            ? `kaart:${i.set}|${i.nummer}|${i.naam}`
+            : `id:${i.id}`,
       })),
     [items.items, itemPrijzen]
   );
 
   const sorteer = (lijst) =>
-    lijst.sort((x, y) =>
+    samen(lijst).sort((x, y) =>
       sortering === "map"
         ? x.pos - y.pos
         : (y.prijs?.e ?? -1) * y.aantal - (x.prijs?.e ?? -1) * x.aantal
@@ -509,6 +516,22 @@ export default function Overzicht({ beginPrijzen, beginItems, beginMeldingen }) 
       )}
     </div>
   );
+}
+
+// Voegt tegels van dezelfde kaart samen: de aantallen tellen op, de eerste plek in de map telt
+function samen(lijst) {
+  const per = new Map();
+  for (const x of lijst) {
+    const al = per.get(x.soort);
+    if (!al) per.set(x.soort, { ...x });
+    else {
+      al.aantal += x.aantal;
+      al.pos = Math.min(al.pos, x.pos);
+      if (al.prijs?.e == null && x.prijs?.e != null) al.prijs = x.prijs;
+      if (!al.img.length && x.img.length) al.img = x.img;
+    }
+  }
+  return [...per.values()];
 }
 
 function Galerij({ lijst, onOpen, leeg }) {
