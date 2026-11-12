@@ -1560,3 +1560,35 @@ body:has(.trip),
   color: var(--accent-tekst);
   border-bottom-color: var(--accent);
 }
+
+/* ---- Het actiemenu mag buiten zijn kaartje vallen ---- */
+/* overflow: hidden gaf nette ronde hoeken, maar knipte het uitklapmenu af.
+   De hoeken komen nu van de onderdelen zelf. */
+.trip .dag {
+  overflow: visible;
+}
+
+.trip .dagbalk {
+  border-radius: 11px;
+}
+
+.trip .stop:first-of-type {
+  border-radius: 0;
+}
+
+/* Een kaartje met een open menu moet boven de kaartjes eronder liggen */
+.trip .dag:has(.actiemenu),
+.trip .reiskop:has(.actiemenu) {
+  position: relative;
+  z-index: 30;
+}
+
+.trip .acties {
+  z-index: 31;
+}
+
+/* Valt het menu onderaan het scherm, dan klapt het omhoog */
+.trip .actiemenu {
+  max-height: min(70vh, 420px);
+  overflow-y: auto;
+}
