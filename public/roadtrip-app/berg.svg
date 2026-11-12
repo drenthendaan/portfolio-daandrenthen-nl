@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Roadtrip">
+  <!-- Leisteen met een zandkleurige bergkam. Donker, zodat het tabblad opvalt
+       tussen de witte favicons, en rustig genoeg om niet te schreeuwen. -->
+  <rect width="64" height="64" rx="14" fill="#3b3530"/>
+  <!-- Twee toppen in één silhouet. Geen sneeuwgrens erin: op deze maat werd dat
+       een streepje dat als barst las, en de V tussen de toppen doet het werk al. -->
+  <path d="M6 50 L23 23 L33 38 L41 26 L58 50 Z" fill="#fae7db"/>
+</svg>

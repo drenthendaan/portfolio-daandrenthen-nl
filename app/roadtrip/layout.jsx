@@ -14,13 +14,13 @@ export const metadata = {
   // Eigen icoon voor deze sectie, zodat een tabblad met een reis herkenbaar is
   // tussen de rest. De root-layout zet het portfolio-icoon; dit overschrijft dat.
   icons: {
-    icon: [{ url: "/roadtrip-app/route.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/roadtrip-app/route.svg" }],
+    icon: [{ url: "/roadtrip-app/berg.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/roadtrip-app/berg.svg" }],
   },
 };
 
 export const viewport = {
-  themeColor: "#f3f4f3",
+  themeColor: "#f4f1ed",
   colorScheme: "light",
 };
 
