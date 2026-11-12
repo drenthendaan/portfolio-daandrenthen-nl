@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
 import { Omlaag, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
+import PlaatsZoeker from "./PlaatsZoeker";
 
 const STATUSNAAM = { idee: "Idee", gepland: "Gepland", geboekt: "Geboekt" };
 
@@ -56,6 +57,16 @@ export default function DagKaart({
   if (!stop) return null;
 
   const zet = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.value }));
+
+  // Een naam die je zelf al typte laten we staan; de rest vult de zoeker in
+  const kiesPlek = (plek) =>
+    setV((oud) => ({
+      ...oud,
+      naam: oud.naam.trim() ? oud.naam : plek.naam,
+      adres: plek.adres ?? oud.adres,
+      lat: String(plek.lat),
+      lon: String(plek.lon),
+    }));
   const uitslag = pastVoertuig(stop.max, voertuig);
   const notitieGewijzigd = (tekst ?? "") !== (notitie ?? "");
 
@@ -157,6 +168,8 @@ export default function DagKaart({
 
       {bewerken ? (
         <form className="dagvelden" onSubmit={bewaarStop}>
+          <PlaatsZoeker id={`z-${stop.id}`} onKies={kiesPlek} />
+
           <div className="velden">
             <div style={{ gridColumn: "1 / -1" }}>
               <label htmlFor={`n-${stop.id}`}>Waar sta je</label>

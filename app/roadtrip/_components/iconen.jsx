@@ -98,3 +98,10 @@ export const Greep = ({ size = 16 }) => (
     <path d="M8 6h.01M8 12h.01M8 18h.01M16 6h.01M16 12h.01M16 18h.01" />
   </svg>
 );
+
+export const Zoek = ({ size = 16 }) => (
+  <svg {...basis} width={size} height={size}>
+    <circle cx="10.5" cy="10.5" r="6" />
+    <path d="M15 15l4.5 4.5" strokeLinecap="round" />
+  </svg>
+);

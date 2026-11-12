@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PlaatsZoeker from "./PlaatsZoeker";
 
 const leeg = {
   naam: "",
@@ -43,6 +44,16 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
   const bewerken = !!stop;
 
   const zet = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.value }));
+
+  // Een naam die je zelf al typte laten we staan; de rest vult de zoeker in
+  const kiesPlek = (plek) =>
+    setV((oud) => ({
+      ...oud,
+      naam: oud.naam.trim() ? oud.naam : plek.naam,
+      adres: plek.adres ?? oud.adres,
+      lat: String(plek.lat),
+      lon: String(plek.lon),
+    }));
 
   const verstuur = async (e) => {
     e.preventDefault();
@@ -88,6 +99,8 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
         borderRadius: 12,
       }}
     >
+      <PlaatsZoeker id="sf-zoek" onKies={kiesPlek} />
+
       <div className="velden">
         <div style={{ gridColumn: "1 / -1" }}>
           <label htmlFor="sf-naam">Naam</label>

@@ -1844,3 +1844,124 @@ body:has(.trip),
     overflow: visible;
   }
 }
+
+/* ---- Een plek zoeken in plaats van coördinaten opzoeken ---- */
+.trip .zoeker {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.trip .zoekveld {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+}
+
+.trip .zoekveld:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 74, 20, 0.14);
+}
+
+.trip .zoekveld > svg {
+  flex: 0 0 auto;
+  color: var(--zacht);
+}
+
+/* Het veld heeft zijn eigen rand al via .zoekveld; die van het invoerveld eraf */
+.trip .zoekveld input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  padding: 9px 0;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  color: var(--inkt);
+}
+
+.trip .zoekveld input:focus {
+  outline: none;
+}
+
+.trip .zoekstand {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--zacht);
+}
+
+/* De lijst zweeft boven de velden eronder, anders duwt hij het formulier op */
+.trip .treffers {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  top: calc(100% + 5px);
+  max-height: 264px;
+  overflow-y: auto;
+  padding: 5px;
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  box-shadow: 0 10px 26px rgba(20, 22, 26, 0.14);
+}
+
+.trip .treffers button {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  padding: 8px 9px;
+  border: 0;
+  border-radius: 7px;
+  background: none;
+  font: inherit;
+  color: var(--inkt);
+  text-align: left;
+  cursor: pointer;
+}
+
+.trip .treffers button.aangewezen {
+  background: var(--zacht-vlak);
+}
+
+.trip .treffers button > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--accent);
+}
+
+.trip .treffers button span {
+  display: block;
+  min-width: 0;
+}
+
+.trip .treffers button strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.trip .treffers button small {
+  display: block;
+  margin-top: 1px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--zacht);
+}
+
+.trip .geenTreffers,
+.trip .zoekmelding {
+  margin: 0;
+  padding: 9px;
+  font-size: 12.5px;
+  color: var(--zacht);
+}
+
+.trip .zoekmelding {
+  padding: 6px 0 0;
+  color: var(--accent-tekst);
+}
