@@ -1,0 +1,15 @@
+{
+  "name": "Roadtrip",
+  "short_name": "Roadtrip",
+  "description": "Reizen plannen met dagen, stops en een kaart",
+  "start_url": "/roadtrip",
+  "scope": "/roadtrip",
+  "display": "standalone",
+  "background_color": "#f4f1ed",
+  "theme_color": "#f4f1ed",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/roadtrip-app/berg-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/roadtrip-app/berg-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

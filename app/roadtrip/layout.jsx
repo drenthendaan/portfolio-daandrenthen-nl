@@ -15,8 +15,13 @@ export const metadata = {
   // tussen de rest. De root-layout zet het portfolio-icoon; dit overschrijft dat.
   icons: {
     icon: [{ url: "/roadtrip-app/berg.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/roadtrip-app/berg.svg" }],
+    // iOS kan geen SVG als homescreen-icoon; stond hier een .svg, dan sloeg het
+    // die over en pakte het portfolio-icoon uit de hoofdlayout. Vandaar een PNG.
+    apple: [{ url: "/roadtrip-app/berg-180.png", sizes: "180x180", type: "image/png" }],
   },
+  // Zonder deze regel erft /roadtrip de manifest van het portfolio: op Android
+  // kreeg je dan dat icoon én opende de snelkoppeling de homepagina.
+  manifest: "/roadtrip-app/manifest.json",
 };
 
 export const viewport = {

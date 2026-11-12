@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Roadtrip">
+  <!-- Bronbestand voor de PNG's van het homescreen. Geen ronde hoeken: iOS en
+       Android leggen hun eigen masker eroverheen. De berg staat daarom ook wat
+       kleiner, binnen de veilige zone die zo'n masker overlaat. -->
+  <rect width="64" height="64" fill="#3b3530"/>
+  <path d="M12 46 L25 25 L33 37 L39 27 L52 46 Z" fill="#fae7db"/>
+</svg>
