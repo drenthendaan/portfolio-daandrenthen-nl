@@ -2,15 +2,19 @@
    Warme aardetinten met terracotta als accent — een eigen huid, net als .pika. */
 body:has(.trip),
 .trip {
+  /* De neutralen trekken naar warm. Ze waren blauwig (#5f646c, #e6e7e9), en
+     een terracotta accent in een koel grijs kader leest grauw: de twee bijten
+     elkaar. Zelfde lichtheid, alleen de kleurzweem gedraaid — zo blijft het
+     rustig en voelt het niet langer kil. */
   --papier: #ffffff;
-  --grond: #f3f4f3;
-  --zacht-vlak: #fbfbfa;
-  --inkt: #14161a;
-  --inkt-2: #33373d;
-  --zacht: #5f646c;
-  --lijn: #e6e7e9;
-  --lijn-licht: #f0f1f2;
-  --rand: #d3d5d9;
+  --grond: #f4f1ed;
+  --zacht-vlak: #fbf9f6;
+  --inkt: #1a1613;
+  --inkt-2: #3b3530;
+  --zacht: #6b635b;
+  --lijn: #e8e2da;
+  --lijn-licht: #f1ebe4;
+  --rand: #d7cfc4;
   /* Fel oranje als accent; voor tekst een donkerdere variant, anders haalt
      hij het contrast niet op wit. */
   --accent: #ff4a14;
@@ -18,8 +22,8 @@ body:has(.trip),
   --accent-vlak: #ffeee8;
   --diep: #0f7a5a;
   --diep-tekst: #0b6447;
-  --idee: #a9aeb5;
-  --idee-tekst: #6a6f77;
+  --idee: #b2a99e;
+  --idee-tekst: #74695e;
   --let-vlak: #fff6e0;
   --let-lijn: #f5e3b8;
   --let-tekst: #7a5500;
@@ -772,7 +776,7 @@ body:has(.trip),
   position: relative;
   align-self: stretch;
   min-height: 420px;
-  background: #e8eaec;
+  background: #e9e4dd;
 }
 
 .trip .kaart {
@@ -1270,7 +1274,7 @@ body:has(.trip),
 
 /* ---- Spelden op de kaart ---- */
 .trip .kaartvak {
-  background: #eceef0;
+  background: #ece7e0;
 }
 
 /* MapLibre schrijft zijn eigen transform op dit element om de speld op de

@@ -22,12 +22,14 @@ function Schets({ stops }) {
       viewBox="0 0 132 86"
       width="132"
       height="86"
-      style={{ flex: "0 0 auto", borderRadius: 6, background: "#e9ebec" }}
+      style={{ flex: "0 0 auto", borderRadius: 6, background: "#efe8de" }}
       aria-hidden="true"
     >
-      <rect width="132" height="86" fill="#e9ebec" />
-      <path d="M0 0h132v30c-24 10-40-6-66 2S30 48 0 38z" fill="#dfe4de" />
-      <path d="M0 62c22-6 34 8 56 2s40-18 62-10v32H0z" fill="#d4dde2" />
+      {/* Zand, heuvels en water — in dezelfde warme tinten als de rest, want
+          dit blokje is het grootste gekleurde vlak op het overzicht. */}
+      <rect width="132" height="86" fill="#efe8de" />
+      <path d="M0 0h132v30c-24 10-40-6-66 2S30 48 0 38z" fill="#e2dbc9" />
+      <path d="M0 62c22-6 34 8 56 2s40-18 62-10v32H0z" fill="#cfdad8" />
       {punten ? (
         <>
           <polyline
