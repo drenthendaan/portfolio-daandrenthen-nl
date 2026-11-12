@@ -231,17 +231,17 @@ body:has(.trip),
   flex: 0 0 auto;
 }
 
-.trip .stand.geboekt {
+.trip .stand.betaald {
   color: var(--diep-tekst);
 }
-.trip .stand.geboekt .bol {
+.trip .stand.betaald .bol {
   background: var(--diep);
 }
-.trip .stand.gepland {
-  color: var(--accent-tekst);
+.trip .stand.open {
+  color: var(--nee-tekst);
 }
-.trip .stand.gepland .bol {
-  background: var(--accent);
+.trip .stand.open .bol {
+  background: var(--nee-tekst);
 }
 .trip .stand.idee {
   color: var(--idee-tekst);
@@ -1304,12 +1304,12 @@ body:has(.trip),
   transform-origin: 50% 50%;
 }
 
-.trip .speld[data-status="geboekt"] {
+.trip .speld[data-betaald="ja"] {
   background: var(--diep);
 }
 
-.trip .speld[data-status="idee"] {
-  background: var(--idee);
+.trip .speld[data-betaald="nee"] {
+  background: var(--nee-tekst);
 }
 
 /* Een plek zonder dag staat nog nergens: kleine stip, buiten de route */
@@ -1699,6 +1699,13 @@ body:has(.trip),
   font-variant-numeric: tabular-nums;
 }
 
+/* Het pijltje achteraan; stond eerder zonder opmaak en sprong op een telefoon
+   naar voren, omdat een flexitem zonder order vóór order 1 komt. */
+.trip .dagtoggle > svg {
+  flex: 0 0 auto;
+  color: var(--zacht);
+}
+
 .trip .dagtoggle .bol {
   flex: 0 0 8px;
   width: 8px;
@@ -1706,9 +1713,8 @@ body:has(.trip),
   border-radius: 50%;
 }
 
-.trip .dagtoggle .bol.geboekt { background: var(--diep); }
-.trip .dagtoggle .bol.gepland { background: var(--accent); }
-.trip .dagtoggle .bol.idee { background: var(--idee); }
+.trip .dagtoggle .bol.betaald { background: var(--diep); }
+.trip .dagtoggle .bol.open { background: var(--nee-tekst); }
 
 .trip .daginhoud,
 .trip .dagvelden {
@@ -1824,6 +1830,10 @@ body:has(.trip),
   .trip .dagtoggle .bol {
     order: 2;
     margin-left: auto;
+  }
+
+  .trip .dagtoggle > svg {
+    order: 3;
   }
 
   .trip .dagtoggle .waar {

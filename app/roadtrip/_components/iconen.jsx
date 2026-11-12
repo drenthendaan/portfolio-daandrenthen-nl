@@ -112,3 +112,12 @@ export const Potlood = ({ size = 15 }) => (
     <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
   </svg>
 );
+
+// Een kader met een pijl eruit: deze regel opent een venster
+export const Openen = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13.5 4H20v6.5" />
+    <path d="M20 4l-8.5 8.5" />
+    <path d="M16.5 13.5v4A2.5 2.5 0 0 1 14 20H6.5A2.5 2.5 0 0 1 4 17.5V10a2.5 2.5 0 0 1 2.5-2.5h4" />
+  </svg>
+);

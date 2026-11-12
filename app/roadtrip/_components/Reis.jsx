@@ -175,8 +175,8 @@ export default function Reis({ begin, etappes = {} }) {
             <p className="kerncijfers">
               {telling.nachten} {telling.nachten === 1 ? "nacht" : "nachten"} ·{" "}
               {euro(telling.kosten) ?? "€ 0"} ·{" "}
-              <span className={telling.geboekt === telling.plekken ? "af" : undefined}>
-                {telling.geboekt} van {telling.plekken} geboekt
+              <span className={telling.betaald === telling.plekken ? "af" : undefined}>
+                {telling.betaald} van {telling.plekken} betaald
               </span>
             </p>
           ) : null}
@@ -279,8 +279,8 @@ export default function Reis({ begin, etappes = {} }) {
                     <strong>{euro(telling.kosten) ?? "€ 0"}</strong>
                   </div>
                   <div className="rij">
-                    <span>Nog niet geboekt</span>
-                    <strong>{telling.plekken - telling.geboekt}</strong>
+                    <span>Nog niet betaald</span>
+                    <strong>{telling.plekken - telling.betaald}</strong>
                   </div>
                 </div>
 

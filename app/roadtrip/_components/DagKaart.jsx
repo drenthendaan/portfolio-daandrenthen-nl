@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
-import { Pijl, Potlood, Waarschuwing } from "./iconen";
+import { Openen, Potlood, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
 
-const STATUSNAAM = { idee: "Idee", gepland: "Gepland", geboekt: "Geboekt" };
+// Of de plek al afgerekend is; dat is het enige wat een stop nog "staat"
+const BETAALDNAAM = { ja: "Betaald", nee: "Niet betaald" };
 
 const uitStop = (stop) => ({
   naam: stop?.naam ?? "",
-  status: stop?.status ?? "gepland",
   dag: stop?.dag ?? "",
   nachten: stop?.nachten ?? "",
   prijs: stop?.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
@@ -77,7 +77,6 @@ export default function DagKaart({
   const notitieGewijzigd = (tekst ?? "") !== (notitie ?? "");
 
   const regels = [
-    ["Status", STATUSNAAM[stop.status] ?? stop.status],
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
     ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
@@ -96,7 +95,6 @@ export default function DagKaart({
     const gelukt = await onBewaar({
       id: stop.id,
       naam: v.naam,
-      status: v.status,
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
@@ -152,10 +150,10 @@ export default function DagKaart({
           <span className="waar">{stop.naam}</span>
           {rit ? <span className="rit">{rit.km.toLocaleString("nl-NL")} km</span> : null}
           {/* De kleur alleen zegt een voorleesprogramma niets, dus het woord staat erbij */}
-          <span className={`bol ${stop.status}`} aria-hidden="true" />
-          <span className="verborgen">{STATUSNAAM[stop.status]}</span>
-          {/* Hetzelfde pijltje als bij een reis op /roadtrip: deze regel opent iets */}
-          <Pijl size={16} />
+          <span className={`bol ${stop.betaald ? "betaald" : "open"}`} aria-hidden="true" />
+          <span className="verborgen">{stop.betaald ? "Betaald" : "Niet betaald"}</span>
+          {/* Een kader met een pijl eruit: deze regel opent een venster */}
+          <Openen size={15} />
         </button>
       </div>
 
@@ -185,14 +183,6 @@ export default function DagKaart({
               <div>
                 <label htmlFor={`na-${stop.id}`}>Nachten</label>
                 <input id={`na-${stop.id}`} type="number" min="1" value={v.nachten} onChange={zet("nachten")} />
-              </div>
-              <div>
-                <label htmlFor={`st-${stop.id}`}>Status</label>
-                <select id={`st-${stop.id}`} value={v.status} onChange={zet("status")}>
-                  <option value="idee">Idee</option>
-                  <option value="gepland">Gepland</option>
-                  <option value="geboekt">Geboekt</option>
-                </select>
               </div>
               <div>
                 <label htmlFor={`p-${stop.id}`}>Prijs</label>
@@ -249,11 +239,11 @@ export default function DagKaart({
               label={`Acties voor dag ${dag.nr}`}
               items={[
                 // Bewerken staat al als knop onderin, dus hier alleen de rest
-                ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
+                ...Object.entries(BETAALDNAAM).map(([id, naam]) => ({
                   naam,
-                  nu: stop.status === id,
-                  uit: stop.status === id,
-                  doe: () => onBewaar({ id: stop.id, status: id }),
+                  nu: stop.betaald === (id === "ja"),
+                  uit: stop.betaald === (id === "ja"),
+                  doe: () => onBewaar({ id: stop.id, betaald: id === "ja" }),
                 })),
                 { scheiding: true },
                 { naam: "Dag verwijderen", gevaar: true, doe: wegDirect },

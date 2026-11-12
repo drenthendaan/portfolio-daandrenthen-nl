@@ -5,7 +5,6 @@ import PlaatsZoeker from "./PlaatsZoeker";
 
 const leeg = {
   naam: "",
-  status: "gepland",
   dag: "1",
   nachten: "",
   prijs: "",
@@ -23,7 +22,6 @@ const uitStop = (stop) =>
     ? leeg
     : {
         naam: stop.naam ?? "",
-        status: stop.status ?? "gepland",
         dag: stop.dag ?? "",
         nachten: stop.nachten ?? "",
         prijs: stop.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
@@ -65,7 +63,6 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
     const velden = {
       naam: v.naam,
       soort: "overnachting",
-      status: v.status,
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
@@ -104,14 +101,6 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
         <div>
           <label htmlFor="sf-dag">Dag</label>
           <input id="sf-dag" type="number" min="1" required value={v.dag} onChange={zet("dag")} />
-        </div>
-        <div>
-          <label htmlFor="sf-status">Status</label>
-          <select id="sf-status" value={v.status} onChange={zet("status")}>
-            <option value="idee">Idee</option>
-            <option value="gepland">Gepland</option>
-            <option value="geboekt">Geboekt</option>
-          </select>
         </div>
                   <div>
             <label htmlFor="sf-nachten">Nachten</label>

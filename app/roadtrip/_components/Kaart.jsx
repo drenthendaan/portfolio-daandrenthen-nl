@@ -169,7 +169,7 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
             }
           }
           el.textContent = label;
-          el.dataset.status = stop.status;
+          el.dataset.betaald = stop.betaald ? "ja" : "nee";
           el.classList.toggle("los", !inRoute(stop));
           el.title = stop.naam;
           bestaand.stop = stop;
@@ -186,7 +186,7 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
         el.type = "button";
         el.className = `speld${inRoute(stop) ? "" : " los"}`;
         el.textContent = label;
-        el.dataset.status = stop.status;
+        el.dataset.betaald = stop.betaald ? "ja" : "nee";
         el.title = stop.naam;
         wikkel.appendChild(el);
 
