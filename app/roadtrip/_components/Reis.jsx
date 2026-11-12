@@ -16,15 +16,13 @@ import Rail from "./Rail";
 import TokenVak from "./TokenVak";
 import Dagdetail from "./Dagdetail";
 import StopFormulier from "./StopFormulier";
+import StopRegel from "./StopRegel";
 import ReisInstellingen from "./ReisInstellingen";
-import Acties from "./Acties";
 import {
-  Greep,
   Omlaag,
   PijlTerug,
   Rijden,
   VERVOERICOON,
-  Waarschuwing,
 } from "./iconen";
 
 // MapLibre heeft window nodig, dus alleen in de browser laden
@@ -66,71 +64,6 @@ const dagTitel = (dag, van) => {
   return eind ? `${nummers} · ${start} t/m ${eind}` : `${nummers} · ${start}`;
 };
 
-const STATUSNAAM = { idee: "Idee", gepland: "Gepland", geboekt: "Geboekt" };
-
-function Stop({ stop, voertuig, nummer, mag, onBewerk, onStatus, onDag, onWeg }) {
-  const uitslag = pastVoertuig(stop.max, voertuig);
-  // Het soort staat al in de vorm van de speld, dus dat herhalen we niet
-  const sub = [
-    stop.nachten ? `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}` : null,
-    stop.adres,
-    stop.notitie,
-  ]
-    .filter(Boolean)
-    .join(" · ");
-
-  const acties = [
-    { naam: "Bewerken", doe: () => onBewerk(stop) },
-    { scheiding: true },
-    ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
-      naam,
-      nu: stop.status === id,
-      uit: stop.status === id,
-      doe: () => onStatus(stop, id),
-    })),
-    { scheiding: true },
-    stop.dag
-      ? { naam: "Terug naar de lijst", doe: () => onDag(stop, null) }
-      : { naam: "Aan een dag koppelen", doe: () => onBewerk(stop) },
-    { naam: "Verwijderen", gevaar: true, doe: () => onWeg(stop) },
-  ];
-
-  return (
-    <div className="stop">
-      <span
-        className={`pin ${stop.status}${stop.soort === "overnachting" ? "" : " leeg"}`}
-        title={STATUSNAAM[stop.status] ?? stop.status}
-      >
-        {nummer ?? ""}
-      </span>
-      <div className="body">
-        <div className="regel">
-          <h3>
-            {mag ? (
-              <button type="button" className="alsLink" onClick={() => onBewerk(stop)}>
-                {stop.naam}
-              </button>
-            ) : (
-              stop.naam
-            )}
-          </h3>
-          {stop.prijs ? <span className="prijs">{euro(stop.prijs)}</span> : null}
-        </div>
-        {sub ? <p className="sub">{sub}</p> : null}
-        {!uitslag.past ? (
-          <p className="past-niet">
-            <Waarschuwing /> Past niet
-            {uitslag.problemen.map((p) => (
-              <span key={p.veld}>{p.tekst}</span>
-            ))}
-          </p>
-        ) : null}
-      </div>
-      {mag ? <Acties label={`Acties voor ${stop.naam}`} items={acties} /> : null}
-    </div>
-  );
-}
-
 export default function Reis({ begin, etappes = {} }) {
   const { versie: versieLive, verbinding } = useLive(begin?.versie);
   const reisData = useReis(begin, versieLive);
@@ -143,7 +76,7 @@ export default function Reis({ begin, etappes = {} }) {
   const [mag, setMag] = useState(false);
   const [toevoegen, setToevoegen] = useState(false);
   const [actief, setActief] = useState(null);
-  const [bewerkStop, setBewerkStop] = useState(null);
+  const [openStop, setOpenStop] = useState(null);
   const [instellingen, setInstellingen] = useState(false);
   const wachtend = useRef(null);
 
@@ -330,16 +263,16 @@ export default function Reis({ begin, etappes = {} }) {
                       {uit ? (
                         <>
                           {dag.stops.map((stop) => (
-                            <Stop
+                            <StopRegel
                               key={stop.id}
                               stop={stop}
-                              voertuig={reis.voertuig}
                               nummer={nummers.get(stop.id)}
+                              voertuig={reis.voertuig}
                               mag={mag}
-                              onBewerk={setBewerkStop}
-                              onStatus={(s, status) => metToken(() => bewaarStop({ id: s.id, status }))}
-                              onDag={(s, nr) => metToken(() => bewaarStop({ id: s.id, dag: nr }))}
-                              onWeg={(s) => metToken(() => verwijderStop(s.id))}
+                              open={openStop === stop.id}
+                              onToggle={setOpenStop}
+                              onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                              onWeg={(id) => metToken(() => verwijderStop(id))}
                             />
                           ))}
 
@@ -360,40 +293,21 @@ export default function Reis({ begin, etappes = {} }) {
                     <h2 className="groepkop" style={{ marginTop: 0 }}>
                       Nog zonder dag
                     </h2>
-                    <ul className="kaartlijst">
+                    <div className="dag">
                       {ideeen.map((los) => (
-                        <li key={los.id}>
-                          <Greep />
-                          <div style={{ flexGrow: 1, minWidth: 0 }}>
-                            <h3>
-                              {mag ? (
-                                <button type="button" className="alsLink" onClick={() => setBewerkStop(los)}>
-                                  {los.naam}
-                                </button>
-                              ) : (
-                                los.naam
-                              )}
-                            </h3>
-                            {los.notitie ? <p>{los.notitie}</p> : null}
-                          </div>
-                          {los.prijs ? <span className="prijs">{euro(los.prijs)}</span> : null}
-                          {mag ? (
-                            <Acties
-                              label={`Acties voor ${los.naam}`}
-                              items={[
-                                { naam: "Bewerken", doe: () => setBewerkStop(los) },
-                                { scheiding: true },
-                                {
-                                  naam: "Verwijderen",
-                                  gevaar: true,
-                                  doe: () => metToken(() => verwijderStop(los.id)),
-                                },
-                              ]}
-                            />
-                          ) : null}
-                        </li>
+                        <StopRegel
+                          key={los.id}
+                          stop={los}
+                          nummer={null}
+                          voertuig={reis.voertuig}
+                          mag={mag}
+                          open={openStop === los.id}
+                          onToggle={setOpenStop}
+                          onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                          onWeg={(id) => metToken(() => verwijderStop(id))}
+                        />
                       ))}
-                    </ul>
+                    </div>
                   </section>
                 ) : null}
               </>
@@ -464,16 +378,10 @@ export default function Reis({ begin, etappes = {} }) {
 
 
             <div style={{ marginTop: 18 }}>
-              {toevoegen || bewerkStop ? (
+              {toevoegen ? (
                 <StopFormulier
-                  key={bewerkStop?.id ?? "nieuw"}
-                  stop={bewerkStop}
                   onBewaar={(velden) => metToken(() => bewaarStop(velden))}
-                  onVerwijder={(id) => metToken(() => verwijderStop(id))}
-                  onSluit={() => {
-                    setToevoegen(false);
-                    setBewerkStop(null);
-                  }}
+                  onSluit={() => setToevoegen(false)}
                 />
               ) : (
                 <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>

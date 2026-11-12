@@ -466,7 +466,7 @@ body:has(.trip),
   font-variant-numeric: tabular-nums;
 }
 
-.trip .stop .pin.leeg {
+.trip .stop .pin.stip {
   background: none;
   border: 1.5px dashed var(--idee);
   color: var(--idee-tekst);
@@ -1025,7 +1025,7 @@ body:has(.trip),
   border: 1.5px solid var(--idee);
   color: var(--idee-tekst);
 }
-.trip .stop .pin.leeg {
+.trip .stop .pin.stip {
   width: 10px;
   height: 10px;
   margin: 7px 7px 0;
@@ -1033,8 +1033,8 @@ body:has(.trip),
   border-width: 2px;
   font-size: 0;
 }
-.trip .stop .pin.leeg.geboekt,
-.trip .stop .pin.leeg.gepland {
+.trip .stop .pin.stip.geboekt,
+.trip .stop .pin.stip.gepland {
   border: 0;
 }
 
@@ -1154,4 +1154,115 @@ body:has(.trip),
   .trip .velden {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---- Stop: dicht een regel, open een formulier ---- */
+.trip .stop {
+  padding: 0;
+  display: block;
+}
+
+.trip .stopbalk {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trip .stopbalk .naam {
+  flex-grow: 1;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--inkt);
+}
+
+.trip .stopbalk .naam small {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--zacht);
+  margin-top: 2px;
+}
+
+.trip .stopbalk svg {
+  flex: 0 0 auto;
+  color: var(--zacht);
+  transition: transform 0.18s ease;
+}
+
+.trip .stopbalk[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.trip .stop.open {
+  background: var(--zacht-vlak);
+}
+
+.trip .stopvelden {
+  padding: 2px 14px 14px;
+}
+
+.trip .stopknoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.trip .stopknoppen .gevaar {
+  margin-left: auto;
+}
+
+.trip .stop .past-niet {
+  margin: 0 14px 12px;
+}
+
+/* De balk draagt nu de uitklapknop en het menu naast elkaar */
+.trip .stopbalk {
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 0;
+}
+
+.trip .stoptoggle {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+  min-width: 0;
+  padding: 11px 6px 11px 14px;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trip .stoptoggle svg {
+  flex: 0 0 auto;
+  color: var(--zacht);
+  transition: transform 0.18s ease;
+}
+
+.trip .stoptoggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.trip .stopbalk .acties .actieknop {
+  opacity: 0;
+}
+
+.trip .stop:hover .actieknop,
+.trip .stop:focus-within .actieknop,
+.trip .stop.open .actieknop {
+  opacity: 1;
 }
