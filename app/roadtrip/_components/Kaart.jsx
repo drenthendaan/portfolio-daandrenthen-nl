@@ -113,7 +113,7 @@ export default function Kaart({ stops = [], midden, actief, onKiesStop }) {
           id: "route-lijn",
           type: "line",
           source: "route",
-          paint: { "line-color": "#b4552f", "line-width": 3.4 },
+          paint: { "line-color": "#ff4a14", "line-width": 3.4 },
           layout: { "line-cap": "round", "line-join": "round" },
         });
       }
@@ -135,11 +135,6 @@ export default function Kaart({ stops = [], midden, actief, onKiesStop }) {
   return (
     <div className="kaartvak">
       <div ref={vak} className="kaart" />
-      {!MAPTILER ? (
-        <p className="kaartnoot">
-          Kaart van OpenStreetMap. Met een MapTiler-sleutel krijg je een eigen stijl.
-        </p>
-      ) : null}
     </div>
   );
 }

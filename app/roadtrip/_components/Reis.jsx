@@ -18,6 +18,7 @@ import TokenVak from "./TokenVak";
 import Dagdetail from "./Dagdetail";
 import StopFormulier from "./StopFormulier";
 import ReisInstellingen from "./ReisInstellingen";
+import Acties from "./Acties";
 import {
   Greep,
   Omlaag,
@@ -42,38 +43,71 @@ const TABS = [
   { id: "dagen", naam: "Dagen" },
   { id: "route", naam: "Route" },
   { id: "praktisch", naam: "Praktisch" },
-  { id: "ideeen", naam: "Ideeën" },
 ];
 
-const datumVanDag = (van, nr) => {
+const datumVanDag = (van, nr, opties = {}) => {
   if (!van || !nr) return null;
   const d = new Date(`${van}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + (nr - 1));
   return d.toLocaleDateString("nl-NL", {
     weekday: "short",
     day: "numeric",
-    month: "long",
+    month: opties.kort ? undefined : "long",
     timeZone: "UTC",
   });
 };
 
-function Stop({ stop, voertuig, nummer, onBewerk }) {
+// "Dag 4 t/m 6 · wo 7 t/m vr 9 juli" als je blijft staan, anders gewoon "Dag 1"
+const dagTitel = (dag, van) => {
+  const meer = dag.tot > dag.nr;
+  const nummers = meer ? `Dag ${dag.nr} t/m ${dag.tot}` : `Dag ${dag.nr}`;
+  const start = datumVanDag(van, dag.nr, { kort: meer });
+  if (!start) return nummers;
+  const eind = meer ? datumVanDag(van, dag.tot) : null;
+  return eind ? `${nummers} · ${start} t/m ${eind}` : `${nummers} · ${start}`;
+};
+
+const STATUSNAAM = { idee: "Idee", gepland: "Gepland", geboekt: "Geboekt" };
+
+function Stop({ stop, voertuig, nummer, mag, onBewerk, onStatus, onDag, onWeg }) {
   const uitslag = pastVoertuig(stop.max, voertuig);
+  // Het soort staat al in de vorm van de speld, dus dat herhalen we niet
   const sub = [
-    stop.soort === "overnachting" ? "Overnachting" : stop.soort === "servicepunt" ? "Servicepunt" : "Bezienswaardigheid",
     stop.nachten ? `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}` : null,
     stop.adres,
+    stop.notitie,
   ]
     .filter(Boolean)
     .join(" · ");
 
+  const acties = [
+    { naam: "Bewerken", doe: () => onBewerk(stop) },
+    { scheiding: true },
+    ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
+      naam,
+      nu: stop.status === id,
+      uit: stop.status === id,
+      doe: () => onStatus(stop, id),
+    })),
+    { scheiding: true },
+    stop.dag
+      ? { naam: "Terug naar de lijst", doe: () => onDag(stop, null) }
+      : { naam: "Aan een dag koppelen", doe: () => onBewerk(stop) },
+    { naam: "Verwijderen", gevaar: true, doe: () => onWeg(stop) },
+  ];
+
   return (
     <div className="stop">
-      <span className={`pin${stop.soort === "overnachting" ? "" : " leeg"}`}>{nummer ?? "·"}</span>
+      <span
+        className={`pin ${stop.status}${stop.soort === "overnachting" ? "" : " leeg"}`}
+        title={STATUSNAAM[stop.status] ?? stop.status}
+      >
+        {nummer ?? ""}
+      </span>
       <div className="body">
         <div className="regel">
           <h3>
-            {onBewerk ? (
+            {mag ? (
               <button type="button" className="alsLink" onClick={() => onBewerk(stop)}>
                 {stop.naam}
               </button>
@@ -84,10 +118,6 @@ function Stop({ stop, voertuig, nummer, onBewerk }) {
           {stop.prijs ? <span className="prijs">{euro(stop.prijs)}</span> : null}
         </div>
         {sub ? <p className="sub">{sub}</p> : null}
-        <span className={`stand ${stop.status}`}>
-          <span className="bol" />
-          {stop.status === "geboekt" ? "Geboekt" : stop.status === "gepland" ? "Gepland" : "Idee"}
-        </span>
         {!uitslag.past ? (
           <p className="past-niet">
             <Waarschuwing /> Past niet
@@ -97,6 +127,7 @@ function Stop({ stop, voertuig, nummer, onBewerk }) {
           </p>
         ) : null}
       </div>
+      {mag ? <Acties label={`Acties voor ${stop.naam}`} items={acties} /> : null}
     </div>
   );
 }
@@ -244,7 +275,6 @@ export default function Reis({ begin, etappes = {} }) {
                 onClick={() => setTab(t.id)}
               >
                 {t.naam}
-                {t.id === "ideeen" && ideeen.length ? ` · ${ideeen.length}` : ""}
               </button>
             ))}
           </div>
@@ -276,18 +306,13 @@ export default function Reis({ begin, etappes = {} }) {
 
             {tab === "dagen" ? (
               <>
-                <p className="uitleg">
-                  Elke dag toont waar je heen rijdt en waar je staat. Klik een dag open
-                  voor notities en wat je daar wilt doen.
-                </p>
-
                 {dagen.length === 0 ? (
                   <p className="leeg">Nog geen dagen ingepland.</p>
                 ) : null}
 
                 {dagen.map((dag) => {
                   const uit = open === dag.nr;
-                  const datum = datumVanDag(reis.van, dag.nr);
+                  const titel = dagTitel(dag, reis.van);
                   const rit = etappes[dag.nr];
                   return (
                     <div className="dag" key={dag.nr}>
@@ -297,9 +322,9 @@ export default function Reis({ begin, etappes = {} }) {
                         aria-expanded={uit}
                         onClick={() => setOpen(uit ? null : dag.nr)}
                       >
-                        <span className="nr">
-                          Dag {dag.nr}
-                          {datum ? ` · ${datum}` : ""}
+                        <span className="nr">{titel}</span>
+                        <span className="waar">
+                          {dag.overnachting ? dag.overnachting.naam : `${dag.stops.length} stops`}
                         </span>
                         <span className="rit">
                           {rit ? (
@@ -311,38 +336,82 @@ export default function Reis({ begin, etappes = {} }) {
                               {String(rit.minuten % 60).padStart(2, "0")}
                               {rit.schatting ? " (schatting)" : ""}
                             </>
-                          ) : dag.overnachting ? (
-                            "Blijven staan"
                           ) : (
-                            `${dag.stops.length} stops`
+                            "Blijven staan"
                           )}
                         </span>
                         <Omlaag />
                       </button>
 
-                      {dag.stops
-                        .filter((s) => s.soort === "overnachting")
-                        .map((stop) => (
-                          <Stop
-                            key={stop.id}
-                            stop={stop}
-                            voertuig={reis.voertuig}
-                            nummer={nummers.get(stop.id)}
-                            onBewerk={mag ? setBewerkStop : null}
-                          />
-                        ))}
-
                       {uit ? (
-                        <Dagdetail
-                          dag={dag}
-                          notitie={notities?.[dag.nr]?.notitie ?? ""}
-                          onNotitie={(tekst) => metToken(() => zetDagnotitie(dag.nr, tekst))}
-                          mag={mag}
-                        />
+                        <>
+                          {dag.stops.map((stop) => (
+                            <Stop
+                              key={stop.id}
+                              stop={stop}
+                              voertuig={reis.voertuig}
+                              nummer={nummers.get(stop.id)}
+                              mag={mag}
+                              onBewerk={setBewerkStop}
+                              onStatus={(s, status) => metToken(() => bewaarStop({ id: s.id, status }))}
+                              onDag={(s, nr) => metToken(() => bewaarStop({ id: s.id, dag: nr }))}
+                              onWeg={(s) => metToken(() => verwijderStop(s.id))}
+                            />
+                          ))}
+
+                          <Dagdetail
+                            dag={dag}
+                            notitie={notities?.[dag.nr]?.notitie ?? ""}
+                            onNotitie={(tekst) => metToken(() => zetDagnotitie(dag.nr, tekst))}
+                            mag={mag}
+                          />
+                        </>
                       ) : null}
                     </div>
                   );
                 })}
+
+                {ideeen.length ? (
+                  <section style={{ marginTop: 22 }}>
+                    <h2 className="groepkop" style={{ marginTop: 0 }}>
+                      Nog zonder dag
+                    </h2>
+                    <ul className="kaartlijst">
+                      {ideeen.map((los) => (
+                        <li key={los.id}>
+                          <Greep />
+                          <div style={{ flexGrow: 1, minWidth: 0 }}>
+                            <h3>
+                              {mag ? (
+                                <button type="button" className="alsLink" onClick={() => setBewerkStop(los)}>
+                                  {los.naam}
+                                </button>
+                              ) : (
+                                los.naam
+                              )}
+                            </h3>
+                            {los.notitie ? <p>{los.notitie}</p> : null}
+                          </div>
+                          {los.prijs ? <span className="prijs">{euro(los.prijs)}</span> : null}
+                          {mag ? (
+                            <Acties
+                              label={`Acties voor ${los.naam}`}
+                              items={[
+                                { naam: "Bewerken", doe: () => setBewerkStop(los) },
+                                { scheiding: true },
+                                {
+                                  naam: "Verwijderen",
+                                  gevaar: true,
+                                  doe: () => metToken(() => verwijderStop(los.id)),
+                                },
+                              ]}
+                            />
+                          ) : null}
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ) : null}
               </>
             ) : null}
 
@@ -409,51 +478,6 @@ export default function Reis({ begin, etappes = {} }) {
               </>
             ) : null}
 
-            {tab === "ideeen" ? (
-              <>
-                <p className="uitleg">
-                  Dingen die jullie willen zien, nog niet aan een dag gekoppeld. Zet er een
-                  dagnummer bij zodra de route vaststaat.
-                </p>
-                {ideeen.length === 0 ? <p className="leeg">Nog geen ideeën.</p> : null}
-                <ul className="kaartlijst">
-                  {ideeen.map((idee) => (
-                    <li key={idee.id}>
-                      <Greep />
-                      <div style={{ flexGrow: 1, minWidth: 0 }}>
-                        <h3>
-                          {mag ? (
-                            <button type="button" className="alsLink" onClick={() => setBewerkStop(idee)}>
-                              {idee.naam}
-                            </button>
-                          ) : (
-                            idee.naam
-                          )}
-                        </h3>
-                        {idee.notitie ? <p>{idee.notitie}</p> : null}
-                      </div>
-                      {idee.prijs ? <span className="prijs">{euro(idee.prijs)}</span> : null}
-                      <label htmlFor={`dag-${idee.id}`} style={{ margin: 0, fontSize: 11 }}>
-                        Dag
-                      </label>
-                      <input
-                        id={`dag-${idee.id}`}
-                        type="number"
-                        min="1"
-                        placeholder="—"
-                        style={{ width: 72, height: 36 }}
-                        onKeyDown={(e) => {
-                          if (e.key !== "Enter") return;
-                          const waarde = e.currentTarget.value.trim();
-                          if (!waarde) return;
-                          metToken(() => bewaarStop({ id: idee.id, dag: Number(waarde) }));
-                        }}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
 
             <div style={{ marginTop: 18 }}>
               {toevoegen || bewerkStop ? (

@@ -31,12 +31,12 @@ function Schets({ stops, status }) {
       viewBox="0 0 132 86"
       width="132"
       height="86"
-      style={{ flex: "0 0 auto", borderRadius: 6, background: "#e4d8c6" }}
+      style={{ flex: "0 0 auto", borderRadius: 6, background: "#e9ebec" }}
       aria-hidden="true"
     >
-      <rect width="132" height="86" fill="#e4d8c6" />
-      <path d="M0 0h132v30c-24 10-40-6-66 2S30 48 0 38z" fill="#d9e0cc" />
-      <path d="M0 62c22-6 34 8 56 2s40-18 62-10v32H0z" fill="#c3d5db" />
+      <rect width="132" height="86" fill="#e9ebec" />
+      <path d="M0 0h132v30c-24 10-40-6-66 2S30 48 0 38z" fill="#dfe4de" />
+      <path d="M0 62c22-6 34 8 56 2s40-18 62-10v32H0z" fill="#d4dde2" />
       {punten ? (
         <>
           <polyline

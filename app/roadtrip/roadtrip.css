@@ -3,24 +3,26 @@
 body:has(.trip),
 .trip {
   --papier: #ffffff;
-  --grond: #f7f3ed;
-  --zacht-vlak: #fbf8f3;
-  --inkt: #2b2420;
-  --inkt-2: #4a4038;
-  --zacht: #6d6057;
-  --lijn: #e6ded3;
-  --lijn-licht: #f0e9df;
-  --rand: #d8cec0;
-  --accent: #b4552f;
-  --accent-tekst: #9d4826;
-  --accent-vlak: #f7ece5;
-  --diep: #2f5d6b;
-  --diep-tekst: #2a5360;
-  --idee: #a79a8c;
-  --idee-tekst: #786c61;
-  --let-vlak: #fbf3e0;
-  --let-lijn: #efe2c4;
-  --let-tekst: #7d5a14;
+  --grond: #f3f4f3;
+  --zacht-vlak: #fbfbfa;
+  --inkt: #14161a;
+  --inkt-2: #33373d;
+  --zacht: #5f646c;
+  --lijn: #e6e7e9;
+  --lijn-licht: #f0f1f2;
+  --rand: #d3d5d9;
+  /* Fel oranje als accent; voor tekst een donkerdere variant, anders haalt
+     hij het contrast niet op wit. */
+  --accent: #ff4a14;
+  --accent-tekst: #bf3a0c;
+  --accent-vlak: #ffeee8;
+  --diep: #0f7a5a;
+  --diep-tekst: #0b6447;
+  --idee: #a9aeb5;
+  --idee-tekst: #6a6f77;
+  --let-vlak: #fff6e0;
+  --let-lijn: #f5e3b8;
+  --let-tekst: #7a5500;
 
   background: var(--grond);
   color: var(--inkt);
@@ -207,7 +209,7 @@ body:has(.trip),
 }
 
 .trip .label.stil {
-  background: #efe7dc;
+  background: #eceef0;
   color: var(--zacht);
 }
 
@@ -767,7 +769,7 @@ body:has(.trip),
   position: relative;
   align-self: stretch;
   min-height: 420px;
-  background: #e4d8c6;
+  background: #e8eaec;
 }
 
 .trip .kaart {
@@ -779,7 +781,7 @@ body:has(.trip),
    warme tint trekt ze bij. Met een eigen MapTiler-stijl is dit niet nodig,
    maar het filter is zo subtiel dat het dan ook niet stoort. */
 .trip .kaart .maplibregl-canvas {
-  filter: sepia(0.22) saturate(0.88) brightness(1.03);
+  filter: saturate(0.72) brightness(1.04);
 }
 
 .trip .kaartnoot {
@@ -813,7 +815,7 @@ body:has(.trip),
   justify-content: center;
   cursor: pointer;
   padding: 0;
-  box-shadow: 0 1px 4px rgba(43, 36, 32, 0.3);
+  box-shadow: 0 1px 4px rgba(20, 22, 26, 0.28);
 }
 
 .trip .speld.los {
@@ -859,12 +861,215 @@ body:has(.trip),
 
 .trip .knop.gevaar {
   background: var(--papier);
-  color: #8c2f1a;
-  border: 1px solid #e0c2b8;
+  color: #b3200a;
+  border: 1px solid #f3cec3;
 }
 
 .trip .knop.gevaar:hover {
-  background: #8c2f1a;
+  background: #b3200a;
   color: #fff;
-  border-color: #8c2f1a;
+  border-color: #b3200a;
+}
+
+/* ---- Drie-puntjes-menu ---- */
+.trip .acties {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.trip .actieknop {
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: none;
+  color: var(--zacht);
+  cursor: pointer;
+  padding: 0;
+}
+
+.trip .actieknop:hover,
+.trip .actieknop[aria-expanded="true"] {
+  background: var(--zacht-vlak);
+  border-color: var(--rand);
+  color: var(--inkt);
+}
+
+.trip .actiemenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 20;
+  min-width: 190px;
+  padding: 5px;
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(20, 22, 26, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.trip .actiemenu button {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--inkt);
+  text-align: left;
+  cursor: pointer;
+}
+
+.trip .actiemenu button:hover:not(:disabled) {
+  background: var(--zacht-vlak);
+}
+
+.trip .actiemenu button:disabled {
+  color: var(--idee-tekst);
+  cursor: default;
+}
+
+.trip .actiemenu button.gevaarlijk {
+  color: #b3200a;
+}
+
+.trip .actiemenu button.gevaarlijk:hover {
+  background: #fff0ec;
+}
+
+.trip .actiemenu .nu {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-tekst);
+  background: var(--accent-vlak);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.trip .actiemenu hr {
+  margin: 4px 2px;
+  border: 0;
+  border-top: 1px solid var(--lijn-licht);
+}
+
+/* De dagbalk vat samen wat er dichtgeklapt onder zit */
+.trip .dagbalk .waar {
+  flex-grow: 1;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--inkt);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip .dagbalk .rit {
+  flex: 0 0 auto;
+}
+
+/* De dagbalk breekt af in plaats van de plaatsnaam af te kappen */
+.trip .dagbalk {
+  flex-wrap: wrap;
+  row-gap: 3px;
+}
+
+.trip .dagbalk .nr {
+  order: 1;
+  flex: 0 0 auto;
+}
+
+.trip .dagbalk .rit {
+  order: 2;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.trip .dagbalk > svg {
+  order: 3;
+}
+
+.trip .dagbalk .waar {
+  order: 4;
+  flex: 1 1 100%;
+  white-space: normal;
+  font-size: 14px;
+}
+
+/* ---- Rustiger ---- */
+/* De kleur van de speld vertelt de status; geen aparte regel meer per stop */
+.trip .stop .pin.geboekt {
+  background: var(--diep);
+}
+.trip .stop .pin.gepland {
+  background: var(--accent);
+}
+.trip .stop .pin.idee {
+  background: none;
+  border: 1.5px solid var(--idee);
+  color: var(--idee-tekst);
+}
+.trip .stop .pin.leeg {
+  width: 10px;
+  height: 10px;
+  margin: 7px 7px 0;
+  flex: 0 0 10px;
+  border-width: 2px;
+  font-size: 0;
+}
+.trip .stop .pin.leeg.geboekt,
+.trip .stop .pin.leeg.gepland {
+  border: 0;
+}
+
+/* Drie puntjes pas tonen als je er bent */
+.trip .stop .acties .actieknop,
+.trip .kaartlijst li .acties .actieknop {
+  opacity: 0;
+}
+.trip .stop:hover .actieknop,
+.trip .stop:focus-within .actieknop,
+.trip .kaartlijst li:hover .actieknop,
+.trip .kaartlijst li:focus-within .actieknop,
+.trip .actieknop[aria-expanded="true"] {
+  opacity: 1;
+}
+@media (hover: none) {
+  .trip .actieknop {
+    opacity: 1 !important;
+  }
+}
+
+/* Minder lijnen: dagen scheiden met ruimte in plaats van randen */
+.trip .dag {
+  border-color: var(--lijn-licht);
+  margin-bottom: 8px;
+}
+.trip .stop + .stop {
+  border-top-color: var(--lijn-licht);
+}
+.trip .stop {
+  padding: 12px 14px;
+}
+.trip .dagdetail {
+  padding: 12px 14px;
+}
+.trip .kaartlijst li {
+  border-color: var(--lijn-licht);
 }
