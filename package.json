@@ -8,12 +8,15 @@
     "start": "next start",
     "lint": "next lint",
     "pokemon:koppel": "node scripts/pokemon/koppel-prijsbronnen.mjs",
-    "test:pokemon": "node --test lib/pokemon/regels.test.mjs lib/pokemon/themas.test.mjs lib/pokemon/binders.test.mjs"
+    "test:pokemon": "node --test lib/pokemon/regels.test.mjs lib/pokemon/themas.test.mjs lib/pokemon/binders.test.mjs",
+    "test:roadtrip": "node --test lib/roadtrip/regels.test.mjs lib/roadtrip/velden.test.mjs lib/roadtrip/sleutels.test.mjs",
+    "test": "npm run test:pokemon && npm run test:roadtrip"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@upstash/redis": "^1.39.0",
     "framer-motion": "^12.25.0",
+    "maplibre-gl": "^5.24.1",
     "next": "^15.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

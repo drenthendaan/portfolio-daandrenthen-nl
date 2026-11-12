@@ -1,0 +1,840 @@
+/* Roadtrip-pagina's: alles valt onder .trip, zodat de rest van de site er geen last van heeft.
+   Warme aardetinten met terracotta als accent — een eigen huid, net als .pika. */
+body:has(.trip),
+.trip {
+  --papier: #ffffff;
+  --grond: #f7f3ed;
+  --zacht-vlak: #fbf8f3;
+  --inkt: #2b2420;
+  --inkt-2: #4a4038;
+  --zacht: #6d6057;
+  --lijn: #e6ded3;
+  --lijn-licht: #f0e9df;
+  --rand: #d8cec0;
+  --accent: #b4552f;
+  --accent-tekst: #9d4826;
+  --accent-vlak: #f7ece5;
+  --diep: #2f5d6b;
+  --diep-tekst: #2a5360;
+  --idee: #a79a8c;
+  --idee-tekst: #786c61;
+  --let-vlak: #fbf3e0;
+  --let-lijn: #efe2c4;
+  --let-tekst: #7d5a14;
+
+  background: var(--grond);
+  color: var(--inkt);
+  color-scheme: light;
+  overflow-x: clip;
+}
+
+.trip {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.trip *,
+.trip *::before,
+.trip *::after {
+  box-sizing: border-box;
+}
+
+/* Portfolio-stijlen (fonts.scss) zetten p op line-height 1 en koppen op extra letterafstand */
+.trip p,
+.trip h1,
+.trip h2,
+.trip h3,
+.trip h4 {
+  letter-spacing: normal;
+  line-height: inherit;
+}
+
+.trip [hidden] {
+  display: none !important;
+}
+
+/* ---- Raamwerk: iconenbalk links, inhoud rechts ---- */
+.trip .raam {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  min-height: 100svh;
+}
+
+.trip .rail {
+  flex: 1 1 76px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 4px;
+  padding: 16px 12px;
+  background: var(--papier);
+  border-right: 1px solid var(--lijn);
+}
+
+.trip .rail a {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 8px;
+  color: var(--zacht);
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.trip .rail a[aria-current="page"] {
+  background: var(--accent-vlak);
+  color: var(--accent-tekst);
+}
+
+.trip .inhoud {
+  flex: 999 1 560px;
+  min-width: 0;
+}
+
+/* ---- Overzicht ---- */
+.trip .blad {
+  padding: 40px clamp(20px, 4vw, 56px) 72px;
+}
+
+.trip .midden {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.trip .kop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--lijn);
+}
+
+.trip h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.125rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.trip .onderkop {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .groepkop {
+  margin: 36px 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--zacht);
+}
+
+.trip .reisrij {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--lijn);
+  color: inherit;
+  text-decoration: none;
+}
+
+.trip .reisrij:hover h3 {
+  color: var(--accent-tekst);
+}
+
+.trip .reisrij .tekst {
+  flex: 999 1 240px;
+  min-width: 0;
+}
+
+.trip .reisrij h3 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.4vw, 1.375rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.trip .reisrij .meta {
+  margin: 7px 0 0;
+  font-size: 14px;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .reisrij .plaatsen {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .reisrij .rechts {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ---- Labels ---- */
+.trip .label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: var(--accent-vlak);
+  color: var(--accent-tekst);
+  white-space: nowrap;
+}
+
+.trip .label.stil {
+  background: #efe7dc;
+  color: var(--zacht);
+}
+
+.trip .stand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.trip .stand .bol {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.trip .stand.geboekt {
+  color: var(--diep-tekst);
+}
+.trip .stand.geboekt .bol {
+  background: var(--diep);
+}
+.trip .stand.gepland {
+  color: var(--accent-tekst);
+}
+.trip .stand.gepland .bol {
+  background: var(--accent);
+}
+.trip .stand.idee {
+  color: var(--idee-tekst);
+}
+.trip .stand.idee .bol {
+  background: var(--idee);
+}
+
+/* ---- Knoppen ---- */
+.trip .knop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.trip .knop:hover {
+  background: var(--accent-tekst);
+  color: #fff;
+}
+
+.trip .knop.stil {
+  background: var(--papier);
+  color: var(--inkt);
+  border: 1px solid var(--rand);
+}
+
+.trip .knop.stil:hover {
+  background: var(--zacht-vlak);
+  color: var(--inkt);
+}
+
+.trip .knop.klein {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+/* ---- Detail ---- */
+.trip .reiskop {
+  padding: 22px clamp(18px, 2.5vw, 30px) 0;
+  background: var(--papier);
+  border-bottom: 1px solid var(--lijn);
+}
+
+.trip .terug {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--zacht);
+  text-decoration: none;
+}
+
+.trip .cijfers {
+  display: flex;
+  gap: 26px;
+  margin: 0 0 2px;
+}
+
+.trip .cijfers dt {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--zacht);
+}
+
+.trip .cijfers dd {
+  margin: 3px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .tabs {
+  display: flex;
+  gap: 22px;
+  margin-top: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.trip .tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.trip .tabs button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 0 2px 11px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--zacht);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.trip .tabs button[aria-selected="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--inkt);
+  font-weight: 800;
+}
+
+.trip .werkvlak {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.trip .lijst {
+  flex: 1 1 430px;
+  min-width: 0;
+  padding: 22px clamp(18px, 2.5vw, 30px) 40px;
+}
+
+/* ---- Dagkaarten ---- */
+.trip .dag {
+  background: var(--papier);
+  border: 1px solid var(--lijn);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.trip .dagbalk {
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  background: var(--zacht-vlak);
+  border: 0;
+  border-bottom: 1px solid var(--lijn);
+  padding: 11px 14px;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trip .dagbalk .nr {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--zacht);
+  white-space: nowrap;
+}
+
+.trip .dagbalk .rit {
+  flex-grow: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .dagbalk .rit strong {
+  font-weight: 700;
+  color: var(--inkt);
+}
+
+.trip .dagbalk svg {
+  flex: 0 0 auto;
+  transition: transform 0.18s ease;
+}
+
+.trip .dagbalk[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.trip .dag.let .dagbalk {
+  background: var(--let-vlak);
+  border-bottom-color: var(--let-lijn);
+}
+
+.trip .dag.let .dagbalk .nr,
+.trip .dag.let .dagbalk .rit {
+  color: var(--let-tekst);
+}
+
+.trip .dag.let .dagbalk .rit strong {
+  color: var(--let-tekst);
+}
+
+.trip .stop {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+}
+
+.trip .stop + .stop {
+  border-top: 1px solid var(--lijn-licht);
+}
+
+.trip .stop .pin {
+  flex: 0 0 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .stop .pin.leeg {
+  background: none;
+  border: 1.5px dashed var(--idee);
+  color: var(--idee-tekst);
+}
+
+.trip .stop .body {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.trip .stop .regel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.trip .stop h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.trip .stop .prijs {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.trip .stop .sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .stop .stand {
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+.trip .stop .stand .bol {
+  width: 6px;
+  height: 6px;
+}
+
+/* ---- Uitgeklapte dag ---- */
+.trip .dagdetail {
+  border-top: 1px solid var(--lijn-licht);
+  background: var(--zacht-vlak);
+  padding: 14px;
+}
+
+.trip .dagdetail h4 {
+  margin: 0 0 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--zacht);
+}
+
+.trip .dagdetail h4 + h4 {
+  margin-top: 16px;
+}
+
+.trip .dagdetail p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.trip .dagdetail textarea {
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--inkt);
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  padding: 9px 11px;
+}
+
+.trip .heenlijst {
+  list-style: none;
+  margin: 0 0 11px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.trip .heenlijst li {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 13px;
+}
+
+.trip .heenlijst .bol {
+  flex: 0 0 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--idee);
+  transform: translateY(-2px);
+}
+
+.trip .heenlijst .naam {
+  flex-grow: 1;
+}
+
+.trip .heenlijst .naam strong {
+  font-weight: 700;
+}
+
+/* ---- Waarschuwing bij afmetingen ---- */
+.trip .past-niet {
+  margin: 7px 0 0;
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--let-vlak);
+  border: 1px solid var(--let-lijn);
+  color: var(--let-tekst);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.trip .past-niet span {
+  display: block;
+}
+
+/* ---- Ideeën en praktisch ---- */
+.trip .uitleg {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .kaartlijst {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trip .kaartlijst li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--papier);
+  border: 1px solid var(--lijn);
+  border-radius: 10px;
+  padding: 13px 14px;
+}
+
+.trip .kaartlijst h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.trip .kaartlijst p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .tabel {
+  background: var(--papier);
+  border: 1px solid var(--lijn);
+  border-radius: 10px;
+  padding: 4px 14px;
+}
+
+.trip .tabel .rij {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--lijn-licht);
+  font-size: 14px;
+}
+
+.trip .tabel .rij:last-child {
+  border-bottom: 0;
+}
+
+.trip .tabel .rij.totaal {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.trip .tabel .rij strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Formulieren ---- */
+.trip label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--inkt-2);
+  margin-bottom: 6px;
+}
+
+.trip input[type="text"],
+.trip input[type="password"],
+.trip input[type="date"],
+.trip input[type="number"],
+.trip select {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--inkt);
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+}
+
+.trip .velden {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.trip .melding {
+  margin: 10px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-tekst);
+}
+
+.trip .tokenvak {
+  margin: 12px 0 0;
+  padding: 13px 14px;
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  background: var(--zacht-vlak);
+}
+
+.trip .tokenvak .rij {
+  display: flex;
+  gap: 8px;
+}
+
+.trip .leeg {
+  margin: 28px 0;
+  padding: 28px;
+  border: 1px dashed var(--rand);
+  border-radius: 12px;
+  text-align: center;
+  color: var(--zacht);
+  font-size: 14px;
+}
+
+.trip .verbinding {
+  font-size: 12px;
+  color: var(--zacht);
+}
+
+.trip .verbinding.weg {
+  color: var(--let-tekst);
+}
+
+/* ---- Toetsenbordfocus ---- */
+.trip a:focus-visible,
+.trip button:focus-visible,
+.trip input:focus-visible,
+.trip textarea:focus-visible,
+.trip select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .trip .blad {
+    padding: 24px 16px 56px;
+  }
+  .trip .cijfers {
+    gap: 18px;
+  }
+  .trip .reisrij {
+    gap: 14px;
+  }
+}
+
+/* ---- Kaart ---- */
+.trip .kaartvak {
+  flex: 1 1 480px;
+  min-width: 0;
+  position: relative;
+  align-self: stretch;
+  min-height: 420px;
+  background: #e4d8c6;
+}
+
+.trip .kaart {
+  position: absolute;
+  inset: 0;
+}
+
+/* OpenStreetMap-tegels zijn kouder dan de rest van deze sectie; een lichte
+   warme tint trekt ze bij. Met een eigen MapTiler-stijl is dit niet nodig,
+   maar het filter is zo subtiel dat het dan ook niet stoort. */
+.trip .kaart .maplibregl-canvas {
+  filter: sepia(0.22) saturate(0.88) brightness(1.03);
+}
+
+.trip .kaartnoot {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  margin: 0;
+  max-width: 260px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--rand);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--zacht);
+}
+
+.trip .speld {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2.5px solid var(--accent);
+  background: #ffffff;
+  color: var(--accent-tekst);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(43, 36, 32, 0.3);
+}
+
+.trip .speld.los {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+  border-color: var(--idee);
+  background: var(--papier);
+}
+
+.trip .speld.actief {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.15);
+}
+
+/* De kaart staat op een telefoon boven de lijst, ingeklapt tot een strook */
+@media (max-width: 900px) {
+  .trip .kaartvak {
+    flex: 1 1 100%;
+    order: -1;
+    min-height: 210px;
+  }
+}
