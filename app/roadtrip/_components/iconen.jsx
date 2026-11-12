@@ -121,3 +121,23 @@ export const Openen = ({ size = 15 }) => (
     <path d="M16.5 13.5v4A2.5 2.5 0 0 1 14 20H6.5A2.5 2.5 0 0 1 4 17.5V10a2.5 2.5 0 0 1 2.5-2.5h4" />
   </svg>
 );
+
+// Vier hoeken naar buiten: de kaart vult het scherm
+export const Vergroten = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 4H4v5" />
+    <path d="M15 4h5v5" />
+    <path d="M20 15v5h-5" />
+    <path d="M4 15v5h5" />
+  </svg>
+);
+
+// En weer naar binnen
+export const Verkleinen = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 9h5V4" />
+    <path d="M20 9h-5V4" />
+    <path d="M15 20v-5h5" />
+    <path d="M9 20v-5H4" />
+  </svg>
+);

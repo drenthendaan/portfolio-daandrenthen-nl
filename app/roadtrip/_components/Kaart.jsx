@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { Vergroten, Verkleinen } from "./iconen";
 
 const MAPTILER = process.env.NEXT_PUBLIC_MAPTILER_KEY;
 
@@ -40,6 +41,9 @@ const metPlek = (stops) => stops.filter((s) => Number.isFinite(s.lat) && Number.
 const inRoute = (s) => s.dag !== null && s.dag !== undefined;
 
 export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onVerplaats }) {
+  // Schermvullend is een eigen stand, geen echte fullscreen: die kan een iPhone
+  // niet voor een gewoon element, en dan zou de knop daar niets doen.
+  const [groot, setGroot] = useState(false);
   const vak = useRef(null);
   const kaart = useRef(null);
   // id → { speld, el, stop }: spelden worden bijgewerkt, niet opnieuw gebouwd
@@ -283,6 +287,34 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
     };
   }, [stops, mag]);
 
+  // ---- De kaart op het hele scherm ----
+  // De ResizeObserver ziet het vak ook wel veranderen, maar pas een slag later;
+  // tot dan hangt het canvas op zijn oude maat in beeld. Dit moet dus vóór het
+  // tekenen gebeuren: useLayoutEffect draait nadat de klasse op het vak staat en
+  // nog voordat er iets op het scherm komt, en resize() meet dan de nieuwe maat.
+  // (Alleen de browser draait dit; de kaart laadt sowieso niet op de server.)
+  useLayoutEffect(() => {
+    kaart.current?.resize();
+  }, [groot]);
+
+  useEffect(() => {
+    if (!groot) return;
+
+    // De pagina erachter hoort niet mee te schuiven
+    const vorigeOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const toets = (e) => {
+      if (e.key === "Escape") setGroot(false);
+    };
+    document.addEventListener("keydown", toets);
+
+    return () => {
+      document.removeEventListener("keydown", toets);
+      document.body.style.overflow = vorigeOverflow;
+    };
+  }, [groot]);
+
   // ---- Mag je bewerken? Dan pas kun je slepen ----
   useEffect(() => {
     spelden.current.forEach(({ speld }) => speld.setDraggable(!!mag));
@@ -304,8 +336,19 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
   }, [actief]);
 
   return (
-    <div className="kaartvak">
+    <div className={`kaartvak${groot ? " groot" : ""}`}>
       <div ref={vak} className="kaart" />
+
+      <button
+        type="button"
+        className="kaartgroot"
+        onClick={() => setGroot((b) => !b)}
+        aria-pressed={groot}
+        aria-label={groot ? "Kaart verkleinen" : "Kaart op het hele scherm"}
+        title={groot ? "Kaart verkleinen" : "Kaart op het hele scherm"}
+      >
+        {groot ? <Verkleinen /> : <Vergroten />}
+      </button>
     </div>
   );
 }
