@@ -777,12 +777,7 @@ body:has(.trip),
   inset: 0;
 }
 
-/* OpenStreetMap-tegels zijn kouder dan de rest van deze sectie; een lichte
-   warme tint trekt ze bij. Met een eigen MapTiler-stijl is dit niet nodig,
-   maar het filter is zo subtiel dat het dan ook niet stoort. */
-.trip .kaart .maplibregl-canvas {
-  filter: saturate(0.72) brightness(1.04);
-}
+/* CARTO Positron is al licht en rustig; daar hoeft geen filter overheen. */
 
 .trip .kaartnoot {
   position: absolute;
@@ -1313,4 +1308,85 @@ body:has(.trip),
   .trip .stopdetail dd {
     margin-bottom: 7px;
   }
+}
+
+/* ---- Spelden op de kaart ---- */
+.trip .kaartvak {
+  background: #eceef0;
+}
+
+.trip .speld {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 2px 6px rgba(20, 22, 26, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.trip .speld.geboekt {
+  background: var(--diep);
+}
+
+.trip .speld.idee {
+  background: var(--idee);
+}
+
+/* Bezienswaardigheden en servicepunten zijn geen plek waar je staat:
+   kleiner, zonder nummer. */
+.trip .speld.los {
+  width: 13px;
+  height: 13px;
+  border-width: 2.5px;
+  background: var(--inkt);
+  font-size: 0;
+  box-shadow: 0 1px 4px rgba(20, 22, 26, 0.3);
+}
+
+.trip .speld:hover {
+  transform: scale(1.12);
+}
+
+.trip .speld.actief {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 4px rgba(255, 74, 20, 0.28), 0 2px 8px rgba(20, 22, 26, 0.3);
+}
+
+/* De eigen knoppen van MapLibre bij de rest laten passen */
+.trip .maplibregl-ctrl-group {
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(20, 22, 26, 0.1);
+  overflow: hidden;
+}
+
+.trip .maplibregl-ctrl-group button {
+  width: 34px;
+  height: 34px;
+}
+
+.trip .maplibregl-ctrl-attrib {
+  font-size: 10px;
+  border-radius: 8px 0 0 0;
+}
+
+.trip .maplibregl-ctrl-attrib a {
+  color: var(--zacht);
+}
+
+/* Alleen als we op de gewone OSM-tegels terugvallen: ontkleuren, zodat ze
+   niet vechten met de route en de spelden. */
+.trip .kaart.osm .maplibregl-canvas {
+  filter: grayscale(0.65) brightness(1.06) contrast(0.94);
 }
