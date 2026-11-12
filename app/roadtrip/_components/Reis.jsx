@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamicImport from "next/dynamic";
 import Link from "next/link";
 import {
-  aantalDagen,
   groepeerDagen,
   pastVoertuig,
   toon,
@@ -183,7 +182,6 @@ export default function Reis({ begin, etappes = {} }) {
   const Icoon = VERVOERICOON[reis.vervoer] ?? VERVOERICOON.camper;
   const { dagen, ideeen } = groepeerDagen(stops);
   const telling = totalen(stops);
-  const duur = aantalDagen(reis.van, reis.tot);
 
   // Nummers lopen door over de overnachtingen heen: een pin op de kaart is een
   // plek waar je echt staat, geen los idee.
@@ -194,15 +192,6 @@ export default function Reis({ begin, etappes = {} }) {
       if (stop.soort === "overnachting") nummers.set(stop.id, ++teller);
     }
   }
-
-  const meta = [
-    reis.van && reis.tot
-      ? `${new Date(`${reis.van}T00:00:00Z`).toLocaleDateString("nl-NL", { day: "numeric", month: "long", timeZone: "UTC" })} – ${new Date(`${reis.tot}T00:00:00Z`).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}`
-      : "nog geen datums",
-    duur ? `${duur} dagen` : null,
-    `${stops.length} stops`,
-    reis.gebied,
-  ].filter(Boolean);
 
   return (
     <div className="raam">
@@ -225,17 +214,12 @@ export default function Reis({ begin, etappes = {} }) {
               marginTop: 10,
             }}
           >
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 11, flexWrap: "wrap" }}>
-                <h1>{reis.naam}</h1>
-                <span className="label">
-                  <Icoon size={13} />
-                  {reis.vervoer}
-                </span>
-              </div>
-              <p className="meta" style={{ margin: "7px 0 0", fontSize: 14, color: "var(--zacht)" }}>
-                {meta.join(" · ")}
-              </p>
+            <div style={{ display: "flex", alignItems: "center", gap: 11, flexWrap: "wrap" }}>
+              <h1>{reis.naam}</h1>
+              <span className="label">
+                <Icoon size={13} />
+                {reis.vervoer}
+              </span>
             </div>
 
             <div style={{ display: "flex", alignItems: "flex-end", gap: 18, flexWrap: "wrap" }}>

@@ -1073,3 +1073,85 @@ body:has(.trip),
 .trip .kaartlijst li {
   border-color: var(--lijn-licht);
 }
+
+/* ---- Telefoon ---- */
+@media (max-width: 900px) {
+  /* De iconenbalk zou een hele strook pakken voor twee knoppen; op smal
+     navigeer je met de terugkoppeling en de knop in de kop. */
+  .trip .rail {
+    display: none;
+  }
+
+  .trip .reiskop {
+    padding: 14px 16px 0;
+  }
+
+  .trip .reiskop h1 {
+    font-size: 1.6rem;
+  }
+
+  .trip .cijfers {
+    gap: 18px;
+  }
+
+  .trip .cijfers dd {
+    font-size: 15px;
+  }
+
+  .trip .tabs {
+    gap: 18px;
+    margin-top: 12px;
+  }
+
+  .trip .lijst {
+    padding: 16px 16px 32px;
+  }
+
+  .trip .kaartvak {
+    min-height: 180px;
+  }
+
+  /* De dagbalk heeft op smal geen ruimte voor drie dingen naast elkaar */
+  .trip .dagbalk .rit {
+    margin-left: 0;
+    flex: 1 1 100%;
+    order: 3;
+  }
+
+  .trip .dagbalk > svg {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .trip .dagbalk .waar {
+    order: 4;
+  }
+
+  .trip .velden {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .trip .kop {
+    gap: 12px;
+  }
+
+  .trip .kop .knop {
+    width: 100%;
+  }
+
+  .trip .reisrij {
+    gap: 14px;
+  }
+
+  /* Alleen het routeschetsje, niet het icoontje in het label */
+  .trip .reisrij > svg:first-child {
+    width: 84px;
+    height: 56px;
+  }
+
+  .trip .velden {
+    grid-template-columns: 1fr;
+  }
+}

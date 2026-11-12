@@ -50,7 +50,12 @@ export default function Kaart({ stops = [], midden, actief, onKiesStop }) {
     kaart.current.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     kaart.current.scrollZoom.disable(); // anders scroll je de pagina niet meer voorbij de kaart
 
+    // MapLibre onthoudt zijn afmetingen; bij een layoutwissel moet hij opnieuw meten
+    const meet = new ResizeObserver(() => kaart.current?.resize());
+    meet.observe(vak.current);
+
     return () => {
+      meet.disconnect();
       kaart.current?.remove();
       kaart.current = null;
     };
@@ -118,13 +123,19 @@ export default function Kaart({ stops = [], midden, actief, onKiesStop }) {
         });
       }
 
-      // Alles in beeld
+      // Alles in beeld. De marge schaalt mee met het vak: op een strook van
+      // 180px hoog zou een vaste marge van 56px de kaart veel te ver uitzoomen.
       if (metPlek.length > 1) {
         const grens = metPlek.reduce(
           (b, s) => b.extend([s.lon, s.lat]),
           new maplibregl.LngLatBounds([metPlek[0].lon, metPlek[0].lat], [metPlek[0].lon, metPlek[0].lat])
         );
-        m.fitBounds(grens, { padding: 56, maxZoom: 9, duration: 0 });
+        const vakje = m.getContainer();
+        const marge = Math.max(
+          16,
+          Math.min(56, Math.floor(Math.min(vakje.clientWidth, vakje.clientHeight) / 6))
+        );
+        m.fitBounds(grens, { padding: marge, maxZoom: 9, duration: 0 });
       }
     };
 
