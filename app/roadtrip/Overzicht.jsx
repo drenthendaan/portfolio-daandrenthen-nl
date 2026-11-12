@@ -99,7 +99,7 @@ function Reisrij({ reis, stops }) {
           onError={() => setFotoStuk(true)}
         />
       ) : (
-        {/* De startplek hoort vooraan in het schetsje, waar de route begint */}
+        // De startplek hoort vooraan in het schetsje, waar de route begint
         <Schets stops={reis.start && stops.length ? [reis.start, ...stops] : stops} />
       )}
       <div className="tekst">
