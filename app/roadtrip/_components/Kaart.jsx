@@ -66,6 +66,33 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
     kaart.current = m;
 
     m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+
+    // De bronvermelding moet erbij — de kaartdata komt van OpenStreetMap en dat
+    // is ODbL, dus naamsvermelding is een voorwaarde. Maar hij hoeft niet als
+    // strook over de kaart te liggen: ingeklapt is het een ⓘ-knopje, en wie
+    // erop klikt ziet de volledige vermelding.
+    //
+    // MapLibre vult hem pas als de stijl binnen is en klapt hem dan open, dus
+    // dit moet aan styledata hangen en niet aan het opzetten van de kaart. Na
+    // de OSM-terugval gebeurt hetzelfde nog een keer. Klapt de bezoeker hem
+    // zelf open, dan blijven we eraf.
+    let doorBezoeker = false;
+    const klapVermeldingIn = () => {
+      const vak = m.getContainer().querySelector(".maplibregl-ctrl-attrib");
+      if (!vak || doorBezoeker) return;
+
+      const knop = vak.querySelector(".maplibregl-ctrl-attrib-button");
+      if (knop && !knop.dataset.gekoppeld) {
+        knop.dataset.gekoppeld = "1";
+        knop.addEventListener("click", () => {
+          doorBezoeker = true;
+        });
+      }
+
+      vak.classList.remove("maplibregl-compact-show");
+      vak.setAttribute("aria-expanded", "false");
+    };
+    m.on("styledata", klapVermeldingIn);
     m.scrollZoom.disable(); // anders scroll je de pagina niet meer voorbij de kaart
 
     let teruggevallen = false;
