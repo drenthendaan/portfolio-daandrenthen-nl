@@ -3,25 +3,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { REISSTATUSSEN, aantalDagen, euro, miniRoute, totalen } from "@/lib/roadtrip/regels.mjs";
+import { aantalDagen, euro, miniRoute, totalen } from "@/lib/roadtrip/regels.mjs";
 import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./_components/api";
 import { useLive } from "./_components/useLive";
 import Modal from "./_components/Modal";
 import TokenVak from "./_components/TokenVak";
 import { Pijl, Plus } from "./_components/iconen";
 
-const GROEPEN = [
-  { status: "gepland", titel: "Gepland" },
-  { status: "idee", titel: "Ideeën" },
-  { status: "geweest", titel: "Geweest" },
-];
-
 const datumkort = (d) =>
   d ? new Date(`${d}T00:00:00Z`).toLocaleDateString("nl-NL", { day: "numeric", month: "long", timeZone: "UTC" }) : null;
 
-function Schets({ stops, status }) {
+function Schets({ stops }) {
   const punten = miniRoute(stops);
-  const kleur = status === "geweest" ? "var(--diep)" : status === "idee" ? "var(--idee)" : "var(--accent)";
+  const kleur = "var(--accent)";
 
   return (
     <svg
@@ -43,7 +37,6 @@ function Schets({ stops, status }) {
             strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeDasharray={status === "idee" ? "1 5" : undefined}
           />
           {punten.map((p, i) => (
             <circle
@@ -104,7 +97,7 @@ function Reisrij({ reis, stops }) {
           onError={() => setFotoStuk(true)}
         />
       ) : (
-        <Schets stops={stops} status={reis.status} />
+        <Schets stops={stops} />
       )}
       <div className="tekst">
         <h3>{reis.naam}</h3>
@@ -340,24 +333,9 @@ export default function Overzicht({ begin }) {
               </p>
             ) : null}
 
-            {GROEPEN.map(({ status, titel }) => {
-              const groep = reizen.filter((r) => r.status === status);
-              if (!groep.length) return null;
-              return (
-                <section key={status}>
-                  <h2 className="groepkop">{titel}</h2>
-                  {groep.map((reis) => (
-                    <Reisrij key={reis.slug} reis={reis} stops={stopsVan(reis.slug)} />
-                  ))}
-                </section>
-              );
-            })}
-
-            {reizen.some((r) => !REISSTATUSSEN.includes(r.status)) ? (
-              <p className="uitleg" style={{ marginTop: 20 }}>
-                Eén of meer reizen hebben een onbekende status en staan hierboven niet.
-              </p>
-            ) : null}
+            {reizen.map((reis) => (
+              <Reisrij key={reis.slug} reis={reis} stops={stopsVan(reis.slug)} />
+            ))}
           </div>
         </div>
       </div>

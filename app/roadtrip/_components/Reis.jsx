@@ -26,12 +26,6 @@ const Kaart = dynamicImport(() => import("./Kaart"), {
   loading: () => <div className="kaartvak" aria-hidden="true" />,
 });
 
-const REISSTATUS = [
-  ["idee", "Idee"],
-  ["gepland", "Gepland"],
-  ["geweest", "Geweest"],
-];
-
 const TABS = [
   { id: "dagen", naam: "Dagen" },
   { id: "praktisch", naam: "Praktisch" },
@@ -157,13 +151,6 @@ export default function Reis({ begin, etappes = {} }) {
               label="Acties voor deze reis"
               items={[
                 { naam: "Aanpassen", doe: () => setInstellingen(true) },
-                { scheiding: true },
-                ...REISSTATUS.map(([id, naam]) => ({
-                  naam,
-                  nu: reis.status === id,
-                  uit: reis.status === id,
-                  doe: () => metToken(() => wijzigReis({ status: id })),
-                })),
                 { scheiding: true },
                 { naam: "Stop toevoegen", doe: () => setToevoegen(true) },
                 { naam: "Reis verwijderen", gevaar: true, doe: () => verwijderReis() },

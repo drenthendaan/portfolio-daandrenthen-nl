@@ -6,7 +6,6 @@ import { meldGewijzigd, schrijf } from "./api";
 const uitReis = (reis) => ({
   naam: reis.naam ?? "",
   vervoer: reis.vervoer ?? "camper",
-  status: reis.status ?? "idee",
   van: reis.van ?? "",
   tot: reis.tot ?? "",
   lengte: reis.voertuig?.lengte ?? "",
@@ -36,7 +35,6 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
           slug: reis.slug,
           naam: v.naam,
           vervoer: v.vervoer,
-          status: v.status,
           van: v.van || null,
           tot: v.tot || null,
           afbeelding: v.afbeelding.trim() || null,
@@ -88,14 +86,6 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
             <option value="auto">Auto</option>
             <option value="motor">Motor</option>
             <option value="vlucht">Vlucht</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="ri-status">Status</label>
-          <select id="ri-status" value={v.status} onChange={zet("status")}>
-            <option value="idee">Idee</option>
-            <option value="gepland">Gepland</option>
-            <option value="geweest">Geweest</option>
           </select>
         </div>
         <div>
