@@ -419,12 +419,12 @@ body:has(.trip),
   color: var(--inkt);
 }
 
-.trip .dagbalk svg {
+.trip .dagbalk > svg {
   flex: 0 0 auto;
   transition: transform 0.18s ease;
 }
 
-.trip .dagbalk[aria-expanded="true"] svg {
+.trip .dagbalk[aria-expanded="true"] > svg {
   transform: rotate(180deg);
 }
 
@@ -1033,23 +1033,6 @@ body:has(.trip),
   border: 0;
 }
 
-/* Drie puntjes pas tonen als je er bent */
-.trip .stop .acties .actieknop,
-.trip .kaartlijst li .acties .actieknop {
-  opacity: 0;
-}
-.trip .stop:hover .actieknop,
-.trip .stop:focus-within .actieknop,
-.trip .kaartlijst li:hover .actieknop,
-.trip .kaartlijst li:focus-within .actieknop,
-.trip .actieknop[aria-expanded="true"] {
-  opacity: 1;
-}
-@media (hover: none) {
-  .trip .actieknop {
-    opacity: 1 !important;
-  }
-}
 
 /* Minder lijnen: dagen scheiden met ruimte in plaats van randen */
 .trip .dag {
@@ -1252,13 +1235,18 @@ body:has(.trip),
   transform: rotate(180deg);
 }
 
-.trip .stopbalk .acties .actieknop {
-  opacity: 0;
+/* De drie puntjes staan er altijd, alleen wat ingetogen tot je ze nodig hebt.
+   Verbergen tot hover werkt niet op een telefoon: daar is geen hover. */
+.trip .acties .actieknop {
+  opacity: 0.55;
 }
 
 .trip .stop:hover .actieknop,
 .trip .stop:focus-within .actieknop,
-.trip .stop.open .actieknop {
+.trip .stop.open .actieknop,
+.trip .actieknop:hover,
+.trip .actieknop:focus-visible,
+.trip .actieknop[aria-expanded="true"] {
   opacity: 1;
 }
 
