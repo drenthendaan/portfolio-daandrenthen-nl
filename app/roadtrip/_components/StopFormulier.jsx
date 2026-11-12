@@ -9,6 +9,7 @@ const leeg = {
   dag: "1",
   nachten: "",
   prijs: "",
+  betaald: "nee",
   adres: "",
   lat: "",
   lon: "",
@@ -26,6 +27,7 @@ const uitStop = (stop) =>
         dag: stop.dag ?? "",
         nachten: stop.nachten ?? "",
         prijs: stop.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
+        betaald: stop.betaald ? "ja" : "nee",
         adres: stop.adres ?? "",
         lat: stop.lat ?? "",
         lon: stop.lon ?? "",
@@ -67,6 +69,7 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
+      betaald: v.betaald,
       adres: v.adres || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
@@ -117,6 +120,13 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
         <div>
           <label htmlFor="sf-prijs">Prijs</label>
           <input id="sf-prijs" type="text" placeholder="46" value={v.prijs} onChange={zet("prijs")} />
+        </div>
+        <div>
+          <label htmlFor="sf-betaald">Betaald</label>
+          <select id="sf-betaald" value={v.betaald} onChange={zet("betaald")}>
+            <option value="nee">Nee</option>
+            <option value="ja">Ja</option>
+          </select>
         </div>
         <div style={{ gridColumn: "1 / -1" }}>
           <label htmlFor="sf-adres">Adres</label>

@@ -110,27 +110,39 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
 
     // Alleen de lijn hangt van de stijl af; spelden zijn gewone HTML-elementen
     // en worden altijd geplaatst, ook als de tegels traag of stuk zijn.
+    // Niet wachten op isStyleLoaded(): dat is pas waar als élke tegel binnen is,
+    // en dat duurde merkbaar lang voordat de lijn verscheen. Een bron en een laag
+    // mogen al zodra de stijl zelf staat. Lukt het nog niet, dan vangt de catch
+    // het op en probeert de volgende styledata het opnieuw. Elke stap kijkt eerst
+    // of hij al gedaan is, zodat een halve poging zichzelf later afmaakt.
     const tekenRoute = () => {
       const data = routeData();
       try {
         const bron = m.getSource("route");
-        if (bron) return bron.setData(data);
-        if (data.geometry.coordinates.length < 2 || !m.isStyleLoaded()) return;
-        m.addSource("route", { type: "geojson", data });
-        m.addLayer({
-          id: "route-casing",
-          type: "line",
-          source: "route",
-          paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.95 },
-          layout: { "line-cap": "round", "line-join": "round" },
-        });
-        m.addLayer({
-          id: "route-lijn",
-          type: "line",
-          source: "route",
-          paint: { "line-color": "#ff4a14", "line-width": 3.2 },
-          layout: { "line-cap": "round", "line-join": "round" },
-        });
+        if (bron && m.getLayer("route-lijn")) return bron.setData(data);
+        if (data.geometry.coordinates.length < 2) return;
+
+        if (!bron) m.addSource("route", { type: "geojson", data });
+        else bron.setData(data);
+
+        if (!m.getLayer("route-casing")) {
+          m.addLayer({
+            id: "route-casing",
+            type: "line",
+            source: "route",
+            paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.95 },
+            layout: { "line-cap": "round", "line-join": "round" },
+          });
+        }
+        if (!m.getLayer("route-lijn")) {
+          m.addLayer({
+            id: "route-lijn",
+            type: "line",
+            source: "route",
+            paint: { "line-color": "#ff4a14", "line-width": 3.2 },
+            layout: { "line-cap": "round", "line-join": "round" },
+          });
+        }
       } catch {
         // Stijl nog niet zover; de volgende styledata probeert het opnieuw
       }
@@ -259,11 +271,16 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
 
     teken();
 
-    // De lijn kan pas als de stijl zover is; styledata blijft het proberen,
-    // ook na een setStyle (de OSM-terugval), waarna alle lagen weg zijn.
+    // style.load is het vroegste moment waarop er een laag bij mag; styledata
+    // blijft het daarna proberen, ook na een setStyle (de OSM-terugval), waarna
+    // alle lagen weg zijn.
     const bijStijl = () => tekenRoute();
+    m.on("style.load", bijStijl);
     m.on("styledata", bijStijl);
-    return () => m.off("styledata", bijStijl);
+    return () => {
+      m.off("style.load", bijStijl);
+      m.off("styledata", bijStijl);
+    };
   }, [stops, mag]);
 
   // ---- Mag je bewerken? Dan pas kun je slepen ----

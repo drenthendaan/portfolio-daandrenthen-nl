@@ -12,6 +12,7 @@ const uitReis = (reis) => ({
   lengte: reis.voertuig?.lengte ?? "",
   hoogte: reis.voertuig?.hoogte ?? "",
   gewicht: reis.voertuig?.gewicht ?? "",
+  afbeelding: reis.afbeelding ?? "",
 });
 
 /**
@@ -38,6 +39,7 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
           status: v.status,
           van: v.van || null,
           tot: v.tot || null,
+          afbeelding: v.afbeelding.trim() || null,
           voertuig:
             v.vervoer === "camper" && (v.lengte || v.hoogte || v.gewicht)
               ? { lengte: v.lengte || null, hoogte: v.hoogte || null, gewicht: v.gewicht || null }
@@ -62,6 +64,21 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
           <input id="ri-naam" type="text" value={v.naam} onChange={zet("naam")} />
           <p className="uitleg" style={{ margin: "6px 0 0", fontSize: 12 }}>
             Het adres blijft <strong>/roadtrip/{reis.slug}</strong>, ook als je de naam wijzigt.
+          </p>
+        </div>
+        <div style={{ gridColumn: "1 / -1" }}>
+          <label htmlFor="ri-afbeelding">Foto</label>
+          <input
+            id="ri-afbeelding"
+            type="url"
+            inputMode="url"
+            placeholder="https://…"
+            value={v.afbeelding}
+            onChange={zet("afbeelding")}
+          />
+          <p className="uitleg" style={{ margin: "6px 0 0", fontSize: 12 }}>
+            Komt op het overzicht te staan, in plaats van het routeschetsje. Laat leeg voor
+            het schetsje.
           </p>
         </div>
         <div>

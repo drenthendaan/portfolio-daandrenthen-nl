@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
-import { Pijl, Waarschuwing } from "./iconen";
+import { Potlood, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
@@ -15,6 +15,7 @@ const uitStop = (stop) => ({
   dag: stop?.dag ?? "",
   nachten: stop?.nachten ?? "",
   prijs: stop?.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
+  betaald: stop?.betaald ? "ja" : "nee",
   adres: stop?.adres ?? "",
   lat: stop?.lat ?? "",
   lon: stop?.lon ?? "",
@@ -47,6 +48,8 @@ export default function DagKaart({
   const [bezig, setBezig] = useState(false);
   const [zekerWeten, setZekerWeten] = useState(false);
   const [bewaard, setBewaard] = useState(false);
+  // De notitie staat vast, net als de rest; pas na het potloodje mag je typen
+  const [notitieOpen, setNotitieOpen] = useState(false);
 
   useEffect(() => {
     if (bewerken) setV(uitStop(stop));
@@ -54,6 +57,7 @@ export default function DagKaart({
 
   useEffect(() => {
     setTekst(notitie ?? "");
+    setNotitieOpen(false);
   }, [notitie]);
 
   if (!stop) return null;
@@ -76,6 +80,7 @@ export default function DagKaart({
     ["Status", STATUSNAAM[stop.status] ?? stop.status],
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
+    ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
     stop.adres ? ["Adres", stop.adres] : null,
     stop.lat != null && stop.lon != null
       ? ["Op de kaart", `${Number(stop.lat).toFixed(4)}, ${Number(stop.lon).toFixed(4)}`]
@@ -95,6 +100,7 @@ export default function DagKaart({
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
+      betaald: v.betaald,
       adres: v.adres || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
@@ -109,8 +115,15 @@ export default function DagKaart({
 
   const bewaarNotitie = async () => {
     await onNotitie(tekst.trim() || null);
+    setNotitieOpen(false);
     setBewaard(true);
     setTimeout(() => setBewaard(false), 2000);
+  };
+
+  // Annuleren zet terug wat er stond, zodat je niets kwijt bent wat al bewaard was
+  const stopNotitie = () => {
+    setTekst(notitie ?? "");
+    setNotitieOpen(false);
   };
 
   // Het puntjesmenu vraagt zelf al "Zeker weten?", dus daar mag het direct.
@@ -138,8 +151,9 @@ export default function DagKaart({
           </span>
           <span className="waar">{stop.naam}</span>
           {rit ? <span className="rit">{rit.km.toLocaleString("nl-NL")} km</span> : null}
-          <span className={`bol ${stop.status}`} title={STATUSNAAM[stop.status]} />
-          <Pijl size={16} />
+          {/* De kleur alleen zegt een voorleesprogramma niets, dus het woord staat erbij */}
+          <span className={`bol ${stop.status}`} aria-hidden="true" />
+          <span className="verborgen">{STATUSNAAM[stop.status]}</span>
         </button>
 
         <Acties
@@ -197,6 +211,13 @@ export default function DagKaart({
               <div>
                 <label htmlFor={`p-${stop.id}`}>Prijs</label>
                 <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
+              </div>
+              <div>
+                <label htmlFor={`bt-${stop.id}`}>Betaald</label>
+                <select id={`bt-${stop.id}`} value={v.betaald} onChange={zet("betaald")}>
+                  <option value="nee">Nee</option>
+                  <option value="ja">Ja</option>
+                </select>
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
                 <label htmlFor={`a-${stop.id}`}>Adres</label>
@@ -263,22 +284,51 @@ export default function DagKaart({
               </p>
             ) : null}
 
-            <h4>Notitie</h4>
-            <textarea
-              value={tekst}
-              onChange={(e) => setTekst(e.target.value)}
-              placeholder="Wat je hier wilt doen, hoe laat de receptie sluit, waar je brood haalt."
-            />
-            <div className="modaalknoppen">
-              <button type="button" className="knop" onClick={bewaarNotitie} disabled={!notitieGewijzigd}>
-                Notitie opslaan
-              </button>
-              {/* Van kijken naar aanpassen, zonder eerst het venster te sluiten */}
-              <button type="button" className="knop stil" onClick={() => onBewerk(dag.nr)}>
-                Dag aanpassen
-              </button>
+            <div className="notitiekop">
+              <h4>Notitie</h4>
+              {!notitieOpen ? (
+                <button
+                  type="button"
+                  className="potlood"
+                  onClick={() => setNotitieOpen(true)}
+                  aria-label="Notitie aanpassen"
+                >
+                  <Potlood />
+                </button>
+              ) : null}
               {bewaard ? <span className="verbinding">Opgeslagen</span> : null}
             </div>
+
+            {notitieOpen ? (
+              <>
+                <textarea
+                  autoFocus
+                  value={tekst}
+                  onChange={(e) => setTekst(e.target.value)}
+                  placeholder="Wat je hier wilt doen, hoe laat de receptie sluit, waar je brood haalt."
+                />
+                <div className="modaalknoppen">
+                  <button type="button" className="knop" onClick={bewaarNotitie} disabled={!notitieGewijzigd}>
+                    Notitie opslaan
+                  </button>
+                  <button type="button" className="knop stil" onClick={stopNotitie}>
+                    Annuleren
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className={`notitietekst${notitie?.trim() ? "" : " leegje"}`}>
+                  {notitie?.trim() ? notitie : "Nog niets opgeschreven."}
+                </p>
+                <div className="modaalknoppen">
+                  {/* Van kijken naar aanpassen, zonder eerst het venster te sluiten */}
+                  <button type="button" className="knop stil" onClick={() => onBewerk(dag.nr)}>
+                    Dag aanpassen
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </Modal>
       ) : null}

@@ -23,6 +23,8 @@ body:has(.trip),
   --let-vlak: #fff6e0;
   --let-lijn: #f5e3b8;
   --let-tekst: #7a5500;
+  /* Apart van --accent: dat oranje betekent hier "gepland", niet "fout" */
+  --nee-tekst: #b3261e;
 
   background: var(--grond);
   color: var(--inkt);
@@ -683,6 +685,7 @@ body:has(.trip),
 .trip input[type="password"],
 .trip input[type="date"],
 .trip input[type="number"],
+.trip input[type="url"],
 .trip select {
   width: 100%;
   height: 44px;
@@ -1707,16 +1710,6 @@ body:has(.trip),
 .trip .dagtoggle .bol.gepland { background: var(--accent); }
 .trip .dagtoggle .bol.idee { background: var(--idee); }
 
-.trip .dagtoggle > svg {
-  flex: 0 0 auto;
-  color: var(--zacht);
-  transition: transform 0.18s ease;
-}
-
-.trip .dagtoggle[aria-expanded="true"] > svg {
-  transform: rotate(180deg);
-}
-
 .trip .daginhoud,
 .trip .dagvelden {
   padding: 0 14px 14px;
@@ -1831,10 +1824,6 @@ body:has(.trip),
   .trip .dagtoggle .bol {
     order: 2;
     margin-left: auto;
-  }
-
-  .trip .dagtoggle > svg {
-    order: 3;
   }
 
   .trip .dagtoggle .waar {
@@ -2119,7 +2108,100 @@ body:has(.trip),
   from { transform: translateY(18px); }
 }
 
-/* De dagregel klapt niets meer uit, dus het pijltje hoort niet te draaien */
-.trip .dagtoggle > svg {
-  transition: none;
+
+/* ================= Betaald, en een foto bij de reis ================= */
+
+/* Wel of niet betaald, in het dagvenster. Kleur alleen is niet genoeg — het
+   woord staat er voluit, dus ook zonder kleurzicht is het te lezen. */
+.trip .jaNee {
+  font-weight: 700;
+}
+
+.trip .jaNee.ja {
+  color: var(--diep-tekst);
+}
+
+.trip .jaNee.nee {
+  color: var(--nee-tekst);
+}
+
+/* Alleen voor een voorleesprogramma: de statusbol is een kleur zonder woord */
+.trip .verborgen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* De foto van de reis neemt de plek van het routeschetsje in: zelfde maat,
+   zelfde hoek, dus de rij eromheen verandert niet. */
+.trip .reisfoto {
+  flex: 0 0 auto;
+  width: 132px;
+  height: 86px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #e9ebec;
+}
+
+@media (max-width: 460px) {
+  .trip .reisfoto {
+    width: 84px;
+    height: 56px;
+  }
+}
+
+
+/* ---- De notitie: lezen, en pas na het potloodje typen ---- */
+.trip .notitiekop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* h4 draagt zelf al de ondermarge van het kopje */
+.trip .notitiekop h4 {
+  margin: 0 0 6px;
+}
+
+.trip .notitiekop .verbinding {
+  margin: 0 0 6px auto;
+}
+
+.trip .potlood {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 6px;
+  padding: 0;
+  color: var(--zacht);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.trip .potlood:hover {
+  color: var(--inkt);
+  background: var(--grond);
+}
+
+/* Regelafbrekingen uit de notitie blijven staan */
+.trip .notitietekst {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--inkt);
+  white-space: pre-wrap;
+}
+
+.trip .notitietekst.leegje {
+  color: var(--zacht);
+  font-style: italic;
 }

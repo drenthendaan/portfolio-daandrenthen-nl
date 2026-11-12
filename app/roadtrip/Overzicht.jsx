@@ -63,6 +63,18 @@ function Schets({ stops, status }) {
 }
 
 function Reisrij({ reis, stops }) {
+  // Loopt het adres dood, dan vallen we terug op het routeschetsje
+  const [fotoStuk, setFotoStuk] = useState(false);
+  const foto = useRef(null);
+
+  // De server rendert het plaatje mee, dus de browser begint er al aan voordat
+  // React er is. Mislukt het in dat gaatje, dan komt onError nooit meer langs —
+  // daarom hier zelf nog even kijken of er werkelijk iets geladen is.
+  useEffect(() => {
+    const el = foto.current;
+    if (el?.complete && el.naturalWidth === 0) setFotoStuk(true);
+  }, [reis.afbeelding]);
+
   const telling = totalen(stops);
   const dagen = aantalDagen(reis.van, reis.tot);
   const plaatsen = stops
@@ -79,7 +91,21 @@ function Reisrij({ reis, stops }) {
 
   return (
     <Link className="reisrij" href={`/roadtrip/${reis.slug}`}>
-      <Schets stops={stops} status={reis.status} />
+      {reis.afbeelding && !fotoStuk ? (
+        // Het adres komt van buiten, dus het kan doodlopen. Dan het schetsje weer.
+        <img
+          className="reisfoto"
+          ref={foto}
+          src={reis.afbeelding}
+          alt=""
+          width={132}
+          height={86}
+          loading="lazy"
+          onError={() => setFotoStuk(true)}
+        />
+      ) : (
+        <Schets stops={stops} status={reis.status} />
+      )}
       <div className="tekst">
         <h3>{reis.naam}</h3>
         <p className="meta">{meta.join(" · ")}</p>
