@@ -2263,3 +2263,30 @@ body:has(.trip),
 .trip .kaartgroot:hover {
   background: var(--grond);
 }
+
+
+/* ================= Een warme gloed bovenaan ================= */
+
+/* De koppen stonden op een vlakke ondergrond: correct, maar bloedeloos. Een
+   terracottagloed die naar de paginakleur uitdooft geeft de bovenkant lucht,
+   zonder dat er een vlak bij komt dat om aandacht vraagt.
+   Let op: .trip zet zelf ook een achtergrond en ligt over de body heen, dus
+   het moet op allebei — anders zit de gloed eronder en zie je er niets van. */
+body:has(.trip),
+.trip {
+  /* Niet donkerder dan dit: bij #f7d9c6 zakt de grijze subtekst naar 4,41:1 en
+     de accenttekst naar 4,10:1, en dan lees je het niet meer comfortabel. */
+  background-image: linear-gradient(180deg, #fae7db 0, var(--grond) 380px);
+  background-repeat: no-repeat;
+}
+
+/* De reiskop ligt als wit vlak over die gloed heen, dus die krijgt hem zelf */
+.trip .reiskop {
+  background: linear-gradient(180deg, #fdf0e9 0, var(--papier) 78%);
+}
+
+/* De streep onder de titel pakt het accent op, zodat de kop niet alleen
+   kleur heeft maar er ook aan vast zit */
+.trip .kop {
+  border-bottom-color: var(--rand);
+}
