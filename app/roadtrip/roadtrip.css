@@ -1266,3 +1266,51 @@ body:has(.trip),
 .trip .stop.open .actieknop {
   opacity: 1;
 }
+
+/* ---- Opengeklapte stop: de gegevens om te lezen ---- */
+.trip .stopdetail {
+  padding: 2px 14px 14px 50px;
+}
+
+.trip .stopdetail dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(96px, auto) 1fr;
+  gap: 2px 16px;
+}
+
+.trip .stopdetail dl > div {
+  display: contents;
+}
+
+.trip .stopdetail dt {
+  margin: 0;
+  padding: 3px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--zacht);
+}
+
+.trip .stopdetail dd {
+  margin: 0;
+  padding: 3px 0;
+  font-size: 13px;
+  color: var(--inkt);
+}
+
+.trip .stopdetail .past-niet {
+  margin: 10px 0 0;
+}
+
+@media (max-width: 460px) {
+  .trip .stopdetail {
+    padding-left: 14px;
+  }
+  .trip .stopdetail dl {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .trip .stopdetail dd {
+    margin-bottom: 7px;
+  }
+}

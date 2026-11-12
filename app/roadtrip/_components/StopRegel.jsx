@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { pastVoertuig } from "@/lib/roadtrip/regels.mjs";
+import { pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
 import { Omlaag, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 
 const STATUSNAAM = { idee: "Idee", gepland: "Gepland", geboekt: "Geboekt" };
+const SOORTNAAM = {
+  overnachting: "Overnachting",
+  bezienswaardigheid: "Bezienswaardigheid",
+  servicepunt: "Servicepunt",
+};
 
 const euro = (centen) =>
   centen === null || centen === undefined
@@ -27,21 +32,72 @@ const uitStop = (stop) => ({
   maxHoogte: stop.max?.hoogte ?? "",
 });
 
+// De gegevens van een stop, rustig op een rij
+function Detail({ stop, uitslag }) {
+  const regels = [
+    ["Soort", SOORTNAAM[stop.soort] ?? stop.soort],
+    ["Status", STATUSNAAM[stop.status] ?? stop.status],
+    ["Dag", stop.dag ? `Dag ${stop.dag}` : "Nog geen dag"],
+    stop.soort === "overnachting" && stop.nachten
+      ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`]
+      : null,
+    stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
+    stop.adres ? ["Adres", stop.adres] : null,
+    stop.notitie ? ["Notitie", stop.notitie] : null,
+    stop.lat != null && stop.lon != null
+      ? ["Op de kaart", `${Number(stop.lat).toFixed(4)}, ${Number(stop.lon).toFixed(4)}`]
+      : null,
+    stop.max?.lengte ? ["Max lengte", toon(stop.max.lengte, "cm")] : null,
+    stop.max?.hoogte ? ["Max hoogte", toon(stop.max.hoogte, "cm")] : null,
+  ].filter(Boolean);
+
+  return (
+    <div className="stopdetail">
+      <dl>
+        {regels.map(([naam, waarde]) => (
+          <div key={naam}>
+            <dt>{naam}</dt>
+            <dd>{waarde}</dd>
+          </div>
+        ))}
+      </dl>
+      {!uitslag.past ? (
+        <p className="past-niet">
+          <Waarschuwing /> Past niet
+          {uitslag.problemen.map((p) => (
+            <span key={p.veld}>{p.tekst}</span>
+          ))}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 /**
- * Eén stop in de lijst. Dicht: speld, naam, prijs. Open: alle velden meteen
- * bewerkbaar — geen apart formulier en geen menu, want wat je wilt doen staat
- * er al. Alleen lezen als je geen token hebt.
+ * Eén stop. Dicht: speld, naam, prijs. Open: alle gegevens om te lezen.
+ * Bewerken doe je via het drie-puntjes-menu; dan komt het formulier in de
+ * plaats van de gegevens.
  */
-export default function StopRegel({ stop, nummer, voertuig, mag, open, onToggle, onBewaar, onWeg }) {
+export default function StopRegel({
+  stop,
+  nummer,
+  voertuig,
+  mag,
+  open,
+  bewerken,
+  onToggle,
+  onBewerk,
+  onBewaar,
+  onWeg,
+}) {
   const [v, setV] = useState(() => uitStop(stop));
   const [bezig, setBezig] = useState(false);
   const [zekerWeten, setZekerWeten] = useState(false);
 
-  // Wijzigt de stop elders (ander tabblad), dan die waarden overnemen zolang
-  // je dit veld niet zelf openstaan hebt
+  // Bij het openen van het formulier de huidige waarden tonen
   useEffect(() => {
-    if (!open) setV(uitStop(stop));
-  }, [stop, open]);
+    if (bewerken) setV(uitStop(stop));
+  }, [bewerken, stop]);
 
   const zet = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.value }));
   const uitslag = pastVoertuig(stop.max, voertuig);
@@ -75,7 +131,7 @@ export default function StopRegel({ stop, nummer, voertuig, mag, open, onToggle,
           : null,
     });
     setBezig(false);
-    if (gelukt) onToggle(null);
+    if (gelukt) onBewerk(null);
   };
 
   const weg = async () => {
@@ -86,7 +142,7 @@ export default function StopRegel({ stop, nummer, voertuig, mag, open, onToggle,
   };
 
   return (
-    <div className={`stop${open ? " open" : ""}`}>
+    <div className={`stop${open || bewerken ? " open" : ""}`}>
       <div className="stopbalk">
         <button
           type="button"
@@ -112,7 +168,7 @@ export default function StopRegel({ stop, nummer, voertuig, mag, open, onToggle,
           <Acties
             label={`Acties voor ${stop.naam}`}
             items={[
-              { naam: open ? "Sluiten" : "Bewerken", doe: () => onToggle(open ? null : stop.id) },
+              { naam: "Bewerken", doe: () => onBewerk(stop.id) },
               { scheiding: true },
               ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
                 naam,
@@ -123,14 +179,14 @@ export default function StopRegel({ stop, nummer, voertuig, mag, open, onToggle,
               { scheiding: true },
               stop.dag
                 ? { naam: "Terug naar de lijst", doe: () => onBewaar({ id: stop.id, dag: null }) }
-                : { naam: "Aan een dag koppelen", doe: () => onToggle(stop.id) },
+                : { naam: "Aan een dag koppelen", doe: () => onBewerk(stop.id) },
               { naam: "Verwijderen", gevaar: true, doe: () => onWeg(stop.id) },
             ]}
           />
         ) : null}
       </div>
 
-      {!uitslag.past && !open ? (
+      {!uitslag.past && !open && !bewerken ? (
         <p className="past-niet">
           <Waarschuwing /> Past niet
           {uitslag.problemen.map((p) => (
@@ -139,109 +195,94 @@ export default function StopRegel({ stop, nummer, voertuig, mag, open, onToggle,
         </p>
       ) : null}
 
-      {open ? (
-        mag ? (
-          <form className="stopvelden" onSubmit={bewaar}>
-            <div className="velden">
-              <div style={{ gridColumn: "1 / -1" }}>
-                <label htmlFor={`n-${stop.id}`}>Naam</label>
-                <input id={`n-${stop.id}`} type="text" value={v.naam} onChange={zet("naam")} />
-              </div>
-              <div>
-                <label htmlFor={`so-${stop.id}`}>Soort</label>
-                <select id={`so-${stop.id}`} value={v.soort} onChange={zet("soort")}>
-                  <option value="overnachting">Overnachting</option>
-                  <option value="bezienswaardigheid">Bezienswaardigheid</option>
-                  <option value="servicepunt">Servicepunt</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor={`st-${stop.id}`}>Status</label>
-                <select id={`st-${stop.id}`} value={v.status} onChange={zet("status")}>
-                  <option value="idee">Idee</option>
-                  <option value="gepland">Gepland</option>
-                  <option value="geboekt">Geboekt</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor={`d-${stop.id}`}>Dag</label>
-                <input
-                  id={`d-${stop.id}`}
-                  type="number"
-                  min="1"
-                  placeholder="geen"
-                  value={v.dag}
-                  onChange={zet("dag")}
-                />
-              </div>
-              {v.soort === "overnachting" ? (
-                <div>
-                  <label htmlFor={`na-${stop.id}`}>Nachten</label>
-                  <input id={`na-${stop.id}`} type="number" min="1" value={v.nachten} onChange={zet("nachten")} />
-                </div>
-              ) : null}
-              <div>
-                <label htmlFor={`p-${stop.id}`}>Prijs</label>
-                <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <label htmlFor={`a-${stop.id}`}>Adres</label>
-                <input id={`a-${stop.id}`} type="text" value={v.adres} onChange={zet("adres")} />
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <label htmlFor={`no-${stop.id}`}>Notitie</label>
-                <input id={`no-${stop.id}`} type="text" value={v.notitie} onChange={zet("notitie")} />
-              </div>
-              <div>
-                <label htmlFor={`la-${stop.id}`}>Breedtegraad</label>
-                <input id={`la-${stop.id}`} type="text" value={v.lat} onChange={zet("lat")} />
-              </div>
-              <div>
-                <label htmlFor={`lo-${stop.id}`}>Lengtegraad</label>
-                <input id={`lo-${stop.id}`} type="text" value={v.lon} onChange={zet("lon")} />
-              </div>
-              {v.soort === "overnachting" ? (
-                <>
-                  <div>
-                    <label htmlFor={`ml-${stop.id}`}>Max lengte</label>
-                    <input id={`ml-${stop.id}`} type="number" value={v.maxLengte} onChange={zet("maxLengte")} />
-                  </div>
-                  <div>
-                    <label htmlFor={`mh-${stop.id}`}>Max hoogte</label>
-                    <input id={`mh-${stop.id}`} type="number" value={v.maxHoogte} onChange={zet("maxHoogte")} />
-                  </div>
-                </>
-              ) : null}
+      {bewerken ? (
+        <form className="stopvelden" onSubmit={bewaar}>
+          <div className="velden">
+            <div style={{ gridColumn: "1 / -1" }}>
+              <label htmlFor={`n-${stop.id}`}>Naam</label>
+              <input id={`n-${stop.id}`} type="text" value={v.naam} onChange={zet("naam")} autoFocus />
             </div>
-
-            {!uitslag.past ? (
-              <p className="past-niet">
-                <Waarschuwing /> Past niet
-                {uitslag.problemen.map((p) => (
-                  <span key={p.veld}>{p.tekst}</span>
-                ))}
-              </p>
+            <div>
+              <label htmlFor={`so-${stop.id}`}>Soort</label>
+              <select id={`so-${stop.id}`} value={v.soort} onChange={zet("soort")}>
+                <option value="overnachting">Overnachting</option>
+                <option value="bezienswaardigheid">Bezienswaardigheid</option>
+                <option value="servicepunt">Servicepunt</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor={`st-${stop.id}`}>Status</label>
+              <select id={`st-${stop.id}`} value={v.status} onChange={zet("status")}>
+                <option value="idee">Idee</option>
+                <option value="gepland">Gepland</option>
+                <option value="geboekt">Geboekt</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor={`d-${stop.id}`}>Dag</label>
+              <input
+                id={`d-${stop.id}`}
+                type="number"
+                min="1"
+                placeholder="geen"
+                value={v.dag}
+                onChange={zet("dag")}
+              />
+            </div>
+            {v.soort === "overnachting" ? (
+              <div>
+                <label htmlFor={`na-${stop.id}`}>Nachten</label>
+                <input id={`na-${stop.id}`} type="number" min="1" value={v.nachten} onChange={zet("nachten")} />
+              </div>
             ) : null}
-
-            <div className="stopknoppen">
-              <button type="submit" className="knop klein" disabled={bezig}>
-                {bezig ? "Bezig…" : "Opslaan"}
-              </button>
-              <button type="button" className="knop stil klein" onClick={() => onToggle(null)}>
-                Sluiten
-              </button>
-              <button type="button" className="knop gevaar klein" onClick={weg} disabled={bezig}>
-                {zekerWeten ? "Zeker weten?" : "Verwijderen"}
-              </button>
+            <div>
+              <label htmlFor={`p-${stop.id}`}>Prijs</label>
+              <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
             </div>
-          </form>
-        ) : (
-          <div className="stopvelden">
-            <p className="sub">
-              {[stop.adres, stop.notitie, STATUSNAAM[stop.status]].filter(Boolean).join(" · ")}
-            </p>
+            <div style={{ gridColumn: "1 / -1" }}>
+              <label htmlFor={`a-${stop.id}`}>Adres</label>
+              <input id={`a-${stop.id}`} type="text" value={v.adres} onChange={zet("adres")} />
+            </div>
+            <div style={{ gridColumn: "1 / -1" }}>
+              <label htmlFor={`no-${stop.id}`}>Notitie</label>
+              <input id={`no-${stop.id}`} type="text" value={v.notitie} onChange={zet("notitie")} />
+            </div>
+            <div>
+              <label htmlFor={`la-${stop.id}`}>Breedtegraad</label>
+              <input id={`la-${stop.id}`} type="text" value={v.lat} onChange={zet("lat")} />
+            </div>
+            <div>
+              <label htmlFor={`lo-${stop.id}`}>Lengtegraad</label>
+              <input id={`lo-${stop.id}`} type="text" value={v.lon} onChange={zet("lon")} />
+            </div>
+            {v.soort === "overnachting" ? (
+              <>
+                <div>
+                  <label htmlFor={`ml-${stop.id}`}>Max lengte</label>
+                  <input id={`ml-${stop.id}`} type="number" value={v.maxLengte} onChange={zet("maxLengte")} />
+                </div>
+                <div>
+                  <label htmlFor={`mh-${stop.id}`}>Max hoogte</label>
+                  <input id={`mh-${stop.id}`} type="number" value={v.maxHoogte} onChange={zet("maxHoogte")} />
+                </div>
+              </>
+            ) : null}
           </div>
-        )
+
+          <div className="stopknoppen">
+            <button type="submit" className="knop klein" disabled={bezig}>
+              {bezig ? "Bezig…" : "Opslaan"}
+            </button>
+            <button type="button" className="knop stil klein" onClick={() => onBewerk(null)}>
+              Annuleren
+            </button>
+            <button type="button" className="knop gevaar klein" onClick={weg} disabled={bezig}>
+              {zekerWeten ? "Zeker weten?" : "Verwijderen"}
+            </button>
+          </div>
+        </form>
+      ) : open ? (
+        <Detail stop={stop} uitslag={uitslag} />
       ) : null}
     </div>
   );

@@ -77,6 +77,7 @@ export default function Reis({ begin, etappes = {} }) {
   const [toevoegen, setToevoegen] = useState(false);
   const [actief, setActief] = useState(null);
   const [openStop, setOpenStop] = useState(null);
+  const [bewerkStop, setBewerkStop] = useState(null);
   const [instellingen, setInstellingen] = useState(false);
   const wachtend = useRef(null);
 
@@ -270,7 +271,9 @@ export default function Reis({ begin, etappes = {} }) {
                               voertuig={reis.voertuig}
                               mag={mag}
                               open={openStop === stop.id}
+                              bewerken={bewerkStop === stop.id}
                               onToggle={setOpenStop}
+                              onBewerk={setBewerkStop}
                               onBewaar={(velden) => metToken(() => bewaarStop(velden))}
                               onWeg={(id) => metToken(() => verwijderStop(id))}
                             />
@@ -302,7 +305,9 @@ export default function Reis({ begin, etappes = {} }) {
                           voertuig={reis.voertuig}
                           mag={mag}
                           open={openStop === los.id}
+                          bewerken={bewerkStop === los.id}
                           onToggle={setOpenStop}
+                          onBewerk={setBewerkStop}
                           onBewaar={(velden) => metToken(() => bewaarStop(velden))}
                           onWeg={(id) => metToken(() => verwijderStop(id))}
                         />
