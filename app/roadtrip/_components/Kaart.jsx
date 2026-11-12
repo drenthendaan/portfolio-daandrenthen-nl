@@ -15,8 +15,12 @@ const MAPTILER = process.env.NEXT_PUBLIC_MAPTILER_KEY;
  *    niet vechten met de route.
  */
 function stijl() {
-  if (MAPTILER) return `https://api.maptiler.com/maps/dataviz-light/style.json?key=${MAPTILER}`;
-  return "https://tiles.openfreemap.org/styles/positron";
+  // streets-v2 in plaats van dataviz-light: die laatste is net zo grijs als
+  // positron was. Niet nagelopen tegen een echte sleutel — die is er hier niet.
+  if (MAPTILER) return `https://api.maptiler.com/maps/streets-v2/style.json?key=${MAPTILER}`;
+  // Liberty in plaats van positron: groen voor natuur, blauw voor water. Dat
+  // positron bewust grijs is, was juist het probleem.
+  return "https://tiles.openfreemap.org/styles/liberty";
 }
 
 function osmStijl() {
