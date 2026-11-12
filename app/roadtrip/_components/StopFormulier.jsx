@@ -4,13 +4,11 @@ import { useState } from "react";
 
 const leeg = {
   naam: "",
-  soort: "overnachting",
   status: "gepland",
   dag: "1",
   nachten: "",
   prijs: "",
   adres: "",
-  notitie: "",
   lat: "",
   lon: "",
   maxLengte: "",
@@ -23,13 +21,11 @@ const uitStop = (stop) =>
     ? leeg
     : {
         naam: stop.naam ?? "",
-        soort: stop.soort ?? "overnachting",
         status: stop.status ?? "gepland",
         dag: stop.dag ?? "",
         nachten: stop.nachten ?? "",
         prijs: stop.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
         adres: stop.adres ?? "",
-        notitie: stop.notitie ?? "",
         lat: stop.lat ?? "",
         lon: stop.lon ?? "",
         maxLengte: stop.max?.lengte ?? "",
@@ -55,13 +51,12 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
 
     const velden = {
       naam: v.naam,
-      soort: v.soort,
+      soort: "overnachting",
       status: v.status,
       dag: v.dag === "" ? null : Number(v.dag),
-      nachten: v.soort === "overnachting" && v.nachten !== "" ? Number(v.nachten) : null,
+      nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
       adres: v.adres || null,
-      notitie: v.notitie || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
       max:
@@ -99,14 +94,6 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
           <input id="sf-naam" type="text" value={v.naam} onChange={zet("naam")} autoFocus />
         </div>
         <div>
-          <label htmlFor="sf-soort">Soort</label>
-          <select id="sf-soort" value={v.soort} onChange={zet("soort")}>
-            <option value="overnachting">Overnachting</option>
-            <option value="bezienswaardigheid">Bezienswaardigheid</option>
-            <option value="servicepunt">Servicepunt</option>
-          </select>
-        </div>
-        <div>
           <label htmlFor="sf-dag">Dag</label>
           <input id="sf-dag" type="number" min="1" required value={v.dag} onChange={zet("dag")} />
         </div>
@@ -118,12 +105,10 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
             <option value="geboekt">Geboekt</option>
           </select>
         </div>
-        {v.soort === "overnachting" ? (
-          <div>
+                  <div>
             <label htmlFor="sf-nachten">Nachten</label>
             <input id="sf-nachten" type="number" min="1" value={v.nachten} onChange={zet("nachten")} />
           </div>
-        ) : null}
         <div>
           <label htmlFor="sf-prijs">Prijs</label>
           <input id="sf-prijs" type="text" placeholder="46" value={v.prijs} onChange={zet("prijs")} />
@@ -140,14 +125,9 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
           <label htmlFor="sf-lon">Lengtegraad</label>
           <input id="sf-lon" type="text" placeholder="8.3093" value={v.lon} onChange={zet("lon")} />
         </div>
-        <div style={{ gridColumn: "1 / -1" }}>
-          <label htmlFor="sf-notitie">Notitie</label>
-          <input id="sf-notitie" type="text" value={v.notitie} onChange={zet("notitie")} />
-        </div>
       </div>
 
-      {v.soort === "overnachting" ? (
-        <div style={{ marginTop: 14 }}>
+              <div style={{ marginTop: 14 }}>
           <p className="uitleg" style={{ margin: "0 0 8px" }}>
             Maxima van deze plek, in centimeters. Laat leeg als je het niet weet.
           </p>
@@ -162,7 +142,6 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
             </div>
           </div>
         </div>
-      ) : null}
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 18, alignItems: "center" }}>
         <button type="submit" className="knop" disabled={bezig}>

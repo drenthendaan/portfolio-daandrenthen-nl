@@ -12,9 +12,6 @@ const MAPTILER = process.env.NEXT_PUBLIC_MAPTILER_KEY;
  * 2. anders OpenFreeMap Positron — dezelfde rustige stijl, zonder sleutel;
  * 3. en als dat niet laadt, de gewone OpenStreetMap-tegels, ontkleurd zodat ze
  *    niet vechten met de route.
- *
- * CARTO's Positron viel af: die vraagt sinds kort een sleutel en levert anders
- * een tegel met "API KEY REQUIRED" erover, met gewoon status 200.
  */
 function stijl() {
   if (MAPTILER) return `https://api.maptiler.com/maps/dataviz-light/style.json?key=${MAPTILER}`;
@@ -37,144 +34,257 @@ function osmStijl() {
   };
 }
 
-const ROUTE = {
-  casing: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.95 },
-  lijn: { "line-color": "#ff4a14", "line-width": 3.2 },
-};
+// Alleen plekken met coördinaten kunnen op de kaart; alleen plekken met een dag
+// horen in de route — een idee zonder dag is een losse stip.
+const metPlek = (stops) => stops.filter((s) => Number.isFinite(s.lat) && Number.isFinite(s.lon));
+const inRoute = (s) => s.dag !== null && s.dag !== undefined;
 
-export default function Kaart({ stops = [], midden, actief, onKiesStop }) {
+export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onVerplaats }) {
   const vak = useRef(null);
   const kaart = useRef(null);
-  const spelden = useRef([]);
+  // id → { speld, el, stop }: spelden worden bijgewerkt, niet opnieuw gebouwd
+  const spelden = useRef(new Map());
   const gepast = useRef(false);
-  // In een ref, zodat een nieuwe klikfunctie de kaart niet opnieuw laat tekenen
-  const kiezen = useRef(onKiesStop);
-  kiezen.current = onKiesStop;
+  const callbacks = useRef({ onKiesStop, onVerplaats });
+  callbacks.current = { onKiesStop, onVerplaats };
 
-  // Kaart één keer opzetten
+  // ---- Kaart opzetten ----
   useEffect(() => {
     if (!vak.current || kaart.current) return;
 
-    kaart.current = new maplibregl.Map({
+    const m = new maplibregl.Map({
       container: vak.current,
       style: stijl(),
       center: [midden?.lon ?? 9.1, midden?.lat ?? 46.5],
       zoom: midden?.zoom ?? 5,
       attributionControl: { compact: true },
     });
-    kaart.current.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
-    kaart.current.scrollZoom.disable(); // anders scroll je de pagina niet meer voorbij de kaart
+    kaart.current = m;
 
-    // Laadt de stijl niet, dan terugvallen op OpenStreetMap in plaats van een leeg vlak
+    m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+    m.scrollZoom.disable(); // anders scroll je de pagina niet meer voorbij de kaart
+
     let teruggevallen = false;
-    kaart.current.on("error", (e) => {
+    m.on("error", (e) => {
       const bron = e?.error?.url ?? "";
       if (teruggevallen || MAPTILER || !bron.includes("openfreemap")) return;
       teruggevallen = true;
-      kaart.current?.getContainer()?.classList.add("osm");
-      kaart.current?.setStyle(osmStijl());
+      m.getContainer().classList.add("osm");
+      m.setStyle(osmStijl());
     });
 
-    // MapLibre onthoudt zijn afmetingen; bij een layoutwissel moet hij opnieuw meten
-    const meet = new ResizeObserver(() => kaart.current?.resize());
+    const meet = new ResizeObserver(() => m.resize());
     meet.observe(vak.current);
+    const huidigeSpelden = spelden.current;
 
     return () => {
       meet.disconnect();
-      kaart.current?.remove();
+      huidigeSpelden.forEach(({ speld }) => speld.remove());
+      huidigeSpelden.clear();
+      m.remove();
       kaart.current = null;
+      // Een volgende kaart moet zichzelf opnieuw op de route richten
+      gepast.current = false;
     };
-    // midden alleen bij het opzetten; daarna bepaalt de gebruiker het beeld
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Spelden en route opnieuw tekenen als de stops veranderen
+  // ---- Spelden bijwerken ----
   useEffect(() => {
     const m = kaart.current;
     if (!m) return;
 
-    const teken = () => {
-      spelden.current.forEach((s) => s.remove());
-      spelden.current = [];
+    // De route loopt langs de spelden zoals ze nú staan, zodat de lijn meebuigt
+    // terwijl je sleept in plaats van pas na het opslaan te verspringen.
+    const routeData = () => {
+      const punten = metPlek(stops)
+        .filter(inRoute)
+        .map((s) => {
+          const bestaand = spelden.current.get(s.id);
+          if (!bestaand) return [s.lon, s.lat];
+          const { lng, lat } = bestaand.speld.getLngLat();
+          return [lng, lat];
+        });
+      return { type: "Feature", geometry: { type: "LineString", coordinates: punten } };
+    };
 
-      const metPlek = stops.filter((s) => Number.isFinite(s.lat) && Number.isFinite(s.lon));
-      let nummer = 0;
-
-      metPlek.forEach((stop) => {
-        const slaapplek = stop.soort === "overnachting";
-        if (slaapplek) nummer += 1;
-
-        const el = document.createElement("button");
-        el.type = "button";
-        el.className = [
-          "speld",
-          slaapplek ? stop.status : "los",
-          actief === stop.id ? "actief" : "",
-        ]
-          .filter(Boolean)
-          .join(" ");
-        el.textContent = slaapplek ? String(nummer) : "";
-        el.setAttribute("aria-label", stop.naam);
-        el.addEventListener("click", () => kiezen.current?.(stop.id));
-
-        spelden.current.push(new maplibregl.Marker({ element: el }).setLngLat([stop.lon, stop.lat]).addTo(m));
-      });
-
-      // Routelijn langs de plekken waar je slaapt
-      const lijn = metPlek.filter((s) => s.soort === "overnachting").map((s) => [s.lon, s.lat]);
-      const data = { type: "Feature", geometry: { type: "LineString", coordinates: lijn } };
-      const bron = m.getSource("route");
-
-      if (bron) {
-        bron.setData(data);
-      } else if (lijn.length > 1) {
+    // Alleen de lijn hangt van de stijl af; spelden zijn gewone HTML-elementen
+    // en worden altijd geplaatst, ook als de tegels traag of stuk zijn.
+    const tekenRoute = () => {
+      const data = routeData();
+      try {
+        const bron = m.getSource("route");
+        if (bron) return bron.setData(data);
+        if (data.geometry.coordinates.length < 2 || !m.isStyleLoaded()) return;
         m.addSource("route", { type: "geojson", data });
         m.addLayer({
           id: "route-casing",
           type: "line",
           source: "route",
-          paint: ROUTE.casing,
+          paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.95 },
           layout: { "line-cap": "round", "line-join": "round" },
         });
         m.addLayer({
           id: "route-lijn",
           type: "line",
           source: "route",
-          paint: ROUTE.lijn,
+          paint: { "line-color": "#ff4a14", "line-width": 3.2 },
           layout: { "line-cap": "round", "line-join": "round" },
         });
+      } catch {
+        // Stijl nog niet zover; de volgende styledata probeert het opnieuw
       }
+    };
 
-      // Alleen de eerste keer inkaderen; daarna bepaalt de gebruiker het beeld.
-      // De marge schaalt mee met het vak, anders zoomt een strook van 180px hoog
-      // veel te ver uit.
-      if (!gepast.current && metPlek.length > 1) {
-        const grens = metPlek.reduce(
+    const teken = () => {
+      const lijst = metPlek(stops);
+      const gezien = new Set();
+
+      lijst.forEach((stop) => {
+        gezien.add(stop.id);
+        // Het nummer op de speld is het dagnummer, zodat kaart en lijst
+        // dezelfde taal spreken: speld 4 hoort bij "Dag 4–6".
+        const label = inRoute(stop) ? String(stop.dag) : "";
+        const bestaand = spelden.current.get(stop.id);
+
+        if (bestaand) {
+          // Alleen bijwerken wat veranderd is, zodat de speld niet knippert
+          const { speld, el } = bestaand;
+          if (!el.classList.contains("sleept")) {
+            const huidig = speld.getLngLat();
+            if (huidig.lng !== stop.lon || huidig.lat !== stop.lat) {
+              speld.setLngLat([stop.lon, stop.lat]);
+            }
+          }
+          el.textContent = label;
+          el.dataset.status = stop.status;
+          el.classList.toggle("los", !inRoute(stop));
+          el.title = stop.naam;
+          bestaand.stop = stop;
+          return;
+        }
+
+        // MapLibre zet zijn eigen transform op het element dat het krijgt, dus
+        // dat moet een wikkel zijn: alleen zo houden hover, slepen en de
+        // actieve speld hun eigen schaalanimatie.
+        const wikkel = document.createElement("div");
+        wikkel.className = "speldvak";
+
+        const el = document.createElement("button");
+        el.type = "button";
+        el.className = `speld${inRoute(stop) ? "" : " los"}`;
+        el.textContent = label;
+        el.dataset.status = stop.status;
+        el.title = stop.naam;
+        wikkel.appendChild(el);
+
+        const speld = new maplibregl.Marker({ element: wikkel, draggable: !!mag })
+          .setLngLat([stop.lon, stop.lat])
+          .addTo(m);
+
+        const gegevens = { speld, el, stop };
+
+        // Een klik telt alleen als je niet gesleept hebt
+        let gesleept = false;
+        el.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (gesleept) {
+            gesleept = false;
+            return;
+          }
+          callbacks.current.onKiesStop?.(gegevens.stop.id);
+        });
+
+        speld.on("dragstart", () => {
+          gesleept = true;
+          el.classList.add("sleept");
+          m.getContainer().classList.add("sleepend");
+        });
+
+        // De lijn buigt mee zolang je sleept
+        speld.on("drag", () => tekenRoute());
+
+        speld.on("dragend", async () => {
+          el.classList.remove("sleept");
+          m.getContainer().classList.remove("sleepend");
+          const vorige = { lon: gegevens.stop.lon, lat: gegevens.stop.lat };
+          const { lng, lat } = speld.getLngLat();
+          el.classList.add("bezig");
+          const gelukt = await callbacks.current.onVerplaats?.(gegevens.stop.id, {
+            lat: Number(lat.toFixed(5)),
+            lon: Number(lng.toFixed(5)),
+          });
+          el.classList.remove("bezig");
+          // Niet opgeslagen? Dan hoort de speld terug op zijn oude plek
+          if (!gelukt && Number.isFinite(vorige.lat) && Number.isFinite(vorige.lon)) {
+            speld.setLngLat([vorige.lon, vorige.lat]);
+            el.classList.add("terug");
+            setTimeout(() => el.classList.remove("terug"), 400);
+          }
+          tekenRoute();
+        });
+
+        spelden.current.set(stop.id, gegevens);
+      });
+
+      // Stops die weg zijn, hun speld ook
+      spelden.current.forEach(({ speld }, id) => {
+        if (gezien.has(id)) return;
+        speld.remove();
+        spelden.current.delete(id);
+      });
+
+      tekenRoute();
+
+      // Alleen de eerste keer inkaderen; daarna blijft jouw beeld staan
+      const route = lijst.filter(inRoute);
+      // Eén plek valt niet in te kaderen, maar hoort wel in beeld te staan
+      if (!gepast.current && route.length === 1) {
+        m.jumpTo({ center: [route[0].lon, route[0].lat], zoom: 9 });
+        gepast.current = true;
+      } else if (!gepast.current && route.length > 1) {
+        const grens = route.reduce(
           (b, s) => b.extend([s.lon, s.lat]),
-          new maplibregl.LngLatBounds([metPlek[0].lon, metPlek[0].lat], [metPlek[0].lon, metPlek[0].lat])
+          new maplibregl.LngLatBounds([route[0].lon, route[0].lat], [route[0].lon, route[0].lat])
         );
         const vakje = m.getContainer();
         const marge = Math.max(
-          20,
-          Math.min(64, Math.floor(Math.min(vakje.clientWidth, vakje.clientHeight) / 5))
+          28,
+          Math.min(72, Math.floor(Math.min(vakje.clientWidth, vakje.clientHeight) / 5))
         );
         m.fitBounds(grens, { padding: marge, maxZoom: 9, duration: 0 });
         gepast.current = true;
       }
     };
 
-    if (m.isStyleLoaded()) teken();
-    else m.once("load", teken);
-  }, [stops, actief]);
+    teken();
 
-  // De kaart volgt de lijst: klik je een stop aan, dan schuift hij in beeld
+    // De lijn kan pas als de stijl zover is; styledata blijft het proberen,
+    // ook na een setStyle (de OSM-terugval), waarna alle lagen weg zijn.
+    const bijStijl = () => tekenRoute();
+    m.on("styledata", bijStijl);
+    return () => m.off("styledata", bijStijl);
+  }, [stops, mag]);
+
+  // ---- Mag je bewerken? Dan pas kun je slepen ----
   useEffect(() => {
+    spelden.current.forEach(({ speld }) => speld.setDraggable(!!mag));
+    kaart.current?.getContainer().classList.toggle("kijk", !mag);
+  }, [mag]);
+
+  // ---- Welke speld actief is, is alleen een klasse ----
+  useEffect(() => {
+    spelden.current.forEach(({ el }, id) => {
+      el.classList.toggle("actief", id === actief);
+    });
+
     const m = kaart.current;
     if (!m || !actief) return;
-    const stop = stops.find((s) => s.id === actief);
-    if (!stop || !Number.isFinite(stop.lat) || !Number.isFinite(stop.lon)) return;
-    m.easeTo({ center: [stop.lon, stop.lat], duration: 500 });
-  }, [actief, stops]);
+    const gegevens = spelden.current.get(actief);
+    if (!gegevens) return;
+    const { lng, lat } = gegevens.speld.getLngLat();
+    m.easeTo({ center: [lng, lat], duration: 450 });
+  }, [actief]);
 
   return (
     <div className="kaartvak">

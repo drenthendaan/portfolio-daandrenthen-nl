@@ -3,20 +3,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { REISSTATUSSEN, aantalDagen, miniRoute, totalen } from "@/lib/roadtrip/regels.mjs";
+import { REISSTATUSSEN, aantalDagen, euro, miniRoute, totalen } from "@/lib/roadtrip/regels.mjs";
 import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./_components/api";
 import { useLive } from "./_components/useLive";
 import TokenVak from "./_components/TokenVak";
-import { Pijl, Plus, VERVOERICOON } from "./_components/iconen";
+import { Pijl, Plus } from "./_components/iconen";
 
 const GROEPEN = [
   { status: "gepland", titel: "Gepland" },
   { status: "idee", titel: "Ideeën" },
   { status: "geweest", titel: "Geweest" },
 ];
-
-const euro = (centen) =>
-  centen ? `€ ${(centen / 100).toLocaleString("nl-NL", { maximumFractionDigits: 0 })}` : null;
 
 const datumkort = (d) =>
   d ? new Date(`${d}T00:00:00Z`).toLocaleDateString("nl-NL", { day: "numeric", month: "long", timeZone: "UTC" }) : null;
@@ -65,11 +62,9 @@ function Schets({ stops, status }) {
 }
 
 function Reisrij({ reis, stops }) {
-  const Icoon = VERVOERICOON[reis.vervoer] ?? VERVOERICOON.camper;
   const telling = totalen(stops);
   const dagen = aantalDagen(reis.van, reis.tot);
   const plaatsen = stops
-    .filter((s) => s.soort === "overnachting")
     .map((s) => s.naam)
     .slice(0, 5)
     .join(" · ");
@@ -85,21 +80,15 @@ function Reisrij({ reis, stops }) {
     <Link className="reisrij" href={`/roadtrip/${reis.slug}`}>
       <Schets stops={stops} status={reis.status} />
       <div className="tekst">
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <h3>{reis.naam}</h3>
-          <span className={`label${reis.status === "gepland" ? "" : " stil"}`}>
-            <Icoon size={13} />
-            {reis.vervoer}
-          </span>
-        </div>
+        <h3>{reis.naam}</h3>
         <p className="meta">{meta.join(" · ")}</p>
         {plaatsen ? <p className="plaatsen">{plaatsen}</p> : null}
       </div>
       <div className="rechts">
-        {telling.overnachtingen ? (
-          <span className={`stand ${telling.geboekt === telling.overnachtingen ? "geboekt" : "gepland"}`}>
+        {telling.plekken ? (
+          <span className={`stand ${telling.geboekt === telling.plekken ? "geboekt" : "gepland"}`}>
             <span className="bol" />
-            {telling.geboekt} van {telling.overnachtingen} geboekt
+            {telling.geboekt} van {telling.plekken} geboekt
           </span>
         ) : (
           <span className="stand idee">
@@ -115,7 +104,6 @@ function Reisrij({ reis, stops }) {
 
 function NieuweReis({ onGemaakt, onFout }) {
   const [naam, setNaam] = useState("");
-  const [gebied, setGebied] = useState("");
   const [vervoer, setVervoer] = useState("camper");
   const [van, setVan] = useState("");
   const [tot, setTot] = useState("");
@@ -131,7 +119,6 @@ function NieuweReis({ onGemaakt, onFout }) {
     try {
       const body = {
         naam,
-        gebied: gebied || null,
         vervoer,
         status: "idee",
         van: van || null,
@@ -165,11 +152,14 @@ function NieuweReis({ onGemaakt, onFout }) {
       <div className="velden">
         <div>
           <label htmlFor="nr-naam">Naam</label>
-          <input id="nr-naam" type="text" value={naam} onChange={(e) => setNaam(e.target.value)} autoFocus />
-        </div>
-        <div>
-          <label htmlFor="nr-gebied">Gebied</label>
-          <input id="nr-gebied" type="text" value={gebied} onChange={(e) => setGebied(e.target.value)} />
+          <input
+            id="nr-naam"
+            type="text"
+            required
+            value={naam}
+            onChange={(e) => setNaam(e.target.value)}
+            autoFocus
+          />
         </div>
         <div>
           <label htmlFor="nr-vervoer">Waarmee</label>

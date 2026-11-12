@@ -4,19 +4,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamicImport from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  groepeerDagen,
-  pastVoertuig,
-  toon,
-  totalen,
-} from "@/lib/roadtrip/regels.mjs";
+import { euro, groepeerDagen, toon, totalen } from "@/lib/roadtrip/regels.mjs";
 import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./api";
 import { useLive } from "./useLive";
 import { useReis } from "./useReis";
 import TokenVak from "./TokenVak";
-import Dagdetail from "./Dagdetail";
 import StopFormulier from "./StopFormulier";
-import StopRegel from "./StopRegel";
+import DagKaart from "./DagKaart";
 import ReisInstellingen from "./ReisInstellingen";
 import Acties from "./Acties";
 import {
@@ -30,11 +24,6 @@ const Kaart = dynamicImport(() => import("./Kaart"), {
   ssr: false,
   loading: () => <div className="kaartvak" aria-hidden="true" />,
 });
-
-const euro = (centen) =>
-  centen === null || centen === undefined
-    ? null
-    : `€ ${(centen / 100).toLocaleString("nl-NL", { maximumFractionDigits: 0 })}`;
 
 const REISSTATUS = [
   ["idee", "Idee"],
@@ -76,14 +65,13 @@ export default function Reis({ begin, etappes = {} }) {
   const { reis, stops, dagen: notities, bewaarStop, verwijderStop, zetDagnotitie } = reisData;
 
   const [tab, setTab] = useState("dagen");
-  const [open, setOpen] = useState(null);
   const [melding, setMelding] = useState(null);
   const [vraagToken, setVraagToken] = useState(false);
   const [mag, setMag] = useState(false);
   const [toevoegen, setToevoegen] = useState(false);
   const [actief, setActief] = useState(null);
-  const [openStop, setOpenStop] = useState(null);
-  const [bewerkStop, setBewerkStop] = useState(null);
+  const [openDag, setOpenDag] = useState(null);
+  const [bewerkDag, setBewerkDag] = useState(null);
   const [instellingen, setInstellingen] = useState(false);
   const wachtend = useRef(null);
 
@@ -143,16 +131,6 @@ export default function Reis({ begin, etappes = {} }) {
   const { dagen } = groepeerDagen(stops);
   const telling = totalen(stops);
 
-  // Nummers lopen door over de overnachtingen heen: een pin op de kaart is een
-  // plek waar je echt staat, geen los idee.
-  const nummers = new Map();
-  let teller = 0;
-  for (const dag of dagen) {
-    for (const stop of dag.stops) {
-      if (stop.soort === "overnachting") nummers.set(stop.id, ++teller);
-    }
-  }
-
   return (
     <div className="raam">
       <div className="inhoud" style={{ display: "flex", flexDirection: "column" }}>
@@ -189,19 +167,27 @@ export default function Reis({ begin, etappes = {} }) {
                   doe: () => metToken(() => wijzigReis({ status: id })),
                 })),
                 { scheiding: true },
-                { naam: "Stop toevoegen", doe: () => setToevoegen(true) },
+                {
+                  naam: "Stop toevoegen",
+                  doe: () => {
+                    setTab("dagen"); // het formulier staat onder Dagen
+                    setToevoegen(true);
+                  },
+                },
                 { naam: "Reis verwijderen", gevaar: true, doe: () => verwijderReis() },
               ]}
             />
           </div>
 
-          <p className="kerncijfers">
-            {telling.nachten} {telling.nachten === 1 ? "nacht" : "nachten"} ·{" "}
-            {euro(telling.kosten) ?? "€ 0"} ·{" "}
-            <span className={telling.geboekt === telling.overnachtingen ? "af" : undefined}>
-              {telling.geboekt} van {telling.overnachtingen} geboekt
-            </span>
-          </p>
+          {telling.plekken ? (
+            <p className="kerncijfers">
+              {telling.nachten} {telling.nachten === 1 ? "nacht" : "nachten"} ·{" "}
+              {euro(telling.kosten) ?? "€ 0"} ·{" "}
+              <span className={telling.geboekt === telling.plekken ? "af" : undefined}>
+                {telling.geboekt} van {telling.plekken} geboekt
+              </span>
+            </p>
+          ) : null}
 
           <div className="tabs" role="tablist" aria-label="Weergave">
             {TABS.map((t) => (
@@ -256,69 +242,23 @@ export default function Reis({ begin, etappes = {} }) {
                   <p className="leeg">Nog geen dagen ingepland.</p>
                 ) : null}
 
-                {dagen.map((dag) => {
-                  const uit = open === dag.nr;
-                  const titel = dagTitel(dag, reis.van);
-                  const rit = etappes[dag.nr];
-                  return (
-                    <div className="dag" key={dag.nr}>
-                      <button
-                        type="button"
-                        className="dagbalk"
-                        aria-expanded={uit}
-                        onClick={() => setOpen(uit ? null : dag.nr)}
-                      >
-                        <span className="nr">
-                          Dag {dag.nr}
-                          {dag.tot > dag.nr ? `–${dag.tot}` : ""}
-                        </span>
-                        <span className="waar">
-                          {dag.overnachting ? dag.overnachting.naam : `${dag.stops.length} stops`}
-                        </span>
-                        {rit ? (
-                          <span className="rit">{rit.km.toLocaleString("nl-NL")} km</span>
-                        ) : null}
-                        <Omlaag />
-                      </button>
-
-                      {uit ? (
-                        <>
-                          <p className="dagregel">
-                            {titel}
-                            {rit
-                              ? ` · ${rit.km.toLocaleString("nl-NL")} km rijden, ${Math.floor(
-                                  rit.minuten / 60
-                                )}u${String(rit.minuten % 60).padStart(2, "0")}${
-                                  rit.schatting ? " (schatting)" : ""
-                                }`
-                              : " · blijven staan"}
-                          </p>
-                          {dag.stops.map((stop) => (
-                            <StopRegel
-                              key={stop.id}
-                              stop={stop}
-                              nummer={nummers.get(stop.id)}
-                              voertuig={reis.voertuig}
-                              mag={mag}
-                              open={openStop === stop.id}
-                              bewerken={bewerkStop === stop.id}
-                              onToggle={setOpenStop}
-                              onBewerk={setBewerkStop}
-                              onBewaar={(velden) => metToken(() => bewaarStop(velden))}
-                              onWeg={(id) => metToken(() => verwijderStop(id))}
-                            />
-                          ))}
-
-                          <Dagdetail
-                            dag={dag}
-                            notitie={notities?.[dag.nr]?.notitie ?? ""}
-                            onNotitie={(tekst) => metToken(() => zetDagnotitie(dag.nr, tekst))}
-                          />
-                        </>
-                      ) : null}
-                    </div>
-                  );
-                })}
+                {dagen.map((dag) => (
+                  <DagKaart
+                    key={dag.nr}
+                    dag={dag}
+                    titel={dagTitel(dag, reis.van)}
+                    rit={etappes[dag.nr]}
+                    notitie={notities?.[dag.nr]?.notitie ?? ""}
+                    voertuig={reis.voertuig}
+                    open={openDag === dag.nr}
+                    bewerken={bewerkDag === dag.nr}
+                    onToggle={setOpenDag}
+                    onBewerk={setBewerkDag}
+                    onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                    onWeg={(id) => metToken(() => verwijderStop(id))}
+                    onNotitie={(t) => metToken(() => zetDagnotitie(dag.nr, t))}
+                  />
+                ))}
 
                 <div style={{ marginTop: 18 }}>
                   {toevoegen ? (
@@ -349,7 +289,7 @@ export default function Reis({ begin, etappes = {} }) {
                   </div>
                   <div className="rij">
                     <span>Nog niet geboekt</span>
-                    <strong>{telling.overnachtingen - telling.geboekt}</strong>
+                    <strong>{telling.plekken - telling.geboekt}</strong>
                   </div>
                 </div>
 
@@ -386,12 +326,14 @@ export default function Reis({ begin, etappes = {} }) {
             stops={opVolgorde}
             midden={reis.midden}
             actief={actief}
+            mag={mag}
+            onVerplaats={(id, plek) => metToken(() => bewaarStop({ id, ...plek }))}
             onKiesStop={(id) => {
               setActief(id);
               const stop = stops.find((s) => s.id === id);
               if (stop?.dag) {
                 setTab("dagen");
-                setOpen(stop.dag);
+                setOpenDag(stop.dag);
               }
             }}
           />

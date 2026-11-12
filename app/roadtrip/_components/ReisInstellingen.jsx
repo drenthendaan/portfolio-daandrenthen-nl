@@ -5,7 +5,6 @@ import { meldGewijzigd, schrijf } from "./api";
 
 const uitReis = (reis) => ({
   naam: reis.naam ?? "",
-  gebied: reis.gebied ?? "",
   vervoer: reis.vervoer ?? "camper",
   status: reis.status ?? "idee",
   van: reis.van ?? "",
@@ -35,7 +34,6 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
         body: {
           slug: reis.slug,
           naam: v.naam,
-          gebied: v.gebied || null,
           vervoer: v.vervoer,
           status: v.status,
           van: v.van || null,
@@ -74,10 +72,6 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
           <p className="uitleg" style={{ margin: "6px 0 0", fontSize: 12 }}>
             Het adres blijft <strong>/roadtrip/{reis.slug}</strong>, ook als je de naam wijzigt.
           </p>
-        </div>
-        <div>
-          <label htmlFor="ri-gebied">Gebied</label>
-          <input id="ri-gebied" type="text" value={v.gebied} onChange={zet("gebied")} />
         </div>
         <div>
           <label htmlFor="ri-vervoer">Waarmee</label>

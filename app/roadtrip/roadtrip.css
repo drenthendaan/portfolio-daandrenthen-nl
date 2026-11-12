@@ -794,39 +794,6 @@ body:has(.trip),
   color: var(--zacht);
 }
 
-.trip .speld {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2.5px solid var(--accent);
-  background: #ffffff;
-  color: var(--accent-tekst);
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  box-shadow: 0 1px 4px rgba(20, 22, 26, 0.28);
-}
-
-.trip .speld.los {
-  width: 14px;
-  height: 14px;
-  border-width: 2px;
-  border-color: var(--idee);
-  background: var(--papier);
-}
-
-.trip .speld.actief {
-  background: var(--accent);
-  color: #fff;
-  transform: scale(1.15);
-}
-
 /* De kaart staat op een telefoon boven de lijst, ingeklapt tot een strook */
 @media (max-width: 900px) {
   .trip .kaartvak {
@@ -1303,6 +1270,15 @@ body:has(.trip),
   background: #eceef0;
 }
 
+/* MapLibre schrijft zijn eigen transform op dit element om de speld op de
+   goede plek te houden. Daarom zit de opmaak op de knop erbinnen: anders
+   overschrijft die inline transform elke hover- of sleepanimatie. */
+.trip .speldvak {
+  line-height: 0;
+  touch-action: none;
+  will-change: transform;
+}
+
 .trip .speld {
   width: 28px;
   height: 28px;
@@ -1314,41 +1290,95 @@ body:has(.trip),
   font-size: 12px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: grab;
   padding: 0;
-  box-shadow: 0 2px 6px rgba(20, 22, 26, 0.25);
-  transition: transform 0.15s ease;
+  box-shadow: 0 1px 2px rgba(20, 22, 26, 0.3), 0 2px 6px rgba(20, 22, 26, 0.18);
+  transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.16s ease;
+  transform-origin: 50% 50%;
 }
 
-.trip .speld.geboekt {
+.trip .speld[data-status="geboekt"] {
   background: var(--diep);
 }
 
-.trip .speld.idee {
+.trip .speld[data-status="idee"] {
   background: var(--idee);
 }
 
-/* Bezienswaardigheden en servicepunten zijn geen plek waar je staat:
-   kleiner, zonder nummer. */
+/* Een plek zonder dag staat nog nergens: kleine stip, buiten de route */
 .trip .speld.los {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-width: 2.5px;
-  background: var(--inkt);
+  background: var(--idee);
   font-size: 0;
-  box-shadow: 0 1px 4px rgba(20, 22, 26, 0.3);
 }
 
 .trip .speld:hover {
-  transform: scale(1.12);
+  transform: scale(1.14);
+  box-shadow: 0 2px 4px rgba(20, 22, 26, 0.3), 0 5px 12px rgba(20, 22, 26, 0.22);
+}
+
+.trip .speld:focus-visible {
+  outline: 2px solid var(--inkt);
+  outline-offset: 3px;
 }
 
 .trip .speld.actief {
-  transform: scale(1.25);
-  box-shadow: 0 0 0 4px rgba(255, 74, 20, 0.28), 0 2px 8px rgba(20, 22, 26, 0.3);
+  transform: scale(1.22);
+  box-shadow: 0 0 0 4px rgba(255, 74, 20, 0.26), 0 3px 10px rgba(20, 22, 26, 0.3);
+}
+
+/* Opgetild: groter, hoger, en een hardere schaduw eronder */
+.trip .speld.sleept {
+  cursor: grabbing;
+  transform: scale(1.34) translateY(-2px);
+  box-shadow: 0 10px 20px rgba(20, 22, 26, 0.32), 0 2px 5px rgba(20, 22, 26, 0.25);
+  transition: none;
+}
+
+/* Terwijl het opslaan loopt, ademt de speld rustig door */
+.trip .speld.bezig {
+  animation: speld-bezig 1s ease-in-out infinite;
+}
+
+@keyframes speld-bezig {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+/* Niet opgeslagen: hij veert zichtbaar terug naar waar hij stond */
+.trip .speld.terug {
+  animation: speld-terug 0.4s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+@keyframes speld-terug {
+  0% { transform: scale(1.34); }
+  60% { transform: scale(0.88); }
+  100% { transform: scale(1); }
+}
+
+/* De speld die je vasthebt hoort boven de andere te liggen */
+.trip .speldvak:has(.sleept) {
+  z-index: 5;
+}
+
+/* Tijdens het slepen mag de kaart zelf geen grijphandje tonen */
+.trip .kaart.sleepend .maplibregl-canvas-container {
+  cursor: grabbing;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trip .speld,
+  .trip .speld.bezig,
+  .trip .speld.terug {
+    transition: none;
+    animation: none;
+  }
 }
 
 /* De eigen knoppen van MapLibre bij de rest laten passen */
@@ -1620,4 +1650,197 @@ body:has(.trip),
 
 .trip .blad {
   flex-grow: 1;
+}
+
+/* ---- Eén kaartje per dag: de dag ís de plek ---- */
+.trip .dagtoggle {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+  min-width: 0;
+  padding: 13px 6px 13px 14px;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trip .dagtoggle .nr {
+  flex: 0 0 auto;
+  min-width: 56px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--zacht);
+}
+
+.trip .dagtoggle .waar {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--inkt);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip .dagtoggle .rit {
+  flex: 0 0 auto;
+  font-size: 13px;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .dagtoggle .bol {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.trip .dagtoggle .bol.geboekt { background: var(--diep); }
+.trip .dagtoggle .bol.gepland { background: var(--accent); }
+.trip .dagtoggle .bol.idee { background: var(--idee); }
+
+.trip .dagtoggle > svg {
+  flex: 0 0 auto;
+  color: var(--zacht);
+  transition: transform 0.18s ease;
+}
+
+.trip .dagtoggle[aria-expanded="true"] > svg {
+  transform: rotate(180deg);
+}
+
+.trip .daginhoud,
+.trip .dagvelden {
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--lijn-licht);
+}
+
+.trip .daginhoud .dagregel {
+  margin: 12px 0 12px;
+  padding: 0;
+}
+
+.trip .gegevens {
+  margin: 0 0 16px;
+  display: grid;
+  grid-template-columns: minmax(96px, auto) 1fr;
+  gap: 2px 16px;
+}
+
+.trip .gegevens > div { display: contents; }
+
+.trip .gegevens dt {
+  margin: 0;
+  padding: 3px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--zacht);
+}
+
+.trip .gegevens dd {
+  margin: 0;
+  padding: 3px 0;
+  font-size: 13px;
+  color: var(--inkt);
+}
+
+.trip .daginhoud h4 {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--zacht);
+}
+
+.trip .daginhoud textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--inkt);
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  padding: 9px 11px;
+}
+
+.trip .dagvelden {
+  padding-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .trip .dagtoggle .rit { display: none; }
+  .trip .dagtoggle .nr { min-width: 0; }
+  .trip .gegevens { grid-template-columns: 1fr; gap: 0; }
+  .trip .gegevens dd { margin-bottom: 7px; }
+}
+
+
+/* ================= Nagelopen ================= */
+
+/* .raam is een kolom, dus .inhoud wordt in de breedte gerekt. Zonder deze rem
+   duwt de min-content van de dagkaartjes hem breder dan het scherm, en omdat
+   de body horizontaal afknipt verdwijnen de drie puntjes op een telefoon. */
+.trip .inhoud,
+.trip .werkvlak,
+.trip .lijst,
+.trip .kaartvak {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Een knop die niets doet, hoort er ook niet uit te zien alsof hij dat wel doet */
+.trip .knop:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Een speld buiten het kaartbeeld hoorde niet over de rest van de pagina te
+   zweven; MapLibre plaatst hem gewoon door, dus knipt de kaart hem af. */
+.trip .kaart {
+  overflow: hidden;
+}
+
+/* Zonder token kun je niets verslepen; dan hoort er geen sleephandje te staan */
+.trip .kaart.kijk .speld {
+  cursor: pointer;
+}
+
+/* Op een telefoon is "Camping Villa Tici…" onleesbaar; dan liever twee regels */
+@media (max-width: 640px) {
+  .trip .dagtoggle {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .trip .dagtoggle .nr {
+    order: 1;
+  }
+
+  .trip .dagtoggle .bol {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .trip .dagtoggle > svg {
+    order: 3;
+  }
+
+  .trip .dagtoggle .waar {
+    order: 4;
+    flex: 1 1 100%;
+    white-space: normal;
+    overflow: visible;
+  }
 }
