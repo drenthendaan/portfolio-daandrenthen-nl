@@ -7,20 +7,16 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <h1 className="text-6xl font-bold mb-4">404</h1>
-      <h2 className="text-3xl font-light mb-4 tracking-tight">
-        Pagina niet gevonden
-      </h2>
-      <p className="text-gray-500 mb-8">
-        De pagina die je zoekt bestaat niet of is verplaatst.
-      </p>
+    <main className="flex min-h-[100svh] flex-col items-center justify-center gap-6 px-5 text-center">
+      <h1 className="m-0 font-manrope font-extrabold text-dark text-[clamp(2.5rem,9vw,6rem)] leading-none tracking-[-0.035em]">
+        404
+      </h1>
       <Link
         href="/"
-        className="text-sm uppercase tracking-widest border-b border-black pb-1 hover:text-gray-600 transition-colors"
+        className="border-b border-dark pb-1 text-sm uppercase tracking-widest text-dark transition-colors hover:text-primary"
       >
         Terug naar home
       </Link>
-    </div>
+    </main>
   );
 }

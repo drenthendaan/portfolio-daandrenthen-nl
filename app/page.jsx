@@ -1,26 +1,22 @@
-import IntroDaan from "@/components/IntroDaan";
-import Cases from "@/components/Cases";
+import Naam from "@/components/Naam";
 
 export const metadata = {
-  title: "Portfolio Daan Drenthen | UX Design & Development",
-  description:
-    "Daan Drenthen is een UX Developer die design naadloos vertaalt naar code. Ontdek mijn projecten, cases en mijn creatieve oplossingen.",
+  title: "Daan Drenthen",
+  description: "Daan Drenthen.",
   alternates: {
     canonical: "https://daandrenthen.nl",
   },
   openGraph: {
-    title: "Portfolio Daan Drenthen | UX Design & Development",
-    description:
-      "UX Developer gespecialiseerd in React en Design. Bekijk mijn portfolio.",
+    title: "Daan Drenthen",
+    description: "Daan Drenthen.",
     url: "https://daandrenthen.nl",
   },
 };
 
 export default function Home() {
   return (
-    <>
-      <IntroDaan />
-      <Cases />
-    </>
+    <main>
+      <Naam />
+    </main>
   );
 }

@@ -1,5 +1,5 @@
 /* Pokémon-pagina's: alles valt onder .pika, zodat het portfolio er geen last van heeft */
-/* Kleuren op body, zodat ook de navbar en footer van het portfolio meekleuren */
+/* Kleuren ook op body, zodat de achtergrond buiten de inhoud meekleurt */
 body:has(.pika),
 .pika {
   --paper: #ffffff; --ink: #1c2333; --soft: #5a6377; --line: #e4e7ee; --panel: #f4f5f8;
@@ -9,7 +9,7 @@ body:has(.pika),
   color-scheme: light;
   overflow-x: clip;
 }
-/* Lettertype alleen voor de Pokémon-inhoud; de navbar en footer houden Manrope */
+/* Lettertype alleen voor de Pokémon-inhoud */
 .pika {
   font-family: var(--font-bricolage), "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
   font-size: 16px;
@@ -86,23 +86,6 @@ body:has(.pika) { background: var(--paper); color: var(--ink); }
 .pika select:focus-visible,
 .pika a:focus-visible,
 .pika summary:focus-visible { outline: 3px solid var(--cheek); outline-offset: 2px; }
-
-/* Navbar van het portfolio op deze pagina: zelfde achtergrond, en leesbaar in donker.
-   Alleen de bovenste balk (header > nav); het burgermenu is een eigen laag. */
-body:has(.pika) header .menuitems { background-color: var(--panel); }
-body:has(.pika) header .menuitems-active { border-color: var(--ink); }
-@media (prefers-color-scheme: dark) {
-  body:has(.pika) header > nav a:hover { background-color: var(--line); }
-  body:has(.pika) header > nav button span.bg-black { background-color: var(--ink); }
-  body:has(.pika) header .btn-dark { background-color: var(--volt); color: var(--volt-ink); }
-}
-/* Burgermenu en contactformulier van het portfolio zijn licht ontworpen (witte laag):
-   daar de eigen donkere tekst houden, ook als de Pokémon-pagina donker is */
-body:has(.pika) div.fixed.inset-0.z-\[100\] {
-  --ink: #1c2333;
-  color: #1c2333;
-  color-scheme: light;
-}
 
 /* Verborgen elementen ook verbergen als ze een eigen display hebben (bijv. de toolbar in de mapweergave) */
 .pika [hidden] { display: none !important; }

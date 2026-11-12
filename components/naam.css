@@ -1,0 +1,194 @@
+/* De naam op de homepagina: groot, met een lichtvlek die de muis volgt en letters
+   die in gewicht meebewegen. Zonder muis loopt er traag een golf doorheen. */
+
+.naam-scherm {
+  --mx: 50%;
+  --my: 50%;
+  --inkt: #3a383e;
+  --accent: #5a7690;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  background:
+    radial-gradient(120% 80% at 50% 0%, #fafafb 0%, #f1f2f4 55%, #e9eaee 100%);
+}
+
+/* Lichtvlek achter de naam, volgt de aanwijzer */
+.naam-scherm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    19rem 19rem at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.5),
+    rgba(142, 172, 202, 0.13) 46%,
+    rgba(90, 118, 144, 0) 72%
+  );
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.naam-scherm[data-actief="ja"]::before {
+  opacity: 1;
+}
+
+/* Fijne korrel, zodat het vlak niet plat oogt */
+.naam-scherm::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
+}
+
+.naam {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-align: center;
+  text-wrap: balance;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2.75rem, 12.5vw, 12rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--inkt);
+}
+
+/* Op een telefoon mag hij over twee regels, dan vult hij het scherm beter */
+@media (max-width: 640px) {
+  .naam {
+    font-size: 17vw;
+  }
+}
+
+.naam-woord {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Spatie tussen de woorden; breekt op smalle schermen netjes af */
+.naam-spatie {
+  display: inline-block;
+  width: 0.26em;
+}
+
+.naam-letter {
+  --k: 0;
+  display: inline-block;
+  will-change: transform, opacity;
+  animation: naam-in 1s cubic-bezier(0.2, 0.75, 0.2, 1) backwards;
+  animation-delay: calc(var(--i) * 45ms);
+}
+
+.naam-letter-in {
+  display: inline-block;
+  font-variation-settings: "wght" calc(370 + var(--k) * 430);
+  transform: translateY(calc(var(--k) * -0.085em));
+  color: color-mix(in oklab, var(--accent) calc(var(--k) * 72%), var(--inkt));
+  transition: none;
+}
+
+/* Stille link onder de naam */
+.naam-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(0.78rem, 1.3vw, 0.95rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  color: color-mix(in oklab, var(--inkt) 62%, transparent);
+  transition: color 0.3s ease;
+  animation: naam-link-in 1s cubic-bezier(0.2, 0.75, 0.2, 1) backwards;
+  animation-delay: 780ms;
+}
+
+.naam-link:hover,
+.naam-link:focus-visible {
+  color: var(--accent);
+}
+
+.naam-link svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+}
+
+/* Streepje dat onder de tekst uitschuift */
+.naam-link span {
+  position: relative;
+}
+
+.naam-link span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35em;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.naam-link:hover span::after,
+.naam-link:focus-visible span::after {
+  transform: scaleX(1);
+}
+
+@keyframes naam-link-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes naam-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Wie minder beweging wil, krijgt de naam stil en op één gewicht */
+@media (prefers-reduced-motion: reduce) {
+  .naam-letter {
+    animation: none;
+  }
+  .naam-letter-in {
+    font-variation-settings: "wght" 800;
+    transform: none;
+    color: var(--inkt);
+  }
+  .naam-scherm::before {
+    display: none;
+  }
+  .naam-link {
+    animation: none;
+  }
+}
