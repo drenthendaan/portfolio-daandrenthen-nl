@@ -44,7 +44,7 @@ function osmStijl() {
 const metPlek = (stops) => stops.filter((s) => Number.isFinite(s.lat) && Number.isFinite(s.lon));
 const inRoute = (s) => s.dag !== null && s.dag !== undefined;
 
-export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onVerplaats }) {
+export default function Kaart({ stops = [], start, midden, actief, mag, onKiesStop, onVerplaats }) {
   // Schermvullend is een eigen stand, geen echte fullscreen: die kan een iPhone
   // niet voor een gewoon element, en dan zou de knop daar niets doen.
   const [groot, setGroot] = useState(false);
@@ -52,6 +52,8 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
   const kaart = useRef(null);
   // id → { speld, el, stop }: spelden worden bijgewerkt, niet opnieuw gebouwd
   const spelden = useRef(new Map());
+  // De startplek is geen stop: eigen speld, niet te slepen (dat gaat via Aanpassen)
+  const startSpeld = useRef(null);
   const gepast = useRef(false);
   const callbacks = useRef({ onKiesStop, onVerplaats });
   callbacks.current = { onKiesStop, onVerplaats };
@@ -116,6 +118,8 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
       meet.disconnect();
       huidigeSpelden.forEach(({ speld }) => speld.remove());
       huidigeSpelden.clear();
+      startSpeld.current?.remove();
+      startSpeld.current = null;
       m.remove();
       kaart.current = null;
       // Een volgende kaart moet zichzelf opnieuw op de route richten
@@ -131,6 +135,8 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
 
     // De route loopt langs de spelden zoals ze nú staan, zodat de lijn meebuigt
     // terwijl je sleept in plaats van pas na het opslaan te verspringen.
+    const vertrek = Number.isFinite(start?.lat) && Number.isFinite(start?.lon) ? start : null;
+
     const routeData = () => {
       const punten = metPlek(stops)
         .filter(inRoute)
@@ -140,6 +146,7 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
           const { lng, lat } = bestaand.speld.getLngLat();
           return [lng, lat];
         });
+      if (vertrek && punten.length) punten.unshift([vertrek.lon, vertrek.lat]);
       return { type: "Feature", geometry: { type: "LineString", coordinates: punten } };
     };
 
@@ -281,10 +288,34 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
         spelden.current.delete(id);
       });
 
+      // De startplek: bijwerken als hij er is, weghalen als hij weg is
+      if (vertrek) {
+        if (!startSpeld.current) {
+          const wikkel = document.createElement("div");
+          wikkel.className = "speldvak";
+          const el = document.createElement("span");
+          el.className = "speld start";
+          wikkel.appendChild(el);
+          // Eerst een plek, dan pas op de kaart: addTo() rekent meteen met de positie
+          startSpeld.current = new maplibregl.Marker({ element: wikkel })
+            .setLngLat([vertrek.lon, vertrek.lat])
+            .addTo(m);
+        } else {
+          startSpeld.current.setLngLat([vertrek.lon, vertrek.lat]);
+        }
+        const el = startSpeld.current.getElement().firstChild;
+        el.title = `Start: ${vertrek.naam}`;
+        el.setAttribute("aria-label", `Start: ${vertrek.naam}`);
+      } else if (startSpeld.current) {
+        startSpeld.current.remove();
+        startSpeld.current = null;
+      }
+
       tekenRoute();
 
       // Alleen de eerste keer inkaderen; daarna blijft jouw beeld staan
       const route = lijst.filter(inRoute);
+      if (vertrek) route.unshift(vertrek);
       // Eén plek valt niet in te kaderen, maar hoort wel in beeld te staan
       if (!gepast.current && route.length === 1) {
         m.jumpTo({ center: [route[0].lon, route[0].lat], zoom: 9 });
@@ -316,7 +347,7 @@ export default function Kaart({ stops = [], midden, actief, mag, onKiesStop, onV
       m.off("style.load", bijStijl);
       m.off("styledata", bijStijl);
     };
-  }, [stops, mag]);
+  }, [stops, start, mag]);
 
   // ---- De kaart op het hele scherm ----
   // De ResizeObserver ziet het vak ook wel veranderen, maar pas een slag later;

@@ -13,16 +13,18 @@ async function laad(slug) {
 
 /**
  * De rit naar elke dag toe: van de plek waar je de vorige nacht stond naar de
- * plek van deze dag. Parallel, want elke etappe komt uit de cache of uit een
- * losse berekening.
+ * plek van deze dag. De eerste dag rijd je vanaf de startplek, als die er is.
+ * Parallel, want elke etappe komt uit de cache of uit een losse berekening.
  */
 async function etappesVoor(reis, stops) {
   const { dagen } = groepeerDagen(stops);
-  const ankers = dagen.filter((d) => d.overnachting?.lat != null && d.overnachting?.lon != null);
+  const metPlek = (p) => Number.isFinite(p?.lat) && Number.isFinite(p?.lon);
+  const ankers = dagen.filter((d) => metPlek(d.anker));
 
   const paren = [];
+  if (ankers.length && metPlek(reis.start)) paren.push([ankers[0].nr, reis.start, ankers[0].anker]);
   for (let i = 1; i < ankers.length; i += 1) {
-    paren.push([ankers[i].nr, ankers[i - 1].overnachting, ankers[i].overnachting]);
+    paren.push([ankers[i].nr, ankers[i - 1].anker, ankers[i].anker]);
   }
 
   const uitslagen = await Promise.all(

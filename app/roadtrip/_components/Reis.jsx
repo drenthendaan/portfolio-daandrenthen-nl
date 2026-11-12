@@ -214,6 +214,15 @@ export default function Reis({ begin, etappes = {} }) {
 
             {tab === "dagen" ? (
               <>
+                {reis.start ? (
+                  <p className="vertrek">
+                    <span className="blok" aria-hidden="true" />
+                    <span>
+                      Vertrek vanaf <strong>{reis.start.naam}</strong>
+                    </span>
+                  </p>
+                ) : null}
+
                 {dagen.length === 0 ? (
                   <p className="leeg">Nog geen dagen ingepland.</p>
                 ) : null}
@@ -301,6 +310,7 @@ export default function Reis({ begin, etappes = {} }) {
 
           <Kaart
             stops={opVolgorde}
+            start={reis.start}
             midden={reis.midden}
             actief={actief}
             mag={mag}

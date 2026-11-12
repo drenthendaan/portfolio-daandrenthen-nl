@@ -2314,3 +2314,75 @@ body:has(.trip),
 .trip .reistitel .acties {
   flex: 0 0 auto;
 }
+
+/* ---- Startplek ---- */
+.trip .veldnaam {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--inkt-2);
+  margin-bottom: 6px;
+}
+
+.trip .gekozenPlek {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  background: var(--zacht-vlak);
+}
+
+.trip .gekozenPlek span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trip .gekozenPlek strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip .gekozenPlek small {
+  color: var(--zacht);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Waar je vertrekt: een vierkantje, zodat het niet voor een dag wordt aangezien */
+.trip .speld.start {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--inkt);
+  font-size: 0;
+  cursor: default;
+}
+
+.trip .vertrek {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--zacht);
+}
+
+.trip .vertrek .blok {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--inkt);
+}
+
+.trip .vertrek strong {
+  color: var(--inkt);
+  font-weight: 600;
+}

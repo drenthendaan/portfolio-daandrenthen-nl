@@ -12,7 +12,13 @@ const KORTSTE = 3;
  * velden blijven staan: wat de zoekdienst niet weet, vul je zelf aan, en zonder
  * verbinding werkt het formulier gewoon door.
  */
-export default function PlaatsZoeker({ id, onKies }) {
+export default function PlaatsZoeker({
+  id,
+  onKies,
+  label = "Zoek een plek",
+  placeholder = "Camping, stad of adres",
+  geenTreffers = "Niets gevonden. Vul de coördinaten hieronder zelf in.",
+}) {
   const [term, setTerm] = useState("");
   const [treffers, setTreffers] = useState(null);
   const [bezig, setBezig] = useState(false);
@@ -109,7 +115,7 @@ export default function PlaatsZoeker({ id, onKies }) {
 
   return (
     <div className="zoeker" ref={vak}>
-      <label htmlFor={id}>Zoek een plek</label>
+      <label htmlFor={id}>{label}</label>
       <div className="zoekveld">
         <Zoek />
         <input
@@ -120,7 +126,7 @@ export default function PlaatsZoeker({ id, onKies }) {
           aria-expanded={open}
           aria-controls={`${id}-lijst`}
           aria-autocomplete="list"
-          placeholder="Camping, stad of adres"
+          placeholder={placeholder}
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           onKeyDown={bijToets}
@@ -131,7 +137,7 @@ export default function PlaatsZoeker({ id, onKies }) {
       {open ? (
         <div className="treffers" id={`${id}-lijst`} role="listbox" aria-label="Gevonden plekken">
           {treffers.length === 0 ? (
-            <p className="geenTreffers">Niets gevonden. Vul de coördinaten hieronder zelf in.</p>
+            <p className="geenTreffers">{geenTreffers}</p>
           ) : (
             treffers.map((plek, i) => (
               <button
