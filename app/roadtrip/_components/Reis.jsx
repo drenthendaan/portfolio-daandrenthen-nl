@@ -12,7 +12,6 @@ import {
 import { GeenToken, heeftToken } from "./api";
 import { useLive } from "./useLive";
 import { useReis } from "./useReis";
-import Rail from "./Rail";
 import TokenVak from "./TokenVak";
 import Dagdetail from "./Dagdetail";
 import StopFormulier from "./StopFormulier";
@@ -21,7 +20,7 @@ import ReisInstellingen from "./ReisInstellingen";
 import {
   Omlaag,
   PijlTerug,
-  Rijden,
+  Plus,
   VERVOERICOON,
 } from "./iconen";
 
@@ -129,8 +128,6 @@ export default function Reis({ begin, etappes = {} }) {
 
   return (
     <div className="raam">
-      <Rail hier="reis" />
-
       <div className="inhoud" style={{ display: "flex", flexDirection: "column" }}>
         <header className="reiskop">
           <Link className="terug" href="/roadtrip">
@@ -156,23 +153,6 @@ export default function Reis({ begin, etappes = {} }) {
               </span>
             </div>
 
-            <div style={{ display: "flex", alignItems: "flex-end", gap: 18, flexWrap: "wrap" }}>
-            <dl className="cijfers">
-              <div>
-                <dt>Nachten</dt>
-                <dd>{telling.nachten}</dd>
-              </div>
-              <div>
-                <dt>Plekken</dt>
-                <dd>{euro(telling.kosten) ?? "—"}</dd>
-              </div>
-              <div>
-                <dt>Geboekt</dt>
-                <dd style={{ color: "var(--diep-tekst)" }}>
-                  {telling.geboekt} / {telling.overnachtingen}
-                </dd>
-              </div>
-            </dl>
             <button
               type="button"
               className="knop stil klein"
@@ -180,8 +160,15 @@ export default function Reis({ begin, etappes = {} }) {
             >
               {instellingen ? "Sluiten" : "Aanpassen"}
             </button>
-            </div>
           </div>
+
+          <p className="kerncijfers">
+            {telling.nachten} {telling.nachten === 1 ? "nacht" : "nachten"} ·{" "}
+            {euro(telling.kosten) ?? "€ 0"} ·{" "}
+            <span className={telling.geboekt === telling.overnachtingen ? "af" : undefined}>
+              {telling.geboekt} van {telling.overnachtingen} geboekt
+            </span>
+          </p>
 
           <div className="tabs" role="tablist" aria-label="Weergave">
             {TABS.map((t) => (
@@ -240,29 +227,31 @@ export default function Reis({ begin, etappes = {} }) {
                         aria-expanded={uit}
                         onClick={() => setOpen(uit ? null : dag.nr)}
                       >
-                        <span className="nr">{titel}</span>
+                        <span className="nr">
+                          Dag {dag.nr}
+                          {dag.tot > dag.nr ? `–${dag.tot}` : ""}
+                        </span>
                         <span className="waar">
                           {dag.overnachting ? dag.overnachting.naam : `${dag.stops.length} stops`}
                         </span>
-                        <span className="rit">
-                          {rit ? (
-                            <>
-                              <Rijden />{" "}
-                              <strong>{rit.km.toLocaleString("nl-NL")} km</strong>
-                              {" · "}
-                              {Math.floor(rit.minuten / 60)}u
-                              {String(rit.minuten % 60).padStart(2, "0")}
-                              {rit.schatting ? " (schatting)" : ""}
-                            </>
-                          ) : (
-                            "Blijven staan"
-                          )}
-                        </span>
+                        {rit ? (
+                          <span className="rit">{rit.km.toLocaleString("nl-NL")} km</span>
+                        ) : null}
                         <Omlaag />
                       </button>
 
                       {uit ? (
                         <>
+                          <p className="dagregel">
+                            {titel}
+                            {rit
+                              ? ` · ${rit.km.toLocaleString("nl-NL")} km rijden, ${Math.floor(
+                                  rit.minuten / 60
+                                )}u${String(rit.minuten % 60).padStart(2, "0")}${
+                                  rit.schatting ? " (schatting)" : ""
+                                }`
+                              : " · blijven staan"}
+                          </p>
                           {dag.stops.map((stop) => (
                             <StopRegel
                               key={stop.id}
@@ -390,7 +379,7 @@ export default function Reis({ begin, etappes = {} }) {
                 />
               ) : (
                 <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>
-                  <Rijden />
+                  <Plus />
                   Stop toevoegen
                 </button>
               )}

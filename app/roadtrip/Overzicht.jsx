@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { REISSTATUSSEN, aantalDagen, miniRoute, totalen } from "@/lib/roadtrip/regels.mjs";
 import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./_components/api";
 import { useLive } from "./_components/useLive";
-import Rail from "./_components/Rail";
 import TokenVak from "./_components/TokenVak";
 import { Pijl, Plus, VERVOERICOON } from "./_components/iconen";
 
@@ -282,8 +281,6 @@ export default function Overzicht({ begin }) {
 
   return (
     <div className="raam">
-      <Rail hier="trips" opNieuw={() => setFormulier((v) => !v)} />
-
       <div className="inhoud">
         <div className="blad">
           <div className="midden">

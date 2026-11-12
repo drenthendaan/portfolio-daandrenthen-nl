@@ -1378,3 +1378,129 @@ body:has(.trip),
 .trip .kaart.osm .maplibregl-canvas {
   filter: grayscale(0.65) brightness(1.06) contrast(0.94);
 }
+
+/* ================= Rustiger ================= */
+
+/* Geen iconenbalk meer: de terugkoppeling in de kop volstaat */
+.trip .raam {
+  display: block;
+}
+
+.trip .inhoud {
+  display: block;
+}
+
+/* Eén regel in plaats van drie cijferkolommen */
+.trip .kerncijfers {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .kerncijfers .af {
+  color: var(--diep-tekst);
+  font-weight: 700;
+}
+
+/* Dagen zonder randen: ruimte en één hairline doen het werk */
+.trip .dag {
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--lijn);
+  border-radius: 0;
+  margin: 0;
+}
+
+.trip .dag.let .dagbalk {
+  background: none;
+}
+
+.trip .dag.let .dagbalk .nr {
+  color: var(--let-tekst);
+}
+
+/* De dagbalk is nu één regel */
+.trip .dagbalk {
+  background: none;
+  border: 0;
+  flex-wrap: nowrap;
+  padding: 13px 4px;
+  gap: 12px;
+}
+
+.trip .dagbalk:hover {
+  background: var(--zacht-vlak);
+}
+
+.trip .dagbalk .nr {
+  order: 0;
+  flex: 0 0 auto;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  min-width: 56px;
+}
+
+.trip .dagbalk .waar {
+  order: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip .dagbalk .rit {
+  order: 0;
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .dagbalk > svg {
+  order: 0;
+}
+
+/* De volledige datum en etappe staan in de opengeklapte dag */
+.trip .dagregel {
+  margin: 0 0 4px;
+  padding: 0 4px;
+  font-size: 12px;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+.trip .stop {
+  border-radius: 10px;
+}
+
+.trip .stop + .stop {
+  border-top: 0;
+}
+
+.trip .dagdetail {
+  background: none;
+  border: 0;
+  padding: 4px 4px 14px 50px;
+}
+
+.trip .stopdetail {
+  padding-bottom: 10px;
+}
+
+/* De lijst met stops zonder dag hoeft geen eigen kader */
+.trip .lijst > section > .dag {
+  border-top: 1px solid var(--lijn);
+}
+
+@media (max-width: 640px) {
+  .trip .dagbalk .nr {
+    min-width: 0;
+  }
+  .trip .dagbalk .rit {
+    display: none;
+  }
+}
