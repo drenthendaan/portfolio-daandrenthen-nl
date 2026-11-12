@@ -11,6 +11,12 @@ export const metadata = {
     googleBot: { index: false, follow: false },
   },
   alternates: { canonical: null },
+  // Eigen icoon voor deze sectie, zodat een tabblad met een reis herkenbaar is
+  // tussen de rest. De root-layout zet het portfolio-icoon; dit overschrijft dat.
+  icons: {
+    icon: [{ url: "/roadtrip-app/route.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/roadtrip-app/route.svg" }],
+  },
 };
 
 export const viewport = {

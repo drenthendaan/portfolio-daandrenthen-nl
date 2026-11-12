@@ -1504,3 +1504,42 @@ body:has(.trip),
     display: none;
   }
 }
+
+/* ---- Dagen houden hun eigen kaartje ---- */
+.trip .dag {
+  background: var(--papier);
+  border: 1px solid var(--lijn-licht);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.trip .dagbalk {
+  padding: 13px 14px;
+}
+
+.trip .dagbalk:hover {
+  background: var(--zacht-vlak);
+}
+
+.trip .dagregel {
+  padding: 0 14px;
+  margin: 2px 0 6px;
+}
+
+.trip .dagdetail {
+  padding: 4px 14px 14px 50px;
+}
+
+.trip .lijst > section > .dag {
+  border-top: 1px solid var(--lijn-licht);
+}
+
+/* Binnen een kaartje scheidt een hairline de stops */
+.trip .stop {
+  border-radius: 0;
+}
+
+.trip .stop + .stop {
+  border-top: 1px solid var(--lijn-licht);
+}
