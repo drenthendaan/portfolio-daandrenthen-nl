@@ -838,3 +838,33 @@ body:has(.trip),
     min-height: 210px;
   }
 }
+
+/* ---- Bewerken ---- */
+.trip .alsLink {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px dashed var(--rand);
+}
+
+.trip .alsLink:hover {
+  color: var(--accent-tekst);
+  border-bottom-color: var(--accent);
+}
+
+.trip .knop.gevaar {
+  background: var(--papier);
+  color: #8c2f1a;
+  border: 1px solid #e0c2b8;
+}
+
+.trip .knop.gevaar:hover {
+  background: #8c2f1a;
+  color: #fff;
+  border-color: #8c2f1a;
+}

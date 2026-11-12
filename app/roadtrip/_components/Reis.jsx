@@ -16,7 +16,8 @@ import { useReis } from "./useReis";
 import Rail from "./Rail";
 import TokenVak from "./TokenVak";
 import Dagdetail from "./Dagdetail";
-import NieuweStop from "./NieuweStop";
+import StopFormulier from "./StopFormulier";
+import ReisInstellingen from "./ReisInstellingen";
 import {
   Greep,
   Omlaag,
@@ -56,7 +57,7 @@ const datumVanDag = (van, nr) => {
   });
 };
 
-function Stop({ stop, voertuig, nummer }) {
+function Stop({ stop, voertuig, nummer, onBewerk }) {
   const uitslag = pastVoertuig(stop.max, voertuig);
   const sub = [
     stop.soort === "overnachting" ? "Overnachting" : stop.soort === "servicepunt" ? "Servicepunt" : "Bezienswaardigheid",
@@ -71,7 +72,15 @@ function Stop({ stop, voertuig, nummer }) {
       <span className={`pin${stop.soort === "overnachting" ? "" : " leeg"}`}>{nummer ?? "·"}</span>
       <div className="body">
         <div className="regel">
-          <h3>{stop.naam}</h3>
+          <h3>
+            {onBewerk ? (
+              <button type="button" className="alsLink" onClick={() => onBewerk(stop)}>
+                {stop.naam}
+              </button>
+            ) : (
+              stop.naam
+            )}
+          </h3>
           {stop.prijs ? <span className="prijs">{euro(stop.prijs)}</span> : null}
         </div>
         {sub ? <p className="sub">{sub}</p> : null}
@@ -104,6 +113,8 @@ export default function Reis({ begin, etappes = {} }) {
   const [mag, setMag] = useState(false);
   const [toevoegen, setToevoegen] = useState(false);
   const [actief, setActief] = useState(null);
+  const [bewerkStop, setBewerkStop] = useState(null);
+  const [instellingen, setInstellingen] = useState(false);
   const wachtend = useRef(null);
 
   // De kaart wil de stops in reisvolgorde, zodat de lijn klopt
@@ -196,6 +207,7 @@ export default function Reis({ begin, etappes = {} }) {
               </p>
             </div>
 
+            <div style={{ display: "flex", alignItems: "flex-end", gap: 18, flexWrap: "wrap" }}>
             <dl className="cijfers">
               <div>
                 <dt>Nachten</dt>
@@ -212,6 +224,14 @@ export default function Reis({ begin, etappes = {} }) {
                 </dd>
               </div>
             </dl>
+            <button
+              type="button"
+              className="knop stil klein"
+              onClick={() => setInstellingen((b) => !b)}
+            >
+              {instellingen ? "Sluiten" : "Aanpassen"}
+            </button>
+            </div>
           </div>
 
           <div className="tabs" role="tablist" aria-label="Weergave">
@@ -240,6 +260,19 @@ export default function Reis({ begin, etappes = {} }) {
 
             {melding ? <p className="melding">{melding}</p> : null}
             {vraagToken ? <TokenVak onOpgeslagen={naToken} /> : null}
+
+            {instellingen ? (
+              <ReisInstellingen
+                reis={reis}
+                aantalStops={stops.length}
+                onBijgewerkt={() => reisData.herlaad()}
+                onFout={(e) => {
+                  if (e instanceof GeenToken) setVraagToken(true);
+                  setMelding(e.message);
+                }}
+                onSluit={() => setInstellingen(false)}
+              />
+            ) : null}
 
             {tab === "dagen" ? (
               <>
@@ -295,6 +328,7 @@ export default function Reis({ begin, etappes = {} }) {
                             stop={stop}
                             voertuig={reis.voertuig}
                             nummer={nummers.get(stop.id)}
+                            onBewerk={mag ? setBewerkStop : null}
                           />
                         ))}
 
@@ -387,7 +421,15 @@ export default function Reis({ begin, etappes = {} }) {
                     <li key={idee.id}>
                       <Greep />
                       <div style={{ flexGrow: 1, minWidth: 0 }}>
-                        <h3>{idee.naam}</h3>
+                        <h3>
+                          {mag ? (
+                            <button type="button" className="alsLink" onClick={() => setBewerkStop(idee)}>
+                              {idee.naam}
+                            </button>
+                          ) : (
+                            idee.naam
+                          )}
+                        </h3>
                         {idee.notitie ? <p>{idee.notitie}</p> : null}
                       </div>
                       {idee.prijs ? <span className="prijs">{euro(idee.prijs)}</span> : null}
@@ -414,10 +456,16 @@ export default function Reis({ begin, etappes = {} }) {
             ) : null}
 
             <div style={{ marginTop: 18 }}>
-              {toevoegen ? (
-                <NieuweStop
+              {toevoegen || bewerkStop ? (
+                <StopFormulier
+                  key={bewerkStop?.id ?? "nieuw"}
+                  stop={bewerkStop}
                   onBewaar={(velden) => metToken(() => bewaarStop(velden))}
-                  onSluit={() => setToevoegen(false)}
+                  onVerwijder={(id) => metToken(() => verwijderStop(id))}
+                  onSluit={() => {
+                    setToevoegen(false);
+                    setBewerkStop(null);
+                  }}
                 />
               ) : (
                 <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>
