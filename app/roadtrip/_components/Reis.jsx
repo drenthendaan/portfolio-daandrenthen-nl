@@ -135,16 +135,7 @@ export default function Reis({ begin, etappes = {} }) {
             Alle roadtrips
           </Link>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              gap: 16,
-              marginTop: 10,
-            }}
-          >
+          <div className="reistitel">
             <h1>{reis.naam}</h1>
 
             <Acties

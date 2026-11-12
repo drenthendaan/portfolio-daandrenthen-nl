@@ -2290,3 +2290,27 @@ body:has(.trip),
 .trip .kop {
   border-bottom-color: var(--rand);
 }
+
+
+/* De titel van een reis, met het menu ernaast */
+/* Stond eerder op flex-wrap: wrap, en dan dook het menu onder een lange naam
+   door — "Daan en Emmaly – Grindelwald / Dolomieten 2027" past op een telefoon
+   nooit op één regel. De titel breekt nu zelf af en het menu blijft rechtsboven
+   staan, uitgelijnd met de eerste regel. */
+.trip .reistitel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Zonder dit duwt de langste titelregel het menu alsnog weg */
+.trip .reistitel h1 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.trip .reistitel .acties {
+  flex: 0 0 auto;
+}
