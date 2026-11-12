@@ -1543,3 +1543,20 @@ body:has(.trip),
 .trip .stop + .stop {
   border-top: 1px solid var(--lijn-licht);
 }
+
+/* Zonder token kun je alles zien en proberen; opslaan vraagt er dan om */
+.trip .kijkmodus {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--lijn);
+  border-radius: 10px;
+  background: var(--zacht-vlak);
+  font-size: 13px;
+  color: var(--zacht);
+}
+
+.trip .kijkmodus .alsLink {
+  font-weight: 700;
+  color: var(--accent-tekst);
+  border-bottom-color: var(--accent);
+}

@@ -164,8 +164,7 @@ export default function StopRegel({
           <Omlaag />
         </button>
 
-        {mag ? (
-          <Acties
+        <Acties
             label={`Acties voor ${stop.naam}`}
             items={[
               { naam: "Bewerken", doe: () => onBewerk(stop.id) },
@@ -182,8 +181,7 @@ export default function StopRegel({
                 : { naam: "Aan een dag koppelen", doe: () => onBewerk(stop.id) },
               { naam: "Verwijderen", gevaar: true, doe: () => onWeg(stop.id) },
             ]}
-          />
-        ) : null}
+        />
       </div>
 
       {!uitslag.past && !open && !bewerken ? (

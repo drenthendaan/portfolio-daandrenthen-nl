@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { meldGewijzigd, schrijf } from "./api";
 
 const uitReis = (reis) => ({
@@ -20,11 +19,9 @@ const uitReis = (reis) => ({
  * De reis zelf aanpassen of weggooien. Verwijderen neemt alle stops en
  * dagnotities mee, dus dat vraagt om een bevestiging met de naam erbij.
  */
-export default function ReisInstellingen({ reis, aantalStops, onBijgewerkt, onFout, onSluit }) {
-  const router = useRouter();
+export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }) {
   const [v, setV] = useState(() => uitReis(reis));
   const [bezig, setBezig] = useState(false);
-  const [zekerWeten, setZekerWeten] = useState(false);
 
   const zet = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.value }));
 
@@ -55,21 +52,6 @@ export default function ReisInstellingen({ reis, aantalStops, onBijgewerkt, onFo
     } catch (e) {
       onFout(e);
     } finally {
-      setBezig(false);
-    }
-  };
-
-  const weg = async () => {
-    if (!zekerWeten) return setZekerWeten(true);
-    setBezig(true);
-    try {
-      const { versie } = await schrijf(`/api/roadtrip/reizen?slug=${encodeURIComponent(reis.slug)}`, {
-        method: "DELETE",
-      });
-      meldGewijzigd(versie);
-      router.push("/roadtrip");
-    } catch (e) {
-      onFout(e);
       setBezig(false);
     }
   };
@@ -152,17 +134,6 @@ export default function ReisInstellingen({ reis, aantalStops, onBijgewerkt, onFo
         </button>
         <button type="button" className="knop stil" onClick={onSluit}>
           Annuleren
-        </button>
-        <button
-          type="button"
-          className="knop gevaar"
-          onClick={weg}
-          disabled={bezig}
-          style={{ marginLeft: "auto" }}
-        >
-          {zekerWeten
-            ? `Zeker weten? ${reis.naam} en ${aantalStops} stops gaan weg`
-            : "Reis verwijderen"}
         </button>
       </div>
     </form>

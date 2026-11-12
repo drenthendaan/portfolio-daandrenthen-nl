@@ -3,13 +3,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamicImport from "next/dynamic";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   groepeerDagen,
   pastVoertuig,
   toon,
   totalen,
 } from "@/lib/roadtrip/regels.mjs";
-import { GeenToken, heeftToken } from "./api";
+import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./api";
 import { useLive } from "./useLive";
 import { useReis } from "./useReis";
 import TokenVak from "./TokenVak";
@@ -17,6 +18,7 @@ import Dagdetail from "./Dagdetail";
 import StopFormulier from "./StopFormulier";
 import StopRegel from "./StopRegel";
 import ReisInstellingen from "./ReisInstellingen";
+import Acties from "./Acties";
 import {
   Omlaag,
   PijlTerug,
@@ -35,9 +37,14 @@ const euro = (centen) =>
     ? null
     : `€ ${(centen / 100).toLocaleString("nl-NL", { maximumFractionDigits: 0 })}`;
 
+const REISSTATUS = [
+  ["idee", "Idee"],
+  ["gepland", "Gepland"],
+  ["geweest", "Geweest"],
+];
+
 const TABS = [
   { id: "dagen", naam: "Dagen" },
-  { id: "route", naam: "Route" },
   { id: "praktisch", naam: "Praktisch" },
 ];
 
@@ -64,6 +71,7 @@ const dagTitel = (dag, van) => {
 };
 
 export default function Reis({ begin, etappes = {} }) {
+  const router = useRouter();
   const { versie: versieLive, verbinding } = useLive(begin?.versie);
   const reisData = useReis(begin, versieLive);
   const { reis, stops, dagen: notities, bewaarStop, verwijderStop, zetDagnotitie } = reisData;
@@ -112,6 +120,27 @@ export default function Reis({ begin, etappes = {} }) {
 
   if (!reis) return null;
 
+  const wijzigReis = async (velden) => {
+    const { versie } = await schrijf("/api/roadtrip/reizen", {
+      method: "PATCH",
+      body: { slug: reis.slug, ...velden },
+    });
+    meldGewijzigd(versie);
+    await reisData.herlaad();
+    return true;
+  };
+
+  const verwijderReis = () =>
+    metToken(async () => {
+      const { versie } = await schrijf(
+        `/api/roadtrip/reizen?slug=${encodeURIComponent(reis.slug)}`,
+        { method: "DELETE" }
+      );
+      meldGewijzigd(versie);
+      router.push("/roadtrip");
+      return true;
+    });
+
   const Icoon = VERVOERICOON[reis.vervoer] ?? VERVOERICOON.camper;
   const { dagen, ideeen } = groepeerDagen(stops);
   const telling = totalen(stops);
@@ -153,13 +182,25 @@ export default function Reis({ begin, etappes = {} }) {
               </span>
             </div>
 
-            <button
-              type="button"
-              className="knop stil klein"
-              onClick={() => setInstellingen((b) => !b)}
-            >
-              {instellingen ? "Sluiten" : "Aanpassen"}
-            </button>
+            <Acties
+              label="Acties voor deze reis"
+              items={[
+                {
+                  naam: instellingen ? "Sluiten" : "Aanpassen",
+                  doe: () => setInstellingen((b) => !b),
+                },
+                { scheiding: true },
+                ...REISSTATUS.map(([id, naam]) => ({
+                  naam,
+                  nu: reis.status === id,
+                  uit: reis.status === id,
+                  doe: () => metToken(() => wijzigReis({ status: id })),
+                })),
+                { scheiding: true },
+                { naam: "Stop toevoegen", doe: () => setToevoegen(true) },
+                { naam: "Reis verwijderen", gevaar: true, doe: () => verwijderReis() },
+              ]}
+            />
           </div>
 
           <p className="kerncijfers">
@@ -193,13 +234,21 @@ export default function Reis({ begin, etappes = {} }) {
               </p>
             ) : null}
 
+            {!mag && !vraagToken ? (
+              <p className="kijkmodus">
+                Je kijkt mee. Om te bewerken heb je het token nodig.{" "}
+                <button type="button" className="alsLink" onClick={() => setVraagToken(true)}>
+                  Token invoeren
+                </button>
+              </p>
+            ) : null}
+
             {melding ? <p className="melding">{melding}</p> : null}
             {vraagToken ? <TokenVak onOpgeslagen={naToken} /> : null}
 
             {instellingen ? (
               <ReisInstellingen
                 reis={reis}
-                aantalStops={stops.length}
                 onBijgewerkt={() => reisData.herlaad()}
                 onFout={(e) => {
                   if (e instanceof GeenToken) setVraagToken(true);
@@ -272,7 +321,6 @@ export default function Reis({ begin, etappes = {} }) {
                             dag={dag}
                             notitie={notities?.[dag.nr]?.notitie ?? ""}
                             onNotitie={(tekst) => metToken(() => zetDagnotitie(dag.nr, tekst))}
-                            mag={mag}
                           />
                         </>
                       ) : null}
@@ -307,26 +355,6 @@ export default function Reis({ begin, etappes = {} }) {
               </>
             ) : null}
 
-            {tab === "route" ? (
-              <>
-                <p className="uitleg">
-                  Alle plekken waar je staat, op volgorde. Handig om de etappes te verdelen.
-                </p>
-                <div className="tabel">
-                  {dagen
-                    .flatMap((d) => d.stops.filter((s) => s.soort === "overnachting").map((s) => ({ s, d })))
-                    .map(({ s, d }) => (
-                      <div className="rij" key={s.id}>
-                        <span>
-                          <strong style={{ fontWeight: 700 }}>{nummers.get(s.id)}.</strong> {s.naam}
-                        </span>
-                        <strong>Dag {d.nr}</strong>
-                      </div>
-                    ))}
-                  {!dagen.length ? <div className="rij">Nog niets ingepland</div> : null}
-                </div>
-              </>
-            ) : null}
 
             {tab === "praktisch" ? (
               <>
