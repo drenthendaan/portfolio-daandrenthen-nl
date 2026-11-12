@@ -2205,3 +2205,12 @@ body:has(.trip),
   color: var(--zacht);
   font-style: italic;
 }
+
+/* Het puntjesmenu staat nu in de vensterkop, links van de kruisknop */
+.trip .modaalkop .acties {
+  margin-left: auto;
+}
+
+.trip .modaalkop h2 {
+  margin-right: 0;
+}

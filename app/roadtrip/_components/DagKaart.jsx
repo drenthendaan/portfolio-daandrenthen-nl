@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
-import { Potlood, Waarschuwing } from "./iconen";
+import { Pijl, Potlood, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
@@ -154,23 +154,9 @@ export default function DagKaart({
           {/* De kleur alleen zegt een voorleesprogramma niets, dus het woord staat erbij */}
           <span className={`bol ${stop.status}`} aria-hidden="true" />
           <span className="verborgen">{STATUSNAAM[stop.status]}</span>
+          {/* Hetzelfde pijltje als bij een reis op /roadtrip: deze regel opent iets */}
+          <Pijl size={16} />
         </button>
-
-        <Acties
-          label={`Acties voor dag ${dag.nr}`}
-          items={[
-            { naam: "Bewerken", doe: () => onBewerk(dag.nr) },
-            { scheiding: true },
-            ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
-              naam,
-              nu: stop.status === id,
-              uit: stop.status === id,
-              doe: () => onBewaar({ id: stop.id, status: id }),
-            })),
-            { scheiding: true },
-            { naam: "Dag verwijderen", gevaar: true, doe: wegDirect },
-          ]}
-        />
       </div>
 
       {!uitslag.past ? (
@@ -255,7 +241,26 @@ export default function DagKaart({
           </form>
         </Modal>
       ) : open ? (
-        <Modal titel={`Dag ${dag.nr} · ${stop.naam}`} onSluit={() => onToggle(null)}>
+        <Modal
+          titel={`Dag ${dag.nr} · ${stop.naam}`}
+          onSluit={() => onToggle(null)}
+          acties={
+            <Acties
+              label={`Acties voor dag ${dag.nr}`}
+              items={[
+                // Bewerken staat al als knop onderin, dus hier alleen de rest
+                ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
+                  naam,
+                  nu: stop.status === id,
+                  uit: stop.status === id,
+                  doe: () => onBewaar({ id: stop.id, status: id }),
+                })),
+                { scheiding: true },
+                { naam: "Dag verwijderen", gevaar: true, doe: wegDirect },
+              ]}
+            />
+          }
+        >
           <div className="daginhoud">
             <p className="dagregel">
               {titel}

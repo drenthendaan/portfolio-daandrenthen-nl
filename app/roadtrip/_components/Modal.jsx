@@ -19,7 +19,7 @@ const FOCUSBAAR =
  *
  * Sluit met Escape, met de kruisknop en door naast het venster te klikken.
  */
-export default function Modal({ titel, onSluit, children, breed = false }) {
+export default function Modal({ titel, onSluit, children, acties = null, breed = false }) {
   const [gemonteerd, setGemonteerd] = useState(false);
   const paneel = useRef(null);
   // Waar de focus stond voordat het venster openging, zodat hij daar terugkomt
@@ -118,6 +118,7 @@ export default function Modal({ titel, onSluit, children, breed = false }) {
       >
         <div className="modaalkop">
           <h2 id={`${id}-titel`}>{titel}</h2>
+          {acties}
           <button
             type="button"
             className="modaalsluit"
