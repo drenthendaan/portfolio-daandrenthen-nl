@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
-import { Omlaag, Waarschuwing } from "./iconen";
+import { Pijl, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
+import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
 
 const STATUSNAAM = { idee: "Idee", gepland: "Gepland", geboekt: "Geboekt" };
@@ -22,8 +23,9 @@ const uitStop = (stop) => ({
 });
 
 /**
- * Eén dag is één plek. Het kaartje toont dicht waar je staat en hoe ver het
- * rijden is; open staan de gegevens en de notitie. Bewerken via het menu.
+ * Eén dag is één plek. De regel toont waar je staat en hoe ver het rijden is;
+ * aanklikken opent een venster met de gegevens en de notitie. Aanpassen gebeurt
+ * ook in een venster — er klapt niets meer uit in de lijst zelf.
  */
 export default function DagKaart({
   dag,
@@ -122,13 +124,13 @@ export default function DagKaart({
   const weg = () => (zekerWeten ? wegDirect() : setZekerWeten(true));
 
   return (
-    <div className={`dag${open || bewerken ? " open" : ""}`}>
+    <div className="dag">
       <div className="dagbalk">
         <button
           type="button"
           className="dagtoggle"
-          aria-expanded={open}
-          onClick={() => onToggle(open ? null : dag.nr)}
+          aria-haspopup="dialog"
+          onClick={() => onToggle(dag.nr)}
         >
           <span className="nr">
             Dag {dag.nr}
@@ -137,13 +139,13 @@ export default function DagKaart({
           <span className="waar">{stop.naam}</span>
           {rit ? <span className="rit">{rit.km.toLocaleString("nl-NL")} km</span> : null}
           <span className={`bol ${stop.status}`} title={STATUSNAAM[stop.status]} />
-          <Omlaag />
+          <Pijl size={16} />
         </button>
 
         <Acties
           label={`Acties voor dag ${dag.nr}`}
           items={[
-            { naam: bewerken ? "Sluiten" : "Bewerken", doe: () => onBewerk(bewerken ? null : dag.nr) },
+            { naam: "Bewerken", doe: () => onBewerk(dag.nr) },
             { scheiding: true },
             ...Object.entries(STATUSNAAM).map(([id, naam]) => ({
               naam,
@@ -157,7 +159,7 @@ export default function DagKaart({
         />
       </div>
 
-      {!uitslag.past && !open && !bewerken ? (
+      {!uitslag.past ? (
         <p className="past-niet">
           <Waarschuwing /> Past niet
           {uitslag.problemen.map((p) => (
@@ -167,115 +169,118 @@ export default function DagKaart({
       ) : null}
 
       {bewerken ? (
-        <form className="dagvelden" onSubmit={bewaarStop}>
-          <PlaatsZoeker id={`z-${stop.id}`} onKies={kiesPlek} />
+        <Modal titel={`Dag ${dag.nr} aanpassen`} onSluit={() => onBewerk(null)} breed>
+          <form className="dagvelden" onSubmit={bewaarStop}>
+            <PlaatsZoeker id={`z-${stop.id}`} onKies={kiesPlek} />
 
-          <div className="velden">
-            <div style={{ gridColumn: "1 / -1" }}>
-              <label htmlFor={`n-${stop.id}`}>Waar sta je</label>
-              <input id={`n-${stop.id}`} type="text" value={v.naam} onChange={zet("naam")} autoFocus />
-            </div>
-            <div>
-              <label htmlFor={`d-${stop.id}`}>Dag</label>
-              <input id={`d-${stop.id}`} type="number" min="1" value={v.dag} onChange={zet("dag")} />
-            </div>
-            <div>
-              <label htmlFor={`na-${stop.id}`}>Nachten</label>
-              <input id={`na-${stop.id}`} type="number" min="1" value={v.nachten} onChange={zet("nachten")} />
-            </div>
-            <div>
-              <label htmlFor={`st-${stop.id}`}>Status</label>
-              <select id={`st-${stop.id}`} value={v.status} onChange={zet("status")}>
-                <option value="idee">Idee</option>
-                <option value="gepland">Gepland</option>
-                <option value="geboekt">Geboekt</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor={`p-${stop.id}`}>Prijs</label>
-              <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
-            </div>
-            <div style={{ gridColumn: "1 / -1" }}>
-              <label htmlFor={`a-${stop.id}`}>Adres</label>
-              <input id={`a-${stop.id}`} type="text" value={v.adres} onChange={zet("adres")} />
-            </div>
-            <div>
-              <label htmlFor={`la-${stop.id}`}>Breedtegraad</label>
-              <input id={`la-${stop.id}`} type="text" value={v.lat} onChange={zet("lat")} />
-            </div>
-            <div>
-              <label htmlFor={`lo-${stop.id}`}>Lengtegraad</label>
-              <input id={`lo-${stop.id}`} type="text" value={v.lon} onChange={zet("lon")} />
-            </div>
-            <div>
-              <label htmlFor={`ml-${stop.id}`}>Max lengte</label>
-              <input id={`ml-${stop.id}`} type="number" value={v.maxLengte} onChange={zet("maxLengte")} />
-            </div>
-            <div>
-              <label htmlFor={`mh-${stop.id}`}>Max hoogte</label>
-              <input id={`mh-${stop.id}`} type="number" value={v.maxHoogte} onChange={zet("maxHoogte")} />
-            </div>
-          </div>
-
-          <div className="stopknoppen">
-            <button type="submit" className="knop klein" disabled={bezig}>
-              {bezig ? "Bezig…" : "Opslaan"}
-            </button>
-            <button type="button" className="knop stil klein" onClick={() => onBewerk(null)}>
-              Annuleren
-            </button>
-            <button type="button" className="knop gevaar klein" onClick={weg} disabled={bezig}>
-              {zekerWeten ? "Zeker weten?" : "Verwijderen"}
-            </button>
-          </div>
-        </form>
-      ) : open ? (
-        <div className="daginhoud">
-          <p className="dagregel">
-            {titel}
-            {rit
-              ? ` · ${rit.km.toLocaleString("nl-NL")} km rijden, ${Math.floor(rit.minuten / 60)}u${String(
-                  rit.minuten % 60
-                ).padStart(2, "0")}${rit.schatting ? " (schatting)" : ""}`
-              : " · geen rit"}
-          </p>
-
-          <dl className="gegevens">
-            {regels.map(([naam, waarde]) => (
-              <div key={naam}>
-                <dt>{naam}</dt>
-                <dd>{waarde}</dd>
+            <div className="velden">
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label htmlFor={`n-${stop.id}`}>Waar sta je</label>
+                <input id={`n-${stop.id}`} type="text" value={v.naam} onChange={zet("naam")} autoFocus />
               </div>
-            ))}
-          </dl>
+              <div>
+                <label htmlFor={`d-${stop.id}`}>Dag</label>
+                <input id={`d-${stop.id}`} type="number" min="1" value={v.dag} onChange={zet("dag")} />
+              </div>
+              <div>
+                <label htmlFor={`na-${stop.id}`}>Nachten</label>
+                <input id={`na-${stop.id}`} type="number" min="1" value={v.nachten} onChange={zet("nachten")} />
+              </div>
+              <div>
+                <label htmlFor={`st-${stop.id}`}>Status</label>
+                <select id={`st-${stop.id}`} value={v.status} onChange={zet("status")}>
+                  <option value="idee">Idee</option>
+                  <option value="gepland">Gepland</option>
+                  <option value="geboekt">Geboekt</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor={`p-${stop.id}`}>Prijs</label>
+                <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label htmlFor={`a-${stop.id}`}>Adres</label>
+                <input id={`a-${stop.id}`} type="text" value={v.adres} onChange={zet("adres")} />
+              </div>
+              <div>
+                <label htmlFor={`la-${stop.id}`}>Breedtegraad</label>
+                <input id={`la-${stop.id}`} type="text" value={v.lat} onChange={zet("lat")} />
+              </div>
+              <div>
+                <label htmlFor={`lo-${stop.id}`}>Lengtegraad</label>
+                <input id={`lo-${stop.id}`} type="text" value={v.lon} onChange={zet("lon")} />
+              </div>
+              <div>
+                <label htmlFor={`ml-${stop.id}`}>Max lengte</label>
+                <input id={`ml-${stop.id}`} type="number" value={v.maxLengte} onChange={zet("maxLengte")} />
+              </div>
+              <div>
+                <label htmlFor={`mh-${stop.id}`}>Max hoogte</label>
+                <input id={`mh-${stop.id}`} type="number" value={v.maxHoogte} onChange={zet("maxHoogte")} />
+              </div>
+            </div>
 
-          {!uitslag.past ? (
-            <p className="past-niet">
-              <Waarschuwing /> Past niet
-              {uitslag.problemen.map((p) => (
-                <span key={p.veld}>{p.tekst}</span>
-              ))}
+            <div className="modaalknoppen">
+              <button type="submit" className="knop" disabled={bezig}>
+                {bezig ? "Bezig…" : "Opslaan"}
+              </button>
+              <button type="button" className="knop stil" onClick={() => onBewerk(null)}>
+                Annuleren
+              </button>
+              <button type="button" className="knop gevaar" onClick={weg} disabled={bezig}>
+                {zekerWeten ? "Zeker weten?" : "Verwijderen"}
+              </button>
+            </div>
+          </form>
+        </Modal>
+      ) : open ? (
+        <Modal titel={`Dag ${dag.nr} · ${stop.naam}`} onSluit={() => onToggle(null)}>
+          <div className="daginhoud">
+            <p className="dagregel">
+              {titel}
+              {rit
+                ? ` · ${rit.km.toLocaleString("nl-NL")} km rijden, ${Math.floor(rit.minuten / 60)}u${String(
+                    rit.minuten % 60
+                  ).padStart(2, "0")}${rit.schatting ? " (schatting)" : ""}`
+                : " · geen rit"}
             </p>
-          ) : null}
 
-          <h4>Notitie</h4>
-          <textarea
-            value={tekst}
-            onChange={(e) => setTekst(e.target.value)}
-            placeholder="Wat je hier wilt doen, hoe laat de receptie sluit, waar je brood haalt."
-          />
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8 }}>
-            <button
-              type="button"
-              className="knop klein"
-              onClick={bewaarNotitie}
-              disabled={!notitieGewijzigd}
-            >
-              Notitie opslaan
-            </button>
-            {bewaard ? <span className="verbinding">Opgeslagen</span> : null}
+            <dl className="gegevens">
+              {regels.map(([naam, waarde]) => (
+                <div key={naam}>
+                  <dt>{naam}</dt>
+                  <dd>{waarde}</dd>
+                </div>
+              ))}
+            </dl>
+
+            {!uitslag.past ? (
+              <p className="past-niet">
+                <Waarschuwing /> Past niet
+                {uitslag.problemen.map((p) => (
+                  <span key={p.veld}>{p.tekst}</span>
+                ))}
+              </p>
+            ) : null}
+
+            <h4>Notitie</h4>
+            <textarea
+              value={tekst}
+              onChange={(e) => setTekst(e.target.value)}
+              placeholder="Wat je hier wilt doen, hoe laat de receptie sluit, waar je brood haalt."
+            />
+            <div className="modaalknoppen">
+              <button type="button" className="knop" onClick={bewaarNotitie} disabled={!notitieGewijzigd}>
+                Notitie opslaan
+              </button>
+              {/* Van kijken naar aanpassen, zonder eerst het venster te sluiten */}
+              <button type="button" className="knop stil" onClick={() => onBewerk(dag.nr)}>
+                Dag aanpassen
+              </button>
+              {bewaard ? <span className="verbinding">Opgeslagen</span> : null}
+            </div>
           </div>
-        </div>
+        </Modal>
       ) : null}
     </div>
   );

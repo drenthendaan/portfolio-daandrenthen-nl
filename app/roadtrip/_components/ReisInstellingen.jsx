@@ -55,16 +55,7 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
   };
 
   return (
-    <form
-      onSubmit={bewaar}
-      style={{
-        margin: "0 0 18px",
-        padding: 18,
-        background: "var(--papier)",
-        border: "1px solid var(--rand)",
-        borderRadius: 12,
-      }}
-    >
+    <form onSubmit={bewaar}>
       <div className="velden">
         <div>
           <label htmlFor="ri-naam">Naam</label>
@@ -122,7 +113,7 @@ export default function ReisInstellingen({ reis, onBijgewerkt, onFout, onSluit }
         </div>
       ) : null}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 18, alignItems: "center" }}>
+      <div className="modaalknoppen">
         <button type="submit" className="knop" disabled={bezig}>
           {bezig ? "Bezig…" : "Opslaan"}
         </button>

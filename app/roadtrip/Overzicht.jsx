@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { REISSTATUSSEN, aantalDagen, euro, miniRoute, totalen } from "@/lib/roadtrip/regels.mjs";
 import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./_components/api";
 import { useLive } from "./_components/useLive";
+import Modal from "./_components/Modal";
 import TokenVak from "./_components/TokenVak";
 import { Pijl, Plus } from "./_components/iconen";
 
@@ -102,7 +103,7 @@ function Reisrij({ reis, stops }) {
   );
 }
 
-function NieuweReis({ onGemaakt, onFout }) {
+function NieuweReis({ onGemaakt, onFout, onSluit }) {
   const [naam, setNaam] = useState("");
   const [vervoer, setVervoer] = useState("camper");
   const [van, setVan] = useState("");
@@ -139,16 +140,7 @@ function NieuweReis({ onGemaakt, onFout }) {
   };
 
   return (
-    <form
-      onSubmit={verstuur}
-      style={{
-        margin: "24px 0 8px",
-        padding: 20,
-        background: "var(--papier)",
-        border: "1px solid var(--lijn)",
-        borderRadius: 12,
-      }}
-    >
+    <form onSubmit={verstuur}>
       <div className="velden">
         <div>
           <label htmlFor="nr-naam">Naam</label>
@@ -203,9 +195,12 @@ function NieuweReis({ onGemaakt, onFout }) {
         </div>
       ) : null}
 
-      <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
-        <button type="submit" className="knop" disabled={bezig}>
+      <div className="modaalknoppen">
+        <button type="submit" className="knop" disabled={bezig || !naam.trim()}>
           {bezig ? "Bezig…" : "Aanmaken"}
+        </button>
+        <button type="button" className="knop stil" onClick={onSluit}>
+          Annuleren
         </button>
       </div>
     </form>
@@ -284,27 +279,34 @@ export default function Overzicht({ begin }) {
                   {verbinding === "weg" ? " · geen verbinding" : ""}
                 </p>
               </div>
-              <button type="button" className="knop" onClick={() => setFormulier((v) => !v)}>
+              <button type="button" className="knop" onClick={() => setFormulier(true)}>
                 <Plus />
-                {formulier ? "Sluiten" : "Nieuwe roadtrip"}
+                Nieuwe roadtrip
               </button>
             </header>
 
             {formulier ? (
-              <NieuweReis
-                onGemaakt={(reis) => {
-                  setFormulier(false);
-                  router.push(`/roadtrip/${reis.slug}`);
-                }}
-                onFout={(e) => {
-                  if (e instanceof GeenToken) wachtend.current = null;
-                  toonFout(e);
-                }}
-              />
+              <Modal titel="Nieuwe roadtrip" onSluit={() => setFormulier(false)} breed>
+                <NieuweReis
+                  onGemaakt={(reis) => {
+                    setFormulier(false);
+                    router.push(`/roadtrip/${reis.slug}`);
+                  }}
+                  onFout={(e) => {
+                    if (e instanceof GeenToken) wachtend.current = null;
+                    toonFout(e);
+                  }}
+                  onSluit={() => setFormulier(false)}
+                />
+              </Modal>
             ) : null}
 
             {melding ? <p className="melding">{melding}</p> : null}
-            {vraagToken ? <TokenVak onOpgeslagen={naTokenOpslag} /> : null}
+            {vraagToken ? (
+              <Modal titel="Token invoeren" onSluit={() => setVraagToken(false)}>
+                <TokenVak onOpgeslagen={naTokenOpslag} />
+              </Modal>
+            ) : null}
 
             {reizen.length === 0 ? (
               <p className="leeg">

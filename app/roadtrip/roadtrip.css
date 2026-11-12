@@ -1965,3 +1965,161 @@ body:has(.trip),
   padding: 6px 0 0;
   color: var(--accent-tekst);
 }
+
+
+/* ================= Vensters: alles wat je aanpast ================= */
+
+/* Het venster hangt in een portal aan de body, buiten .trip. Daarom draagt de
+   achtergrond zelf de klasse .trip — anders geldt geen enkele regel hierboven
+   erbinnen. Die klasse zet ook een paginakleur, die we hier weer overschrijven. */
+.trip.modaalgrond {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: rgba(16, 18, 21, 0.44);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: trip-grond 0.14s ease-out;
+}
+
+.trip .modaal {
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100svh - 48px);
+  display: flex;
+  flex-direction: column;
+  background: var(--papier);
+  border: 1px solid var(--rand);
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(16, 18, 21, 0.22);
+  animation: trip-venster 0.16s ease-out;
+}
+
+/* Formulieren met twee kolommen velden hebben wat meer lucht nodig */
+.trip .modaal.breed {
+  max-width: 560px;
+}
+
+.trip .modaalkop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--lijn);
+}
+
+.trip .modaalkop h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  /* Een lange plaatsnaam mag de kruisknop niet wegduwen */
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip .modaalsluit {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--zacht);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.trip .modaalsluit:hover {
+  color: var(--inkt);
+  background: var(--grond);
+}
+
+/* Alleen de inhoud schuift; kop en knoppen blijven staan */
+.trip .modaalinhoud {
+  padding: 18px;
+  overflow-y: auto;
+}
+
+/* De dagkaart-klassen dragen hun eigen kaderwerk; in een venster hoort dat niet */
+.trip .modaalinhoud .daginhoud,
+.trip .modaalinhoud .dagvelden {
+  padding: 0;
+  border-top: 0;
+}
+
+.trip .modaalinhoud .daginhoud .dagregel {
+  margin-top: 0;
+}
+
+/* De knoppen blijven in beeld, ook bij een lang formulier */
+.trip .modaalknoppen {
+  position: sticky;
+  bottom: -18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 18px -18px -18px;
+  padding: 14px 18px;
+  background: var(--papier);
+  border-top: 1px solid var(--lijn);
+}
+
+/* Verwijderen hoort niet naast Opslaan te staan */
+.trip .modaalknoppen .gevaar {
+  margin-left: auto;
+}
+
+@keyframes trip-grond {
+  from { opacity: 0; }
+}
+
+@keyframes trip-venster {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trip.modaalgrond,
+  .trip .modaal {
+    animation: none;
+  }
+}
+
+/* Op een telefoon plakt het venster onderaan: dichter bij je duim, en de
+   lijst erachter blijft zichtbaar zodat je ziet waar je vandaan kwam. */
+@media (max-width: 560px) {
+  .trip.modaalgrond {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .trip .modaal {
+    max-width: none;
+    max-height: 92svh;
+    border-bottom: 0;
+    border-radius: 16px 16px 0 0;
+    animation: trip-venster-telefoon 0.18s ease-out;
+  }
+
+  .trip .modaalknoppen .gevaar {
+    margin-left: 0;
+  }
+}
+
+@keyframes trip-venster-telefoon {
+  from { transform: translateY(18px); }
+}
+
+/* De dagregel klapt niets meer uit, dus het pijltje hoort niet te draaien */
+.trip .dagtoggle > svg {
+  transition: none;
+}

@@ -90,15 +90,7 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
   };
 
   return (
-    <form
-      onSubmit={verstuur}
-      style={{
-        padding: 18,
-        background: "var(--papier)",
-        border: "1px solid var(--rand)",
-        borderRadius: 12,
-      }}
-    >
+    <form onSubmit={verstuur}>
       <PlaatsZoeker id="sf-zoek" onKies={kiesPlek} />
 
       <div className="velden">
@@ -156,7 +148,7 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
           </div>
         </div>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 18, alignItems: "center" }}>
+      <div className="modaalknoppen">
         <button type="submit" className="knop" disabled={bezig}>
           {bezig ? "Bezig…" : bewerken ? "Opslaan" : "Toevoegen"}
         </button>

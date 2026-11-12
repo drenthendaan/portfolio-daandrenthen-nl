@@ -8,6 +8,7 @@ import { euro, groepeerDagen, toon, totalen } from "@/lib/roadtrip/regels.mjs";
 import { GeenToken, heeftToken, meldGewijzigd, schrijf } from "./api";
 import { useLive } from "./useLive";
 import { useReis } from "./useReis";
+import Modal from "./Modal";
 import TokenVak from "./TokenVak";
 import StopFormulier from "./StopFormulier";
 import DagKaart from "./DagKaart";
@@ -155,10 +156,7 @@ export default function Reis({ begin, etappes = {} }) {
             <Acties
               label="Acties voor deze reis"
               items={[
-                {
-                  naam: instellingen ? "Sluiten" : "Aanpassen",
-                  doe: () => setInstellingen((b) => !b),
-                },
+                { naam: "Aanpassen", doe: () => setInstellingen(true) },
                 { scheiding: true },
                 ...REISSTATUS.map(([id, naam]) => ({
                   naam,
@@ -167,13 +165,7 @@ export default function Reis({ begin, etappes = {} }) {
                   doe: () => metToken(() => wijzigReis({ status: id })),
                 })),
                 { scheiding: true },
-                {
-                  naam: "Stop toevoegen",
-                  doe: () => {
-                    setTab("dagen"); // het formulier staat onder Dagen
-                    setToevoegen(true);
-                  },
-                },
+                { naam: "Stop toevoegen", doe: () => setToevoegen(true) },
                 { naam: "Reis verwijderen", gevaar: true, doe: () => verwijderReis() },
               ]}
             />
@@ -222,18 +214,24 @@ export default function Reis({ begin, etappes = {} }) {
             ) : null}
 
             {melding ? <p className="melding">{melding}</p> : null}
-            {vraagToken ? <TokenVak onOpgeslagen={naToken} /> : null}
+            {vraagToken ? (
+              <Modal titel="Token invoeren" onSluit={() => setVraagToken(false)}>
+                <TokenVak onOpgeslagen={naToken} />
+              </Modal>
+            ) : null}
 
             {instellingen ? (
-              <ReisInstellingen
-                reis={reis}
-                onBijgewerkt={() => reisData.herlaad()}
-                onFout={(e) => {
-                  if (e instanceof GeenToken) setVraagToken(true);
-                  setMelding(e.message);
-                }}
-                onSluit={() => setInstellingen(false)}
-              />
+              <Modal titel="Reis aanpassen" onSluit={() => setInstellingen(false)} breed>
+                <ReisInstellingen
+                  reis={reis}
+                  onBijgewerkt={() => reisData.herlaad()}
+                  onFout={(e) => {
+                    if (e instanceof GeenToken) setVraagToken(true);
+                    setMelding(e.message);
+                  }}
+                  onSluit={() => setInstellingen(false)}
+                />
+              </Modal>
             ) : null}
 
             {tab === "dagen" ? (
@@ -261,17 +259,10 @@ export default function Reis({ begin, etappes = {} }) {
                 ))}
 
                 <div style={{ marginTop: 18 }}>
-                  {toevoegen ? (
-                    <StopFormulier
-                      onBewaar={(velden) => metToken(() => bewaarStop(velden))}
-                      onSluit={() => setToevoegen(false)}
-                    />
-                  ) : (
-                    <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>
-                      <Plus />
-                      Stop toevoegen
-                    </button>
-                  )}
+                  <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>
+                    <Plus />
+                    Stop toevoegen
+                  </button>
                 </div>
               </>
             ) : null}
@@ -320,6 +311,14 @@ export default function Reis({ begin, etappes = {} }) {
             ) : null}
 
 
+            {toevoegen ? (
+              <Modal titel="Stop toevoegen" onSluit={() => setToevoegen(false)} breed>
+                <StopFormulier
+                  onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                  onSluit={() => setToevoegen(false)}
+                />
+              </Modal>
+            ) : null}
           </section>
 
           <Kaart
