@@ -6,7 +6,7 @@ const leeg = {
   naam: "",
   soort: "overnachting",
   status: "gepland",
-  dag: "",
+  dag: "1",
   nachten: "",
   prijs: "",
   adres: "",
@@ -108,7 +108,7 @@ export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) 
         </div>
         <div>
           <label htmlFor="sf-dag">Dag</label>
-          <input id="sf-dag" type="number" min="1" placeholder="leeg = idee" value={v.dag} onChange={zet("dag")} />
+          <input id="sf-dag" type="number" min="1" required value={v.dag} onChange={zet("dag")} />
         </div>
         <div>
           <label htmlFor="sf-status">Status</label>

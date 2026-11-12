@@ -23,7 +23,6 @@ import {
   Omlaag,
   PijlTerug,
   Plus,
-  VERVOERICOON,
 } from "./iconen";
 
 // MapLibre heeft window nodig, dus alleen in de browser laden
@@ -141,8 +140,7 @@ export default function Reis({ begin, etappes = {} }) {
       return true;
     });
 
-  const Icoon = VERVOERICOON[reis.vervoer] ?? VERVOERICOON.camper;
-  const { dagen, ideeen } = groepeerDagen(stops);
+  const { dagen } = groepeerDagen(stops);
   const telling = totalen(stops);
 
   // Nummers lopen door over de overnachtingen heen: een pin op de kaart is een
@@ -174,13 +172,7 @@ export default function Reis({ begin, etappes = {} }) {
               marginTop: 10,
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: 11, flexWrap: "wrap" }}>
-              <h1>{reis.naam}</h1>
-              <span className="label">
-                <Icoon size={13} />
-                {reis.vervoer}
-              </span>
-            </div>
+            <h1>{reis.naam}</h1>
 
             <Acties
               label="Acties voor deze reis"
@@ -328,30 +320,19 @@ export default function Reis({ begin, etappes = {} }) {
                   );
                 })}
 
-                {ideeen.length ? (
-                  <section style={{ marginTop: 22 }}>
-                    <h2 className="groepkop" style={{ marginTop: 0 }}>
-                      Nog zonder dag
-                    </h2>
-                    <div className="dag">
-                      {ideeen.map((los) => (
-                        <StopRegel
-                          key={los.id}
-                          stop={los}
-                          nummer={null}
-                          voertuig={reis.voertuig}
-                          mag={mag}
-                          open={openStop === los.id}
-                          bewerken={bewerkStop === los.id}
-                          onToggle={setOpenStop}
-                          onBewerk={setBewerkStop}
-                          onBewaar={(velden) => metToken(() => bewaarStop(velden))}
-                          onWeg={(id) => metToken(() => verwijderStop(id))}
-                        />
-                      ))}
-                    </div>
-                  </section>
-                ) : null}
+                <div style={{ marginTop: 18 }}>
+                  {toevoegen ? (
+                    <StopFormulier
+                      onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                      onSluit={() => setToevoegen(false)}
+                    />
+                  ) : (
+                    <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>
+                      <Plus />
+                      Stop toevoegen
+                    </button>
+                  )}
+                </div>
               </>
             ) : null}
 
@@ -399,19 +380,6 @@ export default function Reis({ begin, etappes = {} }) {
             ) : null}
 
 
-            <div style={{ marginTop: 18 }}>
-              {toevoegen ? (
-                <StopFormulier
-                  onBewaar={(velden) => metToken(() => bewaarStop(velden))}
-                  onSluit={() => setToevoegen(false)}
-                />
-              ) : (
-                <button type="button" className="knop stil" onClick={() => setToevoegen(true)}>
-                  <Plus />
-                  Stop toevoegen
-                </button>
-              )}
-            </div>
           </section>
 
           <Kaart

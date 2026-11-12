@@ -1592,3 +1592,32 @@ body:has(.trip),
   max-height: min(70vh, 420px);
   overflow-y: auto;
 }
+
+/* ---- De pagina vult het scherm ---- */
+/* Sinds de iconenbalk weg is, is .raam een blok; dan rekt er niets meer mee.
+   Een kolom die het venster vult laat de kaart weer doorlopen tot onderaan. */
+.trip .raam {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.trip .inhoud {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.trip .werkvlak {
+  flex-grow: 1;
+  align-items: stretch;
+}
+
+.trip .kaartvak {
+  align-self: stretch;
+}
+
+.trip .blad {
+  flex-grow: 1;
+}

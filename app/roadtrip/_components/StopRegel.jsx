@@ -222,7 +222,6 @@ export default function StopRegel({
                 id={`d-${stop.id}`}
                 type="number"
                 min="1"
-                placeholder="geen"
                 value={v.dag}
                 onChange={zet("dag")}
               />
