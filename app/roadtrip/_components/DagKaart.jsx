@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { VINKJES, euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
-import { Openen, Potlood, Waarschuwing } from "./iconen";
+import { Openen, Potlood, VINKICOON, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
@@ -78,15 +78,30 @@ export default function DagKaart({
   const uitslag = pastVoertuig(stop.max, voertuig);
   const notitieGewijzigd = (tekst ?? "") !== (notitie ?? "");
 
-  // Wat de plek heeft, als één regel: "Stroom, Douches, Zwembad"
-  const voorzieningen = VINKJES.filter((x) => x.soort === "voorziening" && stop[x.veld]).map((x) => x.naam);
+  // Wat de plek heeft, met icoontjes. Alleen in het venster: de lijst blijft rustig.
+  const voorzieningen = VINKJES.filter((x) => x.soort === "voorziening" && stop[x.veld]);
 
   const regels = [
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
     ["Gereserveerd", <span className={`jaNee ${stop.gereserveerd ? "ja" : "nee"}`}>{stop.gereserveerd ? "Ja" : "Nee"}</span>],
     ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
-    voorzieningen.length ? ["Voorzieningen", voorzieningen.join(", ")] : null,
+    voorzieningen.length
+      ? [
+          "Voorzieningen",
+          <span className="kenmerklijst">
+            {voorzieningen.map(({ veld, naam }) => {
+              const Icoon = VINKICOON[veld];
+              return (
+                <span key={veld} className={`kenmerk ${veld}`}>
+                  <Icoon size={15} />
+                  {naam}
+                </span>
+              );
+            })}
+          </span>,
+        ]
+      : null,
     stop.adres ? ["Adres", stop.adres] : null,
     stop.link
       ? [

@@ -2443,3 +2443,21 @@ body:has(.trip),
   font-size: 12px;
   color: var(--zacht);
 }
+
+/* ---- Icoontjes bij de voorzieningen, in het venster van een nacht ---- */
+.trip .kenmerklijst {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.trip .kenmerk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trip .kenmerk svg {
+  flex: none;
+  color: var(--zacht);
+}

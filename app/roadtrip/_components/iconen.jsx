@@ -141,3 +141,48 @@ export const Verkleinen = ({ size = 15 }) => (
     <path d="M9 20v-5H4" />
   </svg>
 );
+
+// ---- Voorzieningen van een plek, in het venster van een nacht ----
+
+export const Bliksem = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinejoin="round">
+    <path d="M13 3 5 13.5h6L10 21l8-10.5h-6z" />
+  </svg>
+);
+
+export const Druppel = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinejoin="round">
+    <path d="M12 3.5s-6 6.6-6 10.5a6 6 0 0 0 12 0c0-3.9-6-10.5-6-10.5z" />
+  </svg>
+);
+
+export const Wasmachine = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinecap="round">
+    <rect x="4" y="3" width="16" height="18" rx="2" />
+    <circle cx="12" cy="13.5" r="4" />
+    <path d="M7.5 6.5h.01M10.5 6.5h3" />
+  </svg>
+);
+
+export const Winkeltas = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinejoin="round">
+    <path d="M5 8h14l-1 12H6z" />
+    <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+  </svg>
+);
+
+export const Golven = ({ size = 15 }) => (
+  <svg {...basis} width={size} height={size} strokeLinecap="round">
+    <path d="M3 10c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2" />
+    <path d="M3 15.5c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2" />
+  </svg>
+);
+
+// Per voorziening uit VINKJES het icoon
+export const VINKICOON = {
+  stroom: Bliksem,
+  douches: Druppel,
+  wasmachine: Wasmachine,
+  winkel: Winkeltas,
+  zwembad: Golven,
+};
