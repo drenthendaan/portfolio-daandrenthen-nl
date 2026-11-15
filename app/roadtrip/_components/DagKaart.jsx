@@ -154,7 +154,7 @@ export default function DagKaart({
           onClick={() => onToggle(dag.nr)}
         >
           <span className="nr">
-            Dag {dag.nr}
+            Nacht {dag.nr}
             {dag.tot > dag.nr ? `–${dag.tot}` : ""}
           </span>
           <span className="waar">{stop.naam}</span>
@@ -253,7 +253,7 @@ export default function DagKaart({
         </Modal>
       ) : open ? (
         <Modal
-          titel={`Dag ${dag.nr} · ${stop.naam}`}
+          titel={`Nacht ${dag.nr} · ${stop.naam}`}
           onSluit={() => onToggle(null)}
           acties={
             <Acties

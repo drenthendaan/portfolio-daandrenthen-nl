@@ -43,10 +43,11 @@ const datumVanDag = (van, nr, opties = {}) => {
   });
 };
 
-// "Dag 4 t/m 6 · wo 7 t/m vr 9 juli" als je blijft staan, anders gewoon "Dag 1"
+// Telt nachten: "Nacht 4 t/m 6 · wo 7 t/m vr 9 juli" als je blijft staan, anders
+// gewoon "Nacht 1". De dag na de laatste nacht rijd je door naar de volgende plek.
 const dagTitel = (dag, van) => {
   const meer = dag.tot > dag.nr;
-  const nummers = meer ? `Dag ${dag.nr} t/m ${dag.tot}` : `Dag ${dag.nr}`;
+  const nummers = meer ? `Nacht ${dag.nr} t/m ${dag.tot}` : `Nacht ${dag.nr}`;
   const start = datumVanDag(van, dag.nr, { kort: meer });
   if (!start) return nummers;
   const eind = meer ? datumVanDag(van, dag.tot) : null;

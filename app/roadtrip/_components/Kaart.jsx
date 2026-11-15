@@ -214,7 +214,7 @@ export default function Kaart({ stops = [], start, vervoer = "camper", midden, a
       lijst.forEach((stop) => {
         gezien.add(stop.id);
         // Het nummer op de speld is het dagnummer, zodat kaart en lijst
-        // dezelfde taal spreken: speld 4 hoort bij "Dag 4–6".
+        // dezelfde taal spreken: speld 4 hoort bij "Nacht 4–6".
         const label = inRoute(stop) ? String(stop.dag) : "";
         const bestaand = spelden.current.get(stop.id);
 
