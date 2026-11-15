@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
+import { VINKJES, euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
 import { Openen, Potlood, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 import Modal from "./Modal";
@@ -15,13 +15,12 @@ const uitStop = (stop) => ({
   dag: stop?.dag ?? "",
   nachten: stop?.nachten ?? "",
   prijs: stop?.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
-  betaald: stop?.betaald ? "ja" : "nee",
+  ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, !!stop?.[veld]])),
   adres: stop?.adres ?? "",
   link: stop?.link ?? "",
+  // Geen invulvelden meer, maar de zoeker zet ze wel: zo blijft de plek op de kaart
   lat: stop?.lat ?? "",
   lon: stop?.lon ?? "",
-  maxLengte: stop?.max?.lengte ?? "",
-  maxHoogte: stop?.max?.hoogte ?? "",
 });
 
 /**
@@ -64,23 +63,30 @@ export default function DagKaart({
   if (!stop) return null;
 
   const zet = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.value }));
+  const vink = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.checked }));
 
-  // Een naam die je zelf al typte laten we staan; de rest vult de zoeker in
+  // Het naamveld is ook de zoeker: een gekozen resultaat vult naam, adres en plek
   const kiesPlek = (plek) =>
     setV((oud) => ({
       ...oud,
-      naam: oud.naam.trim() ? oud.naam : plek.naam,
+      naam: plek.naam,
       adres: plek.adres ?? oud.adres,
       lat: String(plek.lat),
       lon: String(plek.lon),
     }));
+  const opKaart = v.lat !== "" && v.lon !== "";
   const uitslag = pastVoertuig(stop.max, voertuig);
   const notitieGewijzigd = (tekst ?? "") !== (notitie ?? "");
+
+  // Wat de plek heeft, als één regel: "Stroom, Douches, Zwembad"
+  const voorzieningen = VINKJES.filter((x) => x.soort === "voorziening" && stop[x.veld]).map((x) => x.naam);
 
   const regels = [
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
+    ["Gereserveerd", <span className={`jaNee ${stop.gereserveerd ? "ja" : "nee"}`}>{stop.gereserveerd ? "Ja" : "Nee"}</span>],
     ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
+    voorzieningen.length ? ["Voorzieningen", voorzieningen.join(", ")] : null,
     stop.adres ? ["Adres", stop.adres] : null,
     stop.link
       ? [
@@ -107,15 +113,11 @@ export default function DagKaart({
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
-      betaald: v.betaald,
+      ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, v[veld]])),
       adres: v.adres || null,
       link: v.link.trim() || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
-      max:
-        v.maxLengte !== "" || v.maxHoogte !== ""
-          ? { lengte: v.maxLengte || null, hoogte: v.maxHoogte || null, gewicht: null }
-          : null,
     });
     setBezig(false);
     if (gelukt) onBewerk(null);
@@ -179,12 +181,23 @@ export default function DagKaart({
       {bewerken ? (
         <Modal titel={`Dag ${dag.nr} aanpassen`} onSluit={() => onBewerk(null)} breed>
           <form className="dagvelden" onSubmit={bewaarStop}>
-            <PlaatsZoeker id={`z-${stop.id}`} onKies={kiesPlek} />
-
             <div className="velden">
               <div style={{ gridColumn: "1 / -1" }}>
-                <label htmlFor={`n-${stop.id}`}>Waar sta je</label>
-                <input id={`n-${stop.id}`} type="text" value={v.naam} onChange={zet("naam")} autoFocus />
+                <PlaatsZoeker
+                  id={`n-${stop.id}`}
+                  label="Waar sta je"
+                  placeholder="Zoek een camping, stad of adres"
+                  geenTreffers="Niets gevonden. De naam die je typte blijft gewoon staan."
+                  value={v.naam}
+                  onChange={(naam) => setV((oud) => ({ ...oud, naam }))}
+                  onKies={kiesPlek}
+                  autoFocus
+                />
+                <p className="plekstand">
+                  {opKaart
+                    ? "Staat op de kaart. Kies een ander zoekresultaat om hem te verplaatsen."
+                    : "Nog niet op de kaart: kies een zoekresultaat."}
+                </p>
               </div>
               <div>
                 <label htmlFor={`d-${stop.id}`}>Dag</label>
@@ -197,13 +210,6 @@ export default function DagKaart({
               <div>
                 <label htmlFor={`p-${stop.id}`}>Prijs</label>
                 <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
-              </div>
-              <div>
-                <label htmlFor={`bt-${stop.id}`}>Betaald</label>
-                <select id={`bt-${stop.id}`} value={v.betaald} onChange={zet("betaald")}>
-                  <option value="nee">Nee</option>
-                  <option value="ja">Ja</option>
-                </select>
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
                 <label htmlFor={`a-${stop.id}`}>Adres</label>
@@ -220,21 +226,13 @@ export default function DagKaart({
                   onChange={zet("link")}
                 />
               </div>
-              <div>
-                <label htmlFor={`la-${stop.id}`}>Breedtegraad</label>
-                <input id={`la-${stop.id}`} type="text" value={v.lat} onChange={zet("lat")} />
-              </div>
-              <div>
-                <label htmlFor={`lo-${stop.id}`}>Lengtegraad</label>
-                <input id={`lo-${stop.id}`} type="text" value={v.lon} onChange={zet("lon")} />
-              </div>
-              <div>
-                <label htmlFor={`ml-${stop.id}`}>Max lengte</label>
-                <input id={`ml-${stop.id}`} type="number" value={v.maxLengte} onChange={zet("maxLengte")} />
-              </div>
-              <div>
-                <label htmlFor={`mh-${stop.id}`}>Max hoogte</label>
-                <input id={`mh-${stop.id}`} type="number" value={v.maxHoogte} onChange={zet("maxHoogte")} />
+              <div className="vinkjes" style={{ gridColumn: "1 / -1" }}>
+                {VINKJES.map(({ veld, naam }) => (
+                  <label key={veld} className="vinkje">
+                    <input type="checkbox" checked={v[veld]} onChange={vink(veld)} />
+                    {naam}
+                  </label>
+                ))}
               </div>
             </div>
 

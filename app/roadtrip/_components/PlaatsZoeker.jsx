@@ -8,18 +8,26 @@ const RUST = 450;
 const KORTSTE = 3;
 
 /**
- * Zoek een plek op naam en laat naam, adres en coördinaten invullen. De losse
- * velden blijven staan: wat de zoekdienst niet weet, vul je zelf aan, en zonder
- * verbinding werkt het formulier gewoon door.
+ * Zoek een plek op naam en laat naam, adres en coördinaten invullen.
+ *
+ * Met onChange is dit meteen het naamveld: wat je typt is de naam, en kies je
+ * een zoekresultaat, dan komen naam, adres en plek op de kaart daaruit. Zonder
+ * onChange is het een los zoekveld dat na het kiezen weer leeg wordt.
  */
 export default function PlaatsZoeker({
   id,
   onKies,
+  onChange,
+  value,
+  autoFocus = false,
   label = "Zoek een plek",
   placeholder = "Camping, stad of adres",
-  geenTreffers = "Niets gevonden. Vul de coördinaten hieronder zelf in.",
+  geenTreffers = "Niets gevonden.",
 }) {
-  const [term, setTerm] = useState("");
+  const naamveld = typeof onChange === "function";
+  const [term, setTerm] = useState(value ?? "");
+  // Alleen wat je zelf typt wordt gezocht; een ingevulde naam bij het openen niet
+  const [zoekterm, setZoekterm] = useState("");
   const [treffers, setTreffers] = useState(null);
   const [bezig, setBezig] = useState(false);
   const [melding, setMelding] = useState(null);
@@ -31,7 +39,7 @@ export default function PlaatsZoeker({
 
   // Zoeken zodra je even stil bent
   useEffect(() => {
-    const schoon = term.trim();
+    const schoon = zoekterm.trim();
     if (schoon.length < KORTSTE) {
       setTreffers(null);
       setMelding(null);
@@ -64,7 +72,7 @@ export default function PlaatsZoeker({
     }, RUST);
 
     return () => clearTimeout(timer);
-  }, [term]);
+  }, [zoekterm]);
 
   // Klik ernaast sluit de lijst
   useEffect(() => {
@@ -85,18 +93,30 @@ export default function PlaatsZoeker({
 
   const kies = (plek) => {
     onKies(plek);
-    setTerm("");
+    setTerm(naamveld ? plek.naam : "");
+    setZoekterm("");
     sluit();
+  };
+
+  const typ = (e) => {
+    setTerm(e.target.value);
+    setZoekterm(e.target.value);
+    if (naamveld) onChange(e.target.value);
   };
 
   const bijToets = (e) => {
     if (e.key === "Escape") return sluit();
 
-    // Enter hoort hier te zoeken, niet het formulier te versturen: anders sla je
-    // een halve stop op terwijl je nog aan het zoeken was.
+    // Staat er een lijst open of wordt er nog gezocht, dan kiest Enter een plek en
+    // verstuurt hij het formulier niet: anders sla je een halve stop op. Als
+    // naamveld mag Enter daarna gewoon opslaan.
     if (e.key === "Enter") {
-      e.preventDefault();
-      if (treffers?.length) kies(treffers[gemarkeerd >= 0 ? gemarkeerd : 0]);
+      if (treffers?.length) {
+        e.preventDefault();
+        kies(treffers[gemarkeerd >= 0 ? gemarkeerd : 0]);
+      } else if (!naamveld || bezig) {
+        e.preventDefault();
+      }
       return;
     }
 
@@ -128,7 +148,8 @@ export default function PlaatsZoeker({
           aria-autocomplete="list"
           placeholder={placeholder}
           value={term}
-          onChange={(e) => setTerm(e.target.value)}
+          autoFocus={autoFocus}
+          onChange={typ}
           onKeyDown={bijToets}
         />
         {bezig ? <span className="zoekstand">Zoeken…</span> : null}

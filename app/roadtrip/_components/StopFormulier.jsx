@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { VINKJES } from "@/lib/roadtrip/regels.mjs";
 import PlaatsZoeker from "./PlaatsZoeker";
 
 const leeg = {
@@ -8,13 +9,11 @@ const leeg = {
   dag: "1",
   nachten: "",
   prijs: "",
-  betaald: "nee",
+  ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, false])),
   adres: "",
   link: "",
   lat: "",
   lon: "",
-  maxLengte: "",
-  maxHoogte: "",
 };
 
 // Een bestaande stop omzetten naar formuliervelden; centen terug naar euro's
@@ -26,13 +25,11 @@ const uitStop = (stop) =>
         dag: stop.dag ?? "",
         nachten: stop.nachten ?? "",
         prijs: stop.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
-        betaald: stop.betaald ? "ja" : "nee",
+        ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, !!stop[veld]])),
         adres: stop.adres ?? "",
         link: stop.link ?? "",
         lat: stop.lat ?? "",
         lon: stop.lon ?? "",
-        maxLengte: stop.max?.lengte ?? "",
-        maxHoogte: stop.max?.hoogte ?? "",
       };
 
 /**
@@ -48,12 +45,13 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
   const bewerken = !!stop;
 
   const zet = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.value }));
+  const vink = (veld) => (e) => setV((oud) => ({ ...oud, [veld]: e.target.checked }));
 
-  // Een naam die je zelf al typte laten we staan; de rest vult de zoeker in
+  // Het naamveld is ook de zoeker: een gekozen resultaat vult naam, adres en plek
   const kiesPlek = (plek) =>
     setV((oud) => ({
       ...oud,
-      naam: oud.naam.trim() ? oud.naam : plek.naam,
+      naam: plek.naam,
       adres: plek.adres ?? oud.adres,
       lat: String(plek.lat),
       lon: String(plek.lon),
@@ -70,15 +68,11 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
-      betaald: v.betaald,
+      ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, v[veld]])),
       adres: v.adres || null,
       link: v.link.trim() || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
-      max:
-        v.maxLengte !== "" || v.maxHoogte !== ""
-          ? { lengte: v.maxLengte || null, hoogte: v.maxHoogte || null, gewicht: null }
-          : null,
     };
 
     const gelukt = await onBewaar(bewerken ? { id: stop.id, ...velden } : velden);
@@ -96,12 +90,23 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
 
   return (
     <form onSubmit={verstuur}>
-      <PlaatsZoeker id="sf-zoek" onKies={kiesPlek} />
-
       <div className="velden">
         <div style={{ gridColumn: "1 / -1" }}>
-          <label htmlFor="sf-naam">Naam</label>
-          <input id="sf-naam" type="text" value={v.naam} onChange={zet("naam")} autoFocus />
+          <PlaatsZoeker
+            id="sf-naam"
+            label="Waar sta je"
+            placeholder="Zoek een camping, stad of adres"
+            geenTreffers="Niets gevonden. De naam die je typte blijft gewoon staan."
+            value={v.naam}
+            onChange={(naam) => setV((oud) => ({ ...oud, naam }))}
+            onKies={kiesPlek}
+            autoFocus
+          />
+          <p className="plekstand">
+            {v.lat !== "" && v.lon !== ""
+              ? "Staat op de kaart."
+              : "Nog niet op de kaart: kies een zoekresultaat."}
+          </p>
         </div>
         <div>
           <label htmlFor="sf-dag">Dag</label>
@@ -114,13 +119,6 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
         <div>
           <label htmlFor="sf-prijs">Prijs</label>
           <input id="sf-prijs" type="text" placeholder="46" value={v.prijs} onChange={zet("prijs")} />
-        </div>
-        <div>
-          <label htmlFor="sf-betaald">Betaald</label>
-          <select id="sf-betaald" value={v.betaald} onChange={zet("betaald")}>
-            <option value="nee">Nee</option>
-            <option value="ja">Ja</option>
-          </select>
         </div>
         <div style={{ gridColumn: "1 / -1" }}>
           <label htmlFor="sf-adres">Adres</label>
@@ -137,31 +135,15 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
                   onChange={zet("link")}
                 />
               </div>
-        <div>
-          <label htmlFor="sf-lat">Breedtegraad</label>
-          <input id="sf-lat" type="text" placeholder="47.0502" value={v.lat} onChange={zet("lat")} />
-        </div>
-        <div>
-          <label htmlFor="sf-lon">Lengtegraad</label>
-          <input id="sf-lon" type="text" placeholder="8.3093" value={v.lon} onChange={zet("lon")} />
+        <div className="vinkjes" style={{ gridColumn: "1 / -1" }}>
+          {VINKJES.map(({ veld, naam }) => (
+            <label key={veld} className="vinkje">
+              <input type="checkbox" checked={v[veld]} onChange={vink(veld)} />
+              {naam}
+            </label>
+          ))}
         </div>
       </div>
-
-              <div style={{ marginTop: 14 }}>
-          <p className="uitleg" style={{ margin: "0 0 8px" }}>
-            Maxima van deze plek, in centimeters. Laat leeg als je het niet weet.
-          </p>
-          <div className="velden">
-            <div>
-              <label htmlFor="sf-maxl">Max lengte</label>
-              <input id="sf-maxl" type="number" value={v.maxLengte} onChange={zet("maxLengte")} />
-            </div>
-            <div>
-              <label htmlFor="sf-maxh">Max hoogte</label>
-              <input id="sf-maxh" type="number" value={v.maxHoogte} onChange={zet("maxHoogte")} />
-            </div>
-          </div>
-        </div>
 
       <div className="modaalknoppen">
         <button type="submit" className="knop" disabled={bezig}>
