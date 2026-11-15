@@ -10,6 +10,7 @@ const leeg = {
   prijs: "",
   betaald: "nee",
   adres: "",
+  link: "",
   lat: "",
   lon: "",
   maxLengte: "",
@@ -27,6 +28,7 @@ const uitStop = (stop) =>
         prijs: stop.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
         betaald: stop.betaald ? "ja" : "nee",
         adres: stop.adres ?? "",
+        link: stop.link ?? "",
         lat: stop.lat ?? "",
         lon: stop.lon ?? "",
         maxLengte: stop.max?.lengte ?? "",
@@ -70,6 +72,7 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
       prijs: v.prijs === "" ? null : v.prijs,
       betaald: v.betaald,
       adres: v.adres || null,
+      link: v.link.trim() || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
       max:
@@ -123,6 +126,17 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
           <label htmlFor="sf-adres">Adres</label>
           <input id="sf-adres" type="text" value={v.adres} onChange={zet("adres")} />
         </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label htmlFor="sf-link">Website</label>
+                <input
+                  id="sf-link"
+                  type="url"
+                  inputMode="url"
+                  placeholder="https://www.camping-…"
+                  value={v.link}
+                  onChange={zet("link")}
+                />
+              </div>
         <div>
           <label htmlFor="sf-lat">Breedtegraad</label>
           <input id="sf-lat" type="text" placeholder="47.0502" value={v.lat} onChange={zet("lat")} />

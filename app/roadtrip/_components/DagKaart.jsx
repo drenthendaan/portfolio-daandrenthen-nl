@@ -17,6 +17,7 @@ const uitStop = (stop) => ({
   prijs: stop?.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
   betaald: stop?.betaald ? "ja" : "nee",
   adres: stop?.adres ?? "",
+  link: stop?.link ?? "",
   lat: stop?.lat ?? "",
   lon: stop?.lon ?? "",
   maxLengte: stop?.max?.lengte ?? "",
@@ -81,6 +82,14 @@ export default function DagKaart({
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
     ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
     stop.adres ? ["Adres", stop.adres] : null,
+    stop.link
+      ? [
+          "Website",
+          <a href={stop.link} target="_blank" rel="noopener noreferrer">
+            {new URL(stop.link).hostname.replace(/^www\./, "")}
+          </a>,
+        ]
+      : null,
     stop.lat != null && stop.lon != null
       ? ["Op de kaart", `${Number(stop.lat).toFixed(4)}, ${Number(stop.lon).toFixed(4)}`]
       : null,
@@ -100,6 +109,7 @@ export default function DagKaart({
       prijs: v.prijs === "" ? null : v.prijs,
       betaald: v.betaald,
       adres: v.adres || null,
+      link: v.link.trim() || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
       max:
@@ -198,6 +208,17 @@ export default function DagKaart({
               <div style={{ gridColumn: "1 / -1" }}>
                 <label htmlFor={`a-${stop.id}`}>Adres</label>
                 <input id={`a-${stop.id}`} type="text" value={v.adres} onChange={zet("adres")} />
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label htmlFor={`li-${stop.id}`}>Website</label>
+                <input
+                  id={`li-${stop.id}`}
+                  type="url"
+                  inputMode="url"
+                  placeholder="https://www.camping-…"
+                  value={v.link}
+                  onChange={zet("link")}
+                />
               </div>
               <div>
                 <label htmlFor={`la-${stop.id}`}>Breedtegraad</label>
