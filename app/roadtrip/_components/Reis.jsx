@@ -312,6 +312,7 @@ export default function Reis({ begin, etappes = {} }) {
           <Kaart
             stops={opVolgorde}
             start={reis.start}
+            vervoer={reis.vervoer}
             midden={reis.midden}
             actief={actief}
             mag={mag}

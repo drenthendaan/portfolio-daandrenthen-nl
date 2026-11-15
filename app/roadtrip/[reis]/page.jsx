@@ -30,7 +30,9 @@ async function etappesVoor(reis, stops) {
   const uitslagen = await Promise.all(
     paren.map(async ([nr, van, naar]) => {
       try {
-        return [nr, await etappe(van, naar, reis.vervoer)];
+        // De lijn haalt de kaart zelf op; de dagenlijst heeft alleen km en tijd nodig
+        const { lijn, ...rest } = (await etappe(van, naar, reis.vervoer)) ?? {};
+        return [nr, rest.km != null ? rest : null];
       } catch {
         return [nr, null];
       }

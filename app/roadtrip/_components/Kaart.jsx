@@ -44,7 +44,11 @@ function osmStijl() {
 const metPlek = (stops) => stops.filter((s) => Number.isFinite(s.lat) && Number.isFinite(s.lon));
 const inRoute = (s) => s.dag !== null && s.dag !== undefined;
 
-export default function Kaart({ stops = [], start, midden, actief, mag, onKiesStop, onVerplaats }) {
+// Eén etappe heet naar haar twee eindpunten, op ~11 meter afgerond
+const etappeSleutel = (a, b) =>
+  `${a[0].toFixed(4)},${a[1].toFixed(4)}>${b[0].toFixed(4)},${b[1].toFixed(4)}`;
+
+export default function Kaart({ stops = [], start, vervoer = "camper", midden, actief, mag, onKiesStop, onVerplaats }) {
   // Schermvullend is een eigen stand, geen echte fullscreen: die kan een iPhone
   // niet voor een gewoon element, en dan zou de knop daar niets doen.
   const [groot, setGroot] = useState(false);
@@ -54,6 +58,9 @@ export default function Kaart({ stops = [], start, midden, actief, mag, onKiesSt
   const spelden = useRef(new Map());
   // De startplek is geen stop: eigen speld, niet te slepen (dat gaat via Aanpassen)
   const startSpeld = useRef(null);
+  // sleutel → [[lon, lat], …] over de weg; null = ophalen mislukt, dan blijft het recht
+  const lijnen = useRef(new Map());
+  const [lijnenVersie, setLijnenVersie] = useState(0);
   const gepast = useRef(false);
   const callbacks = useRef({ onKiesStop, onVerplaats });
   callbacks.current = { onKiesStop, onVerplaats };
@@ -147,7 +154,17 @@ export default function Kaart({ stops = [], start, midden, actief, mag, onKiesSt
           return [lng, lat];
         });
       if (vertrek && punten.length) punten.unshift([vertrek.lon, vertrek.lat]);
-      return { type: "Feature", geometry: { type: "LineString", coordinates: punten } };
+
+      // Per etappe de weg volgen als die bekend is; anders (nog niet opgehaald,
+      // of je sleept net een speld) een rechte lijn tussen de twee punten.
+      const coords = [];
+      punten.forEach((p, i) => {
+        if (i === 0) return coords.push(p);
+        const weg = lijnen.current.get(etappeSleutel(punten[i - 1], p));
+        if (weg?.length > 1) coords.push(...weg.slice(1, -1));
+        coords.push(p);
+      });
+      return { type: "Feature", geometry: { type: "LineString", coordinates: coords } };
     };
 
     // Alleen de lijn hangt van de stijl af; spelden zijn gewone HTML-elementen
@@ -347,7 +364,45 @@ export default function Kaart({ stops = [], start, midden, actief, mag, onKiesSt
       m.off("style.load", bijStijl);
       m.off("styledata", bijStijl);
     };
-  }, [stops, start, mag]);
+  }, [stops, start, mag, lijnenVersie]);
+
+  // ---- De wegen tussen de spelden ophalen ----
+  // Na elkaar, niet tegelijk: de gratis routedienst wil niet bestookt worden, en
+  // de server bewaart elk antwoord, dus dit gebeurt per etappe maar één keer.
+  useEffect(() => {
+    const punten = metPlek(stops)
+      .filter(inRoute)
+      .map((s) => [s.lon, s.lat]);
+    if (Number.isFinite(start?.lat) && Number.isFinite(start?.lon) && punten.length) {
+      punten.unshift([start.lon, start.lat]);
+    }
+    const nodig = [];
+    for (let i = 1; i < punten.length; i += 1) {
+      const sleutel = etappeSleutel(punten[i - 1], punten[i]);
+      if (!lijnen.current.has(sleutel)) nodig.push([sleutel, punten[i - 1], punten[i]]);
+    }
+    if (!nodig.length) return;
+
+    let gestopt = false;
+    (async () => {
+      for (const [sleutel, a, b] of nodig) {
+        if (gestopt) return;
+        try {
+          const res = await fetch(
+            `/api/roadtrip/etappe?van=${a[1]},${a[0]}&naar=${b[1]},${b[0]}&vervoer=${encodeURIComponent(vervoer)}`
+          );
+          const data = res.ok ? await res.json() : null;
+          lijnen.current.set(sleutel, data?.etappe?.lijn ?? null);
+        } catch {
+          lijnen.current.set(sleutel, null);
+        }
+        if (!gestopt) setLijnenVersie((v) => v + 1);
+      }
+    })();
+    return () => {
+      gestopt = true;
+    };
+  }, [stops, start, vervoer]);
 
   // ---- De kaart op het hele scherm ----
   // De ResizeObserver ziet het vak ook wel veranderen, maar pas een slag later;
