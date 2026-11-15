@@ -301,6 +301,7 @@ export default function Reis({ begin, etappes = {} }) {
             {toevoegen ? (
               <Modal titel="Stop toevoegen" onSluit={() => setToevoegen(false)} breed>
                 <StopFormulier
+                  volgendeDag={dagen.length ? Math.max(...dagen.map((d) => d.tot)) + 1 : 1}
                   onBewaar={(velden) => metToken(() => bewaarStop(velden))}
                   onSluit={() => setToevoegen(false)}
                 />

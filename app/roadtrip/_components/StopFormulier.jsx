@@ -37,8 +37,10 @@ const uitStop = (stop) =>
  * Eén formulier voor nieuw en bewerken. Bij bewerken staat er een
  * verwijderknop bij, die eerst om bevestiging vraagt.
  */
-export default function StopFormulier({ stop, onBewaar, onVerwijder, onSluit }) {
-  const [v, setV] = useState(() => uitStop(stop));
+export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwijder, onSluit }) {
+  // Een nieuwe stop krijgt de eerste vrije dag: op een dag die al een plek heeft
+  // zou hij onder die plek verdwijnen, want een dag toont alleen zijn eerste stop.
+  const [v, setV] = useState(() => (stop ? uitStop(stop) : { ...leeg, dag: String(volgendeDag) }));
   const [bezig, setBezig] = useState(false);
   const [zekerWeten, setZekerWeten] = useState(false);
   const bewerken = !!stop;
