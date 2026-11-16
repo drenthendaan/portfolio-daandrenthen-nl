@@ -68,6 +68,7 @@
 .pika .bewerkknop[aria-pressed="true"] { color: var(--volt-ink); background: var(--volt); border-color: var(--volt); }
 .pika thead th.weg, .pika td.weg { width: 2.4rem; text-align: center; padding-left: .1rem; padding-right: .1rem; }
 .pika td.weg { vertical-align: middle; }
+.pika td.weg button.zeker { width: auto; padding: 0 .45rem; font-size: .8rem; font-weight: 600; color: #fff; background: var(--cheek); border-color: var(--cheek); }
 .pika td.weg button { width: 1.9rem; height: 1.9rem; font: inherit; font-size: 1.2rem; line-height: 1; color: var(--cheek); background: transparent; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
 
 /* Verborgen vaste kaarten */

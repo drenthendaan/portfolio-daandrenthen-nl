@@ -56,6 +56,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   const [token, setToken] = useState("");
   const [fout, setFout] = useState("");
   const [bezig, setBezig] = useState(false);
+  const [zekerWeg, setZekerWeg] = useState(false);
 
   useEffect(() => {
     terug.current = document.activeElement;
@@ -193,7 +194,9 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
   async function verwijderen() {
     setFout("");
     if (!zorgVoorToken("te verwijderen")) return;
-    if (!window.confirm(`"${item.naam}" verwijderen?`)) return;
+    // Geen window.confirm (wordt soms stil overgeslagen): eerste klik vraagt om bevestiging
+    if (!zekerWeg) return setZekerWeg(true);
+    setZekerWeg(false);
     setBezig(true);
     try {
       await acties.verwijder(item.id);
@@ -613,7 +616,7 @@ export default function ItemVenster({ item, labels, verzamelingen = [], standaar
               </button>
               {!nieuw && (
                 <button type="button" className="gevaar" onClick={verwijderen} disabled={bezig}>
-                  Verwijderen
+                  {zekerWeg ? "Echt verwijderen?" : "Verwijderen"}
                 </button>
               )}
             </div>

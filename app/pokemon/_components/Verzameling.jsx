@@ -331,9 +331,11 @@ export default function Verzameling({ verzameling: beginVerzameling, secties = [
 
   async function verwijderRij(r) {
     const [rid, naam] = r;
+    // Geen window.confirm: die wordt in een app op het beginscherm of na "geen popups meer"
+    // stil overgeslagen, en dan gebeurt er niets. De rij vraagt zelf om bevestiging.
     try {
-      if (!window.confirm(`"${naam}" verwijderen?`)) return;
       await items.verwijder(rid);
+      setSaveMsg(`"${naam}" verwijderd.`);
     } catch (e) {
       toonFout(e);
     }
@@ -872,6 +874,13 @@ export default function Verzameling({ verzameling: beginVerzameling, secties = [
 function CardRow({ card, v, elders, onToggle, onEdit, bewerken, onWeg }) {
   const [id, name, set, number, price, ptype, note, , code] = card;
   const setline = set + (number ? (set ? ", " : "") + number : "");
+  // Eerste klik op × vraagt "Weg?", de tweede verwijdert. Na 4 seconden zonder klik terug naar ×
+  const [zeker, setZeker] = useState(false);
+  useEffect(() => {
+    if (!zeker) return;
+    const t = setTimeout(() => setZeker(false), 4000);
+    return () => clearTimeout(t);
+  }, [zeker]);
   return (
     <tr className={v.a ? "done" : undefined}>
       {ptype === "unknown" || price === null ? (
@@ -905,8 +914,17 @@ function CardRow({ card, v, elders, onToggle, onEdit, bewerken, onWeg }) {
       ))}
       {bewerken && (
         <td className="weg">
-          <button type="button" onClick={() => onWeg(card)} aria-label={`Verwijder ${name}`}>
-            ×
+          <button
+            type="button"
+            className={zeker ? "zeker" : undefined}
+            onClick={() => {
+              if (!zeker) return setZeker(true);
+              setZeker(false);
+              onWeg(card);
+            }}
+            aria-label={zeker ? `Klik nogmaals om ${name} te verwijderen` : `Verwijder ${name}`}
+          >
+            {zeker ? "Weg?" : "×"}
           </button>
         </td>
       )}
