@@ -20,6 +20,9 @@ const nextConfig = {
       // Roadtrips zijn voor ons tweeën, niet voor zoekmachines
       { source: '/roadtrip', headers: noindex },
       { source: '/roadtrip/:pad*', headers: noindex },
+      // Creative-tooltjes zijn alleen via de link te vinden
+      { source: '/creative', headers: noindex },
+      { source: '/creative/:pad*', headers: noindex },
       // Service worker voor pushmeldingen: mag heel /pokemon aansturen en wordt altijd vers opgehaald
       {
         source: '/pokemon-app/sw.js',

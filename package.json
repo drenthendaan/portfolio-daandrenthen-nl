@@ -10,14 +10,20 @@
     "pokemon:koppel": "node scripts/pokemon/koppel-prijsbronnen.mjs",
     "test:pokemon": "node --test lib/pokemon/regels.test.mjs lib/pokemon/themas.test.mjs lib/pokemon/binders.test.mjs",
     "test:roadtrip": "node --test lib/roadtrip/regels.test.mjs lib/roadtrip/velden.test.mjs lib/roadtrip/sleutels.test.mjs lib/roadtrip/geocode.test.mjs",
-    "test": "npm run test:pokemon && npm run test:roadtrip"
+    "test:creative": "node --test lib/creative/thailand/look.test.mjs",
+    "thailand:proef": "node scripts/creative/look-proef.mjs",
+    "test": "npm run test:pokemon && npm run test:roadtrip && npm run test:creative"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@upstash/redis": "^1.39.0",
+    "exifreader": "^4.54.0",
+    "fflate": "^0.8.3",
     "framer-motion": "^12.25.0",
+    "heic-to": "^1.6.7",
     "maplibre-gl": "^5.24.1",
     "next": "^15.1.0",
+    "piexifjs": "^1.0.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "sass": "^1.96.0",
