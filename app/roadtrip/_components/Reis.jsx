@@ -54,7 +54,7 @@ const dagTitel = (dag, van) => {
   return eind ? `${nummers} · ${start} t/m ${eind}` : `${nummers} · ${start}`;
 };
 
-export default function Reis({ begin, etappes = {} }) {
+export default function Reis({ begin, etappes = {}, afstanden = {} }) {
   const router = useRouter();
   const { versie: versieLive, verbinding } = useLive(begin?.versie);
   const reisData = useReis(begin, versieLive);
@@ -111,6 +111,19 @@ export default function Reis({ begin, etappes = {} }) {
     meldGewijzigd(versie);
     await reisData.herlaad();
     return true;
+  };
+
+  /**
+   * De afstanden van een stop naar zijn activiteiten rekent de server uit, dus
+   * die staan in een prop en niet in de live bijgewerkte stops. Verandert er een
+   * activiteit, dan moet de server opnieuw: zonder dit blijft een nieuwe
+   * activiteit op "—" staan tot je de pagina herlaadt. Alleen bij activiteiten,
+   * want voor een vinkje hoeft de hele pagina niet opnieuw.
+   */
+  const bewaarStopEnVerversAfstanden = async (velden) => {
+    const gelukt = await metToken(() => bewaarStop(velden));
+    if (gelukt && "activiteiten" in velden) router.refresh();
+    return gelukt;
   };
 
   const verwijderReis = () =>
@@ -236,11 +249,12 @@ export default function Reis({ begin, etappes = {} }) {
                     rit={etappes[dag.nr]}
                     notitie={notities?.[dag.nr]?.notitie ?? ""}
                     voertuig={reis.voertuig}
+                    afstanden={afstanden}
                     open={openDag === dag.nr}
                     bewerken={bewerkDag === dag.nr}
                     onToggle={setOpenDag}
                     onBewerk={setBewerkDag}
-                    onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                    onBewaar={bewaarStopEnVerversAfstanden}
                     onWeg={(id) => metToken(() => verwijderStop(id))}
                     onNotitie={(t) => metToken(() => zetDagnotitie(dag.nr, t))}
                   />
@@ -303,7 +317,7 @@ export default function Reis({ begin, etappes = {} }) {
               <Modal titel="Stop toevoegen" onSluit={() => setToevoegen(false)} breed>
                 <StopFormulier
                   volgendeDag={dagen.length ? Math.max(...dagen.map((d) => d.tot)) + 1 : 1}
-                  onBewaar={(velden) => metToken(() => bewaarStop(velden))}
+                  onBewaar={bewaarStopEnVerversAfstanden}
                   onSluit={() => setToevoegen(false)}
                 />
               </Modal>

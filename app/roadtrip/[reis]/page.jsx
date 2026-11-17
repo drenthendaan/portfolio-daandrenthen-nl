@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { leesReis } from "@/lib/roadtrip/reizen";
 import { groepeerDagen } from "@/lib/roadtrip/regels.mjs";
 import { etappe } from "@/lib/roadtrip/ors";
+import { afstandSleutel } from "@/lib/roadtrip/regels.mjs";
 import Reis from "../_components/Reis";
 
 export const dynamic = "force-dynamic";
@@ -42,6 +43,37 @@ async function etappesVoor(reis, stops) {
   return Object.fromEntries(uitslagen.filter(([, e]) => e));
 }
 
+/**
+ * Hoe ver elke activiteit van zijn eigen stop af ligt. Over de weg, want
+ * hemelsbreed is in de bergen misleidend: vijf kilometer vogelvlucht kan een
+ * half uur rijden zijn. Dit loopt via dezelfde etappe() als de dagritten, dus
+ * het deelt de cache en een paar die je al eens zag kost niets meer.
+ */
+async function afstandenVoor(reis, stops) {
+  const paren = [];
+  for (const stop of stops) {
+    if (!Number.isFinite(stop?.lat) || !Number.isFinite(stop?.lon)) continue;
+    (stop.activiteiten ?? []).forEach((a) => paren.push([stop.id, a, stop]));
+  }
+
+  const uitslagen = await Promise.all(
+    paren.map(async ([id, naar, van]) => {
+      // Op de plek zelf, niet op volgnummer: haal je er eentje tussenuit, dan
+      // schuift de rest op en krijgt een activiteit de afstand van zijn buurman.
+      const sleutel = afstandSleutel(id, naar);
+      try {
+        // De lijn is hier niet nodig: het kaartje tekent rechte verbindingen
+        const { lijn, ...rest } = (await etappe(van, naar, reis.vervoer)) ?? {};
+        return [sleutel, rest.km != null ? rest : null];
+      } catch {
+        return [sleutel, null];
+      }
+    })
+  );
+
+  return Object.fromEntries(uitslagen.filter(([, a]) => a));
+}
+
 export async function generateMetadata({ params }) {
   const { reis: slug } = await params;
   const { reis } = await laad(slug);
@@ -53,6 +85,9 @@ export default async function ReisPage({ params }) {
   const data = await laad(slug);
   if (!data.reis) notFound();
 
-  const etappes = await etappesVoor(data.reis, data.stops).catch(() => ({}));
-  return <Reis begin={data} etappes={etappes} />;
+  const [etappes, afstanden] = await Promise.all([
+    etappesVoor(data.reis, data.stops).catch(() => ({})),
+    afstandenVoor(data.reis, data.stops).catch(() => ({})),
+  ]);
+  return <Reis begin={data} etappes={etappes} afstanden={afstanden} />;
 }

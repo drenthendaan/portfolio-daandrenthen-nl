@@ -3,41 +3,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { heeftEigenSleutel, isOpenFreeMap, osmStijl, stijl } from "./kaartstijl";
 import { Vergroten, Verkleinen } from "./iconen";
 
-const MAPTILER = process.env.NEXT_PUBLIC_MAPTILER_KEY;
 
-/**
- * Drie lagen terugval, zodat de kaart het altijd doet:
- * 1. een eigen MapTiler-stijl als er een sleutel is;
- * 2. anders OpenFreeMap Positron — dezelfde rustige stijl, zonder sleutel;
- * 3. en als dat niet laadt, de gewone OpenStreetMap-tegels, ontkleurd zodat ze
- *    niet vechten met de route.
- */
-function stijl() {
-  // streets-v2 in plaats van dataviz-light: die laatste is net zo grijs als
-  // positron was. Niet nagelopen tegen een echte sleutel — die is er hier niet.
-  if (MAPTILER) return `https://api.maptiler.com/maps/streets-v2/style.json?key=${MAPTILER}`;
-  // Liberty in plaats van positron: groen voor natuur, blauw voor water. Dat
-  // positron bewust grijs is, was juist het probleem.
-  return "https://tiles.openfreemap.org/styles/liberty";
-}
-
-function osmStijl() {
-  return {
-    version: 8,
-    sources: {
-      osm: {
-        type: "raster",
-        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-        tileSize: 256,
-        maxzoom: 19,
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      },
-    },
-    layers: [{ id: "osm", type: "raster", source: "osm" }],
-  };
-}
 
 // Alleen plekken met coördinaten kunnen op de kaart; alleen plekken met een dag
 // horen in de route — een idee zonder dag is een losse stip.
@@ -111,7 +80,7 @@ export default function Kaart({ stops = [], start, vervoer = "camper", midden, a
     let teruggevallen = false;
     m.on("error", (e) => {
       const bron = e?.error?.url ?? "";
-      if (teruggevallen || MAPTILER || !bron.includes("openfreemap")) return;
+      if (teruggevallen || heeftEigenSleutel() || !isOpenFreeMap(bron)) return;
       teruggevallen = true;
       m.getContainer().classList.add("osm");
       m.setStyle(osmStijl());

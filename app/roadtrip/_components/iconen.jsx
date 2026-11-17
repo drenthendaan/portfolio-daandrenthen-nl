@@ -186,3 +186,9 @@ export const VINKICOON = {
   winkel: Winkeltas,
   zwembad: Golven,
 };
+
+export const Kruis = ({ size = 14 }) => (
+  <svg {...basis} width={size} height={size} strokeLinecap="round">
+    <path d="M6 6l12 12M18 6L6 18" />
+  </svg>
+);

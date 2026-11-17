@@ -1,14 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { VINKJES, euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
-import { Openen, Potlood, VINKICOON, Waarschuwing } from "./iconen";
+import dynamicImport from "next/dynamic";
+import { VINKJES, afstandSleutel, euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
+// Puur rekenwerk zonder serverafhankelijkheden, dus de browser mag dit ook lezen
+import { MAX_ACTIVITEITEN } from "@/lib/roadtrip/velden.mjs";
+import { Kruis, Openen, Potlood, VINKICOON, Waarschuwing } from "./iconen";
 import Acties from "./Acties";
 import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
 
 // Of de plek al afgerekend is; dat is het enige wat een stop nog "staat"
 const BETAALDNAAM = { ja: "Betaald", nee: "Niet betaald" };
+
+// "1u05" — zelfde notatie als bij de rit naar een dag toe
+const rijtijd = (minuten) =>
+  `${Math.floor(minuten / 60)}u${String(minuten % 60).padStart(2, "0")}`;
+
+// MapLibre heeft window nodig, dus net als de grote kaart alleen in de browser
+const StopKaart = dynamicImport(() => import("./StopKaart"), {
+  ssr: false,
+  loading: () => <div className="stopkaart" aria-hidden="true" />,
+});
 
 const uitStop = (stop) => ({
   naam: stop?.naam ?? "",
@@ -21,6 +34,7 @@ const uitStop = (stop) => ({
   // Geen invulvelden meer, maar de zoeker zet ze wel: zo blijft de plek op de kaart
   lat: stop?.lat ?? "",
   lon: stop?.lon ?? "",
+  activiteiten: stop?.activiteiten ?? [],
 });
 
 /**
@@ -34,6 +48,7 @@ export default function DagKaart({
   rit,
   notitie,
   voertuig,
+  afstanden,
   open,
   bewerken,
   onToggle,
@@ -76,6 +91,7 @@ export default function DagKaart({
     }));
   const opKaart = v.lat !== "" && v.lon !== "";
   const uitslag = pastVoertuig(stop.max, voertuig);
+  const uitjes = stop.activiteiten ?? [];
   const notitieGewijzigd = (tekst ?? "") !== (notitie ?? "");
 
   // Wat de plek heeft, met icoontjes. Alleen in het venster: de lijst blijft rustig.
@@ -118,6 +134,26 @@ export default function DagKaart({
     stop.max?.hoogte ? ["Max hoogte", toon(stop.max.hoogte, "cm")] : null,
   ].filter(Boolean);
 
+  // Een gekozen plek wordt een activiteit; zonder coördinaten heeft het geen zin,
+  // want dan valt er niets te tekenen en geen afstand te berekenen.
+  const voegUitjeToe = (plek) => {
+    if (!Number.isFinite(plek?.lat) || !Number.isFinite(plek?.lon)) return;
+    setV((oud) =>
+      oud.activiteiten.length >= MAX_ACTIVITEITEN
+        ? oud
+        : {
+            ...oud,
+            activiteiten: [
+              ...oud.activiteiten,
+              { naam: plek.naam, lat: plek.lat, lon: plek.lon, adres: plek.adres ?? null, link: null },
+            ],
+          }
+    );
+  };
+
+  const haalUitjeWeg = (i) =>
+    setV((oud) => ({ ...oud, activiteiten: oud.activiteiten.filter((_, j) => j !== i) }));
+
   const bewaarStop = async (e) => {
     e.preventDefault();
     if (!v.naam.trim() || bezig) return;
@@ -133,6 +169,7 @@ export default function DagKaart({
       link: v.link.trim() || null,
       lat: v.lat === "" ? null : Number(v.lat),
       lon: v.lon === "" ? null : Number(v.lon),
+      activiteiten: v.activiteiten,
     });
     setBezig(false);
     if (gelukt) onBewerk(null);
@@ -251,6 +288,50 @@ export default function DagKaart({
               </div>
             </div>
 
+            <div className="uitjes">
+              <h4>Activiteiten</h4>
+              <p className="uitleg" style={{ margin: "0 0 10px" }}>
+                Wat je hier wilt doen. Kies een plek uit de lijst — de afstand vanaf deze
+                stop rekent hij daarna zelf uit.
+              </p>
+
+              {v.activiteiten.length ? (
+                <ul className="uitjelijst">
+                  {v.activiteiten.map((a, i) => (
+                    <li key={`${a.lat},${a.lon},${i}`}>
+                      <span className="nr">{i + 1}</span>
+                      <span className="wat">
+                        <strong>{a.naam}</strong>
+                        {a.adres ? <span className="waar">{a.adres}</span> : null}
+                      </span>
+                      <button
+                        type="button"
+                        className="weg"
+                        onClick={() => haalUitjeWeg(i)}
+                        aria-label={`${a.naam} verwijderen`}
+                      >
+                        <Kruis />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {v.activiteiten.length < MAX_ACTIVITEITEN ? (
+                <PlaatsZoeker
+                  id={`u-${stop.id}`}
+                  label="Activiteit erbij"
+                  placeholder="Watervallen, museum, restaurant…"
+                  geenTreffers="Niets gevonden. Probeer een andere naam."
+                  onKies={voegUitjeToe}
+                />
+              ) : (
+                <p className="uitleg" style={{ margin: 0 }}>
+                  Vol — hoogstens {MAX_ACTIVITEITEN} activiteiten per stop.
+                </p>
+              )}
+            </div>
+
             <div className="modaalknoppen">
               <button type="submit" className="knop" disabled={bezig}>
                 {bezig ? "Bezig…" : "Opslaan"}
@@ -303,6 +384,34 @@ export default function DagKaart({
                 </div>
               ))}
             </dl>
+
+            {uitjes.length ? (
+              <div className="uitjes">
+                <h4>Activiteiten</h4>
+                <StopKaart stop={stop} activiteiten={uitjes} />
+                <ol className="uitjelijst afstand">
+                  {uitjes.map((a, i) => {
+                    const heen = afstanden?.[afstandSleutel(stop.id, a)];
+                    return (
+                      <li key={`${a.lat},${a.lon},${i}`}>
+                        <span className="nr">{i + 1}</span>
+                        <span className="wat">
+                          <strong>{a.naam}</strong>
+                          {a.adres ? <span className="waar">{a.adres}</span> : null}
+                        </span>
+                        <span className="ver">
+                          {heen
+                            ? `${heen.km.toLocaleString("nl-NL")} km · ${rijtijd(heen.minuten)}${
+                                heen.schatting ? " (schatting)" : ""
+                              }`
+                            : "—"}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            ) : null}
 
             {!uitslag.past ? (
               <p className="past-niet">
