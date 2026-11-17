@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dynamicImport from "next/dynamic";
-import { VINKJES, afstandSleutel, euro, pastVoertuig, toon } from "@/lib/roadtrip/regels.mjs";
+import { VINKJES, afstandSleutel, euro, pastVoertuig, toon, uitjeKleur } from "@/lib/roadtrip/regels.mjs";
 // Puur rekenwerk zonder serverafhankelijkheden, dus de browser mag dit ook lezen
 import { MAX_ACTIVITEITEN } from "@/lib/roadtrip/velden.mjs";
 import { Kruis, Openen, Potlood, VINKICOON, Waarschuwing } from "./iconen";
@@ -92,6 +92,12 @@ export default function DagKaart({
   const opKaart = v.lat !== "" && v.lon !== "";
   const uitslag = pastVoertuig(stop.max, voertuig);
   const uitjes = stop.activiteiten ?? [];
+  // De weg naar elk uitje, in dezelfde volgorde. Vastgehouden, want anders
+  // zou het kaartje bij elke render zijn spelden opnieuw neerzetten.
+  const uitjeLijnen = useMemo(
+    () => uitjes.map((a) => afstanden?.[afstandSleutel(stop.id, a)]?.lijn ?? null),
+    [uitjes, afstanden, stop.id]
+  );
   const notitieGewijzigd = (tekst ?? "") !== (notitie ?? "");
 
   // Wat de plek heeft, met icoontjes. Alleen in het venster: de lijst blijft rustig.
@@ -299,7 +305,9 @@ export default function DagKaart({
                 <ul className="uitjelijst">
                   {v.activiteiten.map((a, i) => (
                     <li key={`${a.lat},${a.lon},${i}`}>
-                      <span className="nr">{i + 1}</span>
+                      <span className="nr" style={{ background: uitjeKleur(i) }}>
+                        {i + 1}
+                      </span>
                       <span className="wat">
                         <strong>{a.naam}</strong>
                         {a.adres ? <span className="waar">{a.adres}</span> : null}
@@ -388,13 +396,15 @@ export default function DagKaart({
             {uitjes.length ? (
               <div className="uitjes">
                 <h4>Activiteiten</h4>
-                <StopKaart stop={stop} activiteiten={uitjes} />
+                <StopKaart stop={stop} activiteiten={uitjes} lijnen={uitjeLijnen} />
                 <ol className="uitjelijst afstand">
                   {uitjes.map((a, i) => {
                     const heen = afstanden?.[afstandSleutel(stop.id, a)];
                     return (
                       <li key={`${a.lat},${a.lon},${i}`}>
-                        <span className="nr">{i + 1}</span>
+                        <span className="nr" style={{ background: uitjeKleur(i) }}>
+                          {i + 1}
+                        </span>
                         <span className="wat">
                           <strong>{a.naam}</strong>
                           {a.adres ? <span className="waar">{a.adres}</span> : null}

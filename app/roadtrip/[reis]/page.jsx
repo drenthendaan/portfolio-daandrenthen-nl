@@ -62,9 +62,9 @@ async function afstandenVoor(reis, stops) {
       // schuift de rest op en krijgt een activiteit de afstand van zijn buurman.
       const sleutel = afstandSleutel(id, naar);
       try {
-        // De lijn is hier niet nodig: het kaartje tekent rechte verbindingen
-        const { lijn, ...rest } = (await etappe(van, naar, reis.vervoer)) ?? {};
-        return [sleutel, rest.km != null ? rest : null];
+        // Inclusief de lijn: het kaartje tekent de weg ernaartoe, niet een pijl
+        const uitje = (await etappe(van, naar, reis.vervoer)) ?? {};
+        return [sleutel, uitje.km != null ? uitje : null];
       } catch {
         return [sleutel, null];
       }
