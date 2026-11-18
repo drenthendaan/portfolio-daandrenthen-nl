@@ -10,12 +10,19 @@ import { heeftEigenSleutel, isOpenFreeMap, osmStijl, stijl } from "./kaartstijl"
  * Het kaartje in het venster van een stop: waar je staat, waar de dingen liggen
  * die je er wilt doen, en de weg ernaartoe. Elke activiteit heeft zijn eigen
  * kleur, die terugkomt op de speld en in de lijst eronder. Bewust veel minder
- * dan de grote kaart — niets te slepen, geen zoom met het wiel. Alleen kijken.
+ * dan de grote kaart: het wiel scrollt hier het venster, dus zoomen gaat met
+ * de knoppen.
  */
 export default function StopKaart({ stop, activiteiten = [], lijnen = [] }) {
   const vak = useRef(null);
   const kaart = useRef(null);
   const spelden = useRef([]);
+  // Waar het kaartje voor het laatst op is ingepast, zodat het dat niet opnieuw
+  // doet bij elke verandering die de uitsnede niet raakt
+  const uitsnede = useRef(null);
+  // Het venster schuift open, dus het kaartje begint zonder breedte. Inpassen
+  // lukt dan niet; de ResizeObserver roept dit alsnog aan zodra het ruimte heeft.
+  const pasIn = useRef(() => {});
 
   useEffect(() => {
     if (!vak.current || kaart.current) return;
@@ -32,6 +39,11 @@ export default function StopKaart({ stop, activiteiten = [], lijnen = [] }) {
       scrollZoom: false,
     });
     kaart.current = m;
+
+    // Het wiel is hier bezet door het venster, dus zonder knoppen kun je niet
+    // dichterbij kijken welke weg een uitje neemt. Rechtsboven, weg van de
+    // bronvermelding die rechtsonder zit.
+    m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
     let teruggevallen = false;
     m.on("error", (e) => {
@@ -50,7 +62,10 @@ export default function StopKaart({ stop, activiteiten = [], lijnen = [] }) {
     };
     m.on("styledata", klapVermeldingIn);
 
-    const meet = new ResizeObserver(() => m.resize());
+    const meet = new ResizeObserver(() => {
+      m.resize();
+      pasIn.current();
+    });
     meet.observe(vak.current);
 
     return () => {
@@ -59,6 +74,10 @@ export default function StopKaart({ stop, activiteiten = [], lijnen = [] }) {
       spelden.current = [];
       m.remove();
       kaart.current = null;
+      // De markering overleeft deze opruiming, de kaart niet. Zonder deze regel
+      // denkt een volgende kaart dat hij al ingepast is en blijft hij staan waar
+      // hij geopend werd.
+      uitsnede.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -141,14 +160,40 @@ export default function StopKaart({ stop, activiteiten = [], lijnen = [] }) {
     m.on("styledata", tekenWegen);
     m.on("style.load", tekenWegen);
 
-    // De uitsnede moet alles laten zien; met één punt valt er niets te passen
-    if (activiteiten.length) {
-      const grens = new maplibregl.LngLatBounds([stop.lon, stop.lat], [stop.lon, stop.lat]);
-      activiteiten.forEach((a) => grens.extend([a.lon, a.lat]));
-      m.fitBounds(grens, { padding: 44, maxZoom: 13, duration: 0 });
-    } else {
-      m.jumpTo({ center: [stop.lon, stop.lat], zoom: 12 });
-    }
+    // De uitsnede moet alles laten zien, maar alleen als er echt iets anders te
+    // zien valt. Anders springt het kaartje terug zodra de afstanden binnenkomen
+    // en is de zoom die je zelf koos meteen weer weg.
+    const afdruk = JSON.stringify([
+      stop.lat,
+      stop.lon,
+      ...activiteiten.map((a) => [a.lat, a.lon]),
+    ]);
+
+    const probeerInTePassen = () => {
+      if (uitsnede.current === afdruk) return;
+      // Een kaartje van twee pixels breed levert een uitsnede op waar niets in
+      // past. Dan niets doen en de afdruk niet onthouden, zodat de
+      // ResizeObserver het overdoet zodra het venster openstaat.
+      if (m.getContainer().clientWidth < 50) return;
+
+      // MapLibre rekent met de maat die het zelf voor het laatst opnam, en die
+      // loopt achter zolang het venster nog openschuift. Zonder dit past hij in
+      // een kaartje dat er niet meer is, en valt alles buiten beeld.
+      m.resize();
+
+      // Met één punt valt er niets te passen
+      if (activiteiten.length) {
+        const grens = new maplibregl.LngLatBounds([stop.lon, stop.lat], [stop.lon, stop.lat]);
+        activiteiten.forEach((a) => grens.extend([a.lon, a.lat]));
+        m.fitBounds(grens, { padding: 44, maxZoom: 13, duration: 0 });
+      } else {
+        m.jumpTo({ center: [stop.lon, stop.lat], zoom: 12 });
+      }
+      uitsnede.current = afdruk;
+    };
+
+    probeerInTePassen();
+    pasIn.current = probeerInTePassen;
 
     return () => {
       m.off("styledata", tekenWegen);

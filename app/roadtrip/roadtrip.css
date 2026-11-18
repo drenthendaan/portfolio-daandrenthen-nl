@@ -2614,3 +2614,19 @@ body:has(.trip),
     text-align: left;
   }
 }
+
+/* Zoomknoppen op het kaartje bij de activiteiten. Het is maar 190px hoog, dus
+   de knoppen van de grote kaart zouden er een derde van opeten. */
+.trip .stopkaart .maplibregl-ctrl-group button {
+  width: 27px;
+  height: 27px;
+}
+
+.trip .stopkaart .maplibregl-ctrl-group {
+  border-radius: 8px;
+}
+
+.trip .stopkaart .maplibregl-ctrl-top-right {
+  top: 2px;
+  right: 2px;
+}
