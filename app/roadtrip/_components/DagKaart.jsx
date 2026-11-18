@@ -106,7 +106,8 @@ export default function DagKaart({
   const regels = [
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
-    ["Gereserveerd", <span className={`jaNee ${stop.gereserveerd ? "ja" : "nee"}`}>{stop.gereserveerd ? "Ja" : "Nee"}</span>],
+    ["Aangevraagd", <span className={`jaNee ${stop.aangevraagd ? "ja" : "nee"}`}>{stop.aangevraagd ? "Ja" : "Nee"}</span>],
+    ["Bevestigd", <span className={`jaNee ${stop.bevestigd ? "ja" : "nee"}`}>{stop.bevestigd ? "Ja" : "Nee"}</span>],
     ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
     voorzieningen.length
       ? [
@@ -220,8 +221,9 @@ export default function DagKaart({
           <span className="waar">{stop.naam}</span>
           {rit ? <span className="rit">{rit.km.toLocaleString("nl-NL")} km</span> : null}
           {/* De kleur alleen zegt een voorleesprogramma niets, dus het woord staat erbij */}
-          <span className={`bol ${stop.betaald ? "betaald" : "open"}`} aria-hidden="true" />
-          <span className="verborgen">{stop.betaald ? "Betaald" : "Niet betaald"}</span>
+          {/* Groen zodra de plek bevestigd is; betalen kan later nog */}
+          <span className={`bol ${stop.bevestigd ? "bevestigd" : "open"}`} aria-hidden="true" />
+          <span className="verborgen">{stop.bevestigd ? "Bevestigd" : "Nog niet bevestigd"}</span>
           {/* Een kader met een pijl eruit: deze regel opent een venster */}
           <Openen size={15} />
         </button>

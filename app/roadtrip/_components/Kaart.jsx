@@ -197,7 +197,7 @@ export default function Kaart({ stops = [], start, vervoer = "camper", midden, a
             }
           }
           el.textContent = label;
-          el.dataset.betaald = stop.betaald ? "ja" : "nee";
+          el.dataset.bevestigd = stop.bevestigd ? "ja" : "nee";
           el.classList.toggle("los", !inRoute(stop));
           el.title = stop.naam;
           bestaand.stop = stop;
@@ -214,7 +214,7 @@ export default function Kaart({ stops = [], start, vervoer = "camper", midden, a
         el.type = "button";
         el.className = `speld${inRoute(stop) ? "" : " los"}`;
         el.textContent = label;
-        el.dataset.betaald = stop.betaald ? "ja" : "nee";
+        el.dataset.bevestigd = stop.bevestigd ? "ja" : "nee";
         el.title = stop.naam;
         wikkel.appendChild(el);
 

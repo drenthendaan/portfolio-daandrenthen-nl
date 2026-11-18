@@ -1308,11 +1308,11 @@ body:has(.trip),
   transform-origin: 50% 50%;
 }
 
-.trip .speld[data-betaald="ja"] {
+.trip .speld[data-bevestigd="ja"] {
   background: var(--diep);
 }
 
-.trip .speld[data-betaald="nee"] {
+.trip .speld[data-bevestigd="nee"] {
   background: var(--nee-tekst);
 }
 
@@ -1717,7 +1717,7 @@ body:has(.trip),
   border-radius: 50%;
 }
 
-.trip .dagtoggle .bol.betaald { background: var(--diep); }
+.trip .dagtoggle .bol.bevestigd { background: var(--diep); }
 .trip .dagtoggle .bol.open { background: var(--nee-tekst); }
 
 .trip .daginhoud,
@@ -2461,6 +2461,14 @@ body:has(.trip),
   flex: none;
   color: var(--zacht);
 }
+
+/* Elke voorziening een eigen kleur, zodat je ze in één oogopslag herkent.
+   Alleen in het venster van een nacht; in het formulier blijven de vinkjes oranje. */
+.trip .kenmerklijst .kenmerk.stroom svg { color: #d99a00; }
+.trip .kenmerklijst .kenmerk.douches svg { color: #2f7fd1; }
+.trip .kenmerklijst .kenmerk.wasmachine svg { color: #7a5bc7; }
+.trip .kenmerklijst .kenmerk.winkel svg { color: #c2571b; }
+.trip .kenmerklijst .kenmerk.zwembad svg { color: #1a9a9a; }
 
 
 /* ================= Activiteiten bij een stop ================= */
