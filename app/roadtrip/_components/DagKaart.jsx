@@ -28,6 +28,7 @@ const uitStop = (stop) => ({
   dag: stop?.dag ?? "",
   nachten: stop?.nachten ?? "",
   prijs: stop?.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
+  aanbetaald: stop?.aanbetaald ? String(stop.aanbetaald / 100).replace(".", ",") : "",
   ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, !!stop?.[veld]])),
   adres: stop?.adres ?? "",
   link: stop?.link ?? "",
@@ -106,6 +107,11 @@ export default function DagKaart({
   const regels = [
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
+    // Is de plek helemaal betaald, dan zegt een aanbetaling niets meer
+    stop.aanbetaald && !stop.betaald ? ["Aanbetaald", euro(stop.aanbetaald)] : null,
+    stop.prijs && stop.aanbetaald && !stop.betaald
+      ? ["Nog te betalen", euro(Math.max(0, stop.prijs - stop.aanbetaald))]
+      : null,
     ["Aangevraagd", <span className={`jaNee ${stop.aangevraagd ? "ja" : "nee"}`}>{stop.aangevraagd ? "Ja" : "Nee"}</span>],
     ["Bevestigd", <span className={`jaNee ${stop.bevestigd ? "ja" : "nee"}`}>{stop.bevestigd ? "Ja" : "Nee"}</span>],
     ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
@@ -171,6 +177,7 @@ export default function DagKaart({
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
+      aanbetaald: v.aanbetaald === "" ? null : v.aanbetaald,
       ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, v[veld]])),
       adres: v.adres || null,
       link: v.link.trim() || null,
@@ -270,6 +277,10 @@ export default function DagKaart({
               <div>
                 <label htmlFor={`p-${stop.id}`}>Prijs</label>
                 <input id={`p-${stop.id}`} type="text" value={v.prijs} onChange={zet("prijs")} />
+              </div>
+              <div>
+                <label htmlFor={`ab-${stop.id}`}>Aanbetaald</label>
+                <input id={`ab-${stop.id}`} type="text" value={v.aanbetaald} onChange={zet("aanbetaald")} />
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
                 <label htmlFor={`a-${stop.id}`}>Adres</label>

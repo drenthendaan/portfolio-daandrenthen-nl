@@ -9,6 +9,7 @@ const leeg = {
   dag: "1",
   nachten: "",
   prijs: "",
+  aanbetaald: "",
   ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, false])),
   adres: "",
   link: "",
@@ -25,6 +26,7 @@ const uitStop = (stop) =>
         dag: stop.dag ?? "",
         nachten: stop.nachten ?? "",
         prijs: stop.prijs ? String(stop.prijs / 100).replace(".", ",") : "",
+        aanbetaald: stop.aanbetaald ? String(stop.aanbetaald / 100).replace(".", ",") : "",
         ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, !!stop[veld]])),
         adres: stop.adres ?? "",
         link: stop.link ?? "",
@@ -68,6 +70,7 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
       dag: v.dag === "" ? null : Number(v.dag),
       nachten: v.nachten !== "" ? Number(v.nachten) : null,
       prijs: v.prijs === "" ? null : v.prijs,
+      aanbetaald: v.aanbetaald === "" ? null : v.aanbetaald,
       ...Object.fromEntries(VINKJES.map(({ veld }) => [veld, v[veld]])),
       adres: v.adres || null,
       link: v.link.trim() || null,
@@ -119,6 +122,16 @@ export default function StopFormulier({ stop, volgendeDag = 1, onBewaar, onVerwi
         <div>
           <label htmlFor="sf-prijs">Prijs</label>
           <input id="sf-prijs" type="text" placeholder="46" value={v.prijs} onChange={zet("prijs")} />
+        </div>
+        <div>
+          <label htmlFor="sf-aanbetaald">Aanbetaald</label>
+          <input
+            id="sf-aanbetaald"
+            type="text"
+            placeholder="15"
+            value={v.aanbetaald}
+            onChange={zet("aanbetaald")}
+          />
         </div>
         <div style={{ gridColumn: "1 / -1" }}>
           <label htmlFor="sf-adres">Adres</label>

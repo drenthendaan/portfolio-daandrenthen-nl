@@ -281,7 +281,15 @@ export default function Reis({ begin, etappes = {}, afstanden = {} }) {
                     <strong>{euro(telling.kosten) ?? "€ 0"}</strong>
                   </div>
                   <div className="rij">
-                    <span>Nog niet betaald</span>
+                    <span>Al betaald · waarvan {euro(telling.aanbetaald) ?? "€ 0"} aanbetaald</span>
+                    <strong>{euro(telling.voldaan) ?? "€ 0"}</strong>
+                  </div>
+                  <div className="rij">
+                    <span>Nog te betalen</span>
+                    <strong>{euro(telling.open) ?? "€ 0"}</strong>
+                  </div>
+                  <div className="rij">
+                    <span>Plekken nog niet afgerekend</span>
                     <strong>{telling.plekken - telling.betaald}</strong>
                   </div>
                 </div>
