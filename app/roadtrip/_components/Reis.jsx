@@ -168,7 +168,7 @@ export default function Reis({ begin, etappes = {}, afstanden = {} }) {
               {telling.nachten} {telling.nachten === 1 ? "nacht" : "nachten"} ·{" "}
               {euro(telling.kosten) ?? "€ 0"} ·{" "}
               <span className={telling.betaald === telling.plekken ? "af" : undefined}>
-                {telling.betaald} van {telling.plekken} betaald
+                {telling.betaald} van {telling.plekken} aanbetaald
               </span>
             </p>
           ) : null}
@@ -281,15 +281,15 @@ export default function Reis({ begin, etappes = {}, afstanden = {} }) {
                     <strong>{euro(telling.kosten) ?? "€ 0"}</strong>
                   </div>
                   <div className="rij">
-                    <span>Al betaald · waarvan {euro(telling.aanbetaald) ?? "€ 0"} aanbetaald</span>
-                    <strong>{euro(telling.voldaan) ?? "€ 0"}</strong>
+                    <span>Aanbetaald</span>
+                    <strong>{euro(telling.aanbetaald) ?? "€ 0"}</strong>
                   </div>
                   <div className="rij">
                     <span>Nog te betalen</span>
                     <strong>{euro(telling.open) ?? "€ 0"}</strong>
                   </div>
                   <div className="rij">
-                    <span>Plekken nog niet afgerekend</span>
+                    <span>Plekken nog niet aanbetaald</span>
                     <strong>{telling.plekken - telling.betaald}</strong>
                   </div>
                 </div>

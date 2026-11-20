@@ -111,7 +111,7 @@ function Reisrij({ reis, stops }) {
         {telling.plekken ? (
           <span className={`stand ${telling.betaald === telling.plekken ? "betaald" : "open"}`}>
             <span className="bol" />
-            {telling.betaald} van {telling.plekken} betaald
+            {telling.betaald} van {telling.plekken} aanbetaald
           </span>
         ) : (
           <span className="stand idee">

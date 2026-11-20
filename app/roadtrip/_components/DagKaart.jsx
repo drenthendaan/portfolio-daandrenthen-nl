@@ -11,7 +11,7 @@ import Modal from "./Modal";
 import PlaatsZoeker from "./PlaatsZoeker";
 
 // Of de plek al afgerekend is; dat is het enige wat een stop nog "staat"
-const BETAALDNAAM = { ja: "Betaald", nee: "Niet betaald" };
+const BETAALDNAAM = { ja: "Aanbetaald", nee: "Niet aanbetaald" };
 
 // "1u05" — zelfde notatie als bij de rit naar een dag toe
 const rijtijd = (minuten) =>
@@ -107,14 +107,20 @@ export default function DagKaart({
   const regels = [
     stop.nachten ? ["Nachten", `${stop.nachten} ${stop.nachten === 1 ? "nacht" : "nachten"}`] : null,
     stop.prijs ? ["Prijs", euro(stop.prijs)] : null,
-    // Is de plek helemaal betaald, dan zegt een aanbetaling niets meer
-    stop.aanbetaald && !stop.betaald ? ["Aanbetaald", euro(stop.aanbetaald)] : null,
-    stop.prijs && stop.aanbetaald && !stop.betaald
+    stop.prijs && stop.aanbetaald
       ? ["Nog te betalen", euro(Math.max(0, stop.prijs - stop.aanbetaald))]
       : null,
     ["Aangevraagd", <span className={`jaNee ${stop.aangevraagd ? "ja" : "nee"}`}>{stop.aangevraagd ? "Ja" : "Nee"}</span>],
     ["Bevestigd", <span className={`jaNee ${stop.bevestigd ? "ja" : "nee"}`}>{stop.bevestigd ? "Ja" : "Nee"}</span>],
-    ["Betaald", <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>],
+    // Eén regel voor aanbetaald: het bedrag als dat er is, anders het vinkje
+    [
+      "Aanbetaald",
+      stop.aanbetaald ? (
+        euro(stop.aanbetaald)
+      ) : (
+        <span className={`jaNee ${stop.betaald ? "ja" : "nee"}`}>{stop.betaald ? "Ja" : "Nee"}</span>
+      ),
+    ],
     voorzieningen.length
       ? [
           "Voorzieningen",
